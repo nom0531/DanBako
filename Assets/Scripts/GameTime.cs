@@ -15,7 +15,6 @@ public class GameTime : MonoBehaviour
         enStop,
         enDefault,
         enFast,
-        enSrory,
     }
 
     bool m_timeStop = false;    // éûä‘Çí‚é~ÇµÇƒÇ¢ÇÈÇ©Ç«Ç§Ç©ÅB
@@ -30,7 +29,7 @@ public class GameTime : MonoBehaviour
     /// </summary>
     public void StopTime()
     {
-        Time.timeScale = 0.5f;
+        Time.timeScale = (float)TimeState.enStop;
     }
 
     /// <summary>

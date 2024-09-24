@@ -17,6 +17,7 @@ public class PlayerAction : MonoBehaviour
     GameTime m_gameTime = null;
     GroundCheck m_groundCheck = null;
     Rigidbody m_rigidBody = null;
+    GameObject m_gameCamera = null;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class PlayerAction : MonoBehaviour
         m_gameTime = GameObject.FindGameObjectWithTag("GameController").gameObject.GetComponent<GameTime>();
         m_rigidBody = GetComponent<Rigidbody>();
         m_groundCheck = transform.GetChild(0).gameObject.GetComponent<GroundCheck>();
+        m_gameCamera = Camera.main.gameObject;
     }
 
     void Update()
@@ -37,42 +39,30 @@ public class PlayerAction : MonoBehaviour
     /// </summary>
     void Move()
     {
-        Vector3 move = Vector3.zero;
+        // カメラを考慮した移動
+        Vector3 PlayerMove = Vector3.zero;
+        Vector3 stickL = Vector3.zero;
 
-        // 前後移動
-        if (Input.GetKey(KeyCode.W))
-        {
-            move.z += m_moveSpeed;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            move.z += -m_moveSpeed;
-        }
-        // 左右移動
-        if (Input.GetKey(KeyCode.D))
-        {
-            move.x += m_moveSpeed;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            move.x += -m_moveSpeed;
-        }
+        stickL.z = Input.GetAxis("Vertical");
+        stickL.x = Input.GetAxis("Horizontal");
 
-        // 移動させる
-        transform.position += move;
-        Rotation(move);
-    }
 
-    /// <summary>
-    /// 回転処理。
-    /// </summary>
-    void Rotation(Vector3 move)
-    {
-        // 回転
-        if (move.sqrMagnitude > 0.0f)
-        {
-            transform.rotation = Quaternion.LookRotation(move.normalized);
-        }
+        Vector3 forward = Vector3.forward;
+        Vector3 right = Vector3.right;
+        forward.y = 0.0f;
+        right.y = 0.0f;
+
+
+        right *= stickL.x;
+        forward *= stickL.z;
+
+        // 移動速度に上記で計算したベクトルを加算する
+        PlayerMove += right + forward;
+
+
+        // プレイヤーの速度を設定することで移動させる
+        PlayerMove = (PlayerMove * m_moveSpeed * Time.unscaledDeltaTime);
+        transform.position += new Vector3(PlayerMove.x, 1.5f, PlayerMove.z);
     }
 
     /// <summary>
