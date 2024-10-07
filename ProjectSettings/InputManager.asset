@@ -9,8 +9,8 @@ InputManager:
     m_Name: Horizontal
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left
-    positiveButton: right
+    negativeButton: 
+    positiveButton: 
     altNegativeButton: a
     altPositiveButton: d
     gravity: 3
@@ -25,8 +25,8 @@ InputManager:
     m_Name: Vertical
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
-    positiveButton: up
+    negativeButton: 
+    positiveButton: 
     altNegativeButton: s
     altPositiveButton: w
     gravity: 3
@@ -487,7 +487,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Horizontal2
-    descriptiveName: 
+    descriptiveName: Stick R left/right
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -503,7 +503,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Vertical2
-    descriptiveName: 
+    descriptiveName: Stick R up/down
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -519,7 +519,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Horizontal2
-    descriptiveName: 
+    descriptiveName: Stick R left/right
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
@@ -535,7 +535,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Vertical2
-    descriptiveName: 
+    descriptiveName: Stick R up/down
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 

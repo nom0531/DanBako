@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
+    [Header("カメラの注視点"), SerializeField]
+    GameObject TargetObject;
     [Header("カメラの回転速度"), SerializeField]
     float RotSpeed = 200.0f;
     [Header("カメラの回転モード（X）"), SerializeField]
@@ -28,7 +30,14 @@ public class GameCamera : MonoBehaviour
         m_defPos = transform.localPosition;
     }
 
+
     void Update()
+    {
+
+    }
+
+
+    void LateUpdate()
     {
         // 右スティックでカメラ回転
 
@@ -88,16 +97,15 @@ public class GameCamera : MonoBehaviour
         {
             rot = 0.0f;
         }
-        transform.RotateAround(transform.position, Vector3.up, rot);
-
+        transform.RotateAround(TargetObject.transform.position, Vector3.up, rot);
 
         // Z軸の回転があるとややこしいので制限する
         Vector3 angles = transform.eulerAngles;
         angles.z = 0.0f;
         transform.eulerAngles = angles;
 
-
-        // 座標は固定
-        transform.localPosition = m_defPos;
+        //// 座標は固定
+        //transform.localPosition = m_defPos;
     }
+
 }

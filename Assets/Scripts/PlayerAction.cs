@@ -8,11 +8,11 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour
 {
     [SerializeField, Header("ステータス")]
-    int m_hP = 3;
+    int HP = 3;
     [SerializeField]
-    float m_moveSpeed = 0.1f;
+    float MoveSpeed = 0.1f;
     [SerializeField]
-    float m_jumpPower = 0.6f;
+    float JumpPower = 0.6f;
 
     GameTime m_gameTime = null;
     GroundCheck m_groundCheck = null;
@@ -28,7 +28,7 @@ public class PlayerAction : MonoBehaviour
         m_gameCamera = Camera.main.gameObject;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Move();
         Jump();
@@ -43,12 +43,12 @@ public class PlayerAction : MonoBehaviour
         Vector3 PlayerMove = Vector3.zero;
         Vector3 stickL = Vector3.zero;
 
-        stickL.z = Input.GetAxis("Vertical");
-        stickL.x = Input.GetAxis("Horizontal");
+        stickL.z = Input.GetAxis("Vertical2");
+        stickL.x = Input.GetAxis("Horizontal2");
 
 
-        Vector3 forward = Vector3.forward;
-        Vector3 right = Vector3.right;
+        Vector3 forward = m_gameCamera.transform.forward;
+        Vector3 right = m_gameCamera.transform.right;
         forward.y = 0.0f;
         right.y = 0.0f;
 
@@ -56,13 +56,15 @@ public class PlayerAction : MonoBehaviour
         right *= stickL.x;
         forward *= stickL.z;
 
+
         // 移動速度に上記で計算したベクトルを加算する
         PlayerMove += right + forward;
 
 
         // プレイヤーの速度を設定することで移動させる
-        PlayerMove = (PlayerMove * m_moveSpeed * Time.unscaledDeltaTime);
-        transform.position += new Vector3(PlayerMove.x, 1.5f, PlayerMove.z);
+        PlayerMove = (PlayerMove * MoveSpeed * Time.deltaTime);
+        PlayerMove.y = m_rigidBody.velocity.y;
+        m_rigidBody.velocity = PlayerMove;
     }
 
     /// <summary>
@@ -80,6 +82,6 @@ public class PlayerAction : MonoBehaviour
         }
 
         m_groundCheck.GroundCheckFlag = false;
-        m_rigidBody.AddForce(new Vector3(0.0f, m_jumpPower, 0.0f), ForceMode.VelocityChange);
+        m_rigidBody.AddForce(new Vector3(0.0f, JumpPower, 0.0f), ForceMode.VelocityChange);
     }
 }
