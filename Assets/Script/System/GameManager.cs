@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ゲームモード。
+/// </summary>
+public enum GameMode
+{
+    enInGame,
+    enPause,
+    enOutGame
+}
+
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
     [SerializeField]
@@ -9,6 +19,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private SaveDataManager m_saveDataManager;
     private SoundManager m_soundManamager;
+
+    private GameMode m_gameMode = GameMode.enOutGame;
 
     public SaveDataManager SaveDataManager
     {
@@ -34,7 +46,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         }
     }
 
-    private void Awake()
+    public GameMode GameMode
+    {
+        get => m_gameMode;
+        set => m_gameMode = value;
+    }
+
+    private void Start()
     {
         // 自身はシーンを跨いでも削除されないようにする。
         DontDestroyOnLoad(gameObject);
