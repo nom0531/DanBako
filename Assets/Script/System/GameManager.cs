@@ -52,8 +52,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         set => m_gameMode = value;
     }
 
-    private void Start()
+    new private void Awake()
     {
+        base.Awake();
         // 自身はシーンを跨いでも削除されないようにする。
         DontDestroyOnLoad(gameObject);
         // オブジェクトを作成。

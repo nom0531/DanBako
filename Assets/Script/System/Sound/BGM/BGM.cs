@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGM : MonoBehaviour
+public class BGM : SingletonMonoBehaviour<BGM>
 {
     [SerializeField, Header("Ä¶‚·‚éBGM‚Ì”Ô†")]
     private BGMNumber BGMNumber;
