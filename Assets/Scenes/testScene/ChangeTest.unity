@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneNumber: 0
-  FadeCanvas: {fileID: 408381425688250058, guid: 12ddbf64e27b72f4ab932973b0223407,
+  FadeCanvas: {fileID: 3002438729615222339, guid: 12ddbf64e27b72f4ab932973b0223407,
     type: 3}
 --- !u!4 &607492261
 Transform:
