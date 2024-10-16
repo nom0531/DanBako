@@ -104,9 +104,9 @@
             },
             "m_InputSlot": {
                 "m_Node": {
-                    "m_Id": "4afbc46e73fc4b6e9ff5cd62f9c8321e"
+                    "m_Id": "0dccbd5cd3ce4e6c87684ae3ab5fcc8b"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -128,13 +128,13 @@
                 "m_Node": {
                     "m_Id": "2134a4c3f6424d99afa64f86959829af"
                 },
-                "m_SlotId": 4
+                "m_SlotId": 0
             },
             "m_InputSlot": {
                 "m_Node": {
                     "m_Id": "0a895fe6e0554092953145da8b49c1ad"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 1
             }
         },
         {
@@ -148,7 +148,7 @@
                 "m_Node": {
                     "m_Id": "0a895fe6e0554092953145da8b49c1ad"
                 },
-                "m_SlotId": 1
+                "m_SlotId": 0
             }
         },
         {
@@ -308,10 +308,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1255.999755859375,
-            "y": 326.00006103515627,
-            "width": 207.9998779296875,
-            "height": 301.99993896484377
+            "x": -1194.0,
+            "y": 319.0,
+            "width": 207.99993896484376,
+            "height": 302.0
         }
     },
     "m_Slots": [
@@ -390,7 +390,7 @@
     "m_RefNameGeneratedByDisplayName": "MainTex",
     "m_DefaultReferenceName": "_MainTex",
     "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
+    "m_GeneratePropertyBlock": false,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
     "m_DismissedVersion": 0,
@@ -420,10 +420,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1025.999755859375,
-            "y": 442.99993896484377,
-            "width": 110.9998779296875,
-            "height": 33.999969482421878
+            "x": -1332.0,
+            "y": 339.0,
+            "width": 111.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -822,7 +822,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"2e51c35f9e34f1d4c833549163dd248d\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"b4313b92476ae4b4d815e4d5212f51e6\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
