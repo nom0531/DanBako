@@ -6,15 +6,13 @@ using UnityEngine.SceneManagement;
 
 public enum SceneNumber
 {
-    enSystemTest,
-    enChangeTest,
     enTitle,
-    enStageSelect,
     enOption,
+    enStageSelect,
     enMain
 }
 
-public class FadeScene : MonoBehaviour
+public class FadeScene : SingletonMonoBehaviour<FadeScene>
 {
     [SerializeField, Header("フェード速度")]
     private float FadeSpeed = 1.0f;
@@ -90,20 +88,14 @@ public class FadeScene : MonoBehaviour
         var sceneName = "";
         switch (number)
         {
-            case SceneNumber.enSystemTest:
-                sceneName = "SystemTest";
-                break;
-            case SceneNumber.enChangeTest:
-                sceneName = "ChangeTest";
-                break;
             case SceneNumber.enTitle:
                 sceneName =  "Title";
                 break;
-            case SceneNumber.enStageSelect:
-                sceneName = "StageSelect";
-                break;
             case SceneNumber.enOption:
                 sceneName = "Option";
+                break;
+            case SceneNumber.enStageSelect:
+                sceneName = "StageSelect";
                 break;
             case SceneNumber.enMain:
                 sceneName = "Main";

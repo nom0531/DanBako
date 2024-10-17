@@ -9,29 +9,23 @@ public class SceneChange : MonoBehaviour
     [SerializeField]
     GameObject FadeCanvas;
 
-    private bool m_sceneChange = false;
-
-    private void Update()
-    {
-        if(m_sceneChange == true)
-        { 
-            return;
-        }
-
-        // 決定キーが押されたら
-        if ((Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Return)))
-        {
-            CreateFadeCanvas();
-        }
-    }
-
     /// <summary>
     /// フェード処理を実行。
     /// </summary>
-    private void CreateFadeCanvas()
+    public void CreateFadeCanvas()
     {
         var gameObject = Instantiate(FadeCanvas);
-        gameObject.GetComponent<FadeScene>().FadeStart(SceneNumber,Color.black,false);
-        m_sceneChange = true;
+        var fadeScene = gameObject.GetComponent<FadeScene>();
+
+        if (FadeCanvas.name == "FadeCanvas_Rule")
+        {
+            // マテリアルを使用したフェード。
+            fadeScene.FadeStart(SceneNumber, Color.black, false);
+        }
+        if(FadeCanvas.name == "FadeCanvas_Normal")
+        {
+            // 通常のスプライトを使用したフェード。
+            fadeScene.FadeStart(SceneNumber, new Vector4(0,0,0,0), true);
+        }
     }
 }
