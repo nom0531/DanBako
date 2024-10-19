@@ -32,31 +32,31 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
     /// <param name="flag">trueならImage、falseならマテリアルを使用する。</param>
     public void FadeStart(SceneNumber number, Color color, bool flag)
     {
-        // フェード開始の準備をする
         m_fadeStart = true;
         m_sceneName = ConvertingToName(number);
         m_useImage = flag;
-
-        // 自分の子オブジェクトにアタッチされているImageを取得する
         m_image = transform.GetChild(0).GetComponent<Image>();
 
         if (m_useImage)
         {
-            // 通常のフェード
+            // 通常のフェード。
             m_image.material = null;
             m_image.color = color;
         }
         else
         {
-            // マテリアルを初期化
+            // マテリアルを初期化。
             m_image.material.SetFloat("_Border", 0.0f);
             m_image.material.SetColor("_Color", color);
 
-            // 自身のRenderCameraにメインカメラを設定する
+            // 自身のRenderCameraにメインカメラを設定する。
             GetComponent<Canvas>().worldCamera = Camera.main;
         }
 
-        // 自身はシーンをまたいでも削除されないようにする
+        // BGMの音量を小さくする。
+        BGM bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
+        bgm.FadeStart(true);
+
         DontDestroyOnLoad(gameObject);
     }
 

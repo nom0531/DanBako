@@ -49,7 +49,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     {
         SetData();
 #if UNITY_EDITOR
-        Debug.Log("データを初期化。\n" +
+        Debug.Log("データを削除。\n" +
             "保存場所：" + m_filePath);
 #endif
     }
@@ -126,6 +126,10 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
         GameSaveData.saveData.SEVolume = DEFAULT_VOLUME;
 
         SetData();
+#if UNITY_EDITOR
+        Debug.Log("データを初期化。\n" +
+            "保存場所：" + m_filePath);
+#endif
     }
 
     /// <summary>
