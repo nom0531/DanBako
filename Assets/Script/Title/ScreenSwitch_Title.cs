@@ -66,6 +66,7 @@ public class ScreenSwitch_Title : MonoBehaviour
             {
                 m_comandState = ComandState.enOption;
             }
+            PlayAnimation();
             SE_Determination.PlaySE();
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -75,9 +76,16 @@ public class ScreenSwitch_Title : MonoBehaviour
             {
                 m_comandState = ComandState.enFromBeginning;
             }
+            PlayAnimation();
             SE_Determination.PlaySE();
         }
-        Animators[(int)m_comandState].SetBool("IsSelect",true);
+
+        Debug.Log(Animators[(int)m_comandState]);
+    }
+
+    private void PlayAnimation()
+    {
+        Animators[(int)m_comandState].SetBool("IsSelect", true);
         Animators[(int)m_comandState].SetTrigger("Select");
     }
 
