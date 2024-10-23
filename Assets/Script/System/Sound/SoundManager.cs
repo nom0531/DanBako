@@ -20,7 +20,7 @@ public enum SENumber
     enNum,
 }
 
-public class SoundManager : SingletonMonoBehaviour<SoundManager>
+public class SoundManager : MonoBehaviour
 {
     [SerializeField, Header("ƒTƒEƒ“ƒh")]
     private AudioClip[] BGMSounds = new AudioClip[(int)BGMNumber.enNum];

@@ -1,20 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScreenSwitch_Title : MonoBehaviour
 {
-    /// <summary>
-    /// 選択中のコマンド。
-    /// </summary>
-    private enum ComandState
-    {
-        enFromBeginning,    // はじめから。
-        enFromContinuation, // つづきから。
-        enGameEnd,          // ゲーム終了。
-        enOption            // オプション。
-    }
-
     [SerializeField, Header("各遷移先"),Tooltip("はじめから/つづきから")]
     SceneChange Scene_StageSelect;
     [SerializeField, Tooltip("オプション")]
@@ -23,16 +13,28 @@ public class ScreenSwitch_Title : MonoBehaviour
     SE SE_Determination;
     [SerializeField, Tooltip("セレクト音")]
     SE SE_Select;
-    [SerializeField, Header("Animation")]
-    Animator[] Animators;
+
+    /// <summary>
+    /// 選択中のコマンド。
+    /// </summary>
+    private enum ComandState
+    {
+        enFromBeginning,    // はじめから。
+        enFromContinuation, // つづきから。
+        enQuitGame,         // ゲーム終了。
+        enOption            // オプション。
+    }
 
     private SaveDataManager m_saveDataManager;
+    private Gamepad m_gamepad;
+    private Cursor m_cursor;
     private ComandState m_comandState = ComandState.enFromBeginning;
     private bool m_isPush = false;      // ボタンを押したならture。
 
     private void Start()
     {
         m_saveDataManager = GameManager.Instance.SaveDataManager;
+        m_cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
     }
 
     // Update is called once per frame
@@ -43,14 +45,8 @@ public class ScreenSwitch_Title : MonoBehaviour
         {
             return;
         }
-
         SelectCommand();
-
-        if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.K))
-        {
-            ButtonPush();
-            m_isPush = true;
-        }
+        SceneChange();
     }
 
     /// <summary>
@@ -58,42 +54,55 @@ public class ScreenSwitch_Title : MonoBehaviour
     /// </summary>
     private void SelectCommand()
     {
-        Animators[(int)m_comandState].SetBool("IsSelect", false);
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        // ゲームパッドを取得。
+        m_gamepad = Gamepad.current;
+
+        // ↑キーを押したとき。
+        if (m_gamepad.dpad.up.wasPressedThisFrame || Input.GetKeyDown(KeyCode.UpArrow))
         {
             m_comandState--;
+            // 補正。
             if(m_comandState < ComandState.enFromBeginning)
             {
                 m_comandState = ComandState.enOption;
             }
-            PlayAnimation();
-            SE_Determination.PlaySE();
+            m_cursor.Move((int)m_comandState);
+            SE_Select.PlaySE();
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        // ↓キーを押したとき。
+        if (m_gamepad.dpad.down.wasPressedThisFrame || Input.GetKeyDown(KeyCode.DownArrow))
         {
             m_comandState++;
+            // 補正。
             if (m_comandState > ComandState.enOption)
             {
                 m_comandState = ComandState.enFromBeginning;
             }
-            PlayAnimation();
-            SE_Determination.PlaySE();
+            m_cursor.Move((int)m_comandState);
+            SE_Select.PlaySE();
         }
-
-        Debug.Log(Animators[(int)m_comandState]);
-    }
-
-    private void PlayAnimation()
-    {
-        Animators[(int)m_comandState].SetBool("IsSelect", true);
-        Animators[(int)m_comandState].SetTrigger("Select");
+        Debug.Log(m_comandState);
     }
 
     /// <summary>
-    /// ボタンを押したときの処理
+    /// 遷移処理。
+    /// </summary>
+    private void SceneChange()
+    {
+        // Aボタンを押したとき。
+        if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
+        {
+            ButtonPush();
+            m_isPush = true;
+        }
+    }
+
+    /// <summary>
+    /// ボタンを押したときの処理。
     /// </summary>
     private void ButtonPush()
     {
+        // ステートに応じて処理を変更。
         switch (m_comandState){
             case ComandState.enFromBeginning:
                 FromBiginning();
@@ -101,14 +110,14 @@ public class ScreenSwitch_Title : MonoBehaviour
             case ComandState.enFromContinuation:
                 FromContinuation();
                 break;
-            case ComandState.enGameEnd:
+            case ComandState.enQuitGame:
                 Quit();
                 break;
             case ComandState.enOption:
                 Option();
                 break;
         }
-        SE_Select.PlaySE();
+        SE_Determination.PlaySE();
     }
 
     /// <summary>

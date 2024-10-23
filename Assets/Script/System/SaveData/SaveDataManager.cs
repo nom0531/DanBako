@@ -121,15 +121,25 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     /// </summary>
     private void InitData()
     {
-        // 値を初期化
-        GameSaveData.saveData.BGMVolume = DEFAULT_VOLUME;
-        GameSaveData.saveData.SEVolume = DEFAULT_VOLUME;
+
 
         SetData();
 #if UNITY_EDITOR
         Debug.Log("データを初期化。\n" +
             "保存場所：" + m_filePath);
 #endif
+    }
+
+    /// <summary>
+    /// オプションをリセットする。
+    /// </summary>
+    public void ResetOption()
+    {
+        // 値を初期化
+        GameSaveData.saveData.BGMVolume = DEFAULT_VOLUME;
+        GameSaveData.saveData.SEVolume = DEFAULT_VOLUME;
+
+        Save();
     }
 
     /// <summary>

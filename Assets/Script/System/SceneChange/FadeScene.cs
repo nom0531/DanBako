@@ -37,10 +37,9 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
         m_useImage = flag;
         m_image = transform.GetChild(0).GetComponent<Image>();
 
-        if (m_useImage)
+        if (m_useImage == true)
         {
             // 通常のフェード。
-            m_image.material = null;
             m_image.color = color;
         }
         else
@@ -48,15 +47,16 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
             // マテリアルを初期化。
             m_image.material.SetFloat("_Border", 0.0f);
             m_image.material.SetColor("_Color", color);
-
-            // 自身のRenderCameraにメインカメラを設定する。
-            GetComponent<Canvas>().worldCamera = Camera.main;
         }
+
+        // 自身のRenderCameraにメインカメラを設定する。
+        GetComponent<Canvas>().worldCamera = Camera.main;
 
         // BGMの音量を小さくする。
         BGM bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
         bgm.FadeStart(true);
 
+        // 自身はシーンを跨いでも削除されないようにする
         DontDestroyOnLoad(gameObject);
     }
 
@@ -70,7 +70,6 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
         if(GetComponent<Canvas>().worldCamera == null
             && m_useImage == false)
         {
-            // カメラを設定。
             GetComponent<Canvas>().worldCamera = Camera.main;
         }
 
@@ -119,6 +118,12 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
                 // シーンをロード。
                 SceneManager.LoadScene(m_sceneName);
                 m_fadeMode = true;
+
+                if (m_useImage == true)
+                {
+                    // 自身はシーンを跨いでも削除されないようにする
+                    DontDestroyOnLoad(gameObject);
+                }
             }
         }
         else

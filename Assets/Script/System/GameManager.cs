@@ -19,7 +19,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private SaveDataManager m_saveDataManager;
     private SoundManager m_soundManamager;
-
     private GameMode m_gameMode = GameMode.enOutGame;
 
     public SaveDataManager SaveDataManager
@@ -52,9 +51,11 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         set => m_gameMode = value;
     }
 
-    new private void Awake()
+#if UNITY_EDITOR
+    override protected void Awake()
     {
-        base.Awake();
+        // どの場面においてもBGMを再生する為にAwakeを使用する。
+        CheckInstance();
         // 自身はシーンを跨いでも削除されないようにする。
         DontDestroyOnLoad(gameObject);
         // オブジェクトを作成。
@@ -64,8 +65,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         m_soundManamager = soundManagerObject.GetComponent<SoundManager>();
     }
 
-#if UNITY_EDITOR
-    private void Update()
+    /// <summary>
+    /// デバッグコマンド。
+    /// </summary>
+    private void DebugCommand()
     {
         // デバッグ用コマンドはここに記載してください。
         // 処理内容に関してはコマンド一覧から確認してください。
@@ -82,5 +85,23 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             UnityEditor.EditorApplication.isPlaying = false;
         }
     }
+#else
+    private void Start()
+    {
+        // 自身はシーンを跨いでも削除されないようにする。
+        DontDestroyOnLoad(gameObject);
+        // オブジェクトを作成。
+        var saveDataManagerObject = Instantiate(SaveDataManagerObject);
+        m_saveDataManager = saveDataManagerObject.GetComponent<SaveDataManager>();
+        var soundManagerObject = Instantiate(SoundManagerObject);
+        m_soundManamager = soundManagerObject.GetComponent<SoundManager>();
+    }
 #endif
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        DebugCommand();
+#endif
+    }
 }

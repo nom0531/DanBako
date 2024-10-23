@@ -25,7 +25,8 @@ public class SceneChange : MonoBehaviour
         if(FadeCanvas.name == "FadeCanvas_Normal")
         {
             // 通常のスプライトを使用したフェード。
-            fadeScene.FadeStart(SceneNumber, new Vector4(0,0,0,0), true);
+            Color color = new Vector4(0, 0, 0, 0);
+            fadeScene.FadeStart(SceneNumber, color, true);
         }
     }
 }
