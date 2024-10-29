@@ -55,9 +55,6 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
         // BGMの音量を小さくする。
         BGM bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
         bgm.FadeStart(true);
-
-        // 自身はシーンを跨いでも削除されないようにする
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -118,12 +115,6 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
                 // シーンをロード。
                 SceneManager.LoadScene(m_sceneName);
                 m_fadeMode = true;
-
-                if (m_useImage == true)
-                {
-                    // 自身はシーンを跨いでも削除されないようにする
-                    DontDestroyOnLoad(gameObject);
-                }
             }
         }
         else

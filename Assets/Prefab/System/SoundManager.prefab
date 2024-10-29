@@ -47,6 +47,9 @@ MonoBehaviour:
   BGMSounds:
   - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
   SESounds:
-  - {fileID: 8300000, guid: 3ac1953176f08db4db10fedb7a3d505e, type: 3}
+  - {fileID: 8300000, guid: d41b16b9a769bcd4e8b8ddbeba3421f4, type: 3}
+  - {fileID: 8300000, guid: 15e36e8cbb9ef694bbf55faa454ab76f, type: 3}
+  - {fileID: 8300000, guid: 995a105ddb50a1a4586181d59168dd0f, type: 3}
+  - {fileID: 8300000, guid: 836fe4696f435ea45a8a925c2e4b5a79, type: 3}
   SEObject: {fileID: 3874073905183706156, guid: e57302179e4bdb743a271774b2e6eb35,
     type: 3}

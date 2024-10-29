@@ -10,6 +10,8 @@ public class SaveData
     {
         public float BGMVolume;                     // BGMの音量。
         public float SEVolume;                      // SEの音量。
+        public bool CameraStete;                    // カメラの回転方法。
+                                                    // falseならノーマル、trueならリバース。
         public bool[] ClearStage;                   // ステージのクリア数。
     }
 

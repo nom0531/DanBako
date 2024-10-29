@@ -5,19 +5,19 @@ using UnityEngine.InputSystem;
 
 public class ScreenSwitch_Title : MonoBehaviour
 {
-    [SerializeField, Header("各遷移先"),Tooltip("はじめから/つづきから")]
+    [SerializeField, Header("遷移先"),Tooltip("はじめから/つづきから")]
     SceneChange Scene_StageSelect;
     [SerializeField, Tooltip("オプション")]
     SceneChange Scene_Option;
     [SerializeField, Header("SE"), Tooltip("決定音")]
     SE SE_Determination;
-    [SerializeField, Tooltip("セレクト音")]
-    SE SE_Select;
+    [SerializeField, Tooltip("カーソル移動音")]
+    SE SE_CursorMove;
 
     /// <summary>
     /// 選択中のコマンド。
     /// </summary>
-    private enum ComandState
+    private enum TitleState
     {
         enFromBeginning,    // はじめから。
         enFromContinuation, // つづきから。
@@ -28,7 +28,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     private SaveDataManager m_saveDataManager;
     private Gamepad m_gamepad;
     private Cursor m_cursor;
-    private ComandState m_comandState = ComandState.enFromBeginning;
+    private TitleState m_comandState = TitleState.enFromBeginning;
     private bool m_isPush = false;      // ボタンを押したならture。
 
     private void Start()
@@ -46,7 +46,7 @@ public class ScreenSwitch_Title : MonoBehaviour
             return;
         }
         SelectCommand();
-        SceneChange();
+        ButtonDown();
     }
 
     /// <summary>
@@ -57,40 +57,67 @@ public class ScreenSwitch_Title : MonoBehaviour
         // ゲームパッドを取得。
         m_gamepad = Gamepad.current;
 
-        // ↑キーを押したとき。
-        if (m_gamepad.dpad.up.wasPressedThisFrame || Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            m_comandState--;
-            // 補正。
-            if(m_comandState < ComandState.enFromBeginning)
-            {
-                m_comandState = ComandState.enOption;
-            }
-            m_cursor.Move((int)m_comandState);
-            SE_Select.PlaySE();
+            PushUp();
         }
-        // ↓キーを押したとき。
-        if (m_gamepad.dpad.down.wasPressedThisFrame || Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            m_comandState++;
-            // 補正。
-            if (m_comandState > ComandState.enOption)
-            {
-                m_comandState = ComandState.enFromBeginning;
-            }
-            m_cursor.Move((int)m_comandState);
-            SE_Select.PlaySE();
+            PushDown();
         }
-        Debug.Log(m_comandState);
+
+        if(m_gamepad == null)
+        {
+            return;
+        }
+
+        if (m_gamepad.dpad.up.wasPressedThisFrame)
+        {
+            PushUp();
+        }
+        if (m_gamepad.dpad.down.wasPressedThisFrame)
+        {
+            PushDown();
+        }
     }
 
     /// <summary>
-    /// 遷移処理。
+    /// ↑キーを押したときの処理。
     /// </summary>
-    private void SceneChange()
+    private void PushUp()
     {
-        // Aボタンを押したとき。
-        if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
+        m_comandState--;
+        // 補正。
+        if (m_comandState < TitleState.enFromBeginning)
+        {
+            m_comandState = TitleState.enOption;
+        }
+        m_cursor.Move((int)m_comandState);
+        SE_CursorMove.PlaySE();
+    }
+
+    /// <summary>
+    /// ↓キーを押したときの処理。
+    /// </summary>
+    private void PushDown()
+    {
+        m_comandState++;
+        // 補正。
+        if (m_comandState > TitleState.enOption)
+        {
+            m_comandState = TitleState.enFromBeginning;
+        }
+        m_cursor.Move((int)m_comandState);
+        SE_CursorMove.PlaySE();
+    }
+
+    /// <summary>
+    /// ボタン処理。
+    /// </summary>
+    private void ButtonDown()
+    {
+        // Bボタンを押したとき。
+        if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
         {
             ButtonPush();
             m_isPush = true;
@@ -104,16 +131,16 @@ public class ScreenSwitch_Title : MonoBehaviour
     {
         // ステートに応じて処理を変更。
         switch (m_comandState){
-            case ComandState.enFromBeginning:
+            case TitleState.enFromBeginning:
                 FromBiginning();
                 break;
-            case ComandState.enFromContinuation:
+            case TitleState.enFromContinuation:
                 FromContinuation();
                 break;
-            case ComandState.enQuitGame:
+            case TitleState.enQuitGame:
                 Quit();
                 break;
-            case ComandState.enOption:
+            case TitleState.enOption:
                 Option();
                 break;
         }

@@ -13,8 +13,8 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
             if (instance == null)
             {
                 var type = typeof(T);
-
                 instance = (T)FindObjectOfType(type);
+
                 if (instance == null)
                 {
                     Debug.LogError(type + " をアタッチしているGameObjectはありません");
@@ -28,7 +28,10 @@ public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBe
     {
         // 他のゲームオブジェクトにアタッチされているか調べる。
         // アタッチされている場合は破棄する。
-        CheckInstance();
+        if (CheckInstance())
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     protected bool CheckInstance()

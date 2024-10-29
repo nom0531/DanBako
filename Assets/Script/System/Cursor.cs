@@ -5,15 +5,21 @@ using UnityEngine;
 public class Cursor : MonoBehaviour
 {
     [SerializeField,Header("移動先の座標")]
-    private Vector3[] Position;
+    private Vector2[] Position;
     [SerializeField, Header("移動速度")]
     private float Speed;
 
     private RectTransform m_rectTransform;
-    private Vector3 m_startPosition = Vector3.zero; // 開始点。
-    private Vector3 m_endPosition = Vector3.zero;   // 終了点。
-    private bool m_isLeap = false;                  // 線形補完を開始したならtrue。
-    private float m_time = 0.0f;                    // タイマー。
+    private Vector2 m_startPosition = Vector2.zero;     // 開始点。
+    private Vector2 m_endPosition = Vector2.zero;       // 終了点。
+    private float m_time = 0.0f;                        // タイマー。
+    private bool m_isStart = false;                     // 線形補完を開始するならture。
+
+    public Vector2[] SetPosition
+    {
+        set => Position = value;
+        get => Position;
+    }
 
     private void Start()
     {
@@ -31,17 +37,24 @@ public class Cursor : MonoBehaviour
     /// </summary>
     private void Leap()
     {
+        if(m_isStart == false)
+        {
+            return;
+        }
+
         // 経過時間を更新。
         m_time += Time.deltaTime;
         // 割合を計算。
-        var t = m_time / Speed;
+        var t = Mathf.Clamp01(m_time / Speed);
         // 二点間を線形補完。
-        m_rectTransform.anchoredPosition = Vector3.Lerp(m_startPosition, m_endPosition, t);
+        m_rectTransform.anchoredPosition = Vector2.Lerp(m_startPosition, m_endPosition, t);
+
         // 線形補完が終了したなら。
         if (t >= 1.0f)
         {
-            m_time = Speed;
-            m_isLeap = false;
+            m_rectTransform.anchoredPosition = m_endPosition;
+            m_isStart = false;
+            return;
         }
     }
 
@@ -55,7 +68,7 @@ public class Cursor : MonoBehaviour
         m_startPosition = m_rectTransform.anchoredPosition;
         m_endPosition = Position[number];
         m_time = 0.0f;
-        // 線形補完を開始。
-        m_isLeap = true;
+        // 線形補完を開始する。
+        m_isStart = true;
     }
 }

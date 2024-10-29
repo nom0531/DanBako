@@ -27,17 +27,16 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
         get => GameSaveData;
     }
 
-    override protected void Awake()
+    protected override void Awake()
     {
-        CheckInstance();
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
         // セーブデータを読み込む。
         m_filePath = $"{Application.persistentDataPath}/.savedata.json";
-
         var isLoad = Load();
         // セーブデータがないなら初期化。
         if (isLoad == false)
         {
+            InitOption();
             InitData();
         }
     }
@@ -47,7 +46,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     /// </summary>
     public void Delete()
     {
-        SetData();
+        InitData();
 #if UNITY_EDITOR
         Debug.Log("データを削除。\n" +
             "保存場所：" + m_filePath);
@@ -117,13 +116,15 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// データの初期化。
+    /// オプションの初期化。
     /// </summary>
-    private void InitData()
+    public void InitOption()
     {
-
-
-        SetData();
+        // 値を初期化。
+        GameSaveData.saveData.BGMVolume = DEFAULT_VOLUME;
+        GameSaveData.saveData.SEVolume = DEFAULT_VOLUME;
+        GameSaveData.saveData.CameraStete = false;
+        Save();
 #if UNITY_EDITOR
         Debug.Log("データを初期化。\n" +
             "保存場所：" + m_filePath);
@@ -131,23 +132,11 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// オプションをリセットする。
+    /// データの初期化。
     /// </summary>
-    public void ResetOption()
+    private void InitData()
     {
-        // 値を初期化
-        GameSaveData.saveData.BGMVolume = DEFAULT_VOLUME;
-        GameSaveData.saveData.SEVolume = DEFAULT_VOLUME;
-
-        Save();
-    }
-
-    /// <summary>
-    /// データを設定。
-    /// </summary>
-    private void SetData()
-    {
-        Save();
+         Save();
     }
 
     /// <summary>

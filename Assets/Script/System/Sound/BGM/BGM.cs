@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGM : SingletonMonoBehaviour<BGM>
+public class BGM : MonoBehaviour
 {
     [SerializeField, Header("再生するBGMの番号")]
     private BGMNumber BGMNumber;
     [SerializeField, Header("フェードの速度")]
     private float FadeSpeed = 1.0f;     // フェードの速度（大きいほど速い）
 
-    private const float DECREMENT_VALUE = 0.3f;
+    private const float DECREMENT_VALUE = 0.2f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
@@ -56,7 +56,7 @@ public class BGM : SingletonMonoBehaviour<BGM>
     /// <summary>
     /// 音量を再設定する。
     /// </summary>
-    public void ReSetVolume()
+    public void ResetVolume()
     {
         // 初期化。
         m_fadeMode = ComparisonValue(m_volume);

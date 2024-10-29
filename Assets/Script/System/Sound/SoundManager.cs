@@ -16,11 +16,14 @@ public enum BGMNumber
 /// </summary>
 public enum SENumber
 {
-    enSample,
+    enCursorMove,
+    enDetermination,
+    enCancel,
+    enError,
     enNum,
 }
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
     [SerializeField, Header("サウンド")]
     private AudioClip[] BGMSounds = new AudioClip[(int)BGMNumber.enNum];
@@ -30,8 +33,8 @@ public class SoundManager : MonoBehaviour
     private GameObject SEObject;
 
     private const float MAX = 1.0f;
-    private const float MIN = 0.0001f;
-    private const float VOLUME = 0.5f;
+    private const float MIN = 0.0f;
+    private const float VOLUME = 0.5f;  // デフォルト。
 
     private SaveDataManager m_saveDataManager;
     private float m_BGMVolume = 0.5f;
