@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
-  - Stage
+  - SE
+  - BGM
+  - Cursor
+  - HP
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 946260557
+    locked: 0
+  - name: Main
+    uniqueID: 1873100083
+    locked: 0
+  - name: Formost
+    uniqueID: 306197207
+    locked: 0
+  - name: Mosaic
+    uniqueID: 2106712967
+    locked: 0
+  - name: UI
+    uniqueID: 938562607
     locked: 0
