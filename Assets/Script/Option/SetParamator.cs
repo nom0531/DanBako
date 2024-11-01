@@ -62,7 +62,6 @@ public class SetParamator : MonoBehaviour
 
         // à⁄ìÆó ÇåvéZÅB
         m_moveLength = (PositionX_Min - PositionX_Max) / SoundStage;
-
         Init();
     }
 
@@ -248,7 +247,6 @@ public class SetParamator : MonoBehaviour
         var length = rectTransform.anchoredPosition.x + MoveLength;
         var x = Mathf.Clamp(length, PositionX_Min, PositionX_Max);
         rectTransform.anchoredPosition = new Vector2(x, rectTransform.anchoredPosition.y);
-        Debug.Log(rectTransform.anchoredPosition);
     }
 
 

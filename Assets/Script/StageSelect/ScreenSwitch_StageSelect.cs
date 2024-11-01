@@ -26,6 +26,19 @@ public class ScreenSwitch_StageSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Aボタンを押したとき。
+        if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
+        {
+            Title.CreateFadeCanvas();
+            SE_Cancel.PlaySE();
+        }
+        // Bボタンを押したとき。
+        if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
+        {
+            Main.CreateFadeCanvas();
+            SE_Determination.PlaySE();
+        }
     }
+
+
 }

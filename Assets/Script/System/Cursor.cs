@@ -43,7 +43,7 @@ public class Cursor : MonoBehaviour
         }
 
         // 経過時間を更新。
-        m_time += Time.deltaTime;
+        m_time += Time.unscaledDeltaTime;
         // 割合を計算。
         var t = Mathf.Clamp01(m_time / Speed);
         // 二点間を線形補完。

@@ -9,7 +9,9 @@ public enum SceneNumber
     enTitle,
     enOption,
     enStageSelect,
-    enMain
+    enMain,
+    enRetryToGame,
+    enHelp,
 }
 
 public class FadeScene : SingletonMonoBehaviour<FadeScene>
@@ -96,6 +98,11 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
             case SceneNumber.enMain:
                 sceneName = "Main";
                 break;
+            case SceneNumber.enRetryToGame:
+                break;
+            case SceneNumber.enHelp:
+                sceneName = "Help";
+                break;
         }
         return sceneName;
     }
@@ -108,7 +115,7 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
         if (m_fadeMode == false)
         {
             // âÊñ Çà√Ç≠Ç∑ÇÈÅB
-            m_alpha += FadeSpeed * Time.deltaTime;
+            m_alpha += FadeSpeed * Time.unscaledDeltaTime;
 
             if (m_alpha >= 1.0f)
             {
@@ -120,7 +127,7 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
         else
         {
             // âÊñ ÇñæÇÈÇ≠Ç∑ÇÈÅB
-            m_alpha -= FadeSpeed * Time.deltaTime;
+            m_alpha -= FadeSpeed * Time.unscaledDeltaTime;
 
             if (m_alpha <= 0.0f)
             {

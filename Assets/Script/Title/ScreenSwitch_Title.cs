@@ -9,6 +9,8 @@ public class ScreenSwitch_Title : MonoBehaviour
     SceneChange Scene_StageSelect;
     [SerializeField, Tooltip("オプション")]
     SceneChange Scene_Option;
+    [SerializeField, Tooltip("ヘルプ")]
+    SceneChange Scene_Help;
     [SerializeField, Header("SE"), Tooltip("決定音")]
     SE SE_Determination;
     [SerializeField, Tooltip("カーソル移動音")]
@@ -22,12 +24,14 @@ public class ScreenSwitch_Title : MonoBehaviour
         enFromBeginning,    // はじめから。
         enFromContinuation, // つづきから。
         enQuitGame,         // ゲーム終了。
-        enOption            // オプション。
+        enOption,           // オプション。
+        enHelp              // ヘルプ。
     }
 
     private SaveDataManager m_saveDataManager;
     private Gamepad m_gamepad;
     private Cursor m_cursor;
+    private PlayAnimation m_playAnimation;
     private TitleState m_comandState = TitleState.enFromBeginning;
     private bool m_isPush = false;      // ボタンを押したならture。
 
@@ -35,6 +39,8 @@ public class ScreenSwitch_Title : MonoBehaviour
     {
         m_saveDataManager = GameManager.Instance.SaveDataManager;
         m_cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
+        m_playAnimation = GetComponent<PlayAnimation>();
+        m_playAnimation.Play((int)m_comandState, "Active");
     }
 
     // Update is called once per frame
@@ -86,13 +92,17 @@ public class ScreenSwitch_Title : MonoBehaviour
     /// </summary>
     private void PushUp()
     {
+        int oldCcommandState = (int)m_comandState;
         m_comandState--;
         // 補正。
         if (m_comandState < TitleState.enFromBeginning)
         {
-            m_comandState = TitleState.enOption;
+            m_comandState = TitleState.enHelp;
         }
         m_cursor.Move((int)m_comandState);
+        // アニメーションを再生。
+        m_playAnimation.Play(oldCcommandState, "NotActive");
+        m_playAnimation.Play((int)m_comandState, "Active");
         SE_CursorMove.PlaySE();
     }
 
@@ -101,13 +111,17 @@ public class ScreenSwitch_Title : MonoBehaviour
     /// </summary>
     private void PushDown()
     {
+        int oldCcommandState = (int)m_comandState;
         m_comandState++;
         // 補正。
-        if (m_comandState > TitleState.enOption)
+        if (m_comandState > TitleState.enHelp)
         {
             m_comandState = TitleState.enFromBeginning;
         }
         m_cursor.Move((int)m_comandState);
+        // アニメーションを再生。
+        m_playAnimation.Play(oldCcommandState, "NotActive");
+        m_playAnimation.Play((int)m_comandState, "Active");
         SE_CursorMove.PlaySE();
     }
 
@@ -142,6 +156,9 @@ public class ScreenSwitch_Title : MonoBehaviour
                 break;
             case TitleState.enOption:
                 Option();
+                break;
+            case TitleState.enHelp:
+                Help();
                 break;
         }
         SE_Determination.PlaySE();
@@ -182,5 +199,13 @@ public class ScreenSwitch_Title : MonoBehaviour
     private void Option()
     {
         Scene_Option.CreateFadeCanvas();
+    }
+
+    /// <summary>
+    /// ヘルプ選択時の処理。
+    /// </summary>
+    private void Help()
+    {
+        Scene_Help.CreateFadeCanvas();
     }
 }

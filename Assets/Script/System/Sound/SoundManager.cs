@@ -7,7 +7,15 @@ using UnityEngine;
 /// </summary>
 public enum BGMNumber
 {
-    enSample,   // sampleは実装確認後に削除。
+    enTitle,
+    enStageSelect,
+    enOption,
+    enHelp,
+    enClear,
+    enGameOver,
+    enMain_Onece,
+    enMain_Second,
+    enMain_Third,
     enNum,
 }
 
@@ -101,6 +109,11 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     /// <param name="number">番号。</param>
     public void PlayBGM(BGMNumber number, GameObject gameObject)
     {
+        if(number == BGMNumber.enNum)
+        {
+            return;
+        }
+
         InitVolume();
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
@@ -116,6 +129,11 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     /// <param name="number">番号。</param>
     public void PlaySE(SENumber number, float decrementValue=0.1f)
     {
+        if(number == SENumber.enNum)
+        {
+            return;
+        }
+
         InitVolume();
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();

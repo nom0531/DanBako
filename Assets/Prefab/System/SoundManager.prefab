@@ -45,6 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BGMSounds:
+  - {fileID: 8300000, guid: 4dd9c276d6572e748ae14cecefeff2b1, type: 3}
+  - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
+  - {fileID: 8300000, guid: 6bb60dc4686149c40920f40683da8e4e, type: 3}
+  - {fileID: 8300000, guid: 6bb60dc4686149c40920f40683da8e4e, type: 3}
+  - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
+  - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
+  - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
+  - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
   - {fileID: 8300000, guid: be36bac45292ec24b9957466fc840d2a, type: 3}
   SESounds:
   - {fileID: 8300000, guid: d41b16b9a769bcd4e8b8ddbeba3421f4, type: 3}
