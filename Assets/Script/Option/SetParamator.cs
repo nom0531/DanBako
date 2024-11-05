@@ -44,7 +44,6 @@ public class SetParamator : MonoBehaviour
     }
 
     private SaveDataManager m_saveDataManager;
-    private SoundManager m_soundManager;
     private Gamepad m_gamepad;
     private BGM m_bgm;
     private SoundData[] m_soundDatas = new SoundData[(int)SoundState.enNum];
@@ -55,7 +54,6 @@ public class SetParamator : MonoBehaviour
     private void Start()
     {
         m_saveDataManager = GameManager.Instance.SaveDataManager;
-        m_soundManager = GameManager.Instance.SoundManager;
         m_bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
         m_soundDatas[(int)SoundState.enBGM].rectTransform = SoundCursor[(int)SoundState.enBGM].GetComponent<RectTransform>();
         m_soundDatas[(int)SoundState.enSE].rectTransform = SoundCursor[(int)SoundState.enSE].GetComponent<RectTransform>();
