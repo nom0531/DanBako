@@ -7,6 +7,11 @@ using UnityEngine;
 /// </summary>
 public class PlayerCheck : MonoBehaviour
 {
+    [SerializeField]
+    private Transform PlayerTransform;
+    [SerializeField]
+    private float StopRadius = 5.0f;
+
     GameTime m_gameTime;
     bool m_stopTimeFlag = false;
 
@@ -17,29 +22,25 @@ public class PlayerCheck : MonoBehaviour
 
     private void Update()
     {
-        if (m_stopTimeFlag)
-        {
-            m_gameTime.StopTime();
-            return;
-        }
-        m_gameTime.DefaultTime();
+        Distance();
     }
 
-    // 自身に何かが衝突している間呼ばれる
-    void OnTriggerStay(Collider other)
+    /// <summary>
+    /// プレイヤーとの距離を計算する。
+    /// </summary>
+    private void Distance()
     {
-        // 特定のタグが付いたオブジェクトに衝突している
-        if (!other.CompareTag("Player"))
+        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+
+        if (distance <= StopRadius && m_stopTimeFlag == false)
         {
-            m_stopTimeFlag = false;
-            Debug.Log("エリアの範囲外");
-            return;
+            m_gameTime.StopTime();
+            m_stopTimeFlag = true;
         }
-        m_stopTimeFlag = true;
-        Debug.Log("エリアの範囲内");
-        if (Input.GetKey(KeyCode.Space))
+        else if (distance > StopRadius && m_stopTimeFlag == true)
         {
-            m_gameTime.AdvanceTime();
+            m_gameTime.DefaultTime();
+            m_stopTimeFlag = false;
         }
     }
 }
