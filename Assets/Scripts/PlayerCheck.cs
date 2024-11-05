@@ -17,12 +17,12 @@ public class PlayerCheck : MonoBehaviour
 
     private void Update()
     {
-        //if (m_stopTimeFlag)
-        //{
-        //    m_gameTime.StopTime();
-        //    return;
-        //}
-        //m_gameTime.DefaultTime();
+        if (m_stopTimeFlag)
+        {
+            m_gameTime.StopTime();
+            return;
+        }
+        m_gameTime.DefaultTime();
     }
 
     // ©g‚É‰½‚©‚ªÕ“Ë‚µ‚Ä‚¢‚éŠÔŒÄ‚Î‚ê‚é

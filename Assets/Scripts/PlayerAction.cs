@@ -2,86 +2,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// プレイヤーの行動を制御するクラス。
-/// </summary>
 public class PlayerAction : MonoBehaviour
 {
-    [SerializeField, Header("ステータス")]
-    int HP = 3;
-    [SerializeField]
-    float MoveSpeed = 0.1f;
-    [SerializeField]
-    float JumpPower = 0.6f;
+    public float MoveSpeed = 0.01f;
+    public float JumpPower = 6.0f;
 
-    GameTime m_gameTime = null;
-    GroundCheck m_groundCheck = null;
-    Rigidbody m_rigidBody = null;
-    GameObject m_gameCamera = null;
+    public int m_HP = 5;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool m_moveFlag, m_damageFlag;
+    private bool m_jumpFlag; // ジャンプフラグ
+    private bool m_airFlag; // 空中フラグ
+    private bool m_touchFlag;//触るフラグ
+
+    // ジャンプ中の高さを管理するための変数
+    private float m_jumpHeight;
+    private float m_gravity = -9.81f; // 重力の値
+
+    void Update()
     {
-        m_gameTime = GameObject.FindGameObjectWithTag("GameController").gameObject.GetComponent<GameTime>();
-        m_rigidBody = GetComponent<Rigidbody>();
-        m_groundCheck = transform.GetChild(0).gameObject.GetComponent<GroundCheck>();
-        m_gameCamera = Camera.main.gameObject;
+        if (m_damageFlag) return;
+
+        // 移動とジャンプの処理
+        Action();
+        HandleJump(); // ジャンプ処理を呼び出す
     }
 
-    void FixedUpdate()
+    private void Action()
     {
-        Move();
-        Jump();
-    }
+        // ゲームパッドの入力を取得
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-    /// <summary>
-    /// 行動処理。
-    /// </summary>
-    void Move()
-    {
-        // カメラを考慮した移動
-        Vector3 PlayerMove = Vector3.zero;
-        Vector3 stickL = Vector3.zero;
+        Vector3 move = new Vector3(moveHorizontal, 0.0f, moveVertical) * MoveSpeed;
 
-        stickL.z = Input.GetAxis("Vertical2");
-        stickL.x = Input.GetAxis("Horizontal2");
+        // 移動させる
+        transform.position += move;
 
+        m_moveFlag = move.sqrMagnitude > 0.0f;
 
-        Vector3 forward = m_gameCamera.transform.forward;
-        Vector3 right = m_gameCamera.transform.right;
-        forward.y = 0.0f;
-        right.y = 0.0f;
-
-
-        right *= stickL.x;
-        forward *= stickL.z;
-
-
-        // 移動速度に上記で計算したベクトルを加算する
-        PlayerMove += right + forward;
-
-
-        // プレイヤーの速度を設定することで移動させる
-        PlayerMove = (PlayerMove * MoveSpeed * Time.deltaTime);
-        PlayerMove.y = m_rigidBody.velocity.y;
-        m_rigidBody.velocity = PlayerMove;
-    }
-
-    /// <summary>
-    /// ジャンプ処理。
-    /// </summary>
-    void Jump()
-    {
-        if (!Input.GetKeyDown(KeyCode.K))
+        if (m_moveFlag)
         {
-            return;
+            transform.rotation = Quaternion.LookRotation(move.normalized);
         }
-        if (!m_groundCheck.GroundCheckFlag)
+    }
+
+    private void HandleJump() // ジャンプ処理の新しいメソッド
+    {
+        // 地面にいる場合、ジャンプの処理を行う
+        if (transform.position.y <= 0) // y 座標が 0 以下なら地面にいると判断
         {
-            return;
+            // ジャンプ入力を確認
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                m_jumpFlag = true;
+                m_jumpHeight = JumpPower; // ジャンプ力を設定
+                m_airFlag = true; // 空中フラグを立てる
+            }
         }
 
-        m_groundCheck.GroundCheckFlag = false;
-        m_rigidBody.AddForce(new Vector3(0.0f, JumpPower, 0.0f), ForceMode.VelocityChange);
+        // 空中にいる場合、重力を適用
+        if (m_airFlag)
+        {
+            // ジャンプの高さを減少させて移動
+            m_jumpHeight += m_gravity * Time.deltaTime; // 重力の適用
+            transform.position += new Vector3(0, m_jumpHeight * Time.deltaTime, 0);
+
+            // 高さが地面に達したら、空中フラグとジャンプフラグをリセット
+            if (transform.position.y <= 0)
+            {
+                m_airFlag = false;
+                m_jumpFlag = false;
+                transform.position = new Vector3(transform.position.x, 0, transform.position.z); // 地面に戻す
+            }
+        }
     }
 }
