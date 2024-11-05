@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+/// <summary>
+///  ステージの構造体。
+/// </summary>
+[System.Serializable]
+public class StageData
+{
+    [SerializeField, Header("レベル情報")]
+    public int ID;
+    public string Name;
+    public BGMNumber BGM;
+    [SerializeField, Header("Prefab")]
+    public GameObject Model;
+    [SerializeField, Header("詳細設定"), Multiline(3)]
+    public string Detail;
+}
+
+[CreateAssetMenu(fileName = "StageDataBase", menuName = "CreateStageDataBase")]
+public class StageDataBase : ScriptableObject
+{
+    public List<StageData> stageDataList = new List<StageData>();
+}
+
