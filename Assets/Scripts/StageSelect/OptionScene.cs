@@ -17,8 +17,10 @@ public class OptionsMenu : MonoBehaviour
     public TextMeshProUGUI bgmVolumeText;  //BGMのボリュームを表示するテキスト
     public TextMeshProUGUI seVolumeText;   //SEのボリュームを表示するテキスト
 
-    private float m_bgmValue;
-    private float m_seValue;
+    public AudioSource bgmSource;         //BGMなどを変更するオブジェクト
+
+    private float m_bgmValue = 0;       //bgmの音量
+    private float m_seValue = 0;        //seの音量
 
     private int m_selectedIndex = 0;  //選択中のインデックス
     private GameObject[] menuItems;
@@ -35,13 +37,25 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField,Header("戻るボタン選択時のポジション調整")]
     private Vector3 ImageAdjustmentPosition;    //戻るボタン選択時のカーソルのポジションの調整に使う
 
+    /// <summary>
+    ///BGMのボリュームのセッターとゲッター
+    /// </summary>
+    public float BGMVolume
+    {
+        get => bgmSource.volume;
+        set => bgmSource.volume = value;
+    }
+
     void Start() 
     {
         // メニュー項目のリストを作成
         menuItems = new GameObject[] { bgmSlider.gameObject, seSlider.gameObject, cameraOption.gameObject ,backText.gameObject };
 
-        // 初期選択項目を設定
-        //SelectItem(0);
+        //bgmの音量の初期化
+        bgmSlider.value = bgmSource.volume;
+
+        //selectedIndexの初期化
+        m_selectedIndex = 0;
     }
 
     void Update()
@@ -118,6 +132,7 @@ public class OptionsMenu : MonoBehaviour
             else if (Gamepad.current.dpad.left.wasPressedThisFrame)
                 selectedSlider.value -= 0.1f;
         }
+        BGMVolume = selectedSlider.value;
     }
 
     /// <summary>
