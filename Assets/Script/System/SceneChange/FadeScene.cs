@@ -21,6 +21,7 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
 
     private string m_sceneName = "";
     private Image m_image;
+
     private bool m_useImage = false;        // trueならImage、falseならマテリアルを使用する。
     private bool m_fadeStart = false;
     private bool m_fadeMode = false;
@@ -84,6 +85,7 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
     private string ConvertingToName(SceneNumber number)
     {
         var sceneName = "";
+
         switch (number)
         {
             case SceneNumber.enTitle:
