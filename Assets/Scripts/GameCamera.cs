@@ -1,69 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameCamera : MonoBehaviour
 {
-    [Header("カメラの注視点"), SerializeField]
-    GameObject TargetObject;
-    [Header("カメラの回転速度"), SerializeField]
-    float RotSpeed = 200.0f;
-    [Header("カメラの回転モード（X）"), SerializeField]
-    bool CameraModeX = false;
-    [Header("カメラの回転モード（Y）"), SerializeField]
-    bool CameraModeY = false;
+    [SerializeField, Header("カメラ回転"),Tooltip("カメラの注視点")]
+    private GameObject TargetObject;
+    [SerializeField, Tooltip("カメラの回転速度")]
+    private float RotSpeed = 200.0f;
+    [SerializeField, Tooltip("カメラの回転モード（X）")]
+    private bool CameraModeX = false;
+    [SerializeField, Tooltip("X回転最大値")]
+    private float MaxX = 60.0f;
+    [SerializeField, Tooltip("X回転最小値")]
+    private float MinX = -40.0f;
 
+    [SerializeField, Header("ズームイン・ズームアウト"), Tooltip("拡大率最大値")]
+    private float ViewMax = 45.0f;
+    [SerializeField, Tooltip("拡大率最小値")]
+    private float ViewMin = 10.0f;
 
-    [Header("X回転最大値"), SerializeField]
-    float MaxX = 60.0f;
-    [Header("X回転最小値"), SerializeField]
-    float MinX = -40.0f;
+    private GameManager m_gameManager;
+    private Camera m_camera;
+    private Gamepad m_gamepad;
 
-
-    // 初期座標
-    Vector3 m_defPos;
-
-
-    void Awake()
+    private void Start()
     {
-        // 初期ローカル座標を保存
-        m_defPos = transform.localPosition;
+        m_camera = Camera.main;
+        m_gameManager = GameManager.Instance;
     }
 
-
-    void Update()
+    private void LateUpdate()
     {
+        // ポーズ中なら実行しない。
+        if(m_gameManager.GameMode == CurrentGameMode.enPause)
+        {
+            return;
+        }
 
+        Rotation();
+        Zoom();
     }
 
-
-    void LateUpdate()
+    /// <summary>
+    /// 回転処理。
+    /// </summary>
+    private void Rotation()
     {
-        // 右スティックでカメラ回転
+        float rot = Time.unscaledDeltaTime * RotSpeed;
 
-
-        // 上下
-        float rot = Time.deltaTime * RotSpeed;
-        if (Input.GetAxisRaw("Vertical2") != 0.0f)
-        {
-            rot *= Input.GetAxisRaw("Vertical2");
-
-            if (CameraModeY)
-            {
-                // モードに応じて変更
-                rot *= -1.0f;
-            }
-        }
-        else
-        {
-            rot = 0.0f;
-        }
-        transform.RotateAround(transform.position, transform.right, rot);
-
-
-        // X角度制限
+        // X角度制限。
         float nowRot = transform.localEulerAngles.x;
-        // 取得した角度は0～360°なので補正する
+        // 取得した角度は0～360°なので補正する。
         if (nowRot >= 180.0f)
         {
             nowRot -= 360.0f;
@@ -79,13 +68,12 @@ public class GameCamera : MonoBehaviour
                 MinX, transform.localEulerAngles.y, transform.localEulerAngles.z);
         }
 
-
-        // 左右
-        rot = Time.deltaTime * RotSpeed;
+        // 左右。
+        rot = Time.unscaledDeltaTime * RotSpeed;
 
         if (CameraModeX)
         {
-            // モードに応じて変更
+            // モードに応じて変更。
             rot *= -1.0f;
         }
 
@@ -99,13 +87,53 @@ public class GameCamera : MonoBehaviour
         }
         transform.RotateAround(TargetObject.transform.position, Vector3.up, rot);
 
-        // Z軸の回転があるとややこしいので制限する
+        // Z軸の回転があるとややこしいので制限する。
         Vector3 angles = transform.eulerAngles;
         angles.z = 0.0f;
         transform.eulerAngles = angles;
-
-        //// 座標は固定
-        //transform.localPosition = m_defPos;
     }
 
+    /// <summary>
+    /// ズーム処理。
+    /// </summary>
+    private void Zoom()
+    {
+        // ゲームパッドを取得。
+        m_gamepad = Gamepad.current;
+
+        ZoomIn();
+        ZoomOut();
+    }
+
+    /// <summary>
+    /// 拡大処理。
+    /// </summary>
+    private void ZoomIn()
+    {
+        if(m_gamepad == null)
+        {
+            return;
+        }
+
+        float value = m_gamepad.leftTrigger.ReadValue();
+        float view = m_camera.fieldOfView - value;
+
+        m_camera.fieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
+    }
+
+    /// <summary>
+    /// 縮小処理。
+    /// </summary>
+    private void ZoomOut()
+    {
+        if (m_gamepad == null)
+        {
+            return;
+        }
+
+        float value = m_gamepad.rightTrigger.ReadValue();
+        float view = m_camera.fieldOfView + value;
+
+        m_camera.fieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
+    }
 }
