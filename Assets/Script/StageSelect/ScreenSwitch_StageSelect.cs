@@ -9,13 +9,13 @@ public class ScreenSwitch_StageSelect : MonoBehaviour
     [SerializeField,Tooltip("ゲーム本編")]
     private SceneChange Main;
     [SerializeField, Header("SE"), Tooltip("決定音")]
-    SE SE_Determination;
+    private SE SE_Determination;
     [SerializeField, Tooltip("キャンセル音")]
-    SE SE_Cancel;
+    private SE SE_Cancel;
     [SerializeField, Tooltip("カーソル移動音")]
-    SE SE_CursorMove;
+    private SE SE_CursorMove;
     [SerializeField, Tooltip("エラー音")]
-    SE SE_Error;
+    private SE SE_Error;
 
     // Start is called before the first frame update
     void Start()
