@@ -26,7 +26,7 @@ public class DebugLogs : MonoBehaviour
     /// <returns>FPSÅB</returns>
     float FPS()
     {
-        return 1f / Time.deltaTime;
+        return 1.0f / Time.unscaledDeltaTime;
     }
 }
 #endif

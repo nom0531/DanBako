@@ -5,9 +5,7 @@ using UnityEngine.InputSystem;
 
 public class GameCamera : MonoBehaviour
 {
-    [SerializeField, Header("カメラ回転"),Tooltip("カメラの注視点")]
-    private GameObject TargetObject;
-    [SerializeField, Tooltip("カメラの回転速度")]
+    [SerializeField, Header("カメラ回転"), Tooltip("カメラの回転速度")]
     private float RotSpeed = 200.0f;
     [SerializeField, Tooltip("カメラの回転モード（X）")]
     private bool CameraModeX = false;
@@ -15,7 +13,10 @@ public class GameCamera : MonoBehaviour
     private float MaxX = 60.0f;
     [SerializeField, Tooltip("X回転最小値")]
     private float MinX = -40.0f;
-
+    [SerializeField, Header("カメラ位置"), Tooltip("半径")]
+    private float CameraRange = -44.0f;
+    [SerializeField, Tooltip("持ち上げる量")]
+    private float CameraY_Up = 1.5f;
     [SerializeField, Header("ズームイン・ズームアウト"), Tooltip("拡大率最大値")]
     private float ViewMax = 45.0f;
     [SerializeField, Tooltip("拡大率最小値")]
@@ -24,11 +25,13 @@ public class GameCamera : MonoBehaviour
     private GameManager m_gameManager;
     private Camera m_camera;
     private Gamepad m_gamepad;
+    private GameObject m_player = null;
 
     private void Start()
     {
         m_camera = Camera.main;
         m_gameManager = GameManager.Instance;
+        m_player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void LateUpdate()
@@ -38,8 +41,8 @@ public class GameCamera : MonoBehaviour
         {
             return;
         }
-
         Rotation();
+        Move();
         Zoom();
     }
 
@@ -48,8 +51,7 @@ public class GameCamera : MonoBehaviour
     /// </summary>
     private void Rotation()
     {
-        float rot = Time.unscaledDeltaTime * RotSpeed;
-
+        float rot = 0.0f;
         // X角度制限。
         float nowRot = transform.localEulerAngles.x;
         // 取得した角度は0～360°なので補正する。
@@ -85,12 +87,23 @@ public class GameCamera : MonoBehaviour
         {
             rot = 0.0f;
         }
-        transform.RotateAround(TargetObject.transform.position, Vector3.up, rot);
+        transform.RotateAround(m_player.transform.position, Vector3.up, rot);
 
         // Z軸の回転があるとややこしいので制限する。
         Vector3 angles = transform.eulerAngles;
         angles.z = 0.0f;
         transform.eulerAngles = angles;
+    }
+
+    /// <summary>
+    /// 移動処理。
+    /// </summary>
+    private void Move()
+    {
+        Vector3 position = transform.forward * CameraRange;
+        position.y += CameraY_Up;
+        // 座標を設定。
+        transform.position = m_player.transform.position + position;
     }
 
     /// <summary>

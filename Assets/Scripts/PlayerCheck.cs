@@ -8,16 +8,16 @@ using UnityEngine;
 public class PlayerCheck : MonoBehaviour
 {
     [SerializeField]
-    private Transform PlayerTransform;
-    [SerializeField]
     private float StopRadius = 5.0f;
 
     GameTime m_gameTime;
+    Vector3 m_targetPosition = Vector3.zero;
     bool m_stopTimeFlag = false;
 
     private void Start()
     {
         m_gameTime = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameTime>();
+        m_targetPosition = GameObject.FindGameObjectWithTag("Player").transform.localPosition;
     }
 
     private void Update()
@@ -30,7 +30,7 @@ public class PlayerCheck : MonoBehaviour
     /// </summary>
     private void Distance()
     {
-        float distance = Vector3.Distance(transform.position, PlayerTransform.position);
+        float distance = Vector3.Distance(transform.position, m_targetPosition);
 
         if (distance <= StopRadius && m_stopTimeFlag == false)
         {

@@ -9,6 +9,9 @@ public class PlayerAction : MonoBehaviour
 
     public int m_HP = 5;
 
+    private GameManager m_gameManager;
+    private GameObject m_gameCamera;
+
     private bool m_moveFlag, m_damageFlag;
     private bool m_jumpFlag; // ジャンプフラグ
     private bool m_airFlag; // 空中フラグ
@@ -18,22 +21,48 @@ public class PlayerAction : MonoBehaviour
     private float m_jumpHeight;
     private float m_gravity = -9.81f; // 重力の値
 
-    void Update()
+    private void Start()
     {
-        if (m_damageFlag) return;
-
-        // 移動とジャンプの処理
-        Action();
-        HandleJump(); // ジャンプ処理を呼び出す
+        m_gameManager = GameManager.Instance;
+        m_gameCamera = Camera.main.gameObject;
     }
 
-    private void Action()
+    void Update()
     {
-        // ゲームパッドの入力を取得
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        if(m_gameManager.GameMode == CurrentGameMode.enPause)
+        {
+            return;
+        }
 
-        Vector3 move = new Vector3(moveHorizontal, 0.0f, moveVertical) * MoveSpeed;
+        if (m_damageFlag) return;
+
+        Move();
+        HandleJump();
+    }
+
+    /// <summary>
+    /// 移動処理。
+    /// </summary>
+    private void Move()
+    {
+        Vector3 playerMove = Vector3.zero;
+        Vector3 stickL = Vector3.zero;
+
+        // ゲームパッドの入力を取得
+        stickL.x = Input.GetAxis("Horizontal");
+        stickL.z = Input.GetAxis("Vertical");
+
+        Vector3 forward = m_gameCamera.transform.forward;
+        Vector3 right = m_gameCamera.transform.right;
+        forward.y = 0.0f;
+        right.y = 0.0f;
+
+        right *= stickL.x;
+        forward *= stickL.z;
+
+        playerMove += right + forward;
+
+        Vector3 move = playerMove * MoveSpeed;
 
         // 移動させる
         transform.position += move;
@@ -46,6 +75,9 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// ジャンプ処理。
+    /// </summary>
     private void HandleJump() // ジャンプ処理の新しいメソッド
     {
         // 地面にいる場合、ジャンプの処理を行う
