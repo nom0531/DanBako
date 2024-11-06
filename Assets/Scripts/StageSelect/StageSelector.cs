@@ -13,11 +13,12 @@ public class StageSelector : MonoBehaviour
         enRight,
         enLeft = -1
     }
-
-    public GameObject Option;   //オプション画面のオブジェクト
-    public GameObject Stage;    //ステージセレクト画面のオブジェクト
     [SerializeField]
-    public TextMeshProUGUI stageNameText;   //ステージ名を表示するオブジェクト
+    private GameObject Option;   //オプション画面のオブジェクト
+    [SerializeField]
+    private GameObject Stage;    //ステージセレクト画面のオブジェクト
+    [SerializeField]
+    private TextMeshProUGUI stageNameText;   //ステージ名を表示するオブジェクト
 
     //ステージ名を保存する配列
     private string[] stageNames = { "ステージ1", "ステージ2", "ステージ3", "ステージ4", "ステージ5" };

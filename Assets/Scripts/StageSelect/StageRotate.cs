@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class StageRotate : MonoBehaviour
 {
     [SerializeField] float X = 0.0f;
     [SerializeField] float Y = 0.0f;
