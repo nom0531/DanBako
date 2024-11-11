@@ -329,8 +329,8 @@ public class SetParamator : MonoBehaviour
             activeNumber = 0;
         }
 
-        CameraCursor[notActivenumber].SetActive(false);
-        CameraCursor[activeNumber].SetActive(true);
+        CameraCursor[notActivenumber].GetComponent<Animator>().SetTrigger("NotActive");
+        CameraCursor[activeNumber].GetComponent<Animator>().SetTrigger("Active");
         CameraText.GetComponent<TextMeshProUGUI>().text = $"{text}";
         m_saveDataManager.SaveData.saveData.CameraStete = flag;
     }

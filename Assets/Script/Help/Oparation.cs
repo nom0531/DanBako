@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Oparation : MonoBehaviour
 {
+    [SerializeField, Header("表示するオブジェクト")]
+    private GameObject[] Panels;
     [SerializeField, Header("ページ")]
     private GameObject Content;
     [SerializeField, Tooltip("現在位置を示すオブジェクト")]
@@ -34,6 +36,11 @@ public class Oparation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //for(int i = 0; i< Panels.Length; i++)
+        //{
+        //    m_animator[i] = Panels[i].GetComponent<Animator>();
+        //}
+
         CreateCurrentLocationObject();
     }
 
@@ -107,17 +114,16 @@ public class Oparation : MonoBehaviour
     /// </summary>
     private void PushRinght()
     {
-        var oldComandState = m_comandState;
+        int oldComandState = (int)m_comandState;
         m_comandState++;
         // 補正。
-        if (m_comandState > OparationState.enBehind)
+        if (m_comandState >= OparationState.enNum)
         {
             SE_Error.PlaySE();
-            m_comandState = OparationState.enBehind;
+            m_comandState = OparationState.enNum - 1;
             return;
         }
-        m_currentLocationList[(int)oldComandState].PlayAnimaton("NotActive");
-        m_currentLocationList[(int)m_comandState].PlayAnimaton("Active");
+        Change(oldComandState);
         SE_CursorMove.PlaySE();
     }
 
@@ -126,7 +132,7 @@ public class Oparation : MonoBehaviour
     /// </summary>
     private void PushLeft()
     {
-        var oldComandState = m_comandState;
+        int oldComandState = (int)m_comandState;
         m_comandState--;
         // 補正。
         if (m_comandState < OparationState.enFront)
@@ -135,17 +141,30 @@ public class Oparation : MonoBehaviour
             m_comandState = OparationState.enFront;
             return;
         }
-        m_currentLocationList[(int)oldComandState].PlayAnimaton("NotActive");
-        m_currentLocationList[(int)m_comandState].PlayAnimaton("Active");
+        Change(oldComandState);
         SE_CursorMove.PlaySE();
+    }
+
+    /// <summary>
+    /// 表示するデータを変更。
+    /// </summary>
+    /// <param name="numger">表示をやめるオブジェクトの番号。</param>
+    private void Change(int numger)
+    {
+        // 表示するPanelを変更。
+        Panels[numger].gameObject.SetActive(false);
+        Panels[(int)m_comandState].gameObject.SetActive(true);
+        // 現在のページ数を変更。
+        m_currentLocationList[numger].PlayAnimaton("NotActive");
+        m_currentLocationList[(int)m_comandState].PlayAnimaton("Active");
     }
 
     /// <summary>
     /// アニメーションの再生処理。
     /// </summary>
-    /// <param name="triggerName">トリガーの名前。</param>
     /// <param name="oparationState">ステート。</param>
-    private void PlayAnimation(string triggerName, OparationState oparationState)
+    /// <param name="triggerName">トリガーの名前。</param>
+    private void PlayAnimation(OparationState oparationState, string triggerName)
     {
         m_animator[(int)oparationState].SetTrigger(triggerName);
     }

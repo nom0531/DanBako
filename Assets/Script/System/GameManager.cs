@@ -20,6 +20,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     private SaveDataManager m_saveDataManager;
     private SoundManager m_soundManager;
     private CurrentGameMode m_gameMode = CurrentGameMode.enOutGame;
+    private int m_stageID = 0;
 
     public SaveDataManager SaveDataManager
     {
@@ -49,6 +50,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     {
         get => m_gameMode;
         set => m_gameMode = value;
+    }
+
+    public int StageID
+    {
+        set => m_stageID = value;
+        get => m_stageID;
     }
 
 #if UNITY_EDITOR
