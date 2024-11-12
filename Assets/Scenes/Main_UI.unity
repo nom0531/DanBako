@@ -3469,12 +3469,14 @@ GameObject:
   - component: {fileID: 1148109478458050736}
   - component: {fileID: 4764718632839668851}
   - component: {fileID: 6204378894778223351}
+  - component: {fileID: 6204378894778223356}
   - component: {fileID: 6204378894778223349}
   - component: {fileID: 6204378894778223350}
   - component: {fileID: 6204378894778223355}
   - component: {fileID: 6204378894778223354}
   - component: {fileID: 6204378894778223353}
   - component: {fileID: 6204378894778223352}
+  - component: {fileID: 6204378894778223357}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -3580,6 +3582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acff2b76d00cee48adf7a307ac19bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: {fileID: 6204378894778223356}
   Content: {fileID: 142663374}
   HPImageObject: {fileID: 6859913505024892535, guid: 9023d3e3b30310040aa6cfee73883f18,
     type: 3}
@@ -3588,6 +3591,35 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 06f857e7e9d117d49a911de7c6871d75, type: 3}
   HPCount: 3
   HPAnimator: {fileID: 1509611155}
+  SE_Damage: {fileID: 6204378894778223357}
+--- !u!114 &6204378894778223356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204378894778223348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349070c51dedbc74398e0ee55269072b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneNumber: 6
+  FadeCanvas: {fileID: 3002438729615222339, guid: da54e86a9b0e82b42960001cdd5c040c,
+    type: 3}
+--- !u!114 &6204378894778223357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204378894778223348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c345555f39ee707438435cc0c1bb95aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SENumber: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

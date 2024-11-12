@@ -12,6 +12,7 @@ public enum SceneNumber
     enMain,
     enRetryToGame,
     enHelp,
+    enGameOver,
 }
 
 public class FadeScene : SingletonMonoBehaviour<FadeScene>
@@ -102,6 +103,9 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
                 break;
             case SceneNumber.enHelp:
                 sceneName = "Help";
+                break;
+            case SceneNumber.enGameOver:
+                sceneName = "GameOver";
                 break;
         }
         return sceneName;

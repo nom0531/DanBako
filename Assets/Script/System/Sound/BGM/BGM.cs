@@ -14,7 +14,7 @@ public class BGM : MonoBehaviour
         set => BGMNumber = value;
     }
 
-    private const float DECREMENT_VALUE = 0.2f;
+    private const float DECREMENT_VALUE = 0.1f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
@@ -118,15 +118,18 @@ public class BGM : MonoBehaviour
                 if (m_volume <= m_soundManager.BGMVolume)
                 {
                     // 音量が同じになったら終了。
+                    m_volume = m_soundManager.BGMVolume;
                     m_isFade = false;
                     m_isResetVolume = false;
                 }
                 return;
             }
 
-            if (m_volume <= 0.0f)
+            if (m_volume < 0.0f)
             {
                 // 音量が最小になったら終了。
+                m_volume = 0.0f;
+                m_audioSource.volume = 0.0f;
                 m_isFade = false;
             }
         }

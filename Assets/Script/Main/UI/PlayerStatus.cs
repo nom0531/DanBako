@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
+    [SerializeField, Header("ëJà⁄êÊ"), Tooltip("GameOver")]
+    private SceneChange GameOver;
     [SerializeField, Header("HP")]
     private GameObject Content;
     [SerializeField, Tooltip("Image")]
@@ -15,6 +17,8 @@ public class PlayerStatus : MonoBehaviour
     private int HPCount = 3;
     [SerializeField, Tooltip("Animator")]
     private GameObject HPAnimator;
+    [SerializeField, Header("SE"), Tooltip("É_ÉÅÅ[ÉW")]
+    private SE SE_Damage;
 
     private const float SCALE = 0.5f;
 
@@ -69,8 +73,10 @@ public class PlayerStatus : MonoBehaviour
     {
         if (hp_test < 0)
         {
+            GameOver.CreateFadeCanvas();
             return;
         }
+        SE_Damage.PlaySE();
         m_animator.SetTrigger("Break");
         m_hpList[hp].SetImage(HPSprite[1], true);
     }
