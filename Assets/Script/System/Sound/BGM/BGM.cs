@@ -9,7 +9,12 @@ public class BGM : MonoBehaviour
     [SerializeField, Header("フェードの速度")]
     private float FadeSpeed = 1.0f;     // フェードの速度（大きいほど速い）
 
-    private const float DECREMENT_VALUE = 0.2f;
+    public BGMNumber SetBGM
+    {
+        set => BGMNumber = value;
+    }
+
+    private const float DECREMENT_VALUE = 0.1f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
@@ -24,11 +29,6 @@ public class BGM : MonoBehaviour
     {
         get => m_audioSource;
     }
-    public BGMNumber SetBGM
-    {
-        set => BGMNumber = value;
-    }
-
 
     private void Start()
     {
@@ -124,9 +124,10 @@ public class BGM : MonoBehaviour
                 return;
             }
 
-            if (m_volume <= 0.0f)
+            if (m_volume < 0.0f)
             {
                 // 音量が最小になったら終了。
+                m_audioSource.volume = 0.0f;
                 m_isFade = false;
             }
         }

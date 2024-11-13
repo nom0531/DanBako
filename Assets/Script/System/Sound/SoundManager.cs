@@ -11,8 +11,6 @@ public enum BGMNumber
     enStageSelect,
     enOption,
     enHelp,
-    enClear,
-    enGameOver,
     enMain_Onece,
     enMain_Second,
     enMain_Third,
@@ -28,6 +26,9 @@ public enum SENumber
     enDetermination,
     enCancel,
     enError,
+    enDamage,
+    enGameClear,
+    enGameOver,
     enNum,
 }
 
@@ -41,7 +42,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     private GameObject SEObject;
 
     private const float MAX = 1.0f;
-    private const float MIN = 0.0f;
+    private const float MIN = 0.0001f;
     private const float VOLUME = 0.5f;  // デフォルト。
 
     private SaveDataManager m_saveDataManager;

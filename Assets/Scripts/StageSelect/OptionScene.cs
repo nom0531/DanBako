@@ -5,6 +5,12 @@ using TMPro;
 
 public class OptionsMenu : MonoBehaviour
 {
+    private enum SelectOption
+    {
+        enBGMOption,
+        enSEOption
+    }
+
     [SerializeField]
     private SE moveCursorSE;
     [SerializeField]
@@ -34,27 +40,27 @@ public class OptionsMenu : MonoBehaviour
     private GameObject[] menuItems;
 
     private int m_cameraIndex = 0;    //カメラ設定のインデックス
-    private string[] cameraOptionName = { "ノーマル", "たけのこ  " };
+    private string[] cameraOptionName = { "ノーマル", "たけのこ" };
 
     private SaveDataManager m_saveDataManager;
-    private SoundManager m_soundManager;
 
-    [SerializeField,Header("スライダー選択時のポジション調整")]
+    [SerializeField, Header("スライダー選択時のポジション調整")]
     private Vector3 SliderAdjustmentPosition;   //スライダー選択時のカーソルのポジションの調整に使う
 
     [SerializeField, Header("カメラ設定選択時のポジション調整")]
     private Vector3 CameraAdjustmentPosition;   //カメラ選択時のカーソルのポジションの調整に使う
 
-    [SerializeField,Header("戻るボタン選択時のポジション調整")]
+    [SerializeField, Header("戻るボタン選択時のポジション調整")]
     private Vector3 ImageAdjustmentPosition;    //戻るボタン選択時のカーソルのポジションの調整に使う
 
-    void Start() 
+    
+
+    void Start()
     {
         // メニュー項目のリストを作成
-        menuItems = new GameObject[] { bgmSlider.gameObject, seSlider.gameObject, cameraOption.gameObject ,backText.gameObject };
+        menuItems = new GameObject[] { bgmSlider.gameObject, seSlider.gameObject, cameraOption.gameObject, backText.gameObject };
 
         m_saveDataManager = GameManager.Instance.SaveDataManager;
-        m_soundManager = GameManager.Instance.SoundManager;
 
         //bgmとseのスライダーの値を変更
         bgmSlider.value = m_saveDataManager.SaveData.saveData.BGMVolume;
@@ -78,7 +84,7 @@ public class OptionsMenu : MonoBehaviour
         ChangeCameraOption();
         //戻るボタンを押すとステージセレクト画面に遷移
         BackToStageSelect();
-       
+
     }
 
     /// <summary>
@@ -95,7 +101,7 @@ public class OptionsMenu : MonoBehaviour
             //seを再生
             moveCursorSE.PlaySE();
         }
-        else if(Gamepad.current.dpad.down.wasPressedThisFrame)
+        else if (Gamepad.current.dpad.down.wasPressedThisFrame)
         {
             int direction = 1;
             m_selectedIndex = Mathf.Clamp(m_selectedIndex + direction, 0, menuItems.Length - 1);
@@ -109,10 +115,10 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     void MoveCursor()
     {
-        for(int i = 0;i < menuItems.Length;i++)
+        for (int i = 0; i < menuItems.Length; i++)
         {
             //スライダーが選択されているとき
-            if(i == m_selectedIndex && menuItems[m_selectedIndex].TryGetComponent(out Slider selectedSlider))
+            if (i == m_selectedIndex && menuItems[m_selectedIndex].TryGetComponent(out Slider selectedSlider))
             {
                 selectCursor.transform.position = menuItems[i].transform.position + SliderAdjustmentPosition;
             }
@@ -135,24 +141,71 @@ public class OptionsMenu : MonoBehaviour
     void ChangeSliderValue()
     {
         // 選択項目がスライダーなら左右入力で値を調整
-        if (menuItems[m_selectedIndex].TryGetComponent(out Slider selectedSlider))
+        if (m_selectedIndex == (int)SelectOption.enBGMOption)
         {
-            if (Gamepad.current.dpad.right.wasPressedThisFrame)
+            ChangeBGMValue();
+        }
+        if (m_selectedIndex == (int)SelectOption.enSEOption)
+        {
+            ChangeSEValue();
+        }
+    }
+
+    /// <summary>
+    /// BGMのスライダーの値を変更
+    /// </summary>
+    void ChangeBGMValue()
+    {
+        if (Gamepad.current.dpad.right.wasPressedThisFrame)
+        {
+            if (bgmSlider.value < 1.0f)
             {
-                selectedSlider.value += 0.1f;
-                //音量を変更
-                SetBGMVolume();
-                //seを再生
-                moveCursorSE.PlaySE();
+                bgmSlider.value += 0.1f;
             }
-            else if (Gamepad.current.dpad.left.wasPressedThisFrame)
+            //音量を変更
+            SetBGMVolume();
+            //seを再生
+            moveCursorSE.PlaySE();
+        }
+        else if (Gamepad.current.dpad.left.wasPressedThisFrame)
+        {
+            if (bgmSlider.value > 0.0f)
             {
-                selectedSlider.value -= 0.1f;
-                //音量を変更
-                SetBGMVolume();
-                //seを再生
-                moveCursorSE.PlaySE();
+                bgmSlider.value -= 0.1f;
             }
+            //音量を変更
+            SetBGMVolume();
+            //seを再生
+            moveCursorSE.PlaySE();
+        }
+    }
+
+    /// <summary>
+    /// SEのスライダーの値を変更
+    /// </summary>
+    void ChangeSEValue()
+    {
+        if (Gamepad.current.dpad.right.wasPressedThisFrame)
+        {
+            if (seSlider.value < 1.0f)
+            {
+                seSlider.value += 0.1f;
+            }
+            //音量を変更
+            SetSEVolume();
+            //seを再生
+            moveCursorSE.PlaySE();
+        }
+        else if (Gamepad.current.dpad.left.wasPressedThisFrame)
+        {
+            if (seSlider.value > 0.0f)
+            {
+                seSlider.value -= 0.1f;
+            }
+            //音量を変更
+            SetSEVolume();
+            //seを再生
+            moveCursorSE.PlaySE();
         }
     }
 
@@ -167,14 +220,21 @@ public class OptionsMenu : MonoBehaviour
         bgm.ResetVolume();
     }
 
+    void SetSEVolume()
+    {
+        m_saveDataManager.SaveData.saveData.SEVolume = seSlider.value;
+        m_saveDataManager.Save();
+    }
+
+
     /// <summary>
     /// BGMとSEのボリュームの表示を変更
     /// </summary>
     void ChangeVolumeText()
     {
         //bgmとseの値をテキストに代入
-        bgmVolumeText.text = bgmSlider.value.ToString();
-        seVolumeText.text = seSlider.value.ToString();
+        bgmVolumeText.text = bgmSlider.value.ToString("F1");
+        seVolumeText.text = seSlider.value.ToString("F1");
     }
 
     /// <summary>
@@ -183,9 +243,9 @@ public class OptionsMenu : MonoBehaviour
     void ChangeCameraOption()
     {
         //選択項目がカメラ設定だったら左右入力で設定変更
-        if(menuItems[m_selectedIndex] == cameraOption.gameObject)
+        if (menuItems[m_selectedIndex] == cameraOption.gameObject)
         {
-            if(Gamepad.current.dpad.right.wasPressedThisFrame)
+            if (Gamepad.current.dpad.right.wasPressedThisFrame)
             {
                 m_cameraIndex = (m_cameraIndex + 1 + cameraOptionName.Length) % cameraOptionName.Length;
             }
