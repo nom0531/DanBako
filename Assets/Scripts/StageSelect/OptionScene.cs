@@ -53,7 +53,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField, Header("戻るボタン選択時のポジション調整")]
     private Vector3 ImageAdjustmentPosition;    //戻るボタン選択時のカーソルのポジションの調整に使う
 
-    
+
 
     void Start()
     {
@@ -68,6 +68,9 @@ public class OptionsMenu : MonoBehaviour
 
         //selectedIndexの初期化
         m_selectedIndex = 0;
+
+        //カメラ設定の初期化
+        InitCameraOption();
     }
 
     void Update()
@@ -152,6 +155,21 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// カメラ設定の初期化
+    /// </summary>
+    void InitCameraOption()
+    {
+        if (m_saveDataManager.SaveData.saveData.CameraStete == false)
+        {
+            m_cameraIndex = 0;
+        }
+        else
+        {
+            m_cameraIndex = 1;
+        }
+    }
+
+    /// <summary>
     /// BGMのスライダーの値を変更
     /// </summary>
     void ChangeBGMValue()
@@ -226,6 +244,19 @@ public class OptionsMenu : MonoBehaviour
         m_saveDataManager.Save();
     }
 
+    void SetCameraOption()
+    {
+        //カメラ設定がノーマルの場合
+        if (m_cameraIndex == 0)
+        {
+            m_saveDataManager.SaveData.saveData.CameraStete = false;
+        }
+        //カメラ設定が別の場合
+        else
+        {
+            m_saveDataManager.SaveData.saveData.CameraStete = true;
+        }
+    }
 
     /// <summary>
     /// BGMとSEのボリュームの表示を変更
@@ -255,6 +286,7 @@ public class OptionsMenu : MonoBehaviour
             }
         }
         cameraOption.text = cameraOptionName[m_cameraIndex];
+        SetCameraOption();
     }
 
     /// <summary>
