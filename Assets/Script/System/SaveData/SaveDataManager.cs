@@ -13,7 +13,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     [SerializeField, Header("ステージデータ")]
     private StageDataBase StageData;
 
-    private const float DEFAULT_VOLUME = 0.5f;
+    private const float DEFAULT_VOLUME = 0.7f;
 
     private string m_filePath = "";  // 書き込み先のファイルパス。
 
