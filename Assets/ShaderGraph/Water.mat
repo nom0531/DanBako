@@ -40,9 +40,10 @@ Material:
     m_Floats:
     - _Alpha: 1.77
     - _CellDensity: 4.51
+    - _ColorAlpha: 0.529
     - _Edge: 0.08
     - _Fresnel_Power: 3.32
-    - _MoveSpeed: 0.304
+    - _MoveSpeed: 0.34
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
