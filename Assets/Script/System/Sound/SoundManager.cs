@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// BGM�̔ԍ��B
+/// BGMの番号
 /// </summary>
 public enum BGMNumber
 {
@@ -18,7 +18,7 @@ public enum BGMNumber
 }
 
 /// <summary>
-/// SE�̔ԍ��B
+/// SEの番号
 /// </summary>
 public enum SENumber
 {
@@ -34,11 +34,11 @@ public enum SENumber
 
 public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
-    [SerializeField, Header("�T�E���h")]
+    [SerializeField, Header("サウンド")]
     private AudioClip[] BGMSounds = new AudioClip[(int)BGMNumber.enNum];
     [SerializeField]
     private AudioClip[] SESounds = new AudioClip[(int)SENumber.enNum];
-    [SerializeField, Header("��������I�u�W�F�N�g")]
+    [SerializeField, Header("生成するオブジェクト")]
     private GameObject SEObject;
 
     private const float MAX = 1.0f;
@@ -90,7 +90,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     }
 
     /// <summary>
-    /// ���ʂ̏�����
+    /// 音量の初期化
     /// </summary>
     private void InitVolume()
     {
@@ -99,9 +99,9 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     }
 
     /// <summary>
-    /// BGM��Đ��B
+    /// BGMを再生
     /// </summary>
-    /// <param name="number">�ԍ��B</param>
+    /// <param name="number">番号</param>
     public void PlayBGM(BGMNumber number, GameObject gameObject)
     {
         if(number == BGMNumber.enNum)
@@ -112,16 +112,16 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
-        // ���y�̍Đ���J�n�B
+        // 音楽の再生を開始
         audioSouce.clip = BGMSounds[(int)number];
         audioSouce.Play();
         bgm.FadeStart(false);
     }
 
     /// <summary>
-    /// SE��Đ��B
+    /// SEを再生
     /// </summary>
-    /// <param name="number">�ԍ��B</param>
+    /// <param name="number">番号</param>
     public void PlaySE(SENumber number, float decrementValue=0.1f)
     {
         if(number == SENumber.enNum)
@@ -132,7 +132,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();
-        // ���y�̍Đ���J�n�B
+        // 音楽の再生を開始
         gameObject.GetComponent<DestroySEObject>().PlayFlag = true;
         audioSouse.volume = SEVolume* decrementValue;
         audioSouse.PlayOneShot(SESounds[(int)number]);
