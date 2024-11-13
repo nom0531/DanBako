@@ -250,11 +250,13 @@ public class OptionsMenu : MonoBehaviour
         if (m_cameraIndex == 0)
         {
             m_saveDataManager.SaveData.saveData.CameraStete = false;
+            m_saveDataManager.Save();
         }
         //ÉJÉÅÉâê›íËÇ™ï ÇÃèÍçá
         else
         {
             m_saveDataManager.SaveData.saveData.CameraStete = true;
+            m_saveDataManager.Save();
         }
     }
 
@@ -279,14 +281,15 @@ public class OptionsMenu : MonoBehaviour
             if (Gamepad.current.dpad.right.wasPressedThisFrame)
             {
                 m_cameraIndex = (m_cameraIndex + 1 + cameraOptionName.Length) % cameraOptionName.Length;
+                SetCameraOption();
             }
             else if (Gamepad.current.dpad.left.wasPressedThisFrame)
             {
                 m_cameraIndex = (m_cameraIndex - 1 + cameraOptionName.Length) % cameraOptionName.Length;
+                SetCameraOption();
             }
         }
         cameraOption.text = cameraOptionName[m_cameraIndex];
-        SetCameraOption();
     }
 
     /// <summary>
