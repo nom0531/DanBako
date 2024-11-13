@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BGM : MonoBehaviour
 {
-    [SerializeField, Header("�Đ�����BGM�̔ԍ�")]
+    [SerializeField, Header("再生するBGMの番号")]
     private BGMNumber BGMNumber;
-    [SerializeField, Header("�t�F�[�h�̑��x")]
-    private float FadeSpeed = 1.0f;     // �t�F�[�h�̑��x�i�傫���قǑ����j
+    [SerializeField, Header("フェードの速度")]
+    private float FadeSpeed = 1.0f;     // フェードの速度（大きいほど速い）
 
     public BGMNumber SetBGM
     {
@@ -19,11 +19,11 @@ public class BGM : MonoBehaviour
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
 
-    // BGM�̃t�F�[�h
-    float m_volume = 0.0f;              // ���݂̃{�����[���B
-    bool m_fadeMode = false;            // �t�F�[�h�̎�� false=���񂾂�傫�� true=���񂾂񏬂����B
-    bool m_isFade = false;              // �t�F�[�h�������Ȃ�true�B
-    bool m_isResetVolume = false;       // ���ʂ�Đݒ肷��Ȃ�true�B
+    // BGMのフェード
+    float m_volume = 0.0f;              // 現在のボリューム。
+    bool m_fadeMode = false;            // フェードの種類 false=だんだん大きく true=だんだん小さく。
+    bool m_isFade = false;              // フェード処理中ならtrue。
+    bool m_isResetVolume = false;       // 音量を再設定するならtrue。
 
     public AudioSource AudioSource
     {
@@ -38,16 +38,16 @@ public class BGM : MonoBehaviour
     }
 
     /// <summary>
-    /// �t�F�[�h�J�n�B
+    /// フェード開始。
     /// </summary>
-    /// <param name="mode">true�Ȃ�Đ���J�n�Bfalse�Ȃ�Đ���I������B</param>
+    /// <param name="mode">trueなら再生を開始。falseなら再生を終了する。</param>
     public void FadeStart(bool mode)
     {
-        // �����ݒ�B
+        // 初期設定。
         m_fadeMode = mode;
         m_isFade = true;
 
-        // ���ʂ�������B
+        // 音量を初期化。
         if (mode == false)
         {
             m_volume = 0.0f;
@@ -59,21 +59,21 @@ public class BGM : MonoBehaviour
     }
 
     /// <summary>
-    /// ���ʂ�Đݒ肷��B
+    /// 音量を再設定する。
     /// </summary>
     public void ResetVolume()
     {
-        // �������B
+        // 初期化。
         m_fadeMode = ComparisonValue(m_volume);
         m_isFade = true;
         m_isResetVolume = true;
     }
 
     /// <summary>
-    /// �l���r����B
+    /// 値を比較する。
     /// </summary>
-    /// <param name="value">��r����l</param>
-    /// <returns>�t�F�[�h�̃��[�h�B</returns>
+    /// <param name="value">比較する値</param>
+    /// <returns>フェードのモード。</returns>
     private bool ComparisonValue(float value)
     {
         if (m_soundManager.BGMVolume > value)
@@ -85,7 +85,7 @@ public class BGM : MonoBehaviour
 
     private void Update()
     {
-        // �t�F�[�h���łȂ��Ȃ璆�f�B
+        // フェード中でないなら中断。
         if (m_isFade == false)
         {
             return;
@@ -93,32 +93,31 @@ public class BGM : MonoBehaviour
 
         if (m_fadeMode == false)
         {
-            // ���ʂ�傫������B
+            // 音量を大きくする。
             m_volume += FadeSpeed * Time.deltaTime;
 
-            // ���ʂ�ݒ�B
+            // 音量を設定。
             m_audioSource.volume = m_volume * DECREMENT_VALUE;
 
             if (m_volume >= m_soundManager.BGMVolume)
             {
-                // ���ʂ��ő�ɂȂ�����I���B
+                // 音量が最大になったら終了。
                 m_isFade = false;
             }
         }
         else
         {
-            // ���ʂ����������B
+            // 音量を小さくする。
             m_volume -= FadeSpeed * Time.deltaTime;
 
-            // ���ʂ�ݒ�B
+            // 音量を設定。
             m_audioSource.volume = m_volume * DECREMENT_VALUE;
 
             if (m_isResetVolume == true)
             {
                 if (m_volume <= m_soundManager.BGMVolume)
                 {
-                    // ���ʂ������ɂȂ�����I���B
-                    m_volume = m_soundManager.BGMVolume;
+                    // 音量が同じになったら終了。
                     m_isFade = false;
                     m_isResetVolume = false;
                 }
@@ -127,8 +126,7 @@ public class BGM : MonoBehaviour
 
             if (m_volume < 0.0f)
             {
-                // ���ʂ��ŏ��ɂȂ�����I���B
-                m_volume = 0.0f;
+                // 音量が最小になったら終了。
                 m_audioSource.volume = 0.0f;
                 m_isFade = false;
             }
