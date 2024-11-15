@@ -27,6 +27,25 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
         get => GameSaveData;
     }
 
+    public float BGMVolume
+    {
+        get => GameSaveData.saveData.BGMVolume;
+        set => GameSaveData.saveData.BGMVolume = Mathf.Clamp(value, 0.0f, 1.0f);
+
+    }
+
+    public float SEVolume
+    {
+        get => GameSaveData.saveData.SEVolume;
+        set => GameSaveData.saveData.SEVolume = Mathf.Clamp(value, 0.0f, 1.0f);
+    }
+
+    public bool CameraStete
+    {
+        get => GameSaveData.saveData.CameraStete;
+        set => GameSaveData.saveData.CameraStete = value;
+    }
+
     protected override void Awake()
     {
         base.Awake();

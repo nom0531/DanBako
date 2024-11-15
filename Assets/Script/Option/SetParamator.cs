@@ -68,7 +68,7 @@ public class SetParamator : MonoBehaviour
     /// </summary>
     private void Init()
     {
-        ChangeCameraRotation(m_saveDataManager.SaveData.saveData.CameraStete);
+        ChangeCameraRotation(m_saveDataManager.CameraStete);
         InitSoundVolume();
     }
 
@@ -78,8 +78,8 @@ public class SetParamator : MonoBehaviour
     private void InitSoundVolume()
     {
         // ボリュームを計算。
-        var bgm = m_saveDataManager.SaveData.saveData.BGMVolume * SoundStage;
-        var se = m_saveDataManager.SaveData.saveData.SEVolume * SoundStage;
+        var bgm = m_saveDataManager.BGMVolume * SoundStage;
+        var se = m_saveDataManager.SEVolume * SoundStage;
         // 番号。
         int bgmNumber = (int)SoundState.enBGM;
         int seNumber = (int)SoundState.enSE;
@@ -195,11 +195,11 @@ public class SetParamator : MonoBehaviour
 
         if (m_comandState == OptionState.enSEParamator)
         {
-            m_saveDataManager.SaveData.saveData.SEVolume = (float)m_soundDatas[number].soundStage / SoundStage;
+            m_saveDataManager.SEVolume = (float)m_soundDatas[number].soundStage / SoundStage;
         }
         if (m_comandState == OptionState.enBGMParamator)
         {
-            m_saveDataManager.SaveData.saveData.BGMVolume = (float)m_soundDatas[number].soundStage / SoundStage;
+            m_saveDataManager.BGMVolume = (float)m_soundDatas[number].soundStage / SoundStage;
             m_bgm.ResetVolume();
         }
         SE_CursorMove.PlaySE();
@@ -224,11 +224,11 @@ public class SetParamator : MonoBehaviour
 
         if (m_comandState == OptionState.enSEParamator)
         {
-            m_saveDataManager.SaveData.saveData.SEVolume = (float)m_soundDatas[number].soundStage / SoundStage;
+            m_saveDataManager.SEVolume = (float)m_soundDatas[number].soundStage / SoundStage;
         }
         if (m_comandState == OptionState.enBGMParamator)
         {
-            m_saveDataManager.SaveData.saveData.BGMVolume = (float)m_soundDatas[number].soundStage / SoundStage;
+            m_saveDataManager.BGMVolume = (float)m_soundDatas[number].soundStage / SoundStage;
             m_bgm.ResetVolume();
         }
         SE_CursorMove.PlaySE();
@@ -288,7 +288,7 @@ public class SetParamator : MonoBehaviour
     /// </summary>
     private void PushRight()
     {
-        if (m_saveDataManager.SaveData.saveData.CameraStete == false)
+        if (m_saveDataManager.CameraStete == false)
         {
             SE_Error.PlaySE();
             return;
@@ -303,7 +303,7 @@ public class SetParamator : MonoBehaviour
     /// </summary>
     private void PushLeft()
     {
-        if (m_saveDataManager.SaveData.saveData.CameraStete == true)
+        if (m_saveDataManager.CameraStete == true)
         {
             SE_Error.PlaySE();
             return;
@@ -332,7 +332,7 @@ public class SetParamator : MonoBehaviour
         CameraCursor[notActivenumber].GetComponent<Animator>().SetTrigger("NotActive");
         CameraCursor[activeNumber].GetComponent<Animator>().SetTrigger("Active");
         CameraText.GetComponent<TextMeshProUGUI>().text = $"{text}";
-        m_saveDataManager.SaveData.saveData.CameraStete = flag;
+        m_saveDataManager.CameraStete = flag;
     }
 
     /// <summary>
