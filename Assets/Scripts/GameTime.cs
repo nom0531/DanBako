@@ -29,6 +29,7 @@ public class GameTime : MonoBehaviour
     /// </summary>
     public void StopTime()
     {
+        Debug.Log("’âŽ~");
         Time.timeScale = (float)TimeState.enStop;
     }
 
@@ -37,6 +38,7 @@ public class GameTime : MonoBehaviour
     /// </summary>
     public void DefaultTime()
     {
+        Debug.Log("ƒfƒtƒHƒ‹ƒg");
         Time.timeScale = (float)TimeState.enDefault;
     }
 
@@ -45,6 +47,7 @@ public class GameTime : MonoBehaviour
     /// </summary>
     public void AdvanceTime()
     {
+        Debug.Log("”{‘¬");
         Time.timeScale = (float)TimeState.enFast;
     }
 

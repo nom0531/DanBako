@@ -10,6 +10,8 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
 {
     [SerializeField, Header("セーブデータ")]
     private SaveData GameSaveData;
+    [SerializeField, Header("ステージデータ")]
+    private StageDataBase StageData;
 
     private const float DEFAULT_VOLUME = 0.5f;
 
@@ -19,8 +21,6 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     private static readonly int m_encryptPasswordCount = 16;
     private static readonly string m_passwordChars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static readonly int m_passwordCharsLength = m_passwordChars.Length;
-
-    private GameObject m_animationObject;
 
     public SaveData SaveData
     {
@@ -136,7 +136,15 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     /// </summary>
     private void InitData()
     {
-         Save();
+        // データを用意する。
+        GameSaveData.saveData.ClearStage = new bool[StageData.stageDataList.Count];
+        // ステージをクリアしているかどうか。
+        for (int stageNumber = 0; stageNumber < StageData.stageDataList.Count; stageNumber++)
+        {
+            GameSaveData.saveData.ClearStage[stageNumber] = false;  // クリアしていないのでfalse。
+        }
+
+        Save();
     }
 
     /// <summary>

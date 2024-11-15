@@ -10,6 +10,7 @@ public class ScreenSwitch_Main : MonoBehaviour
     private void Start()
     {
         m_gameManager = GameManager.Instance;
+
     }
 
     private void GameOver()

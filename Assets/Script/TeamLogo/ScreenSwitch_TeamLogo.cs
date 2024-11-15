@@ -46,9 +46,9 @@ public class ScreenSwitch_TeamLogo : MonoBehaviour
         // ˆê’èŽžŠÔ‚ªŒo‰ß‚µ‚½‚çŽ©“®“I‚ÉØ‚è‘Ö‚¦‚éB
         if (m_timer >= WaitTime)
         {
-            m_sceneChange.CreateFadeCanvas();
             m_isChange = true;
             m_timer = 0.0f;
+            m_sceneChange.CreateFadeCanvas();
         }
     }
 }

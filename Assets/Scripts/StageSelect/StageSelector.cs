@@ -13,11 +13,12 @@ public class StageSelector : MonoBehaviour
         enRight,
         enLeft = -1
     }
-
-    public GameObject Option;   //オプション画面のオブジェクト
-    public GameObject Stage;    //ステージセレクト画面のオブジェクト
     [SerializeField]
-    public TextMeshProUGUI stageNameText;   //ステージ名を表示するオブジェクト
+    private GameObject Option;   //オプション画面のオブジェクト
+    [SerializeField]
+    private GameObject Stage;    //ステージセレクト画面のオブジェクト
+    [SerializeField]
+    private TextMeshProUGUI stageNameText;   //ステージ名を表示するオブジェクト
 
     //ステージ名を保存する配列
     private string[] stageNames = { "ステージ1", "ステージ2", "ステージ3", "ステージ4", "ステージ5" };
@@ -27,9 +28,11 @@ public class StageSelector : MonoBehaviour
     [SerializeField, Header("移動先の座標")]
     private Vector3[] MovePositions;                    // 移動先のポジション
     [SerializeField, Header("シフト速度")]
-    private float ShiftMoveSpeed = 5.0f;                // ステージ移動の速度
+    private float m_ShiftMoveSpeed = 5.0f;                // ステージ移動の速度
 
-    private const float SELECTED_SCALE = 40.0f;         // 選択されたステージの拡大率
+    [SerializeField]
+    private const float SELECTED_SCALE = 30.0f;         // 選択されたステージの拡大率
+    [SerializeField]
     private const float DEFAULT_SCALE = 20.0f;          // 非選択ステージのデフォルトスケール
 
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
@@ -38,7 +41,7 @@ public class StageSelector : MonoBehaviour
     [SerializeField]
     private bool m_isMoving = false;                    // スライドしているかどうか
     [SerializeField]
-    private bool allMoved = true;                       //全ての動き終わったかどうか
+    private bool m_allMoved = true;                       //全ての動き終わったかどうか
 
 
     private void Start()
@@ -173,19 +176,19 @@ public class StageSelector : MonoBehaviour
                     nextStage = (i + (int)m_nextStage + StageObjects.Length) % StageObjects.Length;
                 }
 
-                StageObjects[i].transform.position = Vector3.Lerp(StageObjects[i].transform.position, MovePositions[nextStage], Time.deltaTime * ShiftMoveSpeed);
+                StageObjects[i].transform.position = Vector3.Lerp(StageObjects[i].transform.position, MovePositions[nextStage], Time.deltaTime * m_ShiftMoveSpeed);
 
                 if (Vector3.Distance(StageObjects[i].transform.position, MovePositions[nextStage]) > 5.0f)
                 {
-                    allMoved = false;
+                    m_allMoved = false;
                 }
                 else
                 {
-                    allMoved = true;
+                    m_allMoved = true;
                 }
             }
 
-            if (allMoved)
+            if (m_allMoved)
             {
                 UpdateIndex();
                 m_isMoving = false;
@@ -214,7 +217,7 @@ public class StageSelector : MonoBehaviour
                 targetScale = Vector3.one * DEFAULT_SCALE;
             }
             StageObjects[i].transform.localScale =
-                Vector3.Lerp(StageObjects[i].transform.localScale, targetScale, Time.deltaTime * ShiftMoveSpeed);
+                Vector3.Lerp(StageObjects[i].transform.localScale, targetScale, Time.deltaTime * m_ShiftMoveSpeed);
         }
     }
 
