@@ -67,7 +67,7 @@ public class BGM : MonoBehaviour
         m_fadeMode = ComparisonValue(m_volume);
         m_isFade = true;
 
-        if(m_volume != 0.0f)
+        if(m_volume > 0.0f)
         {
             m_isResetVolume = true;
         }

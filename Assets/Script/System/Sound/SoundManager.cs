@@ -41,9 +41,6 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     [SerializeField, Header("生成するオブジェクト")]
     private GameObject SEObject;
 
-    private const float MAX = 1.0f;
-    private const float MIN = 0.0f;
-
     private SaveDataManager m_saveDataManager;
     private float m_BGMVolume = 0.0f;
     private float m_SEVolume = 0.0f;
@@ -51,35 +48,13 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     public float BGMVolume
     {
         get => m_BGMVolume;
-        set
-        {
-            if(value > MAX)
-            {
-                value = MAX;
-            }
-            if(value < MIN)
-            {
-                value = MIN;
-            }
-            m_BGMVolume = value;
-        }
+        set => m_BGMVolume = Mathf.Clamp(value, 0.0f, 1.0f);
     }
 
     public float SEVolume
     {
         get => m_SEVolume;
-        set
-        {
-            if (value > MAX)
-            {
-                value = MAX;
-            }
-            if (value < MIN)
-            {
-                value = MIN;
-            }
-            m_SEVolume = value;
-        }
+        set => m_SEVolume = Mathf.Clamp(value, 0.0f, 1.0f);
     }
 
     private void Start()
@@ -94,8 +69,8 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     /// </summary>
     private void InitVolume()
     {
-        BGMVolume = m_saveDataManager.SaveData.saveData.BGMVolume;
-        SEVolume = m_saveDataManager.SaveData.saveData.SEVolume;
+        BGMVolume = m_saveDataManager.BGMVolume;
+        SEVolume = m_saveDataManager.SEVolume;
     }
 
     /// <summary>
@@ -109,7 +84,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return;
         }
 
-        InitVolume();
+        BGMVolume = m_saveDataManager.BGMVolume;
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
         // 音楽の再生を開始
@@ -129,7 +104,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return;
         }
 
-        InitVolume();
+        SEVolume = m_saveDataManager.SEVolume;
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();
         // 音楽の再生を開始
