@@ -30,14 +30,14 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     public float BGMVolume
     {
         get => GameSaveData.saveData.BGMVolume;
-        set => GameSaveData.saveData.BGMVolume = Mathf.Clamp(value, 0.0f, 1.0f);
+        set => GameSaveData.saveData.BGMVolume = Mathf.Clamp(value, 0.0001f, 1.0f);
 
     }
 
     public float SEVolume
     {
         get => GameSaveData.saveData.SEVolume;
-        set => GameSaveData.saveData.SEVolume = Mathf.Clamp(value, 0.0f, 1.0f);
+        set => GameSaveData.saveData.SEVolume = Mathf.Clamp(value, 0.0001f, 1.0f);
     }
 
     public bool CameraStete

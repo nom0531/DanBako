@@ -128,7 +128,7 @@ public class BGM : MonoBehaviour
                 return;
             }
 
-            if (m_volume < 0.0f)
+            if (m_volume <= 0.0f)
             {
                 // 音量が最小になったら終了。
                 m_audioSource.volume = 0.0f;
