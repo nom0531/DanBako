@@ -94,7 +94,7 @@ public class SetParamator : MonoBehaviour
         SoundText[bgmNumber].GetComponent<TextMeshProUGUI>().text = m_soundDatas[bgmNumber].soundStage.ToString();
         SoundText[seNumber].GetComponent<TextMeshProUGUI>().text = m_soundDatas[seNumber].soundStage.ToString();
         // âπó ÇìKópÇ∑ÇÈÅB
-        m_bgm.ResetVolume();
+        m_bgm.ResetVolume(bgm);
     }
 
     /// <summary>
@@ -200,7 +200,7 @@ public class SetParamator : MonoBehaviour
         if (m_comandState == OptionState.enBGMParamator)
         {
             m_saveDataManager.BGMVolume = (float)m_soundDatas[number].soundStage / SoundStage;
-            m_bgm.ResetVolume();
+            m_bgm.ResetVolume(m_saveDataManager.BGMVolume);
         }
         SE_CursorMove.PlaySE();
         m_saveDataManager.Save();
@@ -229,7 +229,7 @@ public class SetParamator : MonoBehaviour
         if (m_comandState == OptionState.enBGMParamator)
         {
             m_saveDataManager.BGMVolume = (float)m_soundDatas[number].soundStage / SoundStage;
-            m_bgm.ResetVolume();
+            m_bgm.ResetVolume(m_saveDataManager.BGMVolume);
         }
         SE_CursorMove.PlaySE();
         m_saveDataManager.Save();
