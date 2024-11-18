@@ -14,7 +14,7 @@ public class BGM : MonoBehaviour
         set => BGMNumber = value;
     }
 
-    private const float DECREMENT_VALUE = 0.1f;
+    private const float DECREMENT_VALUE = 0.5f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
@@ -61,9 +61,10 @@ public class BGM : MonoBehaviour
     /// <summary>
     /// ‰¹—Ê‚ğÄİ’è‚·‚éB
     /// </summary>
-    public void ResetVolume()
+    public void ResetVolume(float m_finishVolume)
     {
         // ‰Šú‰»B
+        m_soundManager.BGMVolume = m_finishVolume;
         FadeStart(ComparisonValue(m_volume));
 
         if (m_volume > 0.0f)
