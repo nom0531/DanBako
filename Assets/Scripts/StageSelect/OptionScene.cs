@@ -233,14 +233,14 @@ public class OptionsMenu : MonoBehaviour
     void SetBGMVolume()
     {
         //セーブデータのbgmのボリューム調整
-        m_saveDataManager.SaveData.saveData.BGMVolume = bgmSlider.value;
+        m_saveDataManager.BGMVolume = bgmSlider.value;
         m_saveDataManager.Save();
         bgm.ResetVolume();
     }
 
     void SetSEVolume()
     {
-        m_saveDataManager.SaveData.saveData.SEVolume = seSlider.value;
+        m_saveDataManager.SEVolume = seSlider.value;
         m_saveDataManager.Save();
     }
 
@@ -249,13 +249,13 @@ public class OptionsMenu : MonoBehaviour
         //カメラ設定がノーマルの場合
         if (m_cameraIndex == 0)
         {
-            m_saveDataManager.SaveData.saveData.CameraStete = false;
+            m_saveDataManager.CameraStete = false;
             m_saveDataManager.Save();
         }
         //カメラ設定が別の場合
         else
         {
-            m_saveDataManager.SaveData.saveData.CameraStete = true;
+            m_saveDataManager.CameraStete = true;
             m_saveDataManager.Save();
         }
     }
