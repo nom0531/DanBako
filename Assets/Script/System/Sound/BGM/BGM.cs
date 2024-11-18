@@ -129,7 +129,7 @@ public class BGM : MonoBehaviour
                 return;
             }
 
-            if (m_volume < 0.0f)
+            if (m_volume <= 0.0f)
             {
                 // ‰¹—Ê‚ªÅ¬‚É‚È‚Á‚½‚çI—¹B
                 m_volume = 0.0f;
