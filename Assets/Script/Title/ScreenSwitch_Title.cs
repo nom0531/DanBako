@@ -6,15 +6,15 @@ using UnityEngine.InputSystem;
 public class ScreenSwitch_Title : MonoBehaviour
 {
     [SerializeField, Header("遷移先"),Tooltip("はじめから/つづきから")]
-    SceneChange Scene_StageSelect;
+    private SceneChange Scene_StageSelect;
     [SerializeField, Tooltip("オプション")]
-    SceneChange Scene_Option;
+    private SceneChange Scene_Option;
     [SerializeField, Tooltip("ヘルプ")]
-    SceneChange Scene_Help;
+    private SceneChange Scene_Help;
     [SerializeField, Header("SE"), Tooltip("決定音")]
-    SE SE_Determination;
+    private SE SE_Determination;
     [SerializeField, Tooltip("カーソル移動音")]
-    SE SE_CursorMove;
+    private SE SE_CursorMove;
 
     /// <summary>
     /// 選択中のコマンド。

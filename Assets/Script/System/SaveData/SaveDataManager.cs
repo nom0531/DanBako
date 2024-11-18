@@ -13,7 +13,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     [SerializeField, Header("ステージデータ")]
     private StageDataBase StageData;
 
-    private const float DEFAULT_VOLUME = 0.5f;
+    private const float DEFAULT_VOLUME = 0.7f;
 
     private string m_filePath = "";  // 書き込み先のファイルパス。
 
@@ -25,6 +25,25 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     public SaveData SaveData
     {
         get => GameSaveData;
+    }
+
+    public float BGMVolume
+    {
+        get => GameSaveData.saveData.BGMVolume;
+        set => GameSaveData.saveData.BGMVolume = Mathf.Clamp(value, 0.0001f, 1.0f);
+
+    }
+
+    public float SEVolume
+    {
+        get => GameSaveData.saveData.SEVolume;
+        set => GameSaveData.saveData.SEVolume = Mathf.Clamp(value, 0.0001f, 1.0f);
+    }
+
+    public bool CameraStete
+    {
+        get => GameSaveData.saveData.CameraStete;
+        set => GameSaveData.saveData.CameraStete = value;
     }
 
     protected override void Awake()

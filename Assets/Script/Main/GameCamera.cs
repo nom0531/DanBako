@@ -33,7 +33,7 @@ public class GameCamera : MonoBehaviour
         m_gameManager = GameManager.Instance;
         m_player = GameObject.FindGameObjectWithTag("Player");
 
-        CameraModeX = m_gameManager.SaveDataManager.SaveData.saveData.CameraStete;
+        CameraModeX = m_gameManager.SaveDataManager.CameraStete;
     }
 
     private void LateUpdate()
