@@ -61,11 +61,16 @@ public class BGM : MonoBehaviour
     /// <summary>
     /// 音量を再設定する。
     /// </summary>
-    public void ResetVolume(float m_finishVolume)
+    public void ResetVolume(float m_finishVolume = 0.0f)
     {
         // 初期化。
-        m_soundManager.BGMVolume = m_finishVolume;
-        FadeStart(ComparisonValue(m_volume));
+        // 初期値なら実行しない。
+        if(m_finishVolume != 0.0f)
+        {
+            m_soundManager.BGMVolume = m_finishVolume;
+        }
+        m_isFade = true;
+        m_fadeMode = ComparisonValue(m_volume);
 
         if (m_volume > 0.0f)
         {
