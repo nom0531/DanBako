@@ -84,7 +84,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return;
         }
 
-        BGMVolume = m_saveDataManager.BGMVolume;
+        InitVolume();
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
         // 音楽の再生を開始。
@@ -104,7 +104,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
             return;
         }
 
-        SEVolume = m_saveDataManager.SEVolume;
+        InitVolume();
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();
         // 音楽の再生を開始。
