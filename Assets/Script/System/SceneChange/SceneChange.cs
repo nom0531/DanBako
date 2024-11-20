@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SceneChange : MonoBehaviour
 {
-    [SerializeField, Header("‘JˆÚæ‚ÌƒV[ƒ“”Ô†")]
+    [SerializeField, Header("é·ç§»å…ˆã®ã‚·ãƒ¼ãƒ³ç•ªå·")]
     private SceneNumber SceneNumber;
     [SerializeField]
     GameObject FadeCanvas;
 
     /// <summary>
-    /// ƒtƒF[ƒhˆ—‚ğÀsB
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰å‡¦ç†ã‚’å®Ÿè¡Œã€‚
     /// </summary>
     public void CreateFadeCanvas()
     {
@@ -19,13 +19,16 @@ public class SceneChange : MonoBehaviour
 
         if (FadeCanvas.name == "FadeCanvas_Rule")
         {
-            // ƒ}ƒeƒŠƒAƒ‹‚ğg—p‚µ‚½ƒtƒF[ƒhB
+            // ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’ä½¿ç”¨ã—ãŸãƒ•ã‚§ãƒ¼ãƒ‰ã€‚
             fadeScene.FadeStart(SceneNumber, Color.black, false);
         }
         if(FadeCanvas.name == "FadeCanvas_Normal")
         {
-            // ’Êí‚ÌƒXƒvƒ‰ƒCƒg‚ğg—p‚µ‚½ƒtƒF[ƒhB
+            // é€šå¸¸ã®ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚’ä½¿ç”¨ã—ãŸãƒ•ã‚§ãƒ¼ãƒ‰ã€‚
             fadeScene.FadeStart(SceneNumber, new Vector4(0,0,0,0), true);
         }
+
+        // æ–‡å­—åŒ–ã‘ãƒ†ã‚¹ãƒˆã€‚
+        // æ–‡å­—åŒ–ã‘ã—ã¦ã„ãªã„ã“ã¨ã‚’ç¥ˆã‚‹ã€‚
     }
 }
