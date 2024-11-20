@@ -8,7 +8,10 @@ public class OptionsMenu : MonoBehaviour
     private enum SelectOption
     {
         enBGMOption,
-        enSEOption
+        enSEOption,
+        enCameraOption,
+        enInitOption,
+        enBackOption
     }
 
     [SerializeField]
@@ -26,6 +29,8 @@ public class OptionsMenu : MonoBehaviour
     private Slider seSlider;         //seスライダー
     [SerializeField]
     private TextMeshProUGUI cameraOption;      //カメラ設定
+    [SerializeField]
+    private Image initText;          //初期化ボタン
     [SerializeField]
     private Image backText;          //戻るボタン
     [SerializeField]
@@ -50,6 +55,9 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField, Header("カメラ設定選択時のポジション調整")]
     private Vector3 CameraAdjustmentPosition;   //カメラ選択時のカーソルのポジションの調整に使う
 
+    [SerializeField, Header("初期化ボタン選択時のポジション調整")]
+    private Vector3 InitAdjustmentPosition;     //初期化ボタン選択時のカーソルのポジション調整に使う
+
     [SerializeField, Header("戻るボタン選択時のポジション調整")]
     private Vector3 ImageAdjustmentPosition;    //戻るボタン選択時のカーソルのポジションの調整に使う
 
@@ -58,7 +66,7 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         // メニュー項目のリストを作成
-        menuItems = new GameObject[] { bgmSlider.gameObject, seSlider.gameObject, cameraOption.gameObject, backText.gameObject };
+        menuItems = new GameObject[] { bgmSlider.gameObject, seSlider.gameObject, cameraOption.gameObject,initText.gameObject,backText.gameObject };
 
         m_saveDataManager = GameManager.Instance.SaveDataManager;
 
@@ -87,6 +95,8 @@ public class OptionsMenu : MonoBehaviour
         ChangeVolumeText();
         //十字キー左右でカメラ操作を変更
         ChangeCameraOption();
+        //初期化ボタンを押すと初期設定に変更
+        InitGameOption();
         //戻るボタンを押すとステージセレクト画面に遷移
         BackToStageSelect();
 
@@ -132,6 +142,11 @@ public class OptionsMenu : MonoBehaviour
             {
                 selectCursor.transform.position = menuItems[i].transform.position + CameraAdjustmentPosition;
             }
+            //初期化ボタンが選択されているとき
+            if(m_selectedIndex == (int)SelectOption.enInitOption)
+            {
+                selectCursor.transform.position = menuItems[(int)SelectOption.enInitOption].transform.position + InitAdjustmentPosition;
+            }
             //戻るボタンが選択されているとき
             if (i == m_selectedIndex && menuItems[m_selectedIndex].TryGetComponent(out Image selectedImage))
             {
@@ -161,7 +176,7 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     void InitCameraOption()
     {
-        if (m_saveDataManager.SaveData.saveData.CameraStete == false)
+        if (m_saveDataManager.CameraStete == false)
         {
             m_cameraIndex = 0;
         }
@@ -278,7 +293,7 @@ public class OptionsMenu : MonoBehaviour
     void ChangeCameraOption()
     {
         //選択項目がカメラ設定だったら左右入力で設定変更
-        if (menuItems[m_selectedIndex] == cameraOption.gameObject)
+        if (m_selectedIndex == (int)SelectOption.enCameraOption)
         {
             if (Gamepad.current.dpad.right.wasPressedThisFrame)
             {
@@ -295,12 +310,37 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// 初期化ボタンを押すと初期設定に変更
+    /// </summary>
+    void InitGameOption()
+    {
+        //初期化ボタンが選択されていてbボタンをおすと
+        if(m_selectedIndex == (int)SelectOption.enInitOption && Gamepad.current.bButton.wasPressedThisFrame)
+        {
+            //BGMとSEを0.5にする
+            m_saveDataManager.BGMVolume = 0.5f;
+            m_saveDataManager.SEVolume = 0.5f;
+            //スライダーにも現在の音量の値を入れる
+            bgmSlider.value = m_saveDataManager.BGMVolume;
+            seSlider.value = m_saveDataManager.SEVolume;
+            //カメラ設定も初期に変更
+            m_saveDataManager.CameraStete = false;
+            InitCameraOption();
+            cameraOption.text = cameraOptionName[m_cameraIndex];
+            //セーブする
+            m_saveDataManager.Save();
+            //bgmリセット
+            bgm.ResetVolume(m_saveDataManager.BGMVolume);
+        }
+    }
+
+    /// <summary>
     /// 戻るボタンを押すとステージセレクト画面に遷移
     /// </summary>
     void BackToStageSelect()
     {
         // 「戻る」ボタンが選択されていてBボタンを押すかStartボタンを押すと戻る処理を実行
-        if (menuItems[m_selectedIndex].TryGetComponent(out Image selectedImage) && Gamepad.current.bButton.wasPressedThisFrame || Gamepad.current.startButton.wasPressedThisFrame)
+        if (m_selectedIndex == (int)SelectOption.enBackOption && Gamepad.current.bButton.wasPressedThisFrame || Gamepad.current.startButton.wasPressedThisFrame)
         {
             Stage.SetActive(true);
             Option.SetActive(false);
