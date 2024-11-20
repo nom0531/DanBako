@@ -57,9 +57,9 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         set => m_SEVolume = Mathf.Clamp(value, 0.0f, 1.0f);
     }
 
-    private void Start()
+    protected override void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
         m_saveDataManager = GameManager.Instance.SaveDataManager;
         InitVolume();
     }
