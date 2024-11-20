@@ -30,7 +30,7 @@ public class BGM : MonoBehaviour
         get => m_audioSource;
     }
 
-    private void Start()
+    private void Awake()
     {
         m_soundManager = GameManager.Instance.SoundManager;
         m_audioSource = GetComponent<AudioSource>();
