@@ -62,6 +62,8 @@ public class OptionsMenu : MonoBehaviour
 
         m_saveDataManager = GameManager.Instance.SaveDataManager;
 
+        bgm.ResetVolume();
+
         //bgmとseのスライダーの値を変更
         bgmSlider.value = m_saveDataManager.SaveData.saveData.BGMVolume;
         seSlider.value = m_saveDataManager.SaveData.saveData.SEVolume;
@@ -235,7 +237,7 @@ public class OptionsMenu : MonoBehaviour
         //セーブデータのbgmのボリューム調整
         m_saveDataManager.BGMVolume = bgmSlider.value;
         m_saveDataManager.Save();
-        bgm.ResetVolume();
+        bgm.ResetVolume(m_saveDataManager.BGMVolume);
     }
 
     void SetSEVolume()
