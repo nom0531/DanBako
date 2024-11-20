@@ -19,138 +19,138 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField]
     private BGM bgm;
     [SerializeField]
-    private GameObject Option;       //ƒIƒvƒVƒ‡ƒ“‰æ–Ê‚ÌƒIƒuƒWƒFƒNƒg
+    private GameObject Option;       //ã‚ªãƒ—ã‚·ãƒ§ãƒ³ç”»é¢ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     [SerializeField]
-    private GameObject Stage;        //ƒXƒe[ƒWƒZƒŒƒNƒg‰æ–Ê‚ÌƒIƒuƒWƒFƒNƒg
+    private GameObject Stage;        //ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”»é¢ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
     [SerializeField]
-    private Slider bgmSlider;        //bgmƒXƒ‰ƒCƒ_[
+    private Slider bgmSlider;        //bgmã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
     [SerializeField]
-    private Slider seSlider;         //seƒXƒ‰ƒCƒ_[
+    private Slider seSlider;         //seã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼
     [SerializeField]
-    private TextMeshProUGUI cameraOption;      //ƒJƒƒ‰İ’è
+    private TextMeshProUGUI cameraOption;      //ã‚«ãƒ¡ãƒ©è¨­å®š
     [SerializeField]
-    private Image initText;          //‰Šú‰»ƒ{ƒ^ƒ“
+    private Image initText;          //åˆæœŸåŒ–ãƒœã‚¿ãƒ³
     [SerializeField]
-    private Image backText;          //–ß‚éƒ{ƒ^ƒ“
+    private Image backText;          //æˆ»ã‚‹ãƒœã‚¿ãƒ³
     [SerializeField]
-    private Image selectCursor;      //ƒJ[ƒ\ƒ‹
+    private Image selectCursor;      //ã‚«ãƒ¼ã‚½ãƒ«
 
     [SerializeField]
-    private TextMeshProUGUI bgmVolumeText;  //BGM‚Ìƒ{ƒŠƒ…[ƒ€‚ğ•\¦‚·‚éƒeƒLƒXƒg
+    private TextMeshProUGUI bgmVolumeText;  //BGMã®ãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆ
     [SerializeField]
-    private TextMeshProUGUI seVolumeText;   //SE‚Ìƒ{ƒŠƒ…[ƒ€‚ğ•\¦‚·‚éƒeƒLƒXƒg
+    private TextMeshProUGUI seVolumeText;   //SEã®ãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ãƒ†ã‚­ã‚¹ãƒˆ
 
-    private int m_selectedIndex = 0;  //‘I‘ğ’†‚ÌƒCƒ“ƒfƒbƒNƒX
+    private int m_selectedIndex = 0;  //é¸æŠä¸­ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
     private GameObject[] menuItems;
 
-    private int m_cameraIndex = 0;    //ƒJƒƒ‰İ’è‚ÌƒCƒ“ƒfƒbƒNƒX
-    private string[] cameraOptionName = { "ƒm[ƒ}ƒ‹", "‚½‚¯‚Ì‚±" };
+    private int m_cameraIndex = 0;    //ã‚«ãƒ¡ãƒ©è¨­å®šã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+    private string[] cameraOptionName = { "ãƒãƒ¼ãƒãƒ«", "ãŸã‘ã®ã“" };
 
     private SaveDataManager m_saveDataManager;
 
-    [SerializeField, Header("ƒXƒ‰ƒCƒ_[‘I‘ğ‚Ìƒ|ƒWƒVƒ‡ƒ“’²®")]
-    private Vector3 SliderAdjustmentPosition;   //ƒXƒ‰ƒCƒ_[‘I‘ğ‚ÌƒJ[ƒ\ƒ‹‚Ìƒ|ƒWƒVƒ‡ƒ“‚Ì’²®‚Ég‚¤
+    [SerializeField, Header("ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼é¸æŠæ™‚ã®ãƒã‚¸ã‚·ãƒ§ãƒ³èª¿æ•´")]
+    private Vector3 SliderAdjustmentPosition;   //ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼é¸æŠæ™‚ã®ã‚«ãƒ¼ã‚½ãƒ«ã®ãƒã‚¸ã‚·ãƒ§ãƒ³ã®èª¿æ•´ã«ä½¿ã†
 
-    [SerializeField, Header("ƒJƒƒ‰İ’è‘I‘ğ‚Ìƒ|ƒWƒVƒ‡ƒ“’²®")]
-    private Vector3 CameraAdjustmentPosition;   //ƒJƒƒ‰‘I‘ğ‚ÌƒJ[ƒ\ƒ‹‚Ìƒ|ƒWƒVƒ‡ƒ“‚Ì’²®‚Ég‚¤
+    [SerializeField, Header("ã‚«ãƒ¡ãƒ©è¨­å®šé¸æŠæ™‚ã®ãƒã‚¸ã‚·ãƒ§ãƒ³èª¿æ•´")]
+    private Vector3 CameraAdjustmentPosition;   //ã‚«ãƒ¡ãƒ©é¸æŠæ™‚ã®ã‚«ãƒ¼ã‚½ãƒ«ã®ãƒã‚¸ã‚·ãƒ§ãƒ³ã®èª¿æ•´ã«ä½¿ã†
 
-    [SerializeField, Header("‰Šú‰»ƒ{ƒ^ƒ“‘I‘ğ‚Ìƒ|ƒWƒVƒ‡ƒ“’²®")]
-    private Vector3 InitAdjustmentPosition;     //‰Šú‰»ƒ{ƒ^ƒ“‘I‘ğ‚ÌƒJ[ƒ\ƒ‹‚Ìƒ|ƒWƒVƒ‡ƒ“’²®‚Ég‚¤
+    [SerializeField, Header("åˆæœŸåŒ–ãƒœã‚¿ãƒ³é¸æŠæ™‚ã®ãƒã‚¸ã‚·ãƒ§ãƒ³èª¿æ•´")]
+    private Vector3 InitAdjustmentPosition;     //åˆæœŸåŒ–ãƒœã‚¿ãƒ³é¸æŠæ™‚ã®ã‚«ãƒ¼ã‚½ãƒ«ã®ãƒã‚¸ã‚·ãƒ§ãƒ³èª¿æ•´ã«ä½¿ã†
 
-    [SerializeField, Header("–ß‚éƒ{ƒ^ƒ“‘I‘ğ‚Ìƒ|ƒWƒVƒ‡ƒ“’²®")]
-    private Vector3 ImageAdjustmentPosition;    //–ß‚éƒ{ƒ^ƒ“‘I‘ğ‚ÌƒJ[ƒ\ƒ‹‚Ìƒ|ƒWƒVƒ‡ƒ“‚Ì’²®‚Ég‚¤
+    [SerializeField, Header("æˆ»ã‚‹ãƒœã‚¿ãƒ³é¸æŠæ™‚ã®ãƒã‚¸ã‚·ãƒ§ãƒ³èª¿æ•´")]
+    private Vector3 ImageAdjustmentPosition;    //æˆ»ã‚‹ãƒœã‚¿ãƒ³é¸æŠæ™‚ã®ã‚«ãƒ¼ã‚½ãƒ«ã®ãƒã‚¸ã‚·ãƒ§ãƒ³ã®èª¿æ•´ã«ä½¿ã†
 
 
 
     void Start()
     {
-        // ƒƒjƒ…[€–Ú‚ÌƒŠƒXƒg‚ğì¬
+        // ãƒ¡ãƒ‹ãƒ¥ãƒ¼é …ç›®ã®ãƒªã‚¹ãƒˆã‚’ä½œæˆ
         menuItems = new GameObject[] { bgmSlider.gameObject, seSlider.gameObject, cameraOption.gameObject,initText.gameObject,backText.gameObject };
 
         m_saveDataManager = GameManager.Instance.SaveDataManager;
 
         bgm.ResetVolume();
 
-        //bgm‚Æse‚ÌƒXƒ‰ƒCƒ_[‚Ì’l‚ğ•ÏX
+        //bgmã¨seã®ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ã‚’å¤‰æ›´
         bgmSlider.value = m_saveDataManager.SaveData.saveData.BGMVolume;
         seSlider.value = m_saveDataManager.SaveData.saveData.SEVolume;
 
-        //selectedIndex‚Ì‰Šú‰»
+        //selectedIndexã®åˆæœŸåŒ–
         m_selectedIndex = 0;
 
-        //ƒJƒƒ‰İ’è‚Ì‰Šú‰»
+        //ã‚«ãƒ¡ãƒ©è¨­å®šã®åˆæœŸåŒ–
         InitCameraOption();
     }
 
     void Update()
     {
-        //\šƒL[ã‰º‚ÅˆÚ“®
+        //åå­—ã‚­ãƒ¼ä¸Šä¸‹ã§ç§»å‹•
         MoveSelect();
-        //ƒJ[ƒ\ƒ‹‚ÌˆÚ“®
+        //ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•
         MoveCursor();
-        //\šƒL[¶‰E‚ÅƒXƒ‰ƒCƒ_[‚Ì’l‚ğ•ÏX
+        //åå­—ã‚­ãƒ¼å·¦å³ã§ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ã‚’å¤‰æ›´
         ChangeSliderValue();
-        //BGM‚ÆSE‚Ìƒ{ƒŠƒ…[ƒ€‚Ì•\¦‚ğ•ÏX
+        //BGMã¨SEã®ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®è¡¨ç¤ºã‚’å¤‰æ›´
         ChangeVolumeText();
-        //\šƒL[¶‰E‚ÅƒJƒƒ‰‘€ì‚ğ•ÏX
+        //åå­—ã‚­ãƒ¼å·¦å³ã§ã‚«ãƒ¡ãƒ©æ“ä½œã‚’å¤‰æ›´
         ChangeCameraOption();
-        //‰Šú‰»ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚Æ‰Šúİ’è‚É•ÏX
+        //åˆæœŸåŒ–ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨åˆæœŸè¨­å®šã«å¤‰æ›´
         InitGameOption();
-        //–ß‚éƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆƒXƒe[ƒWƒZƒŒƒNƒg‰æ–Ê‚É‘JˆÚ
+        //æˆ»ã‚‹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”»é¢ã«é·ç§»
         BackToStageSelect();
 
     }
 
     /// <summary>
-    /// \šƒL[ã‰º‚ÅˆÚ“®
+    /// åå­—ã‚­ãƒ¼ä¸Šä¸‹ã§ç§»å‹•
     /// </summary>
     void MoveSelect()
     {
-        // \šƒL[‚Åã‰º‚Ì“ü—Í‚ğæ“¾
+        // åå­—ã‚­ãƒ¼ã§ä¸Šä¸‹ã®å…¥åŠ›ã‚’å–å¾—
         if (Gamepad.current.dpad.up.wasPressedThisFrame)
         {
-            // ƒCƒ“ƒfƒbƒNƒX‚ğ•ÏXiã‰ºˆÚ“®j
+            // ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’å¤‰æ›´ï¼ˆä¸Šä¸‹ç§»å‹•ï¼‰
             int direction = -1;
             m_selectedIndex = Mathf.Clamp(m_selectedIndex + direction, 0, menuItems.Length - 1);
-            //se‚ğÄ¶
+            //seã‚’å†ç”Ÿ
             moveCursorSE.PlaySE();
         }
         else if (Gamepad.current.dpad.down.wasPressedThisFrame)
         {
             int direction = 1;
             m_selectedIndex = Mathf.Clamp(m_selectedIndex + direction, 0, menuItems.Length - 1);
-            //se‚ğÄ¶
+            //seã‚’å†ç”Ÿ
             moveCursorSE.PlaySE();
         }
     }
 
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹‚ÌˆÚ“®
+    /// ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•
     /// </summary>
     void MoveCursor()
     {
-        //BGMƒXƒ‰ƒCƒ_[‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚Æ‚«
+        //BGMã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã¨ã
         if (m_selectedIndex == (int)SelectOption.enBGMOption || m_selectedIndex == (int)SelectOption.enSEOption)
         {
             selectCursor.transform.position = menuItems[(int)SelectOption.enBGMOption].transform.position + SliderAdjustmentPosition;
         }
-        //SEƒXƒ‰ƒCƒ_[‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚Æ‚«
+        //SEã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã¨ã
         if (m_selectedIndex == (int)SelectOption.enSEOption)
         {
             selectCursor.transform.position = menuItems[(int)SelectOption.enSEOption].transform.position + SliderAdjustmentPosition;
         }
-        //ƒJƒƒ‰İ’è‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚Æ‚«
+        //ã‚«ãƒ¡ãƒ©è¨­å®šãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã¨ã
         if (m_selectedIndex == (int)SelectOption.enCameraOption)
         {
             selectCursor.transform.position = menuItems[(int)SelectOption.enCameraOption].transform.position + CameraAdjustmentPosition;
         }
-        //‰Šú‰»ƒ{ƒ^ƒ“‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚Æ‚«
+        //åˆæœŸåŒ–ãƒœã‚¿ãƒ³ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã¨ã
         if(m_selectedIndex == (int)SelectOption.enInitOption)
         {
             selectCursor.transform.position = menuItems[(int)SelectOption.enInitOption].transform.position + InitAdjustmentPosition;
         }
-        //–ß‚éƒ{ƒ^ƒ“‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚é‚Æ‚«
+        //æˆ»ã‚‹ãƒœã‚¿ãƒ³ãŒé¸æŠã•ã‚Œã¦ã„ã‚‹ã¨ã
         if (m_selectedIndex == (int)SelectOption.enBackOption)
         {
             selectCursor.transform.position = menuItems[(int)SelectOption.enBackOption].transform.position + ImageAdjustmentPosition;
@@ -158,11 +158,11 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// \šƒL[¶‰E‚ÅƒXƒ‰ƒCƒ_[‚Ì’l‚ğ•ÏX
+    /// åå­—ã‚­ãƒ¼å·¦å³ã§ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ã‚’å¤‰æ›´
     /// </summary>
     void ChangeSliderValue()
     {
-        // ‘I‘ğ€–Ú‚ªƒXƒ‰ƒCƒ_[‚È‚ç¶‰E“ü—Í‚Å’l‚ğ’²®
+        // é¸æŠé …ç›®ãŒã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ãªã‚‰å·¦å³å…¥åŠ›ã§å€¤ã‚’èª¿æ•´
         if (m_selectedIndex == (int)SelectOption.enBGMOption)
         {
             ChangeBGMValue();
@@ -174,7 +174,7 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒJƒƒ‰İ’è‚Ì‰Šú‰»
+    /// ã‚«ãƒ¡ãƒ©è¨­å®šã®åˆæœŸåŒ–
     /// </summary>
     void InitCameraOption()
     {
@@ -189,7 +189,7 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// BGM‚ÌƒXƒ‰ƒCƒ_[‚Ì’l‚ğ•ÏX
+    /// BGMã®ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ã‚’å¤‰æ›´
     /// </summary>
     void ChangeBGMValue()
     {
@@ -199,9 +199,9 @@ public class OptionsMenu : MonoBehaviour
             {
                 bgmSlider.value += 0.1f;
             }
-            //‰¹—Ê‚ğ•ÏX
+            //éŸ³é‡ã‚’å¤‰æ›´
             SetBGMVolume();
-            //se‚ğÄ¶
+            //seã‚’å†ç”Ÿ
             moveCursorSE.PlaySE();
         }
         else if (Gamepad.current.dpad.left.wasPressedThisFrame)
@@ -210,15 +210,15 @@ public class OptionsMenu : MonoBehaviour
             {
                 bgmSlider.value -= 0.1f;
             }
-            //‰¹—Ê‚ğ•ÏX
+            //éŸ³é‡ã‚’å¤‰æ›´
             SetBGMVolume();
-            //se‚ğÄ¶
+            //seã‚’å†ç”Ÿ
             moveCursorSE.PlaySE();
         }
     }
 
     /// <summary>
-    /// SE‚ÌƒXƒ‰ƒCƒ_[‚Ì’l‚ğ•ÏX
+    /// SEã®ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã®å€¤ã‚’å¤‰æ›´
     /// </summary>
     void ChangeSEValue()
     {
@@ -228,9 +228,9 @@ public class OptionsMenu : MonoBehaviour
             {
                 seSlider.value += 0.1f;
             }
-            //‰¹—Ê‚ğ•ÏX
+            //éŸ³é‡ã‚’å¤‰æ›´
             SetSEVolume();
-            //se‚ğÄ¶
+            //seã‚’å†ç”Ÿ
             moveCursorSE.PlaySE();
         }
         else if (Gamepad.current.dpad.left.wasPressedThisFrame)
@@ -239,19 +239,19 @@ public class OptionsMenu : MonoBehaviour
             {
                 seSlider.value -= 0.1f;
             }
-            //‰¹—Ê‚ğ•ÏX
+            //éŸ³é‡ã‚’å¤‰æ›´
             SetSEVolume();
-            //se‚ğÄ¶
+            //seã‚’å†ç”Ÿ
             moveCursorSE.PlaySE();
         }
     }
 
     /// <summary>
-    /// ‰¹—Ê‚Ì•ÏX
+    /// éŸ³é‡ã®å¤‰æ›´
     /// </summary>
     void SetBGMVolume()
     {
-        //ƒZ[ƒuƒf[ƒ^‚Ìbgm‚Ìƒ{ƒŠƒ…[ƒ€’²®
+        //ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã®bgmã®ãƒœãƒªãƒ¥ãƒ¼ãƒ èª¿æ•´
         m_saveDataManager.BGMVolume = bgmSlider.value;
         m_saveDataManager.Save();
         bgm.ResetVolume(m_saveDataManager.BGMVolume);
@@ -265,13 +265,13 @@ public class OptionsMenu : MonoBehaviour
 
     void SetCameraOption()
     {
-        //ƒJƒƒ‰İ’è‚ªƒm[ƒ}ƒ‹‚Ìê‡
+        //ã‚«ãƒ¡ãƒ©è¨­å®šãŒãƒãƒ¼ãƒãƒ«ã®å ´åˆ
         if (m_cameraIndex == 0)
         {
             m_saveDataManager.CameraStete = false;
             m_saveDataManager.Save();
         }
-        //ƒJƒƒ‰İ’è‚ª•Ê‚Ìê‡
+        //ã‚«ãƒ¡ãƒ©è¨­å®šãŒåˆ¥ã®å ´åˆ
         else
         {
             m_saveDataManager.CameraStete = true;
@@ -280,21 +280,21 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// BGM‚ÆSE‚Ìƒ{ƒŠƒ…[ƒ€‚Ì•\¦‚ğ•ÏX
+    /// BGMã¨SEã®ãƒœãƒªãƒ¥ãƒ¼ãƒ ã®è¡¨ç¤ºã‚’å¤‰æ›´
     /// </summary>
     void ChangeVolumeText()
     {
-        //bgm‚Æse‚Ì’l‚ğƒeƒLƒXƒg‚É‘ã“ü
+        //bgmã¨seã®å€¤ã‚’ãƒ†ã‚­ã‚¹ãƒˆã«ä»£å…¥
         bgmVolumeText.text = bgmSlider.value.ToString("F1");
         seVolumeText.text = seSlider.value.ToString("F1");
     }
 
     /// <summary>
-    /// ƒJƒƒ‰‘€ì‚Ì•ÏX
+    /// ã‚«ãƒ¡ãƒ©æ“ä½œã®å¤‰æ›´
     /// </summary>
     void ChangeCameraOption()
     {
-        //‘I‘ğ€–Ú‚ªƒJƒƒ‰İ’è‚¾‚Á‚½‚ç¶‰E“ü—Í‚Åİ’è•ÏX
+        //é¸æŠé …ç›®ãŒã‚«ãƒ¡ãƒ©è¨­å®šã ã£ãŸã‚‰å·¦å³å…¥åŠ›ã§è¨­å®šå¤‰æ›´
         if (m_selectedIndex == (int)SelectOption.enCameraOption)
         {
             if (Gamepad.current.dpad.right.wasPressedThisFrame)
@@ -312,36 +312,36 @@ public class OptionsMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰Šú‰»ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚Æ‰Šúİ’è‚É•ÏX
+    /// åˆæœŸåŒ–ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨åˆæœŸè¨­å®šã«å¤‰æ›´
     /// </summary>
     void InitGameOption()
     {
-        //‰Šú‰»ƒ{ƒ^ƒ“‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Äbƒ{ƒ^ƒ“‚ğ‚¨‚·‚Æ
+        //åˆæœŸåŒ–ãƒœã‚¿ãƒ³ãŒé¸æŠã•ã‚Œã¦ã„ã¦bãƒœã‚¿ãƒ³ã‚’ãŠã™ã¨
         if(m_selectedIndex == (int)SelectOption.enInitOption && Gamepad.current.bButton.wasPressedThisFrame)
         {
-            //BGM‚ÆSE‚ğ0.5‚É‚·‚é
+            //BGMã¨SEã‚’0.5ã«è¨­å®šã™ã‚‹
             m_saveDataManager.BGMVolume = 0.5f;
             m_saveDataManager.SEVolume = 0.5f;
-            //ƒXƒ‰ƒCƒ_[‚É‚àŒ»İ‚Ì‰¹—Ê‚Ì’l‚ğ“ü‚ê‚é
+            //ã‚¹ãƒ©ã‚¤ãƒ€ãƒ¼ã«ã‚‚ç¾åœ¨ã®éŸ³é‡ã®å€¤ã‚’å…¥ã‚Œã‚‹
             bgmSlider.value = m_saveDataManager.BGMVolume;
             seSlider.value = m_saveDataManager.SEVolume;
-            //ƒJƒƒ‰İ’è‚à‰Šú‚É•ÏX
+            //ã‚«ãƒ¡ãƒ©è¨­å®šã‚‚åˆæœŸã«å¤‰æ›´
             m_saveDataManager.CameraStete = false;
             InitCameraOption();
             cameraOption.text = cameraOptionName[m_cameraIndex];
-            //ƒZ[ƒu‚·‚é
+            //ã‚»ãƒ¼ãƒ–ã™ã‚‹
             m_saveDataManager.Save();
-            //bgmƒŠƒZƒbƒg
+            //bgmãƒªã‚»ãƒƒãƒˆ
             bgm.ResetVolume(m_saveDataManager.BGMVolume);
         }
     }
 
     /// <summary>
-    /// –ß‚éƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆƒXƒe[ƒWƒZƒŒƒNƒg‰æ–Ê‚É‘JˆÚ
+    /// æˆ»ã‚‹ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”»é¢ã«é·ç§»
     /// </summary>
     void BackToStageSelect()
     {
-        // u–ß‚évƒ{ƒ^ƒ“‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚ÄBƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚©Startƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚Æ–ß‚éˆ—‚ğÀs
+        // ã€Œæˆ»ã‚‹ã€ãƒœã‚¿ãƒ³ãŒé¸æŠã•ã‚Œã¦ã„ã¦Bãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã‹Startãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨æˆ»ã‚‹å‡¦ç†ã‚’å®Ÿè¡Œ
         if (m_selectedIndex == (int)SelectOption.enBackOption && Gamepad.current.bButton.wasPressedThisFrame || Gamepad.current.startButton.wasPressedThisFrame)
         {
             Stage.SetActive(true);
