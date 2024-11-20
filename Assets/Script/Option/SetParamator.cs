@@ -94,7 +94,7 @@ public class SetParamator : MonoBehaviour
         SoundText[bgmNumber].GetComponent<TextMeshProUGUI>().text = m_soundDatas[bgmNumber].soundStage.ToString();
         SoundText[seNumber].GetComponent<TextMeshProUGUI>().text = m_soundDatas[seNumber].soundStage.ToString();
         // ‰¹—Ê‚ğ“K—p‚·‚éB
-        m_bgm.ResetVolume(bgm);
+        m_bgm.ResetVolume();
     }
 
     /// <summary>
