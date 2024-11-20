@@ -130,28 +130,30 @@ public class OptionsMenu : MonoBehaviour
     /// </summary>
     void MoveCursor()
     {
-        for (int i = 0; i < menuItems.Length; i++)
+        //BGMスライダーが選択されているとき
+        if (m_selectedIndex == (int)SelectOption.enBGMOption || m_selectedIndex == (int)SelectOption.enSEOption)
         {
-            //スライダーが選択されているとき
-            if (i == m_selectedIndex && menuItems[m_selectedIndex].TryGetComponent(out Slider selectedSlider))
-            {
-                selectCursor.transform.position = menuItems[i].transform.position + SliderAdjustmentPosition;
-            }
-            //カメラ設定が選択されているとき
-            if (i == m_selectedIndex && menuItems[m_selectedIndex].TryGetComponent(out TextMeshProUGUI selectedText))
-            {
-                selectCursor.transform.position = menuItems[i].transform.position + CameraAdjustmentPosition;
-            }
-            //初期化ボタンが選択されているとき
-            if(m_selectedIndex == (int)SelectOption.enInitOption)
-            {
-                selectCursor.transform.position = menuItems[(int)SelectOption.enInitOption].transform.position + InitAdjustmentPosition;
-            }
-            //戻るボタンが選択されているとき
-            if (i == m_selectedIndex && menuItems[m_selectedIndex].TryGetComponent(out Image selectedImage))
-            {
-                selectCursor.transform.position = menuItems[i].transform.position + ImageAdjustmentPosition;
-            }
+            selectCursor.transform.position = menuItems[(int)SelectOption.enBGMOption].transform.position + SliderAdjustmentPosition;
+        }
+        //SEスライダーが選択されているとき
+        if (m_selectedIndex == (int)SelectOption.enSEOption)
+        {
+            selectCursor.transform.position = menuItems[(int)SelectOption.enSEOption].transform.position + SliderAdjustmentPosition;
+        }
+        //カメラ設定が選択されているとき
+        if (m_selectedIndex == (int)SelectOption.enCameraOption)
+        {
+            selectCursor.transform.position = menuItems[(int)SelectOption.enCameraOption].transform.position + CameraAdjustmentPosition;
+        }
+        //初期化ボタンが選択されているとき
+        if(m_selectedIndex == (int)SelectOption.enInitOption)
+        {
+            selectCursor.transform.position = menuItems[(int)SelectOption.enInitOption].transform.position + InitAdjustmentPosition;
+        }
+        //戻るボタンが選択されているとき
+        if (m_selectedIndex == (int)SelectOption.enBackOption)
+        {
+            selectCursor.transform.position = menuItems[(int)SelectOption.enBackOption].transform.position + ImageAdjustmentPosition;
         }
     }
 
