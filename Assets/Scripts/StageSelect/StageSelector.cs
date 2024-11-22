@@ -5,7 +5,7 @@ using TMPro;
 public class StageSelector : MonoBehaviour
 {
     /// <summary>
-    /// ƒXƒe[ƒW‚ÌƒXƒe[ƒgB
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¹ãƒ†ãƒ¼ãƒˆã€‚
     /// </summary>
     public enum StageState
     {
@@ -14,67 +14,73 @@ public class StageSelector : MonoBehaviour
         enLeft = -1
     }
     [SerializeField]
-    private GameObject Option;   //ƒIƒvƒVƒ‡ƒ“‰æ–Ê‚ÌƒIƒuƒWƒFƒNƒg
+    private GameObject Option;   //ã‚ªãƒ—ã‚·ãƒ§ãƒ³ç”»é¢ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     [SerializeField]
-    private GameObject Stage;    //ƒXƒe[ƒWƒZƒŒƒNƒg‰æ–Ê‚ÌƒIƒuƒWƒFƒNƒg
+    private GameObject Stage;    //ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”»é¢ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
     [SerializeField]
-    private TextMeshProUGUI stageNameText;   //ƒXƒe[ƒW–¼‚ğ•\¦‚·‚éƒIƒuƒWƒFƒNƒg
-
-    //ƒXƒe[ƒW–¼‚ğ•Û‘¶‚·‚é”z—ñ
-    private string[] stageNames = { "ƒXƒe[ƒW1", "ƒXƒe[ƒW2", "ƒXƒe[ƒW3", "ƒXƒe[ƒW4", "ƒXƒe[ƒW5" };
+    private TextMeshProUGUI stageNameText;   //ã‚¹ãƒ†ãƒ¼ã‚¸åã‚’è¡¨ç¤ºã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
     [SerializeField]
-    private GameObject[] StageObjects;                  // ƒXƒe[ƒWƒIƒuƒWƒFƒNƒg‚Ì”z—ñ
-    [SerializeField, Header("ˆÚ“®æ‚ÌÀ•W")]
-    private Vector3[] MovePositions;                    // ˆÚ“®æ‚Ìƒ|ƒWƒVƒ‡ƒ“
-    [SerializeField, Header("ƒVƒtƒg‘¬“x")]
-    private float m_ShiftMoveSpeed = 5.0f;                // ƒXƒe[ƒWˆÚ“®‚Ì‘¬“x
+    private StageDataBase stageDataBase;                //ã‚¹ãƒ†ãƒ¼ã‚¸
 
     [SerializeField]
-    private const float SELECTED_SCALE = 30.0f;         // ‘I‘ğ‚³‚ê‚½ƒXƒe[ƒW‚ÌŠg‘å—¦
-    [SerializeField]
-    private const float DEFAULT_SCALE = 20.0f;          // ”ñ‘I‘ğƒXƒe[ƒW‚ÌƒfƒtƒHƒ‹ƒgƒXƒP[ƒ‹
+    private GameObject[] StageObjects;                  // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®é…åˆ—
+    [SerializeField, Header("ç§»å‹•å…ˆã®åº§æ¨™")]
+    private Vector3[] MovePositions;                    // ç§»å‹•å…ˆã®ãƒã‚¸ã‚·ãƒ§ãƒ³
+    [SerializeField, Header("ã‚·ãƒ•ãƒˆé€Ÿåº¦")]
+    private float m_ShiftMoveSpeed = 5.0f;                // ã‚¹ãƒ†ãƒ¼ã‚¸ç§»å‹•ã®é€Ÿåº¦
 
-    private StageState m_nextStage = StageState.enStop; // Ÿ‚É‘I‘ğ‚·‚éƒXƒe[ƒW‚ÌƒXƒe[ƒg
-    private int m_forwardStageScale = 0;                // Šg‘å‚·‚éƒXƒe[ƒW‚ÌƒCƒ“ƒfƒbƒNƒX
-    private int m_currentIndex = 0;                     // Œ»İ‘I‘ğ‚³‚ê‚Ä‚¢‚éƒXƒe[ƒW‚ÌƒCƒ“ƒfƒbƒNƒX
     [SerializeField]
-    private bool m_isMoving = false;                    // ƒXƒ‰ƒCƒh‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+    private const float SELECTED_SCALE = 30.0f;         // é¸æŠã•ã‚ŒãŸã‚¹ãƒ†ãƒ¼ã‚¸ã®æ‹¡å¤§ç‡
     [SerializeField]
-    private bool m_allMoved = true;                       //‘S‚Ä‚Ì“®‚«I‚í‚Á‚½‚©‚Ç‚¤‚©
+    private const float DEFAULT_SCALE = 20.0f;          // éé¸æŠã‚¹ãƒ†ãƒ¼ã‚¸ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚¹ã‚±ãƒ¼ãƒ«
+
+    private StageState m_nextStage = StageState.enStop; // æ¬¡ã«é¸æŠã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¹ãƒ†ãƒ¼ãƒˆ
+    private int m_forwardStageScale = 0;                // æ‹¡å¤§ã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+    private int m_currentIndex = 0;                     // ç¾åœ¨é¸æŠã•ã‚Œã¦ã„ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+    [SerializeField]
+    private bool m_isMoving = false;                    // ã‚¹ãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
+    [SerializeField]
+    private bool m_allMoved = true;                       //å…¨ã¦ã®å‹•ãçµ‚ã‚ã£ãŸã‹ã©ã†ã‹
 
 
     private void Start()
     {
+        //StageObjectsã«ãƒŸãƒ‹ã‚¹ãƒ†ãƒ¼ã‚¸ã®ãƒ¢ãƒ‡ãƒ«ã‚’è¨­å®šã™ã‚‹
+        InitStageObjects();
+
         if (StageObjects.Length == 0)
         {
-            Debug.LogError("ƒXƒe[ƒW‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñI");
+            Debug.LogError("ã‚¹ãƒ†ãƒ¼ã‚¸ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ï¼");
             return;
         }
 
-        // À•W‚ğİ’è‚·‚éB
+        //ãƒŸãƒ‹ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å‡ºç¾ã•ã›ã‚‹
+        SpawnStages();
+
+        // åº§æ¨™ã‚’è¨­å®šã™ã‚‹ã€‚
         for (int i = 0; i < StageObjects.Length; i++)
         {
             StageObjects[i].transform.position = MovePositions[i];
         }
 
-        // Å‰‚Ì‘I‘ğƒXƒe[ƒW‚ğ‹­’²
+        // æœ€åˆã®é¸æŠã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å¼·èª¿
         UpdateStageScale();
     }
 
     private void Update()
     {
-        //ƒXƒe[ƒW‚Ì–¼‘O‚ğ•\¦
+        //ã‚¹ãƒ†ãƒ¼ã‚¸ã®åå‰ã‚’è¡¨ç¤º
         UpdateStageName();
 
-        //¶‰E‚Ì\šƒL[‚ÅƒXƒe[ƒW‚ğ•ÏX
-        //Startƒ{ƒ^ƒ“‚ÅƒIƒvƒVƒ‡ƒ“‚ğ•\¦
+        //å·¦å³ã®åå­—ã‚­ãƒ¼ã§ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å¤‰æ›´
+        //Startãƒœã‚¿ãƒ³ã§ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’è¡¨ç¤º
         SelectStageAndOption();
         
-        //ƒXƒe[ƒW‚ÌˆÊ’u‚ğXV
+        //ã‚¹ãƒ†ãƒ¼ã‚¸ã®ä½ç½®ã‚’æ›´æ–°
         MoveStage();
         
-        // ƒXƒP[ƒ‹‚ğŠŠ‚ç‚©‚ÉXV
+        // ã‚¹ã‚±ãƒ¼ãƒ«ã‚’æ»‘ã‚‰ã‹ã«æ›´æ–°
         UpdateStageScale();
     }
 
@@ -82,25 +88,25 @@ public class StageSelector : MonoBehaviour
     {
         if (m_isMoving == false)
         {
-            // ¶‰E‚Ì–îˆóƒL[“ü—Í‚ğƒ`ƒFƒbƒN
+            // å·¦å³ã®çŸ¢å°ã‚­ãƒ¼å…¥åŠ›ã‚’ãƒã‚§ãƒƒã‚¯
             if (Gamepad.current.dpad.right.wasPressedThisFrame)
             {
-                // ‰E‚ÉƒVƒtƒgB
+                // å³ã«ã‚·ãƒ•ãƒˆã€‚
                 ShiftObjects(StageState.enRight);
             }
             else if (Gamepad.current.dpad.left.wasPressedThisFrame)
             {
-                // ¶‚ÉƒVƒtƒgB
+                // å·¦ã«ã‚·ãƒ•ãƒˆã€‚
                 ShiftObjects(StageState.enLeft);
             }
             else if (Gamepad.current.startButton.wasPressedThisFrame)
             {
-                //ƒIƒvƒVƒ‡ƒ“‰æ–Ê‚ğŠJ‚­
+                //ã‚ªãƒ—ã‚·ãƒ§ãƒ³ç”»é¢ã‚’é–‹ã
                 OpenOption();
             }
             else
             {
-                //ã‹LˆÈŠO‚È‚ç
+                //ä¸Šè¨˜ä»¥å¤–ãªã‚‰
                 m_isMoving = true;
             }
         }
@@ -108,40 +114,62 @@ public class StageSelector : MonoBehaviour
 
 
     /// <summary>
-    /// ‘I‘ğ’†‚ÌƒXƒe[ƒW–¼‚ğ•\¦
+    /// é¸æŠä¸­ã®ã‚¹ãƒ†ãƒ¼ã‚¸åã‚’è¡¨ç¤º
     /// </summary>
     private void UpdateStageName()
     {
-        stageNameText.text = stageNames[m_currentIndex];
+        stageNameText.text = stageDataBase.stageDataList[m_currentIndex].Name;
     }
 
     /// <summary>
-    /// ƒVƒtƒgˆ—B
+    /// ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«è¨­å®šã—ã¦ã‚‹ãƒŸãƒ‹ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’ã‚¹ãƒ†ãƒ¼ã‚¸é…åˆ—ã«å…¥ã‚Œã‚‹
     /// </summary>
-    /// <param name="stageState">Ÿ‚É‘I‘ğ‚·‚éƒXƒe[ƒW‚Ì•ûŒüB</param>
+    private void InitStageObjects()
+    {
+        for(int i = 0; i < StageObjects.Length; i++)
+        {
+            StageObjects[i] = stageDataBase.stageDataList[i].Model;
+        }
+    }
+
+    /// <summary>
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸é…åˆ—ã«ã‚ã‚‹ãƒŸãƒ‹ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å‡ºç¾ã•ã›ã‚‹
+    /// </summary>
+    private void SpawnStages()
+    {
+        for(int i = 0; i < StageObjects.Length; i++)
+        {
+             StageObjects[i] = Instantiate(StageObjects[i], MovePositions[i], Quaternion.identity);
+        }
+    }
+
+    /// <summary>
+    /// ã‚·ãƒ•ãƒˆå‡¦ç†ã€‚
+    /// </summary>
+    /// <param name="stageState">æ¬¡ã«é¸æŠã™ã‚‹ã‚¹ãƒ†ãƒ¼ã‚¸ã®æ–¹å‘ã€‚</param>
     private void ShiftObjects(StageState stageState)
     {
-        if (m_isMoving) return; // ‚·‚Å‚ÉˆÚ“®’†‚È‚çˆ—‚ğI—¹
+        if (m_isMoving) return; // ã™ã§ã«ç§»å‹•ä¸­ãªã‚‰å‡¦ç†ã‚’çµ‚äº†
 
-        m_isMoving = true; // ˆÚ“®‚ğŠJn‚µ‚½‚ç‚·‚®‚Éƒtƒ‰ƒO‚ğİ’è
+        m_isMoving = true; // ç§»å‹•ã‚’é–‹å§‹ã—ãŸã‚‰ã™ãã«ãƒ•ãƒ©ã‚°ã‚’è¨­å®š
 
-        m_nextStage = stageState; // MoveStage“™‚ÌŒã‘±‚ÌŠÖ”‚Ìˆ×‚É’l‚ğ‘ã“üB
+        m_nextStage = stageState; // MoveStageç­‰ã®å¾Œç¶šã®é–¢æ•°ã®ç‚ºã«å€¤ã‚’ä»£å…¥ã€‚
 
-        // V‚µ‚¢”z—ñ‚ğì¬
+        // æ–°ã—ã„é…åˆ—ã‚’ä½œæˆ
         GameObject[] shiftedObjects = new GameObject[StageObjects.Length];
 
-        // ƒVƒtƒgˆ—
+        // ã‚·ãƒ•ãƒˆå‡¦ç†
         for (int i = 0; i < StageObjects.Length; i++)
         {
             ShiftStage(i,shiftedObjects);
         }
 
-        // ƒIƒŠƒWƒiƒ‹‚Ì”z—ñ‚ğV‚µ‚¢”z—ñ‚Å’u‚«Š·‚¦
+        // ã‚ªãƒªã‚¸ãƒŠãƒ«ã®é…åˆ—ã‚’æ–°ã—ã„é…åˆ—ã§ç½®ãæ›ãˆ
         StageObjects = shiftedObjects;
     }
 
     /// <summary>
-    /// ÅŒã‚Ì—v‘f‚ğæ“ª‚ÉA‘¼‚ğ1‚Â‚¸‚Â‚¸‚ç‚·ˆ—B
+    /// æœ€å¾Œã®è¦ç´ ã‚’å…ˆé ­ã«ã€ä»–ã‚’1ã¤ãšã¤ãšã‚‰ã™å‡¦ç†ã€‚
     /// </summary>
     private void ShiftStage(int stageNumber,GameObject[] gameObjects)
     {
@@ -157,7 +185,7 @@ public class StageSelector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒXƒe[ƒW‚ğ“®‚©‚·ˆ—B
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å‹•ã‹ã™å‡¦ç†ã€‚
     /// </summary>
     private void MoveStage()
     {
@@ -166,7 +194,7 @@ public class StageSelector : MonoBehaviour
             for (int i = 0; i < StageObjects.Length; i++)
             {
                 int nextStage = i;
-                // ƒXƒe[ƒW‚ğ“®‚©‚·B
+                // ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å‹•ã‹ã™ã€‚
                 if (m_nextStage == StageState.enRight)
                 {
                     nextStage = (i + (int)m_nextStage + StageObjects.Length) % StageObjects.Length;
@@ -198,18 +226,18 @@ public class StageSelector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒXƒe[ƒW‚ÌƒXƒP[ƒ‹‚ğ‚¢‚¶‚éŠÖ”B
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¹ã‚±ãƒ¼ãƒ«ã‚’ã„ã˜ã‚‹é–¢æ•°ã€‚
     /// </summary>
     private void UpdateStageScale()
     {
-        // ƒXƒP[ƒ‹‚ğƒfƒtƒHƒ‹ƒg‚Ì’l‚Å‰Šú‰»B
+        // ã‚¹ã‚±ãƒ¼ãƒ«ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®å€¤ã§åˆæœŸåŒ–ã€‚
         Vector3 targetScale = Vector3.one * DEFAULT_SCALE;
 
         for (int i = 0; i < StageObjects.Length; i++)
         {
             if (i == m_forwardStageScale)
             {
-                // ‘I‘ğ‚µ‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg‚ÌƒXƒP[ƒ‹B
+                // é¸æŠã—ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¹ã‚±ãƒ¼ãƒ«ã€‚
                 targetScale = Vector3.one * SELECTED_SCALE;
             }
             else
@@ -222,7 +250,7 @@ public class StageSelector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒCƒ“ƒfƒbƒNƒX‚ğXVB
+    /// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ›´æ–°ã€‚
     /// </summary>
     private void UpdateIndex()
     {
@@ -239,8 +267,8 @@ public class StageSelector : MonoBehaviour
     }
     
     /// <summary>
-    /// ƒIƒvƒVƒ‡ƒ“‰æ–Ê‚ğŠJ‚­
-    /// ƒXƒe[ƒWƒZƒŒƒNƒg‰æ–Ê‚ğ•Â‚¶‚é
+    /// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ç”»é¢ã‚’é–‹ã
+    /// ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆç”»é¢ã‚’é–‰ã˜ã‚‹
     /// </summary>
     public void OpenOption()
     {

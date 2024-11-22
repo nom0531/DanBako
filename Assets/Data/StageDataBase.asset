@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDataList:
   - ID: 0
-    Name: 
+    Name: "\u30B9\u30C6\u30FC\u30B81"
     BGM: 6
     Model: {fileID: 0}
     Detail: 
   - ID: 1
-    Name: 
+    Name: "\u30B9\u30C6\u30FC\u30B82"
     BGM: 6
     Model: {fileID: 0}
     Detail: 
@@ -30,6 +30,11 @@ MonoBehaviour:
     Detail: 
   - ID: 3
     Name: 
-    BGM: 0
+    BGM: 6
+    Model: {fileID: 0}
+    Detail: 
+  - ID: 4
+    Name: 
+    BGM: 6
     Model: {fileID: 0}
     Detail: 
