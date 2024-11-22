@@ -6,6 +6,10 @@ public class ScreenSwitch_Main : MonoBehaviour
 {
     [SerializeField]
     private StageDataBase StageData;
+    [SerializeField, Header("é·ç§»å…ˆ"), Tooltip("GameOver")]
+    private SceneChange GameOver;
+    [SerializeField, Tooltip("GameClear")]
+    private GameObject GameClear;
 
     private GameManager m_gameManager;
     private BGM m_bgm;
@@ -21,23 +25,25 @@ public class ScreenSwitch_Main : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            GameOver();
-        }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            GameClear();
+            PlayGameClear();
         }
     }
 
-    private void GameOver()
+    /// <summary>
+    /// ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼æ¼”å‡ºã€‚
+    /// </summary>
+    public void PlayGameOver()
     {
-        Debug.Log("ƒQ[ƒ€ƒI[ƒo[");
+        GameOver.CreateFadeCanvas();
     }
 
-    private void GameClear()
+    /// <summary>
+    /// ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢æ¼”å‡ºã€‚
+    /// </summary>
+    public void PlayGameClear()
     {
-        Debug.Log("ƒXƒe[ƒWƒNƒŠƒA");
+        Debug.Log("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚¯ãƒªã‚¢");
     }
 }
