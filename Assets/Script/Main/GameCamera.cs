@@ -2,34 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Cinemachine;
 
 public class GameCamera : MonoBehaviour
 {
-    [SerializeField, Header("ƒJƒƒ‰‰ñ“]"), Tooltip("ƒJƒƒ‰‚Ì‰ñ“]‘¬“x")]
+    [SerializeField, Header("ã‚«ãƒ¡ãƒ©å›è»¢"), Tooltip("ã‚«ãƒ¡ãƒ©ã®å›è»¢é€Ÿåº¦")]
     private float RotSpeed = 200.0f;
-    [SerializeField, Tooltip("ƒJƒƒ‰‚Ì‰ñ“]ƒ‚[ƒhiXj")]
+    [SerializeField, Tooltip("ã‚«ãƒ¡ãƒ©ã®å›è»¢ãƒ¢ãƒ¼ãƒ‰ï¼ˆXï¼‰")]
     private bool CameraModeX = false;
-    [SerializeField, Tooltip("X‰ñ“]Å‘å’l")]
+    [SerializeField, Tooltip("Xå›è»¢æœ€å¤§å€¤")]
     private float MaxX = 60.0f;
-    [SerializeField, Tooltip("X‰ñ“]Å¬’l")]
+    [SerializeField, Tooltip("Xå›è»¢æœ€å°å€¤")]
     private float MinX = -40.0f;
-    [SerializeField, Header("ƒJƒƒ‰ˆÊ’u"), Tooltip("”¼Œa")]
+    [SerializeField, Header("ã‚«ãƒ¡ãƒ©ä½ç½®"), Tooltip("åŠå¾„")]
     private float CameraRange = -44.0f;
-    [SerializeField, Tooltip("‚¿ã‚°‚é—Ê")]
+    [SerializeField, Tooltip("æŒã¡ä¸Šã’ã‚‹é‡")]
     private float CameraY_Up = 1.5f;
-    [SerializeField, Header("ƒY[ƒ€ƒCƒ“EƒY[ƒ€ƒAƒEƒg"), Tooltip("Šg‘å—¦Å‘å’l")]
+    [SerializeField, Header("ã‚ºãƒ¼ãƒ ã‚¤ãƒ³ãƒ»ã‚ºãƒ¼ãƒ ã‚¢ã‚¦ãƒˆ"), Tooltip("æ‹¡å¤§ç‡æœ€å¤§å€¤")]
     private float ViewMax = 45.0f;
-    [SerializeField, Tooltip("Šg‘å—¦Å¬’l")]
+    [SerializeField, Tooltip("æ‹¡å¤§ç‡æœ€å°å€¤")]
     private float ViewMin = 10.0f;
 
     private GameManager m_gameManager;
-    private Camera m_camera;
+    private CinemachineVirtualCamera m_camera;
     private Gamepad m_gamepad;
     private GameObject m_player = null;
 
     private void Start()
     {
-        m_camera = Camera.main;
+        m_camera = GetComponent<CinemachineVirtualCamera>();
         m_gameManager = GameManager.Instance;
         m_player = GameObject.FindGameObjectWithTag("Player");
 
@@ -38,7 +39,7 @@ public class GameCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        // ƒ|[ƒY’†‚È‚çÀs‚µ‚È‚¢B
+        // ãƒãƒ¼ã‚ºä¸­ãªã‚‰å®Ÿè¡Œã—ãªã„ã€‚
         if(m_gameManager.GameMode == CurrentGameMode.enPause)
         {
             return;
@@ -49,14 +50,14 @@ public class GameCamera : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰ñ“]ˆ—B
+    /// å›è»¢å‡¦ç†ã€‚
     /// </summary>
     private void Rotation()
     {
         float rot = 0.0f;
-        // XŠp“x§ŒÀB
+        // Xè§’åº¦åˆ¶é™ã€‚
         float nowRot = transform.localEulerAngles.x;
-        // æ“¾‚µ‚½Šp“x‚Í0`360‹‚È‚Ì‚Å•â³‚·‚éB
+        // å–å¾—ã—ãŸè§’åº¦ã¯0ï½360Â°ãªã®ã§è£œæ­£ã™ã‚‹ã€‚
         if (nowRot >= 180.0f)
         {
             nowRot -= 360.0f;
@@ -72,12 +73,12 @@ public class GameCamera : MonoBehaviour
                 MinX, transform.localEulerAngles.y, transform.localEulerAngles.z);
         }
 
-        // ¶‰EB
+        // å·¦å³ã€‚
         rot = Time.unscaledDeltaTime * RotSpeed;
 
         if (CameraModeX)
         {
-            // ƒ‚[ƒh‚É‰‚¶‚Ä•ÏXB
+            // ãƒ¢ãƒ¼ãƒ‰ã«å¿œã˜ã¦å¤‰æ›´ã€‚
             rot *= -1.0f;
         }
 
@@ -91,29 +92,29 @@ public class GameCamera : MonoBehaviour
         }
         transform.RotateAround(m_player.transform.position, Vector3.up, rot);
 
-        // Z²‚Ì‰ñ“]‚ª‚ ‚é‚Æ‚â‚â‚±‚µ‚¢‚Ì‚Å§ŒÀ‚·‚éB
+        // Zè»¸ã®å›è»¢ãŒã‚ã‚‹ã¨ã‚„ã‚„ã“ã—ã„ã®ã§åˆ¶é™ã™ã‚‹ã€‚
         Vector3 angles = transform.eulerAngles;
         angles.z = 0.0f;
         transform.eulerAngles = angles;
     }
 
     /// <summary>
-    /// ˆÚ“®ˆ—B
+    /// ç§»å‹•å‡¦ç†ã€‚
     /// </summary>
     private void Move()
     {
         Vector3 position = transform.forward * CameraRange;
         position.y += CameraY_Up;
-        // À•W‚ğİ’èB
+        // åº§æ¨™ã‚’è¨­å®šã€‚
         transform.position = m_player.transform.position + position;
     }
 
     /// <summary>
-    /// ƒY[ƒ€ˆ—B
+    /// ã‚ºãƒ¼ãƒ å‡¦ç†ã€‚
     /// </summary>
     private void Zoom()
     {
-        // ƒQ[ƒ€ƒpƒbƒh‚ğæ“¾B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ã‚’å–å¾—ã€‚
         m_gamepad = Gamepad.current;
 
         ZoomIn();
@@ -121,7 +122,7 @@ public class GameCamera : MonoBehaviour
     }
 
     /// <summary>
-    /// Šg‘åˆ—B
+    /// æ‹¡å¤§å‡¦ç†ã€‚
     /// </summary>
     private void ZoomIn()
     {
@@ -131,13 +132,13 @@ public class GameCamera : MonoBehaviour
         }
 
         float value = m_gamepad.leftTrigger.ReadValue();
-        float view = m_camera.fieldOfView - value;
+        float view = m_camera.m_Lens.FieldOfView - value;
 
-        m_camera.fieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
+        m_camera.m_Lens.FieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
     }
 
     /// <summary>
-    /// k¬ˆ—B
+    /// ç¸®å°å‡¦ç†ã€‚
     /// </summary>
     private void ZoomOut()
     {
@@ -147,8 +148,8 @@ public class GameCamera : MonoBehaviour
         }
 
         float value = m_gamepad.rightTrigger.ReadValue();
-        float view = m_camera.fieldOfView + value;
+        float view = m_camera.m_Lens.FieldOfView + value;
 
-        m_camera.fieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
+        m_camera.m_Lens.FieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
     }
 }
