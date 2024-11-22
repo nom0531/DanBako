@@ -46,7 +46,7 @@ public class StageSelector : MonoBehaviour
 
     private void Start()
     {
-        //StageObjectsにミニステージのモデルを設定する
+        //ステージ配列にミニステージのモデルを設定する
         InitStageObjects();
 
         if (StageObjects.Length == 0)
