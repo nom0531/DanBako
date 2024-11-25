@@ -20,16 +20,10 @@ public class PlayerStatus : MonoBehaviour
 
     private Status m_status;
     private SetImage m_setImage;
-    private bool m_isClear = false;     // ゲームをクリアしたらture。
 
     public Status MyStatus
     {
         get => m_status;
-    }
-
-    public bool ClearFlag
-    {
-        get => m_isClear;
     }
 
     public SetImage HPImage
@@ -73,5 +67,4 @@ public class PlayerStatus : MonoBehaviour
         --m_status.HP;
         m_setImage.ChangeHPImage();
     }
-
 }
