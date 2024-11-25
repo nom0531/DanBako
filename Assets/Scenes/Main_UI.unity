@@ -3472,7 +3472,7 @@ GameObject:
   - component: {fileID: 6204378894778223356}
   - component: {fileID: 6204378894778223349}
   - component: {fileID: 6204378894778223350}
-  - component: {fileID: 6204378894778223355}
+  - component: {fileID: 6204378894778223358}
   - component: {fileID: 6204378894778223354}
   - component: {fileID: 6204378894778223353}
   - component: {fileID: 6204378894778223352}
@@ -3497,6 +3497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageData: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
+  GameOver: {fileID: 6204378894778223356}
+  GameClear: {fileID: 0}
 --- !u!114 &6204378894778223350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,28 +3572,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SENumber: 0
---- !u!114 &6204378894778223355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6204378894778223348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acff2b76d00cee48adf7a307ac19bcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameOver: {fileID: 6204378894778223356}
-  Content: {fileID: 142663374}
-  HPImageObject: {fileID: 6859913505024892535, guid: 9023d3e3b30310040aa6cfee73883f18,
-    type: 3}
-  HPSprite:
-  - {fileID: 21300000, guid: b8bf0b32ae543bb40b05bf38187f6be1, type: 3}
-  - {fileID: 21300000, guid: 06f857e7e9d117d49a911de7c6871d75, type: 3}
-  HPCount: 3
-  HPAnimator: {fileID: 1509611155}
-  SE_Damage: {fileID: 6204378894778223357}
 --- !u!114 &6204378894778223356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3620,6 +3600,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SENumber: 4
+--- !u!114 &6204378894778223358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204378894778223348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f36b24d5fd14f8408d5022716320eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Content: {fileID: 142663374}
+  HPImageObject: {fileID: 6859913505024892535, guid: 9023d3e3b30310040aa6cfee73883f18,
+    type: 3}
+  HPSprite:
+  - {fileID: 21300000, guid: b8bf0b32ae543bb40b05bf38187f6be1, type: 3}
+  - {fileID: 21300000, guid: 06f857e7e9d117d49a911de7c6871d75, type: 3}
+  HPAnimator: {fileID: 1509611155}
+  SE_Damage: {fileID: 6204378894778223357}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
