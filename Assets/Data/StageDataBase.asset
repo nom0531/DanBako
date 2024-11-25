@@ -16,25 +16,25 @@ MonoBehaviour:
   - ID: 0
     Name: "\u30B9\u30C6\u30FC\u30B81"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 6572168203902442917, guid: 67ac6cd596098924ea0cc4516c6d2b08, type: 3}
     Detail: 
   - ID: 1
     Name: "\u30B9\u30C6\u30FC\u30B82"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 6572168203902442917, guid: 87ebd71890cb9ed42b6864bd5aa3b6fd, type: 3}
     Detail: 
   - ID: 2
-    Name: 
+    Name: "\u30B9\u30C6\u30FC\u30B83"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 6572168203902442917, guid: 27d5c6b3ba9a4ee4f840f38f4beaf47f, type: 3}
     Detail: 
   - ID: 3
-    Name: 
+    Name: "\u30B9\u30C6\u30FC\u30B84"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 6572168203902442917, guid: bc732fe42a85d8f488e6826d2b12187c, type: 3}
     Detail: 
   - ID: 4
-    Name: 
+    Name: "\u30B9\u30C6\u30FC\u30B85"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 6572168203902442917, guid: 3a588d1a3bb890e4e897f96a6c035190, type: 3}
     Detail: 
