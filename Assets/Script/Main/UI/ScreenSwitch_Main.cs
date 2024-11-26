@@ -8,9 +8,8 @@ public class ScreenSwitch_Main : MonoBehaviour
     private StageDataBase StageData;
     [SerializeField, Header("遷移先"), Tooltip("GameOver")]
     private SceneChange GameOver;
-    [SerializeField, Tooltip("GameClear")]
-    private GameObject GameClear;
 
+    private PlayTimeline m_playTimeline;
     private GameManager m_gameManager;
     private BGM m_bgm;
 
@@ -19,6 +18,7 @@ public class ScreenSwitch_Main : MonoBehaviour
     {
         m_gameManager = GameManager.Instance;
 
+        m_playTimeline = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayTimeline>();
         m_bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
         m_bgm.SetBGM = StageData.stageDataList[m_gameManager.StageID].BGM;
     }
@@ -44,6 +44,6 @@ public class ScreenSwitch_Main : MonoBehaviour
     /// </summary>
     public void PlayGameClear()
     {
-        Debug.Log("ステージクリア");
+        m_playTimeline.GameClear();
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// BGM‚Ì”Ô†B
+/// BGMã®ç•ªå·ã€‚
 /// </summary>
 public enum BGMNumber
 {
@@ -18,7 +18,7 @@ public enum BGMNumber
 }
 
 /// <summary>
-/// SE‚Ì”Ô†B
+/// SEã®ç•ªå·ã€‚
 /// </summary>
 public enum SENumber
 {
@@ -29,16 +29,17 @@ public enum SENumber
     enDamage,
     enGameClear,
     enGameOver,
+    enClearStamp,
     enNum,
 }
 
 public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
-    [SerializeField, Header("ƒTƒEƒ“ƒh")]
+    [SerializeField, Header("ã‚µã‚¦ãƒ³ãƒ‰")]
     private AudioClip[] BGMSounds = new AudioClip[(int)BGMNumber.enNum];
     [SerializeField]
     private AudioClip[] SESounds = new AudioClip[(int)SENumber.enNum];
-    [SerializeField, Header("¶¬‚·‚éƒIƒuƒWƒFƒNƒg")]
+    [SerializeField, Header("ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     private GameObject SEObject;
 
     private SaveDataManager m_saveDataManager;
@@ -65,7 +66,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     }
 
     /// <summary>
-    /// ‰¹—Ê‚Ì‰Šú‰»
+    /// éŸ³é‡ã®åˆæœŸåŒ–
     /// </summary>
     private void InitVolume()
     {
@@ -74,9 +75,9 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     }
 
     /// <summary>
-    /// BGM‚ğÄ¶B
+    /// BGMã‚’å†ç”Ÿã€‚
     /// </summary>
-    /// <param name="number">”Ô†B</param>
+    /// <param name="number">ç•ªå·ã€‚</param>
     public void PlayBGM(BGMNumber number, GameObject gameObject)
     {
         if(number == BGMNumber.enNum)
@@ -87,16 +88,16 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
-        // ‰¹Šy‚ÌÄ¶‚ğŠJnB
+        // éŸ³æ¥½ã®å†ç”Ÿã‚’é–‹å§‹ã€‚
         audioSouce.clip = BGMSounds[(int)number];
         audioSouce.Play();
         bgm.FadeStart(false);
     }
 
     /// <summary>
-    /// SE‚ğÄ¶B
+    /// SEã‚’å†ç”Ÿã€‚
     /// </summary>
-    /// <param name="number">”Ô†B</param>
+    /// <param name="number">ç•ªå·ã€‚</param>
     public void PlaySE(SENumber number, float decrementValue=0.1f)
     {
         if(number == SENumber.enNum)
@@ -107,7 +108,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();
-        // ‰¹Šy‚ÌÄ¶‚ğŠJnB
+        // éŸ³æ¥½ã®å†ç”Ÿã‚’é–‹å§‹ã€‚
         gameObject.GetComponent<DestroySEObject>().PlayFlag = true;
         audioSouse.volume = SEVolume* decrementValue;
         audioSouse.PlayOneShot(SESounds[(int)number]);
