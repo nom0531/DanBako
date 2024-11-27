@@ -173,7 +173,6 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void ShiftStage(int stageNumber,GameObject[] gameObjects)
     {
-
         if (m_nextStage == StageState.enRight)
         {
             gameObjects[stageNumber] = StageObjects[(stageNumber + 1 + StageObjects.Length) % StageObjects.Length];
@@ -266,6 +265,14 @@ public class StageSelector : MonoBehaviour
         
     }
     
+    /// <summary>
+    /// ステージ決定
+    /// </summary>
+    void StageDecition()
+    {
+        
+    }
+
     /// <summary>
     /// オプション画面を開く
     /// ステージセレクト画面を閉じる

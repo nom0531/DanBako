@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScreenSwitch_StageSelect : MonoBehaviour
+public class ScreenSwitch_Stage1 : MonoBehaviour
 {
-    [SerializeField, Header("遷移先"),Tooltip("タイトル")]
-    private SceneChange Title;
+    [SerializeField, Header("ステージセレクト"),Tooltip("StageSelect")]
+    private SceneChange StageSelect;
     [SerializeField,Tooltip("ゲーム本編")]
     private SceneChange Main;
     [SerializeField, Header("SE"), Tooltip("決定音")]
@@ -17,15 +17,10 @@ public class ScreenSwitch_StageSelect : MonoBehaviour
     [SerializeField, Tooltip("エラー音")]
     private SE SE_Error;
 
-    [SerializeField]
-    private StageDataBase StageData;
-
-    private int ID = 0; //データの番号
-
     // Start is called before the first frame update
     void Start()
     {
-        ID = GameManager.Instance.StageID;
+        
     }
 
     // Update is called once per frame
@@ -34,7 +29,7 @@ public class ScreenSwitch_StageSelect : MonoBehaviour
         // Aボタンを押したとき。
         if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
         {
-            Title.CreateFadeCanvas();
+            StageSelect.CreateFadeCanvas();
             SE_Cancel.PlaySE();
         }
         // Bボタンを押したとき。
