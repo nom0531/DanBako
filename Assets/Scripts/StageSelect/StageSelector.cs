@@ -46,6 +46,9 @@ public class StageSelector : MonoBehaviour
 
     private void Start()
     {
+        //ステージの配列の数を調整
+        AddStageObject();
+
         //ステージ配列にミニステージのモデルを設定する
         InitStageObjects();
 
@@ -130,6 +133,15 @@ public class StageSelector : MonoBehaviour
         {
             StageObjects[i] = stageDataBase.stageDataList[i].Model;
         }
+    }
+
+    /// <summary>
+    /// ステージデータベースのステージ数によって配列の数を調整
+    /// </summary>
+    private void AddStageObject()
+    {
+        StageObjects = new GameObject[stageDataBase.stageDataList.Count];
+        MovePositions = new Vector3[stageDataBase.stageDataList.Count];
     }
 
     /// <summary>
