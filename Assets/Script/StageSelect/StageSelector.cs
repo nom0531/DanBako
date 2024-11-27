@@ -16,8 +16,10 @@ public class StageSelector : MonoBehaviour
 
     [SerializeField,Header("ステージデータ")]
     private StageDataBase stageDataBase;
-    [SerializeField,Header("名称")]
+    [SerializeField,Tooltip("名称")]
     private TextMeshProUGUI stageNameText;
+    [SerializeField, Tooltip("クリア時に表示する画像")]
+    private Stamp Stamp;
     [SerializeField, Header("移動先の座標")]
     private Vector3[] MovePositions;
     [SerializeField, Header("シフト速度")]
@@ -62,24 +64,22 @@ public class StageSelector : MonoBehaviour
 
         // 最初の選択ステージを強調
         UpdateStageScale();
+
+        UpdateStageName();
+        Stamp.StageID = m_currentIndex;
+        Stamp.Draw();
     }
 
     private void Update()
     {
-        //ステージの名前を表示
-        UpdateStageName();
-
-        //左右の十字キーでステージを変更
-        //Startボタンでオプションを表示
         SelectStageAndOption();
-        
-        //ステージの位置を更新
         MoveStage();
-        
-        // スケールを滑らかに更新
         UpdateStageScale();
     }
 
+    /// <summary>
+    /// カーソル処理。
+    /// </summary>
     private void SelectStageAndOption()
     {
         if (m_isMoving == true)
@@ -171,6 +171,9 @@ public class StageSelector : MonoBehaviour
         // オリジナルの配列を新しい配列で置き換え
         m_stageObjects = shiftedObjects;
 
+        UpdateStageName();
+        Stamp.StageID = m_currentIndex;
+        Stamp.Draw();
         SE_CursorMove.PlaySE();
     }
 
