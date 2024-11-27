@@ -13,43 +13,39 @@ public class StageSelector : MonoBehaviour
         enRight,
         enLeft = -1
     }
-    [SerializeField]
-    private GameObject Option;   //オプション画面のオブジェクト
-    [SerializeField]
-    private GameObject Stage;    //ステージセレクト画面のオブジェクト
-    [SerializeField]
-    private TextMeshProUGUI stageNameText;   //ステージ名を表示するオブジェクト
 
-    [SerializeField]
-    private StageDataBase stageDataBase;                //ステージ
-
-    [SerializeField]
-    private GameObject[] StageObjects;                  // ステージオブジェクトの配列
+    [SerializeField,Header("ステージデータ")]
+    private StageDataBase stageDataBase;
+    [SerializeField,Header("名称")]
+    private TextMeshProUGUI stageNameText;
     [SerializeField, Header("移動先の座標")]
-    private Vector3[] MovePositions;                    // 移動先のポジション
+    private Vector3[] MovePositions;
     [SerializeField, Header("シフト速度")]
-    private float m_ShiftMoveSpeed = 5.0f;                // ステージ移動の速度
+    private float ShiftMoveSpeed = 5.0f;
+    [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
+    private SE SE_CursorMove;
 
-    [SerializeField]
-    private const float SELECTED_SCALE = 30.0f;         // 選択されたステージの拡大率
-    [SerializeField]
-    private const float DEFAULT_SCALE = 20.0f;          // 非選択ステージのデフォルトスケール
+    private const float SELECTED_SCALE = 20.0f;         // 選択されたステージの拡大率
+    private const float DEFAULT_SCALE = 10.0f;          // 非選択ステージのデフォルトスケール
 
+    private GameManager m_gameManager;
+    private Gamepad m_gamepad;
+    [SerializeField]
+    private GameObject[] m_stageObjects;                // ステージオブジェクトの配列
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
     private int m_forwardStageScale = 0;                // 拡大するステージのインデックス
     private int m_currentIndex = 0;                     // 現在選択されているステージのインデックス
-    [SerializeField]
     private bool m_isMoving = false;                    // スライドしているかどうか
-    [SerializeField]
-    private bool m_allMoved = true;                       //全ての動き終わったかどうか
-
+    private bool m_allMoved = true;                     //全ての動き終わったかどうか
 
     private void Start()
     {
+        m_gameManager = GameManager.Instance;
+
         //ステージ配列にミニステージのモデルを設定する
         InitStageObjects();
 
-        if (StageObjects.Length == 0)
+        if (m_stageObjects.Length == 0)
         {
             Debug.LogError("ステージが設定されていません！");
             return;
@@ -59,9 +55,9 @@ public class StageSelector : MonoBehaviour
         SpawnStages();
 
         // 座標を設定する。
-        for (int i = 0; i < StageObjects.Length; i++)
+        for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            StageObjects[i].transform.position = MovePositions[i];
+            m_stageObjects[i].transform.position = MovePositions[i];
         }
 
         // 最初の選択ステージを強調
@@ -86,32 +82,39 @@ public class StageSelector : MonoBehaviour
 
     private void SelectStageAndOption()
     {
-        if (m_isMoving == false)
+        if (m_isMoving == true)
         {
-            // 左右の矢印キー入力をチェック
-            if (Gamepad.current.dpad.right.wasPressedThisFrame)
-            {
-                // 右にシフト。
-                ShiftObjects(StageState.enRight);
-            }
-            else if (Gamepad.current.dpad.left.wasPressedThisFrame)
-            {
-                // 左にシフト。
-                ShiftObjects(StageState.enLeft);
-            }
-            else if (Gamepad.current.startButton.wasPressedThisFrame)
-            {
-                //オプション画面を開く
-                OpenOption();
-            }
-            else
-            {
-                //上記以外なら
-                m_isMoving = true;
-            }
+            return;
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            ShiftObjects(StageState.enRight);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            ShiftObjects(StageState.enLeft);
+        }
+
+        m_gamepad = Gamepad.current;
+
+        if(m_gamepad == null)
+        {
+            return;
+        }
+
+        // 左右の矢印キー入力をチェック
+        if (m_gamepad.dpad.right.wasPressedThisFrame)
+        {
+            // 右にシフト。
+            ShiftObjects(StageState.enRight);
+        }
+        if (m_gamepad.dpad.left.wasPressedThisFrame)
+        {
+            // 左にシフト。
+            ShiftObjects(StageState.enLeft);
         }
     }
-
 
     /// <summary>
     /// 選択中のステージ名を表示
@@ -119,6 +122,7 @@ public class StageSelector : MonoBehaviour
     private void UpdateStageName()
     {
         stageNameText.text = stageDataBase.stageDataList[m_currentIndex].Name;
+        m_gameManager.StageID = m_stageObjects[m_currentIndex].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
     }
 
     /// <summary>
@@ -126,9 +130,10 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void InitStageObjects()
     {
-        for(int i = 0; i < StageObjects.Length; i++)
+        m_stageObjects = new GameObject[stageDataBase.stageDataList.Count];
+        for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            StageObjects[i] = stageDataBase.stageDataList[i].Model;
+            m_stageObjects[i] = stageDataBase.stageDataList[i].Model;
         }
     }
 
@@ -137,9 +142,10 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void SpawnStages()
     {
-        for(int i = 0; i < StageObjects.Length; i++)
+        for(int i = 0; i < m_stageObjects.Length; i++)
         {
-             StageObjects[i] = Instantiate(StageObjects[i], MovePositions[i], Quaternion.identity);
+            m_stageObjects[i] = Instantiate(m_stageObjects[i], MovePositions[i], Quaternion.identity);
+            m_stageObjects[i].GetComponent<StageStatus>().MyID = i;
         }
     }
 
@@ -149,23 +155,23 @@ public class StageSelector : MonoBehaviour
     /// <param name="stageState">次に選択するステージの方向。</param>
     private void ShiftObjects(StageState stageState)
     {
-        if (m_isMoving) return; // すでに移動中なら処理を終了
+        if (m_isMoving) return;     // すでに移動中なら処理を終了
 
-        m_isMoving = true; // 移動を開始したらすぐにフラグを設定
-
-        m_nextStage = stageState; // MoveStage等の後続の関数の為に値を代入。
+        m_isMoving = true;          // 移動を開始したらすぐにフラグを設定
+        m_nextStage = stageState;   // MoveStage等の後続の関数の為に値を代入。
 
         // 新しい配列を作成
-        GameObject[] shiftedObjects = new GameObject[StageObjects.Length];
+        GameObject[] shiftedObjects = new GameObject[m_stageObjects.Length];
 
         // シフト処理
-        for (int i = 0; i < StageObjects.Length; i++)
+        for (int i = 0; i < m_stageObjects.Length; i++)
         {
             ShiftStage(i,shiftedObjects);
         }
-
         // オリジナルの配列を新しい配列で置き換え
-        StageObjects = shiftedObjects;
+        m_stageObjects = shiftedObjects;
+
+        SE_CursorMove.PlaySE();
     }
 
     /// <summary>
@@ -173,14 +179,13 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void ShiftStage(int stageNumber,GameObject[] gameObjects)
     {
-
         if (m_nextStage == StageState.enRight)
         {
-            gameObjects[stageNumber] = StageObjects[(stageNumber + 1 + StageObjects.Length) % StageObjects.Length];
+            gameObjects[stageNumber] = m_stageObjects[(stageNumber + 1 + m_stageObjects.Length) % m_stageObjects.Length];
         }
         else if (m_nextStage == StageState.enLeft)
         {
-            gameObjects[stageNumber] = StageObjects[(stageNumber - 1 + StageObjects.Length) % StageObjects.Length];
+            gameObjects[stageNumber] = m_stageObjects[(stageNumber - 1 + m_stageObjects.Length) % m_stageObjects.Length];
         }
     }
 
@@ -189,39 +194,42 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void MoveStage()
     {
-        if (m_isMoving == true)
+        if (m_isMoving == false)
         {
-            for (int i = 0; i < StageObjects.Length; i++)
+            return;
+        }
+
+        for (int i = 0; i < m_stageObjects.Length; i++)
+        {
+            int nextStage = i;
+            // ステージを動かす。
+            if (m_nextStage == StageState.enRight)
             {
-                int nextStage = i;
-                // ステージを動かす。
-                if (m_nextStage == StageState.enRight)
-                {
-                    nextStage = (i + (int)m_nextStage + StageObjects.Length) % StageObjects.Length;
-                }
-                else if (m_nextStage == StageState.enLeft)
-                {
-                    nextStage = (i + (int)m_nextStage + StageObjects.Length) % StageObjects.Length;
-                }
-
-                StageObjects[i].transform.position = Vector3.Lerp(StageObjects[i].transform.position, MovePositions[nextStage], Time.deltaTime * m_ShiftMoveSpeed);
-
-                if (Vector3.Distance(StageObjects[i].transform.position, MovePositions[nextStage]) > 5.0f)
-                {
-                    m_allMoved = false;
-                }
-                else
-                {
-                    m_allMoved = true;
-                }
+                nextStage = (i + (int)m_nextStage + m_stageObjects.Length) % m_stageObjects.Length;
+            }
+            else if (m_nextStage == StageState.enLeft)
+            {
+                nextStage = (i + (int)m_nextStage + m_stageObjects.Length) % m_stageObjects.Length;
             }
 
-            if (m_allMoved)
+            m_stageObjects[i].transform.position = Vector3.Lerp(
+                m_stageObjects[i].transform.position, MovePositions[nextStage], Time.deltaTime * ShiftMoveSpeed);
+
+            if (Vector3.Distance(m_stageObjects[i].transform.position, MovePositions[nextStage]) > 1.0f)
             {
-                UpdateIndex();
-                m_isMoving = false;
-                m_nextStage = StageState.enStop;
+                m_allMoved = false;
             }
+            else
+            {
+                m_allMoved = true;
+            }
+        }
+
+        if (m_allMoved)
+        {
+            UpdateIndex();
+            m_isMoving = false;
+            m_nextStage = StageState.enStop;
         }
     }
 
@@ -231,21 +239,18 @@ public class StageSelector : MonoBehaviour
     private void UpdateStageScale()
     {
         // スケールをデフォルトの値で初期化。
-        Vector3 targetScale = Vector3.one * DEFAULT_SCALE;
+        Vector3 targetScale = Vector3.zero;
 
-        for (int i = 0; i < StageObjects.Length; i++)
+        for (int i = 0; i < m_stageObjects.Length; i++)
         {
+            targetScale = Vector3.one * DEFAULT_SCALE;
             if (i == m_forwardStageScale)
             {
                 // 選択しているオブジェクトのスケール。
                 targetScale = Vector3.one * SELECTED_SCALE;
             }
-            else
-            {
-                targetScale = Vector3.one * DEFAULT_SCALE;
-            }
-            StageObjects[i].transform.localScale =
-                Vector3.Lerp(StageObjects[i].transform.localScale, targetScale, Time.deltaTime * m_ShiftMoveSpeed);
+            m_stageObjects[i].transform.localScale =
+                Vector3.Lerp(m_stageObjects[i].transform.localScale, targetScale, Time.deltaTime * ShiftMoveSpeed);
         }
     }
 
@@ -256,31 +261,11 @@ public class StageSelector : MonoBehaviour
     {
         if (m_nextStage == StageState.enRight)
         {
-            m_currentIndex = (m_currentIndex + 1 + StageObjects.Length) % StageObjects.Length;
-
+            m_currentIndex = (m_currentIndex + 1 + m_stageObjects.Length) % m_stageObjects.Length;
         }
         else if (m_nextStage == StageState.enLeft)
         {
-            m_currentIndex = (m_currentIndex - 1 + StageObjects.Length) % StageObjects.Length;
+            m_currentIndex = (m_currentIndex - 1 + m_stageObjects.Length) % m_stageObjects.Length;
         }
-        
-    }
-    
-    /// <summary>
-    /// ステージ決定
-    /// </summary>
-    void StageDecition()
-    {
-        
-    }
-
-    /// <summary>
-    /// オプション画面を開く
-    /// ステージセレクト画面を閉じる
-    /// </summary>
-    public void OpenOption()
-    {
-        Option.SetActive(true);
-        Stage.SetActive(false);
     }
 }

@@ -14,22 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDataList:
   - ID: 0
-    Name: 
+    Name: "\u3059\u3066\u30FC\u30581"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 5023137209778507129, guid: 6155e73bbbc64b041bcdeb50c43feb51, type: 3}
     Detail: 
   - ID: 1
-    Name: 
+    Name: "\u3059\u3066\u30FC\u30582"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 5023137209778507129, guid: ccee4c73048bda241b2c7e09ba657d3e, type: 3}
     Detail: 
   - ID: 2
-    Name: 
+    Name: "\u3059\u3066\u30FC\u30583"
     BGM: 6
-    Model: {fileID: 0}
+    Model: {fileID: 5023137209778507129, guid: 43eb215bccb10544686fbb4174e9f6d6, type: 3}
     Detail: 
   - ID: 3
-    Name: 
-    BGM: 0
-    Model: {fileID: 0}
+    Name: "\u3059\u3066\u30FC\u30584"
+    BGM: 7
+    Model: {fileID: 5023137209778507129, guid: 52ebde996a575314c8d31974411d5e2a, type: 3}
+    Detail: 
+  - ID: 4
+    Name: "\u3059\u3066\u30FC\u30585"
+    BGM: 8
+    Model: {fileID: 5023137209778507129, guid: 71931b4913876a8408e764dc982962e2, type: 3}
     Detail: 
