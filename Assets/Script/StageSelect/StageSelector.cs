@@ -15,9 +15,9 @@ public class StageSelector : MonoBehaviour
     }
 
     [SerializeField,Header("ステージデータ")]
-    private StageDataBase stageDataBase;
+    private StageDataBase StageDataBase;
     [SerializeField,Tooltip("名称")]
-    private TextMeshProUGUI stageNameText;
+    private TextMeshProUGUI StageNameText;
     [SerializeField, Tooltip("クリア時に表示する画像")]
     private Stamp Stamp;
     [SerializeField, Header("移動先の座標")]
@@ -35,7 +35,6 @@ public class StageSelector : MonoBehaviour
     [SerializeField]
     private GameObject[] m_stageObjects;                // ステージオブジェクトの配列
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
-    private int m_forwardStageScale = 0;                // 拡大するステージのインデックス
     private int m_currentIndex = 0;                     // 現在選択されているステージのインデックス
     private bool m_isMoving = false;                    // スライドしているかどうか
     private bool m_allMoved = true;                     //全ての動き終わったかどうか
@@ -121,7 +120,7 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void UpdateStageName()
     {
-        stageNameText.text = stageDataBase.stageDataList[m_currentIndex].Name;
+        StageNameText.text = StageDataBase.stageDataList[m_currentIndex].Name;
         m_gameManager.StageID = m_stageObjects[m_currentIndex].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
     }
 
@@ -130,10 +129,10 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void InitStageObjects()
     {
-        m_stageObjects = new GameObject[stageDataBase.stageDataList.Count];
+        m_stageObjects = new GameObject[StageDataBase.stageDataList.Count];
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            m_stageObjects[i] = stageDataBase.stageDataList[i].Model;
+            m_stageObjects[i] = StageDataBase.stageDataList[i].Model;
         }
     }
 
@@ -155,8 +154,6 @@ public class StageSelector : MonoBehaviour
     /// <param name="stageState">次に選択するステージの方向。</param>
     private void ShiftObjects(StageState stageState)
     {
-        if (m_isMoving) return;     // すでに移動中なら処理を終了
-
         m_isMoving = true;          // 移動を開始したらすぐにフラグを設定
         m_nextStage = stageState;   // MoveStage等の後続の関数の為に値を代入。
 
@@ -242,18 +239,27 @@ public class StageSelector : MonoBehaviour
     private void UpdateStageScale()
     {
         // スケールをデフォルトの値で初期化。
-        Vector3 targetScale = Vector3.zero;
+        Vector3 targetScale = Vector3.one * DEFAULT_SCALE;
 
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            targetScale = Vector3.one * DEFAULT_SCALE;
-            if (i == m_forwardStageScale)
+            if (i == 0)
             {
                 // 選択しているオブジェクトのスケール。
                 targetScale = Vector3.one * SELECTED_SCALE;
             }
+            else
+            {
+                targetScale = Vector3.one * DEFAULT_SCALE;
+            }
+
+            if (m_stageObjects[i].transform.localScale == targetScale)
+            {
+                continue;
+            }
             m_stageObjects[i].transform.localScale =
                 Vector3.Lerp(m_stageObjects[i].transform.localScale, targetScale, Time.deltaTime * ShiftMoveSpeed);
+            Debug.Log($"配列番号{i}のスケールは{m_stageObjects[i].transform.localScale}");
         }
     }
 

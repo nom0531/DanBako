@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44328b484d31b2c4c96912b8bbed6fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageDataBase: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
-  stageNameText: {fileID: 391994083}
+  StageDataBase: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
+  StageNameText: {fileID: 391994083}
   Stamp: {fileID: 4050592890544354683}
   MovePositions:
   - {x: 0, y: -15, z: 50}
@@ -279,7 +279,6 @@ MonoBehaviour:
   - {x: 75, y: -15, z: 75}
   ShiftMoveSpeed: 5
   SE_CursorMove: {fileID: 113574976}
-  m_stageObjects: []
 --- !u!114 &113574976
 MonoBehaviour:
   m_ObjectHideFlags: 0
