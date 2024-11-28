@@ -27,8 +27,8 @@ public class StageSelector : MonoBehaviour
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
     private SE SE_CursorMove;
 
-    private const float SELECTED_SCALE = 20.0f;         // 選択されたステージの拡大率
-    private const float DEFAULT_SCALE = 10.0f;          // 非選択ステージのデフォルトスケール
+    private const float SELECTED_SCALE = 0.01f;         // 選択されたステージの拡大率
+    private const float DEFAULT_SCALE = 0.005f;          // 非選択ステージのデフォルトスケール
 
     private GameManager m_gameManager;
     private Gamepad m_gamepad;

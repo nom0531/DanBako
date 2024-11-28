@@ -276,7 +276,7 @@ MonoBehaviour:
   - {x: -75, y: -15, z: 75}
   - {x: -25, y: -15, z: 75}
   - {x: 25, y: -15, z: 75}
-  - {x: 75, y: -15, z: 75}
+  - {x: 75, y: -20, z: 75}
   ShiftMoveSpeed: 5
   SE_CursorMove: {fileID: 113574976}
 --- !u!114 &113574976
