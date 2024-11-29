@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Cursor : MonoBehaviour
 {
-    [SerializeField,Header("ˆÚ“®æ‚ÌÀ•W")]
+    [SerializeField,Header("ç§»å‹•å…ˆã®åº§æ¨™")]
     private Vector2[] Position;
-    [SerializeField, Header("ˆÚ“®‘¬“x")]
+    [SerializeField, Header("ç§»å‹•é€Ÿåº¦")]
     private float Speed;
 
     private RectTransform m_rectTransform;
-    private Vector2 m_startPosition = Vector2.zero;     // ŠJn“_B
-    private Vector2 m_endPosition = Vector2.zero;       // I—¹“_B
-    private float m_time = 0.0f;                        // ƒ^ƒCƒ}[B
-    private bool m_isStart = false;                     // üŒ`•âŠ®‚ğŠJn‚·‚é‚È‚çtureB
+    private SE m_se;
+    private Vector2 m_startPosition = Vector2.zero;     // é–‹å§‹ç‚¹ã€‚
+    private Vector2 m_endPosition = Vector2.zero;       // çµ‚äº†ç‚¹ã€‚
+    private float m_time = 0.0f;                        // ã‚¿ã‚¤ãƒãƒ¼ã€‚
+    private bool m_isStart = false;                     // ç·šå½¢è£œå®Œã‚’é–‹å§‹ã™ã‚‹ãªã‚‰tureã€‚
 
     public Vector2[] SetPosition
     {
@@ -23,6 +24,7 @@ public class Cursor : MonoBehaviour
 
     private void Start()
     {
+        m_se = GetComponent<SE>();
         m_rectTransform = GetComponent<RectTransform>();
         m_rectTransform.anchoredPosition = Position[0];
     }
@@ -33,7 +35,7 @@ public class Cursor : MonoBehaviour
     }
 
     /// <summary>
-    /// üŒ`•âŠ®‚Ìˆ—B
+    /// ç·šå½¢è£œå®Œã®å‡¦ç†ã€‚
     /// </summary>
     private void Leap()
     {
@@ -42,14 +44,14 @@ public class Cursor : MonoBehaviour
             return;
         }
 
-        // Œo‰ßŠÔ‚ğXVB
+        // çµŒéæ™‚é–“ã‚’æ›´æ–°ã€‚
         m_time += Time.unscaledDeltaTime;
-        // Š„‡‚ğŒvZB
+        // å‰²åˆã‚’è¨ˆç®—ã€‚
         var t = Mathf.Clamp01(m_time / Speed);
-        // “ñ“_ŠÔ‚ğüŒ`•âŠ®B
+        // äºŒç‚¹é–“ã‚’ç·šå½¢è£œå®Œã€‚
         m_rectTransform.anchoredPosition = Vector2.Lerp(m_startPosition, m_endPosition, t);
 
-        // üŒ`•âŠ®‚ªI—¹‚µ‚½‚È‚çB
+        // ç·šå½¢è£œå®ŒãŒçµ‚äº†ã—ãŸãªã‚‰ã€‚
         if (t >= 1.0f)
         {
             m_rectTransform.anchoredPosition = m_endPosition;
@@ -59,16 +61,18 @@ public class Cursor : MonoBehaviour
     }
 
     /// <summary>
-    /// ˆÚ“®ˆ—B
+    /// ç§»å‹•å‡¦ç†ã€‚
     /// </summary>
-    /// <param name="number">ˆÚ“®æ‚Ì”Ô†B</param>
+    /// <param name="number">ç§»å‹•å…ˆã®ç•ªå·ã€‚</param>
     public void Move(int number)
     {
-        // ’l‚ğ‰Šú‰»B
+        // å€¤ã‚’åˆæœŸåŒ–ã€‚
         m_startPosition = m_rectTransform.anchoredPosition;
         m_endPosition = Position[number];
         m_time = 0.0f;
-        // üŒ`•âŠ®‚ğŠJn‚·‚éB
+        // ç·šå½¢è£œå®Œã‚’é–‹å§‹ã™ã‚‹ã€‚
         m_isStart = true;
+        // SEã‚’å†ç”Ÿã™ã‚‹ã€‚
+        m_se.PlaySE();
     }
 }

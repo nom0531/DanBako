@@ -28,8 +28,6 @@ public class Pause : MonoBehaviour
     SE SE_Determination;
     [SerializeField, Tooltip("キャンセル音")]
     SE SE_Cancel;
-    [SerializeField, Tooltip("カーソル移動音")]
-    SE SE_CursorMove;
 
     private GameManager m_gameManager;
     private Gamepad m_gamepad;
@@ -178,7 +176,6 @@ public class Pause : MonoBehaviour
             m_comandState = PauseState.enReturnToStageSelect;
         }
         m_cursor.Move((int)m_comandState);
-        SE_CursorMove.PlaySE();
     }
 
     /// <summary>
@@ -193,7 +190,6 @@ public class Pause : MonoBehaviour
             m_comandState = PauseState.enReturnToGame;
         }
         m_cursor.Move((int)m_comandState);
-        SE_CursorMove.PlaySE();
     }
 
     /// <summary>

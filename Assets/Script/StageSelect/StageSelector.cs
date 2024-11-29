@@ -27,7 +27,7 @@ public class StageSelector : MonoBehaviour
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
     private SE SE_CursorMove;
 
-    private const float SELECTED_SCALE = 0.01f;         // 選択されたステージの拡大率
+    private const float SELECTED_SCALE = 0.008f;         // 選択されたステージの拡大率
     private const float DEFAULT_SCALE = 0.005f;          // 非選択ステージのデフォルトスケール
 
     private GameManager m_gameManager;
@@ -85,7 +85,9 @@ public class StageSelector : MonoBehaviour
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
             m_stageObjects[i] = Instantiate(m_stageObjects[i], MovePositions[i], Quaternion.identity);
-            m_stageObjects[i].GetComponent<StageStatus>().MyID = i;
+            var stageStatus = m_stageObjects[i].GetComponent<StageStatus>();
+            stageStatus.MyID = i;
+            stageStatus.RotateFlag = true;  // オブジェクトを回転させる。
             // 座標を設定。
             m_stageObjects[i].transform.position = MovePositions[i];
         }
