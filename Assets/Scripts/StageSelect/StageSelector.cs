@@ -35,9 +35,9 @@ public class StageSelector : MonoBehaviour
     private float m_ShiftMoveSpeed = 5.0f;                // ステージ移動の速度
 
     [SerializeField]
-    private const float SELECTED_SCALE = 30.0f;         // 選択されたステージの拡大率
+    private const float SELECTED_SCALE = 0.01f;         // 選択されたステージの拡大率
     [SerializeField]
-    private const float DEFAULT_SCALE = 20.0f;          // 非選択ステージのデフォルトスケール
+    private const float DEFAULT_SCALE = 0.005f;          // 非選択ステージのデフォルトスケール
 
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
     private int m_forwardStageScale = 0;                // 拡大するステージのインデックス
