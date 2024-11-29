@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class StageSelector : MonoBehaviour
+public class StageSelector_Main : MonoBehaviour
 {
     /// <summary>
     /// ステージのステート。
@@ -14,9 +14,9 @@ public class StageSelector : MonoBehaviour
         enLeft = -1
     }
 
-    [SerializeField,Header("ステージデータ")]
+    [SerializeField, Header("ステージデータ")]
     private StageDataBase StageDataBase;
-    [SerializeField,Tooltip("名称")]
+    [SerializeField, Tooltip("名称")]
     private TextMeshProUGUI StageNameText;
     [SerializeField, Tooltip("クリア時に表示する画像")]
     private Stamp Stamp;
@@ -113,7 +113,7 @@ public class StageSelector : MonoBehaviour
             return;
         }
 
-        if(m_gamepad == null)
+        if (m_gamepad == null)
         {
             m_isMoving = true;
             return;
@@ -150,7 +150,7 @@ public class StageSelector : MonoBehaviour
         // シフト処理
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            ShiftStage(i,shiftedObjects);
+            ShiftStage(i, shiftedObjects);
         }
         // オリジナルの配列を新しい配列で置き換え
         m_stageObjects = shiftedObjects;
@@ -162,7 +162,7 @@ public class StageSelector : MonoBehaviour
     /// <summary>
     /// 最後の要素を先頭に、他を1つずつずらす処理。
     /// </summary>
-    private void ShiftStage(int stageNumber,GameObject[] gameObjects)
+    private void ShiftStage(int stageNumber, GameObject[] gameObjects)
     {
         if (m_nextStage == StageState.enRight)
         {
