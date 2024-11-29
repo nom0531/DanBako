@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ƒQ[ƒ€ƒ‚[ƒhB
+/// ã‚²ãƒ¼ãƒ ãƒ¢ãƒ¼ãƒ‰ã€‚
 /// </summary>
 public enum CurrentGameMode
 {
     enInGame,
     enPause,
+    enClear,
     enOutGame
 }
 
@@ -61,9 +62,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 #if UNITY_EDITOR
     protected override void Awake()
     {
-        // ‚Ç‚Ìê–Ê‚É‚¨‚¢‚Ä‚àBGM‚ğÄ¶‚·‚éˆ×‚ÉAwake‚ğg—p‚·‚éB
+        // ã©ã®å ´é¢ã«ãŠã„ã¦ã‚‚BGMã‚’å†ç”Ÿã™ã‚‹ç‚ºã«Awakeã‚’ä½¿ç”¨ã™ã‚‹ã€‚
         base.Awake();
-        // ƒIƒuƒWƒFƒNƒg‚ğì¬B
+        // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã€‚
         var saveDataManagerObject = Instantiate(SaveDataManagerObject);
         m_saveDataManager = saveDataManagerObject.GetComponent<SaveDataManager>();
         var soundManagerObject = Instantiate(SoundManagerObject);
@@ -76,12 +77,12 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     }
 
     /// <summary>
-    /// ƒfƒoƒbƒOƒRƒ}ƒ“ƒhB
+    /// ãƒ‡ãƒãƒƒã‚°ã‚³ãƒãƒ³ãƒ‰ã€‚
     /// </summary>
     private void DebugCommand()
     {
-        // ƒfƒoƒbƒO—pƒRƒ}ƒ“ƒh‚Í‚±‚±‚É‹LÚ‚µ‚Ä‚­‚¾‚³‚¢B
-        // ˆ—“à—e‚ÉŠÖ‚µ‚Ä‚ÍƒRƒ}ƒ“ƒhˆê——‚©‚çŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
+        // ãƒ‡ãƒãƒƒã‚°ç”¨ã‚³ãƒãƒ³ãƒ‰ã¯ã“ã“ã«è¨˜è¼‰ã—ã¦ãã ã•ã„ã€‚
+        // å‡¦ç†å†…å®¹ã«é–¢ã—ã¦ã¯ã‚³ãƒãƒ³ãƒ‰ä¸€è¦§ã‹ã‚‰ç¢ºèªã—ã¦ãã ã•ã„ã€‚
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SaveDataManager.Save();
@@ -102,7 +103,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 #else
     private void Start()
     {
-        // ƒIƒuƒWƒFƒNƒg‚ğì¬B
+        // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã€‚
         var saveDataManagerObject = Instantiate(SaveDataManagerObject);
         m_saveDataManager = saveDataManagerObject.GetComponent<SaveDataManager>();
         var soundManagerObject = Instantiate(SoundManagerObject);

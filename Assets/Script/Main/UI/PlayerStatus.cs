@@ -18,18 +18,13 @@ public class PlayerStatus : MonoBehaviour
         public float MoveSpeed;
     }
 
+    private GameManager m_gameManager;
     private Status m_status;
     private SetImage m_setImage;
-    private bool m_isClear = false;     // ゲームをクリアしたらture。
 
     public Status MyStatus
     {
         get => m_status;
-    }
-
-    public bool ClearFlag
-    {
-        get => m_isClear;
     }
 
     public SetImage HPImage
@@ -40,10 +35,11 @@ public class PlayerStatus : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        m_gameManager = GameManager.Instance;
         Init();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -66,12 +62,10 @@ public class PlayerStatus : MonoBehaviour
     /// </summary>
     public void Damage()
     {
-        if(m_status.HP < 0)
-        {
-            return;
-        }
+        if (m_gameManager.GameMode == CurrentGameMode.enPause) return;
+        if(m_status.HP < 0) return;
+        // 体力を減少させる。
         --m_status.HP;
         m_setImage.ChangeHPImage();
     }
-
 }

@@ -4,41 +4,29 @@ using UnityEngine;
 
 public class ScreenSwitch_StageSelect : MonoBehaviour
 {
-    [SerializeField, Header("‘JˆÚæ"),Tooltip("ƒ^ƒCƒgƒ‹")]
+    [SerializeField, Header("é·ç§»å…ˆ"),Tooltip("ã‚¿ã‚¤ãƒˆãƒ«")]
     private SceneChange Title;
-    [SerializeField,Tooltip("ƒQ[ƒ€–{•Ò")]
+    [SerializeField,Tooltip("ã‚²ãƒ¼ãƒ æœ¬ç·¨")]
     private SceneChange Main;
-    [SerializeField, Header("SE"), Tooltip("Œˆ’è‰¹")]
+    [SerializeField, Header("SE"), Tooltip("æ±ºå®šéŸ³")]
     private SE SE_Determination;
-    [SerializeField, Tooltip("ƒLƒƒƒ“ƒZƒ‹‰¹")]
+    [SerializeField, Tooltip("ã‚­ãƒ£ãƒ³ã‚»ãƒ«éŸ³")]
     private SE SE_Cancel;
-    [SerializeField, Tooltip("ƒJ[ƒ\ƒ‹ˆÚ“®‰¹")]
-    private SE SE_CursorMove;
-    [SerializeField, Tooltip("ƒGƒ‰[‰¹")]
-    private SE SE_Error;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        // Aƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Aãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
         {
             Title.CreateFadeCanvas();
             SE_Cancel.PlaySE();
         }
-        // Bƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Bãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
         {
             Main.CreateFadeCanvas();
             SE_Determination.PlaySE();
         }
     }
-
-
 }

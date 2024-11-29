@@ -4,30 +4,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// ƒ|[ƒYƒXƒe[ƒgB
+/// ãƒãƒ¼ã‚ºã‚¹ãƒ†ãƒ¼ãƒˆã€‚
 /// </summary>
 public enum PauseState
 {
     enReturnToGame,
+    enOption,
     enRetryToGame,
     enReturnToStageSelect
 }
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField, Header("‘JˆÚæ"), Tooltip("ƒXƒe[ƒWƒZƒŒƒNƒg")]
+    [SerializeField, Header("é·ç§»å…ˆ"), Tooltip("ã‚¹ãƒ†ãƒ¼ã‚¸ã‚»ãƒ¬ã‚¯ãƒˆ")]
     private SceneChange StageSelect;
-    [SerializeField, Tooltip("ƒCƒ“ƒQ[ƒ€")]
+    [SerializeField, Tooltip("ã‚¤ãƒ³ã‚²ãƒ¼ãƒ ")]
     private SceneChange Main;
     [SerializeField]
     private GameObject Canvas;
-    [SerializeField, Header("‘€ìà–¾")]
+    [SerializeField, Header("æ“ä½œèª¬æ˜")]
     private GameObject HelpPanel;
-    [SerializeField, Header("SE"), Tooltip("Œˆ’è‰¹")]
+    [SerializeField, Header("SE"), Tooltip("æ±ºå®šéŸ³")]
     SE SE_Determination;
-    [SerializeField, Tooltip("ƒLƒƒƒ“ƒZƒ‹‰¹")]
+    [SerializeField, Tooltip("ã‚­ãƒ£ãƒ³ã‚»ãƒ«éŸ³")]
     SE SE_Cancel;
-    [SerializeField, Tooltip("ƒJ[ƒ\ƒ‹ˆÚ“®‰¹")]
+    [SerializeField, Tooltip("ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•éŸ³")]
     SE SE_CursorMove;
 
     private GameManager m_gameManager;
@@ -59,7 +60,7 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|[ƒYˆ—B
+    /// ãƒãƒ¼ã‚ºå‡¦ç†ã€‚
     /// </summary>
     private void PauseScreen()
     {
@@ -77,7 +78,7 @@ public class Pause : MonoBehaviour
 
         m_gamepad = Gamepad.current;
 
-        // ƒQ[ƒ€ƒpƒbƒh‚ªÚ‘±‚³‚ê‚Ä‚¢‚È‚¢ê‡B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ãŒæ¥ç¶šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
         if (m_gamepad == null)
         {
             return;
@@ -97,13 +98,13 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|[ƒY‰ğœB
+    /// ãƒãƒ¼ã‚ºè§£é™¤ã€‚
     /// </summary>
     private void EnterPause()
     {
-        // ƒ|[ƒY‰ğœB
+        // ãƒãƒ¼ã‚ºè§£é™¤ã€‚
         Time.timeScale = 1.0f;
-        // ƒXƒe[ƒg‚ğ•ÏXB
+        // ã‚¹ãƒ†ãƒ¼ãƒˆã‚’å¤‰æ›´ã€‚
         m_gameManager.GameMode = CurrentGameMode.enInGame;
         m_helpAnimator.SetTrigger("Active");
         m_pauseAnimator.SetTrigger("NotActive");
@@ -113,13 +114,13 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ|[ƒY‚·‚éB
+    /// ãƒãƒ¼ã‚ºã™ã‚‹ã€‚
     /// </summary>
     private void ExitPause()
     {
-        // ƒ|[ƒY‚·‚éB
+        // ãƒãƒ¼ã‚ºã™ã‚‹ã€‚
         Time.timeScale = 0.0f;
-        // ƒXƒe[ƒg‚ğ•ÏXB
+        // ã‚¹ãƒ†ãƒ¼ãƒˆã‚’å¤‰æ›´ã€‚
         m_gameManager.GameMode = CurrentGameMode.enPause;
         m_helpAnimator.SetTrigger("NotActive");
         m_pauseAnimator.SetTrigger("Active");
@@ -129,7 +130,7 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹ˆÚ“®B
+    /// ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•ã€‚
     /// </summary>
     private void CursorMove()
     {
@@ -149,7 +150,7 @@ public class Pause : MonoBehaviour
 
         m_gamepad = Gamepad.current;
 
-        // ƒQ[ƒ€ƒpƒbƒh‚ªÚ‘±‚³‚ê‚Ä‚¢‚È‚¢ê‡B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ãŒæ¥ç¶šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
         if (m_gamepad == null)
         {
             return;
@@ -166,12 +167,12 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ªƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†‘ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushUp()
     {
         m_comandState--;
-        // •â³B
+        // è£œæ­£ã€‚
         if (m_comandState < PauseState.enReturnToGame)
         {
             m_comandState = PauseState.enReturnToStageSelect;
@@ -181,12 +182,12 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// «ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†“ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushDown()
     {
         m_comandState++;
-        // •â³B
+        // è£œæ­£ã€‚
         if (m_comandState > PauseState.enReturnToStageSelect)
         {
             m_comandState = PauseState.enReturnToGame;
@@ -196,11 +197,11 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒV[ƒ“‚ğ•ÏX‚·‚éB
+    /// ã‚·ãƒ¼ãƒ³ã‚’å¤‰æ›´ã™ã‚‹ã€‚
     /// </summary>
     private void SceneChange()
     {
-        // Bƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Bãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
         {
             ButtonPush();
@@ -209,11 +210,11 @@ public class Pause : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“ˆ—B
+    /// ãƒœã‚¿ãƒ³å‡¦ç†ã€‚
     /// </summary>
     private void ButtonPush()
     {
-        // ƒXƒe[ƒg‚É‰‚¶‚Äˆ—‚ğ•ÏXB
+        // ã‚¹ãƒ†ãƒ¼ãƒˆã«å¿œã˜ã¦å‡¦ç†ã‚’å¤‰æ›´ã€‚
         switch (m_comandState)
         {
             case PauseState.enReturnToGame:

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// BGMの番号
+/// BGMの番号。
 /// </summary>
 public enum BGMNumber
 {
@@ -18,7 +18,7 @@ public enum BGMNumber
 }
 
 /// <summary>
-/// SEの番号
+/// SEの番号。
 /// </summary>
 public enum SENumber
 {
@@ -29,6 +29,7 @@ public enum SENumber
     enDamage,
     enGameClear,
     enGameOver,
+    enClearStamp,
     enNum,
 }
 
@@ -74,9 +75,9 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     }
 
     /// <summary>
-    /// BGMを再生
+    /// BGMを再生。
     /// </summary>
-    /// <param name="number">番号</param>
+    /// <param name="number">番号。</param>
     public void PlayBGM(BGMNumber number, GameObject gameObject)
     {
         if(number == BGMNumber.enNum)
@@ -87,16 +88,16 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
-        // 音楽の再生を開始
+        // 音楽の再生を開始。
         audioSouce.clip = BGMSounds[(int)number];
         audioSouce.Play();
         bgm.FadeStart(false);
     }
 
     /// <summary>
-    /// SEを再生
+    /// SEを再生。
     /// </summary>
-    /// <param name="number">番号</param>
+    /// <param name="number">番号。</param>
     public void PlaySE(SENumber number, float decrementValue=0.1f)
     {
         if(number == SENumber.enNum)
@@ -107,7 +108,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();
-        // 音楽の再生を開始
+        // 音楽の再生を開始。
         gameObject.GetComponent<DestroySEObject>().PlayFlag = true;
         audioSouse.volume = SEVolume* decrementValue;
         audioSouse.PlayOneShot(SESounds[(int)number]);

@@ -8,12 +8,13 @@ TagManager:
   - BGM
   - Cursor
   - HP
-  - BackGround
+  - MainUI_PlayerStatus
+  - MainUI_HelpPanel
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - BackGround
+  - 
   - Water
   - UI
   - 
