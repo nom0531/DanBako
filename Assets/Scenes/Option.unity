@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 228365638}
   - component: {fileID: 228365640}
   - component: {fileID: 228365639}
+  - component: {fileID: 228365641}
   m_Layer: 5
   m_Name: LeftImage
   m_TagString: Untagged
@@ -578,6 +579,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 228365637}
   m_CullTransparentMesh: 1
+--- !u!95 &228365641
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228365637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40592980ee8f6d24986027112648b763, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &381121951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,6 +998,7 @@ GameObject:
   - component: {fileID: 422918315}
   - component: {fileID: 422918317}
   - component: {fileID: 422918316}
+  - component: {fileID: 422918318}
   m_Layer: 5
   m_Name: RightImage
   m_TagString: Untagged
@@ -1040,6 +1063,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422918314}
   m_CullTransparentMesh: 1
+--- !u!95 &422918318
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422918314}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e71ef965978e3504eab1def7075e058f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &489866212
 PrefabInstance:
   m_ObjectHideFlags: 0

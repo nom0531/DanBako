@@ -9,7 +9,12 @@ public class BGM : MonoBehaviour
     [SerializeField, Header("フェードの速度")]
     private float FadeSpeed = 1.0f;     // フェードの速度（大きいほど速い）
 
-    private const float DECREMENT_VALUE = 0.2f;
+    public BGMNumber SetBGM
+    {
+        set => BGMNumber = value;
+    }
+
+    private const float DECREMENT_VALUE = 0.5f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
@@ -24,13 +29,8 @@ public class BGM : MonoBehaviour
     {
         get => m_audioSource;
     }
-    public BGMNumber SetBGM
-    {
-        set => BGMNumber = value;
-    }
 
-
-    private void Start()
+    private void Awake()
     {
         m_soundManager = GameManager.Instance.SoundManager;
         m_audioSource = GetComponent<AudioSource>();
@@ -61,12 +61,21 @@ public class BGM : MonoBehaviour
     /// <summary>
     /// 音量を再設定する。
     /// </summary>
-    public void ResetVolume()
+    public void ResetVolume(float m_finishVolume = 0.0f)
     {
         // 初期化。
-        m_fadeMode = ComparisonValue(m_volume);
+        // 初期値なら実行しない。
+        if(m_finishVolume != 0.0f)
+        {
+            m_soundManager.BGMVolume = m_finishVolume;
+        }
         m_isFade = true;
-        m_isResetVolume = true;
+        m_fadeMode = ComparisonValue(m_volume);
+
+        if (m_volume > 0.0f)
+        {
+            m_isResetVolume = true;
+        }
     }
 
     /// <summary>
@@ -118,6 +127,7 @@ public class BGM : MonoBehaviour
                 if (m_volume <= m_soundManager.BGMVolume)
                 {
                     // 音量が同じになったら終了。
+                    m_volume = m_soundManager.BGMVolume;
                     m_isFade = false;
                     m_isResetVolume = false;
                 }
@@ -127,6 +137,8 @@ public class BGM : MonoBehaviour
             if (m_volume <= 0.0f)
             {
                 // 音量が最小になったら終了。
+                m_volume = 0.0f;
+                m_audioSource.volume = 0.0f;
                 m_isFade = false;
             }
         }

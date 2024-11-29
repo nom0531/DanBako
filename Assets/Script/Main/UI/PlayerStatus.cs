@@ -1,77 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
 {
-    [SerializeField, Header("HP")]
-    private GameObject Content;
-    [SerializeField, Tooltip("Image")]
-    private GameObject HPImageObject;
-    [SerializeField, Tooltip("‰æ‘œ")]
-    private Sprite[] HPSprite;
-    [SerializeField, Tooltip("Å‘å’l")]
-    private int HPCount = 3;
-    [SerializeField, Tooltip("Animator")]
-    private GameObject HPAnimator;
+    [SerializeField, Header("ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹"), Tooltip("HP")]
+    private int HP = 3;
+    [SerializeField, Tooltip("ç§»å‹•é€Ÿåº¦")]
+    private float MoveSpeed = 1.0f;
 
-    private const float SCALE = 0.5f;
+    /// <summary>
+    /// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã€‚
+    /// </summary>
+    public struct Status
+    {
+        public int HP;
+        public float MoveSpeed;
+    }
 
-    private Animator m_animator;
-    private List<HP> m_hpList;
-    private int hp_test = 3;
+    private Status m_status;
+    private SetImage m_setImage;
+    private bool m_isClear = false;     // ã‚²ãƒ¼ãƒ ã‚’ã‚¯ãƒªã‚¢ã—ãŸã‚‰tureã€‚
+
+    public Status MyStatus
+    {
+        get => m_status;
+    }
+
+    public bool ClearFlag
+    {
+        get => m_isClear;
+    }
+
+    public SetImage HPImage
+    {
+        set => m_setImage = value;
+    }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        CreateHPUI();
-        m_animator = HPAnimator.GetComponent<Animator>();
+        Init();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        // ƒfƒoƒbƒOƒR[ƒhB
         if (Input.GetKeyDown(KeyCode.D))
         {
-            ChangeHPImage(--hp_test);
+            Damage();
         }
     }
 
     /// <summary>
-    /// HP‚ÌUI‚ğ¶¬B
+    /// åˆæœŸåŒ–å‡¦ç†ã€‚
     /// </summary>
-    private void CreateHPUI()
+    private void Init()
     {
-        for (int i = 0; i < HPCount; i++)
-        {
-            var gameObject = Instantiate(HPImageObject);
-            gameObject.transform.SetParent(Content.transform);
-            gameObject.transform.localScale = new Vector3(SCALE, SCALE, 0.0f);
-            gameObject.transform.localPosition = Vector3.zero;
-            gameObject.transform.localRotation = Quaternion.identity;
-            // ©g‚Ì”Ô†‚ğ‹³‚¦‚éB
-            var hp = gameObject.GetComponent<HP>();
-            hp.MyID = i;
-            hp.SetImage(HPSprite[0], false);
-        }
-        // HP‚ÌƒIƒuƒWƒFƒNƒg‚ğƒŠƒXƒg‰»B
-        var hpList = FindObjectsOfType<HP>();
-        m_hpList = new List<HP>(hpList);
-        // ƒ\[ƒgB
-        m_hpList.Sort((a, b) => a.MyID.CompareTo(b.MyID));
+        m_status.HP = HP;
+        m_status.MoveSpeed = MoveSpeed;
     }
 
+
     /// <summary>
-    /// HP‚Ì‰æ‘œ‚ğ•ÏX‚·‚éB
+    /// ãƒ€ãƒ¡ãƒ¼ã‚¸å‡¦ç†ã€‚
     /// </summary>
-    private void ChangeHPImage(int hp)
+    public void Damage()
     {
-        if (hp_test < 0)
+        if(m_status.HP < 0)
         {
             return;
         }
-        m_animator.SetTrigger("Break");
-        m_hpList[hp].SetImage(HPSprite[1], true);
+        --m_status.HP;
+        m_setImage.ChangeHPImage();
     }
+
 }

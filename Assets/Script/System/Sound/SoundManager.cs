@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// BGM‚Ì”Ô†B
+/// BGMã®ç•ªå·
 /// </summary>
 public enum BGMNumber
 {
@@ -11,8 +11,6 @@ public enum BGMNumber
     enStageSelect,
     enOption,
     enHelp,
-    enClear,
-    enGameOver,
     enMain_Onece,
     enMain_Second,
     enMain_Third,
@@ -20,7 +18,7 @@ public enum BGMNumber
 }
 
 /// <summary>
-/// SE‚Ì”Ô†B
+/// SEã®ç•ªå·
 /// </summary>
 public enum SENumber
 {
@@ -28,85 +26,57 @@ public enum SENumber
     enDetermination,
     enCancel,
     enError,
+    enDamage,
+    enGameClear,
+    enGameOver,
     enNum,
 }
 
 public class SoundManager : SingletonMonoBehaviour<SoundManager>
 {
-    [SerializeField, Header("ƒTƒEƒ“ƒh")]
+    [SerializeField, Header("ã‚µã‚¦ãƒ³ãƒ‰")]
     private AudioClip[] BGMSounds = new AudioClip[(int)BGMNumber.enNum];
     [SerializeField]
     private AudioClip[] SESounds = new AudioClip[(int)SENumber.enNum];
-    [SerializeField, Header("¶¬‚·‚éƒIƒuƒWƒFƒNƒg")]
+    [SerializeField, Header("ç”Ÿæˆã™ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
     private GameObject SEObject;
 
-    private const float MAX = 1.0f;
-    private const float MIN = 0.0f;
-    private const float VOLUME = 0.5f;  // ƒfƒtƒHƒ‹ƒgB
-
     private SaveDataManager m_saveDataManager;
-    private float m_BGMVolume = 0.5f;
-    private float m_SEVolume = 0.5f;
-
-    public float DefaultVolume
-    {
-        get => VOLUME;
-    }
+    private float m_BGMVolume = 0.0f;
+    private float m_SEVolume = 0.0f;
 
     public float BGMVolume
     {
         get => m_BGMVolume;
-        set
-        {
-            if(value > MAX)
-            {
-                value = MAX;
-            }
-            if(value < MIN)
-            {
-                value = MIN;
-            }
-            m_BGMVolume = value;
-        }
+        set => m_BGMVolume = Mathf.Clamp(value, 0.0f, 1.0f);
     }
 
     public float SEVolume
     {
         get => m_SEVolume;
-        set
-        {
-            if (value > MAX)
-            {
-                value = MAX;
-            }
-            if (value < MIN)
-            {
-                value = MIN;
-            }
-            m_SEVolume = value;
-        }
+        set => m_SEVolume = Mathf.Clamp(value, 0.0f, 1.0f);
     }
 
-    private void Start()
+    protected override void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
         m_saveDataManager = GameManager.Instance.SaveDataManager;
         InitVolume();
     }
 
     /// <summary>
-    /// ‰¹—Ê‚Ì‰Šú‰»
+    /// éŸ³é‡ã®åˆæœŸåŒ–
     /// </summary>
     private void InitVolume()
     {
-        BGMVolume = m_saveDataManager.SaveData.saveData.BGMVolume;
-        SEVolume = m_saveDataManager.SaveData.saveData.SEVolume;
+        BGMVolume = m_saveDataManager.BGMVolume;
+        SEVolume = m_saveDataManager.SEVolume;
     }
 
     /// <summary>
-    /// BGM‚ğÄ¶B
+    /// BGMã‚’å†ç”Ÿ
     /// </summary>
-    /// <param name="number">”Ô†B</param>
+    /// <param name="number">ç•ªå·</param>
     public void PlayBGM(BGMNumber number, GameObject gameObject)
     {
         if(number == BGMNumber.enNum)
@@ -117,16 +87,16 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var bgm = gameObject.GetComponent<BGM>();
         var audioSouce = bgm.AudioSource;
-        // ‰¹Šy‚ÌÄ¶‚ğŠJnB
+        // éŸ³æ¥½ã®å†ç”Ÿã‚’é–‹å§‹
         audioSouce.clip = BGMSounds[(int)number];
         audioSouce.Play();
         bgm.FadeStart(false);
     }
 
     /// <summary>
-    /// SE‚ğÄ¶B
+    /// SEã‚’å†ç”Ÿ
     /// </summary>
-    /// <param name="number">”Ô†B</param>
+    /// <param name="number">ç•ªå·</param>
     public void PlaySE(SENumber number, float decrementValue=0.1f)
     {
         if(number == SENumber.enNum)
@@ -137,7 +107,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
         InitVolume();
         var gameObject = Instantiate(SEObject);
         var audioSouse = gameObject.GetComponent<AudioSource>();
-        // ‰¹Šy‚ÌÄ¶‚ğŠJnB
+        // éŸ³æ¥½ã®å†ç”Ÿã‚’é–‹å§‹
         gameObject.GetComponent<DestroySEObject>().PlayFlag = true;
         audioSouse.volume = SEVolume* decrementValue;
         audioSouse.PlayOneShot(SESounds[(int)number]);

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HP : MonoBehaviour
 {
     private Image m_image;
-    private int m_ID = 0;               // ©g‚Ì”Ô†B
-    private bool m_isEnpty = false;     // ‘Ì—Í‚ª‚È‚¢‚È‚çtureB
+    private int m_ID = 0;               // è‡ªèº«ã®ç•ªå·ã€‚
+    private bool m_isEnpty = false;     // ä½“åŠ›ãŒãªã„ãªã‚‰tureã€‚
 
     public int MyID
     {
@@ -21,7 +21,7 @@ public class HP : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰æ‘œ‚ğÄİ’è‚·‚éB
+    /// ç”»åƒã‚’å†è¨­å®šã™ã‚‹ã€‚
     /// </summary>
     public void SetImage(Sprite sprite, bool flag)
     {
