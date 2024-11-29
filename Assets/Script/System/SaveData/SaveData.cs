@@ -8,13 +8,14 @@ public class SaveData
     [System.Serializable]
     public struct Data
     {
-        public float BGMVolume;                     // BGM‚Ì‰¹—ÊB
-        public float SEVolume;                      // SE‚Ì‰¹—ÊB
-        public bool CameraStete;                    // ƒJƒƒ‰‚Ì‰ñ“]•û–@B
-                                                    // false‚È‚çƒm[ƒ}ƒ‹Atrue‚È‚çƒŠƒo[ƒXB
-        public bool[] ClearStage;                   // ƒXƒe[ƒW‚ÌƒNƒŠƒA”B
+        public float BGMVolume;                     // BGMã®éŸ³é‡ã€‚
+        public float SEVolume;                      // SEã®éŸ³é‡ã€‚
+        public bool CameraStete;                    // ã‚«ãƒ¡ãƒ©ã®å›è»¢æ–¹æ³•ã€‚
+                                                    // falseãªã‚‰ãƒãƒ¼ãƒãƒ«ã€trueãªã‚‰ãƒªãƒãƒ¼ã‚¹ã€‚
+        public bool[] ClearStage;                   // ã‚¹ãƒ†ãƒ¼ã‚¸ã®ã‚¯ãƒªã‚¢æ•°ã€‚
+        public bool[] DrawStamp;                    // ã‚¯ãƒªã‚¢ã‚¹ã‚¿ãƒ³ãƒ—ã‚’æç”»ã™ã‚‹ã‹ã©ã†ã‹
     }
 
-    // Šeî•ñ
+    // å„æƒ…å ±
     public Data saveData;
 }

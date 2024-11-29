@@ -18,9 +18,9 @@ public class GameCamera : MonoBehaviour
     private float CameraRange = -44.0f;
     [SerializeField, Tooltip("持ち上げる量")]
     private float CameraY_Up = 1.5f;
-    [SerializeField, Header("ズームイン・ズームアウト"), Tooltip("拡大率最大値")]
+    [SerializeField, Header("ズームイン・ズームアウト"), Tooltip("最大縮小率")]
     private float ViewMax = 45.0f;
-    [SerializeField, Tooltip("拡大率最小値")]
+    [SerializeField, Tooltip("最大拡大率")]
     private float ViewMin = 10.0f;
 
     private GameManager m_gameManager;

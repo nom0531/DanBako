@@ -8,14 +8,14 @@ using System.Security.Cryptography;
 
 public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
 {
-    [SerializeField, Header("ƒZ[ƒuƒf[ƒ^")]
+    [SerializeField, Header("ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿")]
     private SaveData GameSaveData;
-    [SerializeField, Header("ƒXƒe[ƒWƒf[ƒ^")]
+    [SerializeField, Header("ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ‡ãƒ¼ã‚¿")]
     private StageDataBase StageData;
 
     private const float DEFAULT_VOLUME = 0.7f;
 
-    private string m_filePath = "";  // ‘‚«‚İæ‚Ìƒtƒ@ƒCƒ‹ƒpƒXB
+    private string m_filePath = "";  // æ›¸ãè¾¼ã¿å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‘ã‚¹ã€‚
 
     private static readonly string m_encryptKey = "c6eahbq9sjuawhvdr9kvhpsm5qv393ga";
     private static readonly int m_encryptPasswordCount = 16;
@@ -49,10 +49,10 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     protected override void Awake()
     {
         base.Awake();
-        // ƒZ[ƒuƒf[ƒ^‚ğ“Ç‚İ‚ŞB
+        // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’èª­ã¿è¾¼ã‚€ã€‚
         m_filePath = $"{Application.persistentDataPath}/.savedata.json";
         var isLoad = Load();
-        // ƒZ[ƒuƒf[ƒ^‚ª‚È‚¢‚È‚ç‰Šú‰»B
+        // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãŒãªã„ãªã‚‰åˆæœŸåŒ–ã€‚
         if (isLoad == false)
         {
             InitOption();
@@ -61,28 +61,28 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// ƒZ[ƒuƒf[ƒ^‚ğíœ‚·‚éB
+    /// ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã™ã‚‹ã€‚
     /// </summary>
     public void Delete()
     {
         InitData();
 #if UNITY_EDITOR
-        Debug.Log("ƒf[ƒ^‚ğíœB\n" +
-            "•Û‘¶êŠF" + m_filePath);
+        Debug.Log("ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã€‚\n" +
+            "ä¿å­˜å ´æ‰€ï¼š" + m_filePath);
 #endif
     }
 
     /// <summary>
-    /// Œ»İ‚Ìó‹µ‚ğƒZ[ƒu‚·‚éB
+    /// ç¾åœ¨ã®çŠ¶æ³ã‚’ã‚»ãƒ¼ãƒ–ã™ã‚‹ã€‚
     /// </summary>
     public void Save()
     {
-        // ˆÃ†‰»B
+        // æš—å·åŒ–ã€‚
         var json = JsonUtility.ToJson(GameSaveData);
         var iv = "";
         var base64 = "";
         EncryptAesBase64(json, out iv, out base64);
-        // •Û‘¶B
+        // ä¿å­˜ã€‚
         byte[] ivBytes = Encoding.UTF8.GetBytes(iv);
         byte[] base64Bytes = Encoding.UTF8.GetBytes(base64);
         using (FileStream fs = new FileStream(m_filePath, FileMode.Create, FileAccess.Write))
@@ -95,23 +95,23 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
             bw.Close();
         }
 #if UNITY_EDITOR
-        Debug.Log("ƒZ[ƒuŠ®—¹B\n" +
-            "•Û‘¶êŠF" + m_filePath);
+        Debug.Log("ã‚»ãƒ¼ãƒ–å®Œäº†ã€‚\n" +
+            "ä¿å­˜å ´æ‰€ï¼š" + m_filePath);
 #endif
     }
 
     /// <summary>
-    /// Œ»İ‚Ìó‹µ‚ğƒ[ƒh‚·‚éB
+    /// ç¾åœ¨ã®çŠ¶æ³ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã€‚
     /// </summary>
-    /// <returns>¬Œ÷‚µ‚½‚çtrueA¸”s‚µ‚½‚çfalse‚ğ•Ô‚·B</returns>
+    /// <returns>æˆåŠŸã—ãŸã‚‰trueã€å¤±æ•—ã—ãŸã‚‰falseã‚’è¿”ã™ã€‚</returns>
     private bool Load()
     {
         if (File.Exists(m_filePath) == false)
         {
-            // ƒZ[ƒuƒf[ƒ^‚ªŒ©‚Â‚©‚ç‚È‚©‚Á‚½‚Ì‚Åfalse‚ğ•Ô‚·B
+            // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿ãŒè¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸã®ã§falseã‚’è¿”ã™ã€‚
             return false;
         }
-        // “Ç‚İ‚İB
+        // èª­ã¿è¾¼ã¿ã€‚
         byte[] ivBytes = null;
         byte[] base64Bytes = null;
         using (FileStream fs = new FileStream(m_filePath, FileMode.Open, FileAccess.Read))
@@ -123,51 +123,53 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
             length = br.ReadInt32();
             base64Bytes = br.ReadBytes(length);
         }
-        // •¡‡‰»B
+        // è¤‡åˆåŒ–ã€‚
         string json;
         string iv = Encoding.UTF8.GetString(ivBytes);
         string base64 = Encoding.UTF8.GetString(base64Bytes);
         DecryptAesBase64(base64, iv, out json);
 
-        // ƒZ[ƒuƒf[ƒ^•œŒ³B
+        // ã‚»ãƒ¼ãƒ–ãƒ‡ãƒ¼ã‚¿å¾©å…ƒã€‚
         GameSaveData = JsonUtility.FromJson<SaveData>(json);
         return true;
     }
 
     /// <summary>
-    /// ƒIƒvƒVƒ‡ƒ“‚Ì‰Šú‰»B
+    /// ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®åˆæœŸåŒ–ã€‚
     /// </summary>
     public void InitOption()
     {
-        // ’l‚ğ‰Šú‰»B
+        // å€¤ã‚’åˆæœŸåŒ–ã€‚
         GameSaveData.saveData.BGMVolume = DEFAULT_VOLUME;
         GameSaveData.saveData.SEVolume = DEFAULT_VOLUME;
         GameSaveData.saveData.CameraStete = false;
         Save();
 #if UNITY_EDITOR
-        Debug.Log("ƒf[ƒ^‚ğ‰Šú‰»B\n" +
-            "•Û‘¶êŠF" + m_filePath);
+        Debug.Log("ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã€‚\n" +
+            "ä¿å­˜å ´æ‰€ï¼š" + m_filePath);
 #endif
     }
 
     /// <summary>
-    /// ƒf[ƒ^‚Ì‰Šú‰»B
+    /// ãƒ‡ãƒ¼ã‚¿ã®åˆæœŸåŒ–ã€‚
     /// </summary>
     private void InitData()
     {
-        // ƒf[ƒ^‚ğ—pˆÓ‚·‚éB
+        // ãƒ‡ãƒ¼ã‚¿ã‚’ç”¨æ„ã™ã‚‹ã€‚
         GameSaveData.saveData.ClearStage = new bool[StageData.stageDataList.Count];
-        // ƒXƒe[ƒW‚ğƒNƒŠƒA‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+        GameSaveData.saveData.DrawStamp = new bool[StageData.stageDataList.Count];
+        // ãƒ‡ãƒ¼ã‚¿ã®åˆæœŸåŒ–ã€‚
         for (int stageNumber = 0; stageNumber < StageData.stageDataList.Count; stageNumber++)
         {
-            GameSaveData.saveData.ClearStage[stageNumber] = false;  // ƒNƒŠƒA‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅfalseB
+            GameSaveData.saveData.ClearStage[stageNumber] = false;  // ã‚¯ãƒªã‚¢ã—ã¦ã„ãªã„ã®ã§falseã€‚
+            GameSaveData.saveData.DrawStamp[stageNumber] = false;
         }
 
         Save();
     }
 
     /// <summary>
-    /// AESˆÃ†‰»(Base64Œ`®)B
+    /// AESæš—å·åŒ–(Base64å½¢å¼)ã€‚
     /// </summary>
     public static void EncryptAesBase64(string json, out string iv, out string base64)
     {
@@ -178,7 +180,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// AES•¡‡‰»(Base64Œ`®)B
+    /// AESè¤‡åˆåŒ–(Base64å½¢å¼)ã€‚
     /// </summary>
     public static void DecryptAesBase64(string base64, string iv, out string json)
     {
@@ -189,7 +191,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// AESˆÃ†‰»B
+    /// AESæš—å·åŒ–ã€‚
     /// </summary>
     public static void EncryptAes(byte[] src, out string iv, out byte[] dst)
     {
@@ -217,7 +219,7 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// AES•¡‡‰»B
+    /// AESè¤‡åˆåŒ–ã€‚
     /// </summary>
     public static void DecryptAes(byte[] src, string iv, out byte[] dst)
     {
@@ -242,10 +244,10 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     }
 
     /// <summary>
-    /// ƒpƒXƒ[ƒh¶¬B
+    /// ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ç”Ÿæˆã€‚
     /// </summary>
-    /// <param name="count">•¶š—ñ”B</param>
-    /// <returns>ƒpƒXƒ[ƒhB</returns>
+    /// <param name="count">æ–‡å­—åˆ—æ•°ã€‚</param>
+    /// <returns>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€‚</returns>
     public static string CreatePassword(int count)
     {
         StringBuilder sb = new StringBuilder(count);

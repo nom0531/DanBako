@@ -12,21 +12,6 @@ public class ScreenSwitch_StageSelect : MonoBehaviour
     private SE SE_Determination;
     [SerializeField, Tooltip("キャンセル音")]
     private SE SE_Cancel;
-    [SerializeField, Tooltip("カーソル移動音")]
-    private SE SE_CursorMove;
-    [SerializeField, Tooltip("エラー音")]
-    private SE SE_Error;
-
-    [SerializeField]
-    private StageDataBase StageData;
-
-    private int ID = 0; //データの番号
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        ID = GameManager.Instance.StageID;
-    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +29,4 @@ public class ScreenSwitch_StageSelect : MonoBehaviour
             SE_Determination.PlaySE();
         }
     }
-
-
 }
