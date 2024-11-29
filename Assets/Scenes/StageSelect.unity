@@ -416,18 +416,10 @@ MonoBehaviour:
   Stage: {fileID: 113574973}
   stageNameText: {fileID: 391994083}
   stageDataBase: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
-  StageObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  MovePositions:
-  - {x: 0, y: 0, z: -75}
-  - {x: -75, y: 0, z: -50}
-  - {x: -25, y: 0, z: -50}
-  - {x: 25, y: 0, z: -50}
-  - {x: 75, y: 0, z: -50}
+  StageObjects: []
+  MovePositions: []
+  m_startPosition: {x: 75, y: 0, z: -50}
+  m_endPosition: {x: -75, y: 0, z: -50}
   m_ShiftMoveSpeed: 5
   m_isMoving: 0
   m_allMoved: 1
