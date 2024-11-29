@@ -8,11 +8,12 @@ TagManager:
   - BGM
   - Cursor
   - HP
+  - BackGround
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - BackGround
   - Water
   - UI
   - 
