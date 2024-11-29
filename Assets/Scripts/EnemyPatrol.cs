@@ -1,26 +1,36 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [SerializeField, Header("巡回地点")]
-    private Transform[] goals;  // 巡回地点
+    [SerializeField, Header("巡回地点 (座標)")]
+    private Vector3[] goals;
+
     private int destNum = 0;
     private NavMeshAgent agent;
-    private Animator m_EnemyAnimator;
-    private bool isWaiting = false;  // 待機中かどうかのフラグ
+    private Animator enemyAnimator;
+    private bool isWaiting = false;
 
-    // Start is called before the first frame update
+    [SerializeField, Header("プレイヤー")]
+    private Transform player;
+    [SerializeField]
+    private float chaseRange = 10f;  // 追跡範囲
+    [SerializeField]
+    private float attackRange = 2f;  // 攻撃範囲
+    [SerializeField]
+    private float attackCooldown = 2f;  // 攻撃のクールダウン時間
+
+    private bool isChasing = false;
+    private bool isAttacking = false;
+    private float lastAttackTime = 0f;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        m_EnemyAnimator = GetComponent<Animator>(); // Animatorを一度だけ取得
+        enemyAnimator = GetComponent<Animator>();
 
-        // 巡回地点が設定されているか確認
         if (goals.Length > 0)
         {
-            // 最初の目的地を設定
             SetGoalPosition();
         }
         else
@@ -29,64 +39,123 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    void NextGoal()
-    {
-        // 巡回地点の番号を進める
-        destNum = (destNum + 1) % goals.Length;  // 3つの地点を繰り返す
-
-        // 次の目的地を設定
-        SetGoalPosition();
-        Debug.Log("現在の巡回地点: " + destNum);
-    }
-
-    // Y座標を変更せず、目的地を設定
-    void SetGoalPosition()
-    {
-        // 現在の目的地のX, Z座標をそのまま使用し、Y座標は変更しない
-        Vector3 newDestination = new Vector3(goals[destNum].position.x, goals[destNum].position.y, goals[destNum].position.z);
-        agent.destination = newDestination;  // 新しい目的地を設定
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        // 目的地に到着したら次の巡回地点へ
-        if (!agent.pathPending && agent.remainingDistance < 0.5f && !isWaiting)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= chaseRange && !isChasing)
         {
-            StartCoroutine(WaitAtGoal());
+            isChasing = true;
+        }
+        else if (distanceToPlayer > chaseRange && isChasing)
+        {
+            isChasing = false;
+        }
+
+        if (isChasing)
+        {
+            if (distanceToPlayer <= attackRange)
+            {
+                AttackPlayer();
+            }
+            else if (!isAttacking)
+            {
+                ChasePlayer();
+            }
+        }
+        else
+        {
+            Patrol();
         }
 
         UpdateAnimation();
     }
 
-    private void UpdateAnimation()
+    private void Patrol()
     {
-        if (agent.remainingDistance > 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && !isWaiting)
         {
-            m_EnemyAnimator.SetBool("Run", true);  // 走る状態
-        }
-        else
-        {
-            m_EnemyAnimator.SetBool("Run", false); // 待機状態
+            StartCoroutine(WaitAtGoal());
         }
     }
 
-    private IEnumerator WaitAtGoal()
+    private void SetGoalPosition()
+    {
+        agent.destination = goals[destNum];
+    }
+
+    private void NextGoal()
+    {
+        destNum = (destNum + 1) % goals.Length;
+        SetGoalPosition();
+    }
+
+    private System.Collections.IEnumerator WaitAtGoal()
     {
         isWaiting = true;
+        agent.isStopped = true;
 
-        // 待機アニメーションを再生
-        m_EnemyAnimator.SetBool("Idle", true);
+        enemyAnimator.SetBool("Run", false);
+        enemyAnimator.SetBool("Idle", true);
 
-        // アニメーションの終了を待機
-        yield return new WaitUntil(() => {
-            AnimatorStateInfo stateInfo = m_EnemyAnimator.GetCurrentAnimatorStateInfo(0);
-            return stateInfo.IsName("Idle") && stateInfo.normalizedTime >= 1.0f;
-        });
+        yield return new WaitForSeconds(2f);
 
-        // アニメーションが完了したら待機フラグをオフにし、次の地点へ
-        m_EnemyAnimator.SetBool("Idle", false);
+        enemyAnimator.SetBool("Idle", false);
+        agent.isStopped = false;
         NextGoal();
         isWaiting = false;
+    }
+
+    private void UpdateAnimation()
+    {
+        if (agent.velocity.magnitude > 0.1f && !agent.isStopped)
+        {
+            enemyAnimator.SetBool("Run", true);
+        }
+        else
+        {
+            enemyAnimator.SetBool("Run", false);
+        }
+    }
+
+    private void ChasePlayer()
+    {
+        agent.isStopped = false;
+        agent.destination = player.position;
+    }
+
+    private void AttackPlayer()
+    {
+        transform.LookAt(player.position);
+
+        if (isAttacking || Time.time < lastAttackTime + attackCooldown) return;
+
+        isAttacking = true;
+        agent.isStopped = true;
+
+        enemyAnimator.SetTrigger("Attack");
+
+        lastAttackTime = Time.time;
+    }
+
+    private void EndAttack()
+    {
+        isAttacking = false;
+        agent.isStopped = false;
+    }
+
+    // アニメーションイベントで呼ばれる攻撃ヒット処理
+    public void OnAttackHit()
+    {
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer <= attackRange)
+        {
+            Player playerController = player.GetComponent<Player>();
+            if (playerController != null)
+            {
+                int damageAmount = 1; // 攻撃のダメージ量
+                playerController.TakeDamage(damageAmount);
+            }
+        }
     }
 }

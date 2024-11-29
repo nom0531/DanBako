@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c25688f83d5f4ff3bbccaaf074a7da91
+guid: bbc884743598b874d920065191b41601
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Cactus_Attack01
+      name: Attack
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -124,7 +124,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 5961b834d0b54fc9828d7c3ef7ac8279,
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: c0a0375e97cb4250b0cc67ccda1cd64b,
     type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
