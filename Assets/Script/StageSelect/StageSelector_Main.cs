@@ -20,6 +20,10 @@ public class StageSelector_Main : MonoBehaviour
     private TextMeshProUGUI StageNameText;
     [SerializeField, Tooltip("クリア時に表示する画像")]
     private Stamp Stamp;
+    [Header("配置開始地点")]
+    private Vector3 m_startPosition;                   
+    [Header("配置終了地点")]
+    private Vector3 m_endPosition;                      
     [SerializeField, Header("移動先の座標")]
     private Vector3[] MovePositions;
     [SerializeField, Header("シフト速度")]
@@ -42,6 +46,7 @@ public class StageSelector_Main : MonoBehaviour
     {
         m_gameManager = GameManager.Instance;
         InitStageObjects();
+        SetStagePositions();
         SpawnStages();
         UpdateStageScale();
         InitStageData();
@@ -90,6 +95,34 @@ public class StageSelector_Main : MonoBehaviour
             stageStatus.RotateFlag = true;  // オブジェクトを回転させる。
             // 座標を設定。
             m_stageObjects[i].transform.position = MovePositions[i];
+        }
+    }
+
+    /// <summary>
+    /// ステージのポジションを設定する
+    /// </summary>
+    private void SetStagePositions()
+    {
+        //配置開始場所と終了場所を設定
+        m_startPosition = new Vector3(75, 0, -50);
+        m_endPosition = new Vector3(-75, 0, -50);
+
+        //各オブジェクト間の距離を計算
+        //-2している理由は一つ座標を前にもってきていてその分間隔数が一つ減るから
+        Vector3 step = (m_endPosition - m_startPosition) / (m_stageObjects.Length - 2);
+        for (int i = 0; i < m_stageObjects.Length; i++)
+        {
+            if (i == 0)
+            {
+                //選択されているときに強調するためのポジション
+                MovePositions[i] = new Vector3(0, 0, -75);
+            }
+            else
+            {
+                //それ以外のポジション
+                //iに-1をしている理由は選択されている時のポジションを数えないで計算するため
+                MovePositions[i] = m_startPosition + step * (i - 1);
+            }
         }
     }
 
