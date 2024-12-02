@@ -8,8 +8,7 @@ TagManager:
   - BGM
   - Cursor
   - HP
-  - MainUI_PlayerStatus
-  - MainUI_HelpPanel
+  - Stage
   layers:
   - Default
   - TransparentFX

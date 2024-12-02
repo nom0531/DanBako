@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BGM : MonoBehaviour
 {
-    [SerializeField, Header("Ä¶‚·‚éBGM‚Ì”Ô†")]
+    [SerializeField, Header("å†ç”Ÿã™ã‚‹BGMã®ç•ªå·")]
     private BGMNumber BGMNumber;
-    [SerializeField, Header("ƒtƒF[ƒh‚Ì‘¬“x")]
-    private float FadeSpeed = 1.0f;     // ƒtƒF[ƒh‚Ì‘¬“xi‘å‚«‚¢‚Ù‚Ç‘¬‚¢j
+    [SerializeField, Header("ãƒ•ã‚§ãƒ¼ãƒ‰ã®é€Ÿåº¦")]
+    private float FadeSpeed = 1.0f;     // ãƒ•ã‚§ãƒ¼ãƒ‰ã®é€Ÿåº¦ï¼ˆå¤§ãã„ã»ã©é€Ÿã„ï¼‰
 
     public BGMNumber SetBGM
     {
@@ -19,11 +19,11 @@ public class BGM : MonoBehaviour
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
 
-    // BGM‚ÌƒtƒF[ƒh
-    float m_volume = 0.0f;              // Œ»İ‚Ìƒ{ƒŠƒ…[ƒ€B
-    bool m_fadeMode = false;            // ƒtƒF[ƒh‚Ìí—Ş false=‚¾‚ñ‚¾‚ñ‘å‚«‚­ true=‚¾‚ñ‚¾‚ñ¬‚³‚­B
-    bool m_isFade = false;              // ƒtƒF[ƒhˆ—’†‚È‚çtrueB
-    bool m_isResetVolume = false;       // ‰¹—Ê‚ğÄİ’è‚·‚é‚È‚çtrueB
+    // BGMã®ãƒ•ã‚§ãƒ¼ãƒ‰
+    float m_volume = 0.0f;              // ç¾åœ¨ã®ãƒœãƒªãƒ¥ãƒ¼ãƒ ã€‚
+    bool m_fadeMode = false;            // ãƒ•ã‚§ãƒ¼ãƒ‰ã®ç¨®é¡ false=ã ã‚“ã ã‚“å¤§ãã true=ã ã‚“ã ã‚“å°ã•ãã€‚
+    bool m_isFade = false;              // ãƒ•ã‚§ãƒ¼ãƒ‰å‡¦ç†ä¸­ãªã‚‰trueã€‚
+    bool m_isResetVolume = false;       // éŸ³é‡ã‚’å†è¨­å®šã™ã‚‹ãªã‚‰trueã€‚
 
     public AudioSource AudioSource
     {
@@ -38,16 +38,16 @@ public class BGM : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhŠJnB
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰é–‹å§‹ã€‚
     /// </summary>
-    /// <param name="mode">true‚È‚çÄ¶‚ğŠJnBfalse‚È‚çÄ¶‚ğI—¹‚·‚éB</param>
+    /// <param name="mode">trueãªã‚‰å†ç”Ÿã‚’é–‹å§‹ã€‚falseãªã‚‰å†ç”Ÿã‚’çµ‚äº†ã™ã‚‹ã€‚</param>
     public void FadeStart(bool mode)
     {
-        // ‰Šúİ’èB
+        // åˆæœŸè¨­å®šã€‚
         m_fadeMode = mode;
         m_isFade = true;
 
-        // ‰¹—Ê‚ğ‰Šú‰»B
+        // éŸ³é‡ã‚’åˆæœŸåŒ–ã€‚
         if (mode == false)
         {
             m_volume = 0.0f;
@@ -59,12 +59,12 @@ public class BGM : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰¹—Ê‚ğÄİ’è‚·‚éB
+    /// éŸ³é‡ã‚’å†è¨­å®šã™ã‚‹ã€‚
     /// </summary>
     public void ResetVolume(float m_finishVolume = 0.0f)
     {
-        // ‰Šú‰»B
-        // ‰Šú’l‚È‚çÀs‚µ‚È‚¢B
+        // åˆæœŸåŒ–ã€‚
+        // åˆæœŸå€¤ãªã‚‰å®Ÿè¡Œã—ãªã„ã€‚
         if(m_finishVolume != 0.0f)
         {
             m_soundManager.BGMVolume = m_finishVolume;
@@ -79,10 +79,10 @@ public class BGM : MonoBehaviour
     }
 
     /// <summary>
-    /// ’l‚ğ”äŠr‚·‚éB
+    /// å€¤ã‚’æ¯”è¼ƒã™ã‚‹ã€‚
     /// </summary>
-    /// <param name="value">”äŠr‚·‚é’l</param>
-    /// <returns>ƒtƒF[ƒh‚Ìƒ‚[ƒhB</returns>
+    /// <param name="value">æ¯”è¼ƒã™ã‚‹å€¤</param>
+    /// <returns>ãƒ•ã‚§ãƒ¼ãƒ‰ã®ãƒ¢ãƒ¼ãƒ‰ã€‚</returns>
     private bool ComparisonValue(float value)
     {
         if (m_soundManager.BGMVolume > value)
@@ -94,7 +94,7 @@ public class BGM : MonoBehaviour
 
     private void Update()
     {
-        // ƒtƒF[ƒh’†‚Å‚È‚¢‚È‚ç’†’fB
+        // ãƒ•ã‚§ãƒ¼ãƒ‰ä¸­ã§ãªã„ãªã‚‰ä¸­æ–­ã€‚
         if (m_isFade == false)
         {
             return;
@@ -102,31 +102,31 @@ public class BGM : MonoBehaviour
 
         if (m_fadeMode == false)
         {
-            // ‰¹—Ê‚ğ‘å‚«‚­‚·‚éB
-            m_volume += FadeSpeed * Time.deltaTime;
+            // éŸ³é‡ã‚’å¤§ããã™ã‚‹ã€‚
+            m_volume += FadeSpeed * Time.unscaledDeltaTime;
 
-            // ‰¹—Ê‚ğİ’èB
+            // éŸ³é‡ã‚’è¨­å®šã€‚
             m_audioSource.volume = m_volume * DECREMENT_VALUE;
 
             if (m_volume >= m_soundManager.BGMVolume)
             {
-                // ‰¹—Ê‚ªÅ‘å‚É‚È‚Á‚½‚çI—¹B
+                // éŸ³é‡ãŒæœ€å¤§ã«ãªã£ãŸã‚‰çµ‚äº†ã€‚
                 m_isFade = false;
             }
         }
         else
         {
-            // ‰¹—Ê‚ğ¬‚³‚­‚·‚éB
-            m_volume -= FadeSpeed * Time.deltaTime;
+            // éŸ³é‡ã‚’å°ã•ãã™ã‚‹ã€‚
+            m_volume -= FadeSpeed * Time.unscaledDeltaTime;
 
-            // ‰¹—Ê‚ğİ’èB
+            // éŸ³é‡ã‚’è¨­å®šã€‚
             m_audioSource.volume = m_volume * DECREMENT_VALUE;
 
             if (m_isResetVolume == true)
             {
                 if (m_volume <= m_soundManager.BGMVolume)
                 {
-                    // ‰¹—Ê‚ª“¯‚¶‚É‚È‚Á‚½‚çI—¹B
+                    // éŸ³é‡ãŒåŒã˜ã«ãªã£ãŸã‚‰çµ‚äº†ã€‚
                     m_volume = m_soundManager.BGMVolume;
                     m_isFade = false;
                     m_isResetVolume = false;
@@ -136,7 +136,7 @@ public class BGM : MonoBehaviour
 
             if (m_volume <= 0.0f)
             {
-                // ‰¹—Ê‚ªÅ¬‚É‚È‚Á‚½‚çI—¹B
+                // éŸ³é‡ãŒæœ€å°ã«ãªã£ãŸã‚‰çµ‚äº†ã€‚
                 m_volume = 0.0f;
                 m_audioSource.volume = 0.0f;
                 m_isFade = false;

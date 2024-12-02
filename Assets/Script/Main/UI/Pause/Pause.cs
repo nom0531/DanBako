@@ -18,12 +18,12 @@ public class Pause : MonoBehaviour
 {
     [SerializeField, Header("遷移先"), Tooltip("ステージセレクト")]
     private SceneChange StageSelect;
+    [SerializeField, Header("カーソル")]
+    private GameObject Cursor;
     [SerializeField, Tooltip("インゲーム")]
     private SceneChange Main;
     [SerializeField]
-    private GameObject Canvas;
-    [SerializeField, Header("操作説明")]
-    private GameObject HelpPanel;
+    private GameObject PauseCanvas;
     [SerializeField, Header("SE"), Tooltip("決定音")]
     SE SE_Determination;
     [SerializeField, Tooltip("キャンセル音")]
@@ -32,17 +32,15 @@ public class Pause : MonoBehaviour
     private GameManager m_gameManager;
     private Gamepad m_gamepad;
     private Cursor m_cursor;
-    private Animator m_pauseAnimator;
-    private Animator m_helpAnimator;
+    private Animator m_animator;
     private PauseState m_comandState = PauseState.enReturnToGame;
     private bool m_isPause = false;
 
     private void Start()
     {
         m_gameManager = GameManager.Instance;
-        m_pauseAnimator = Canvas.GetComponent<Animator>();
-        m_helpAnimator = HelpPanel.GetComponent<Animator>();
-        m_cursor = null;
+        m_animator = PauseCanvas.GetComponent<Animator>();
+        m_cursor = Cursor.GetComponent<Cursor>();
     }
 
     private void Update()
@@ -104,8 +102,7 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1.0f;
         // ステートを変更。
         m_gameManager.GameMode = CurrentGameMode.enInGame;
-        m_helpAnimator.SetTrigger("Active");
-        m_pauseAnimator.SetTrigger("NotActive");
+        m_animator.SetTrigger("NotActive");
 
         SE_Cancel.PlaySE();
         m_isPause = false;
@@ -120,9 +117,9 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0.0f;
         // ステートを変更。
         m_gameManager.GameMode = CurrentGameMode.enPause;
-        m_helpAnimator.SetTrigger("NotActive");
-        m_pauseAnimator.SetTrigger("Active");
+        m_animator.SetTrigger("Active");
 
+        m_comandState = PauseState.enReturnToGame;
         SE_Determination.PlaySE();
         m_isPause = true;
     }
@@ -134,7 +131,7 @@ public class Pause : MonoBehaviour
     {
         if(m_cursor == null)
         {
-            m_cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
+            m_cursor = Cursor.GetComponent<Cursor>();
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -215,6 +212,8 @@ public class Pause : MonoBehaviour
         {
             case PauseState.enReturnToGame:
                 EnterPause();
+                break;
+            case PauseState.enOption:
                 break;
             case PauseState.enRetryToGame:
                 EnterPause();
