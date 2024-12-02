@@ -20,8 +20,10 @@ public class StageSelector : MonoBehaviour
     private TextMeshProUGUI StageNameText;
     [SerializeField, Tooltip("クリア時に表示する画像")]
     private Stamp Stamp;
-    [SerializeField, Header("移動先の座標")]
-    private Vector3[] MovePositions;
+    [SerializeField, Header("座標"),Tooltip("配置開始地点")]
+    private Vector3 StartPosition;                    //配置開始地点
+    [SerializeField,Tooltip("配置終了地点")]
+    private Vector3 EndPosition;                      //配置終了地点
     [SerializeField, Header("シフト速度")]
     private float ShiftMoveSpeed = 5.0f;
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
@@ -33,6 +35,7 @@ public class StageSelector : MonoBehaviour
     private GameManager m_gameManager;
     private Gamepad m_gamepad;
     private GameObject[] m_stageObjects;                // ステージオブジェクトの配列
+    private Vector3[] m_movePositions;
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
     private int m_currentIndex = 0;                     // 現在選択されているステージのインデックス
     private bool m_isMoving = false;                    // スライドしているかどうか
@@ -42,6 +45,7 @@ public class StageSelector : MonoBehaviour
     {
         m_gameManager = GameManager.Instance;
         InitStageObjects();
+        SetStagePositions();
         SpawnStages();
         UpdateStageScale();
         InitStageData();
@@ -71,9 +75,34 @@ public class StageSelector : MonoBehaviour
     private void InitStageObjects()
     {
         m_stageObjects = new GameObject[StageDataBase.stageDataList.Count];
+        m_movePositions = new Vector3[StageDataBase.stageDataList.Count];
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
             m_stageObjects[i] = StageDataBase.stageDataList[i].Model;
+        }
+    }
+
+    /// <summary>
+    /// ステージのポジションを設定する
+    /// </summary>
+    private void SetStagePositions()
+    {
+        //各オブジェクト間の距離を計算
+        //-2している理由は一つ座標を前にもってきていてその分間隔数が一つ減るから
+        Vector3 step = (EndPosition - StartPosition) / (m_stageObjects.Length - 2);
+        for (int i = 0; i < m_stageObjects.Length; i++)
+        {
+            if (i == 0)
+            {
+                //選択されているときに強調するためのポジション
+                m_movePositions[i] = new Vector3(0, 0, -75);
+            }
+            else
+            {
+                //それ以外のポジション
+                //iに-1をしている理由は選択されている時のポジションを数えないで計算するため
+                m_movePositions[i] = StartPosition + step * (i - 1);
+            }
         }
     }
 
@@ -84,12 +113,12 @@ public class StageSelector : MonoBehaviour
     {
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            m_stageObjects[i] = Instantiate(m_stageObjects[i], MovePositions[i], Quaternion.identity);
+            m_stageObjects[i] = Instantiate(m_stageObjects[i], m_movePositions[i], Quaternion.identity);
             var stageStatus = m_stageObjects[i].GetComponent<StageStatus>();
             stageStatus.MyID = i;
             stageStatus.RotateFlag = true;  // オブジェクトを回転させる。
             // 座標を設定。
-            m_stageObjects[i].transform.position = MovePositions[i];
+            m_stageObjects[i].transform.position = m_movePositions[i];
         }
     }
 
@@ -200,9 +229,9 @@ public class StageSelector : MonoBehaviour
             }
 
             m_stageObjects[i].transform.position = Vector3.Lerp(
-                m_stageObjects[i].transform.position, MovePositions[nextStage], Time.deltaTime * ShiftMoveSpeed);
+                m_stageObjects[i].transform.position, m_movePositions[nextStage], Time.deltaTime * ShiftMoveSpeed);
 
-            if (Vector3.Distance(m_stageObjects[i].transform.position, MovePositions[nextStage]) >= 0.5f)
+            if (Vector3.Distance(m_stageObjects[i].transform.position, m_movePositions[nextStage]) >= 0.5f)
             {
                 m_allMoved = false;
             }
