@@ -7,34 +7,34 @@ using UnityEngine.UI;
 
 public class SetParamator : MonoBehaviour
 {
-    [SerializeField, Header("ƒJƒƒ‰"),Tooltip("ƒeƒLƒXƒg")]
+    [SerializeField, Header("ã‚«ãƒ¡ãƒ©"),Tooltip("ãƒ†ã‚­ã‚¹ãƒˆ")]
     private GameObject CameraText;
-    [SerializeField, Tooltip("ƒJ[ƒ\ƒ‹")]
+    [SerializeField, Tooltip("ã‚«ãƒ¼ã‚½ãƒ«")]
     private GameObject[] CameraCursor;
-    [SerializeField, Header("ƒTƒEƒ“ƒh"), Tooltip("ƒJ[ƒ\ƒ‹")]
+    [SerializeField, Header("ã‚µã‚¦ãƒ³ãƒ‰"), Tooltip("ã‚«ãƒ¼ã‚½ãƒ«")]
     private GameObject[] SoundCursor;
-    [SerializeField, Tooltip("ƒeƒLƒXƒg")]
+    [SerializeField, Tooltip("ãƒ†ã‚­ã‚¹ãƒˆ")]
     private GameObject[] SoundText;
-    [SerializeField, Tooltip("ŒÀ“x’l")]
+    [SerializeField, Tooltip("é™åº¦å€¤")]
     private float PositionX_Min, PositionX_Max;
-    [SerializeField, Tooltip("’iŠK")]
+    [SerializeField, Tooltip("æ®µéš")]
     private int SoundStage = 10;
-    [SerializeField, Header("SE"), Tooltip("ƒJ[ƒ\ƒ‹ˆÚ“®‰¹")]
+    [SerializeField, Header("SE"), Tooltip("ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•éŸ³")]
     private SE SE_CursorMove;
-    [SerializeField, Tooltip("ƒGƒ‰[‰¹")]
-    SE SE_Error;
+    [SerializeField, Tooltip("ã‚¨ãƒ©ãƒ¼éŸ³")]
+    private SE SE_Error;
 
     /// <summary>
-    /// ƒTƒEƒ“ƒhƒf[ƒ^B
+    /// ã‚µã‚¦ãƒ³ãƒ‰ãƒ‡ãƒ¼ã‚¿ã€‚
     /// </summary>
     struct SoundData
     {
-        public RectTransform rectTransform; // À•WB
-        public int soundStage;              // Œ»İ‚Ì‰¹—ÊB
+        public RectTransform rectTransform; // åº§æ¨™ã€‚
+        public int soundStage;              // ç¾åœ¨ã®éŸ³é‡ã€‚
     }
 
     /// <summary>
-    /// ƒTƒEƒ“ƒhƒXƒe[ƒgB
+    /// ã‚µã‚¦ãƒ³ãƒ‰ã‚¹ãƒ†ãƒ¼ãƒˆã€‚
     /// </summary>
     private enum SoundState
     {
@@ -48,7 +48,7 @@ public class SetParamator : MonoBehaviour
     private BGM m_bgm;
     private SoundData[] m_soundDatas = new SoundData[(int)SoundState.enNum];
     private OptionState m_comandState = OptionState.enBGMSound;
-    private float m_moveLength = 0.0f;                          // ˆê“x‚ÌƒJ[ƒ\ƒ‹‚ÌˆÚ“®—ÊB
+    private float m_moveLength = 0.0f;                          // ä¸€åº¦ã®ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é‡ã€‚
 
 
     private void Start()
@@ -58,13 +58,13 @@ public class SetParamator : MonoBehaviour
         m_soundDatas[(int)SoundState.enBGM].rectTransform = SoundCursor[(int)SoundState.enBGM].GetComponent<RectTransform>();
         m_soundDatas[(int)SoundState.enSE].rectTransform = SoundCursor[(int)SoundState.enSE].GetComponent<RectTransform>();
 
-        // ˆÚ“®—Ê‚ğŒvZB
+        // ç§»å‹•é‡ã‚’è¨ˆç®—ã€‚
         m_moveLength = (PositionX_Min - PositionX_Max) / SoundStage;
         Init();
     }
 
     /// <summary>
-    /// ‰Šú‰»ˆ—B
+    /// åˆæœŸåŒ–å‡¦ç†ã€‚
     /// </summary>
     private void Init()
     {
@@ -73,44 +73,44 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰¹—Ê‚Ì‰Šú‰»B
+    /// éŸ³é‡ã®åˆæœŸåŒ–ã€‚
     /// </summary>
     private void InitSoundVolume()
     {
-        // ƒ{ƒŠƒ…[ƒ€‚ğŒvZB
+        // ãƒœãƒªãƒ¥ãƒ¼ãƒ ã‚’è¨ˆç®—ã€‚
         var bgm = m_saveDataManager.BGMVolume * SoundStage;
         var se = m_saveDataManager.SEVolume * SoundStage;
-        // ”Ô†B
+        // ç•ªå·ã€‚
         int bgmNumber = (int)SoundState.enBGM;
         int seNumber = (int)SoundState.enSE;
 
-        // ƒJ[ƒ\ƒ‹ˆÊ’u‚ğXVB
+        // ã‚«ãƒ¼ã‚½ãƒ«ä½ç½®ã‚’æ›´æ–°ã€‚
         CursorMove(bgm, bgmNumber);
         CursorMove(se, seNumber);
-        // Œ»İ‚Ì’iŠKBi0`SoundStage‚Ü‚Åj
+        // ç¾åœ¨ã®æ®µéšã€‚ï¼ˆ0ï½SoundStageã¾ã§ï¼‰
         m_soundDatas[bgmNumber].soundStage = (int)bgm;
         m_soundDatas[seNumber].soundStage = (int)se;
-        // ƒeƒLƒXƒg‚ğXVB
+        // ãƒ†ã‚­ã‚¹ãƒˆã‚’æ›´æ–°ã€‚
         SoundText[bgmNumber].GetComponent<TextMeshProUGUI>().text = m_soundDatas[bgmNumber].soundStage.ToString();
         SoundText[seNumber].GetComponent<TextMeshProUGUI>().text = m_soundDatas[seNumber].soundStage.ToString();
-        // ‰¹—Ê‚ğ“K—p‚·‚éB
+        // éŸ³é‡ã‚’é©ç”¨ã™ã‚‹ã€‚
         m_bgm.ResetVolume();
     }
 
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹‚ÌˆÊ’u‚ğŒˆ’è‚·‚éB
+    /// ã‚«ãƒ¼ã‚½ãƒ«ã®ä½ç½®ã‚’æ±ºå®šã™ã‚‹ã€‚
     /// </summary>
-    /// <param name="soundStage">‰¹—Ê‚Ì’iŠKB</param>
+    /// <param name="soundStage">éŸ³é‡ã®æ®µéšã€‚</param>
     private void CursorMove(float soundStage, int number)
     {
-        // Œ»İ‚Ì‰¹—Ê‚ÆXVŒã‚Ì‰¹—Ê‚ğ”äŠrB
+        // ç¾åœ¨ã®éŸ³é‡ã¨æ›´æ–°å¾Œã®éŸ³é‡ã‚’æ¯”è¼ƒã€‚
         var diff = (int)soundStage - m_soundDatas[number].soundStage;
-        // ƒJ[ƒ\ƒ‹‚ÌˆÚ“®—Ê‚ğŒvZB
+        // ã‚«ãƒ¼ã‚½ãƒ«ã®ç§»å‹•é‡ã‚’è¨ˆç®—ã€‚
         MoveX(m_soundDatas[number].rectTransform, diff * -m_moveLength);
     }
 
     /// <summary>
-    /// ƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚éˆ—B
+    /// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹å‡¦ç†ã€‚
     /// </summary>
     public void Set(OptionState comandState, Gamepad gamepad)
     {
@@ -123,7 +123,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// BGM‚Ìƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚éˆ—B
+    /// BGMã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void SetBGMParamator()
     {
@@ -135,7 +135,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// SE‚Ìƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚éˆ—B
+    /// SEã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void SetSEParamator()
     {
@@ -147,9 +147,9 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰¹—Ê‚ğİ’èB
+    /// éŸ³é‡ã‚’è¨­å®šã€‚
     /// </summary>
-    /// <param name="rectTransform">‘ÎÛƒIƒuƒWƒFƒNƒg‚ÌÀ•WB</param>
+    /// <param name="rectTransform">å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åº§æ¨™ã€‚</param>
     private void SetVolume(SoundState soundState)
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -161,7 +161,7 @@ public class SetParamator : MonoBehaviour
             VolumeDown((int)soundState);
         }
 
-        // ƒQ[ƒ€ƒpƒbƒh‚ªÚ‘±‚³‚ê‚Ä‚¢‚È‚¢ê‡B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ãŒæ¥ç¶šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
         if(m_gamepad == null)
         {
             return;
@@ -178,7 +178,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰¹—Ê‚ğã‚°‚éˆ—B
+    /// éŸ³é‡ã‚’ä¸Šã’ã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void VolumeUp(int number)
     {
@@ -207,7 +207,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰¹—Ê‚ğ‰º‚°‚éˆ—B
+    /// éŸ³é‡ã‚’ä¸‹ã’ã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void VolumeDown(int number)
     {
@@ -236,10 +236,10 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ˆÚ“®ˆ—B
+    /// ç§»å‹•å‡¦ç†ã€‚
     /// </summary>
-    /// <param name="MoveLength">ˆÚ“®—ÊB</param>
-    /// <param name="rectTransform">‘ÎÛƒIƒuƒWƒFƒNƒg‚ÌÀ•WB</param>
+    /// <param name="MoveLength">ç§»å‹•é‡ã€‚</param>
+    /// <param name="rectTransform">å¯¾è±¡ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®åº§æ¨™ã€‚</param>
     private void MoveX(RectTransform rectTransform, float MoveLength)
     {
         var length = rectTransform.anchoredPosition.x + MoveLength;
@@ -249,7 +249,7 @@ public class SetParamator : MonoBehaviour
 
 
     /// <summary>
-    /// ƒJƒƒ‰‚Ìƒpƒ‰ƒ[ƒ^‚ğİ’è‚·‚éˆ—B
+    /// ã‚«ãƒ¡ãƒ©ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void SetCameraParamator()
     {
@@ -267,7 +267,7 @@ public class SetParamator : MonoBehaviour
             PushLeft();
         }
 
-        // ƒQ[ƒ€ƒpƒbƒh‚ªÚ‘±‚³‚ê‚Ä‚¢‚È‚¢ê‡B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ãŒæ¥ç¶šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
         if(m_gamepad == null)
         {
             return;
@@ -284,7 +284,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ¨ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†’ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushRight()
     {
@@ -299,7 +299,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ©ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushLeft()
     {
@@ -314,17 +314,17 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒJƒƒ‰‰ñ“]‚ğ•ÏX‚·‚éB
+    /// ã‚«ãƒ¡ãƒ©å›è»¢ã‚’å¤‰æ›´ã™ã‚‹ã€‚
     /// </summary>
-    /// <param name="flag">false‚È‚çƒm[ƒ}ƒ‹‰ñ“]Bture‚È‚çƒŠƒo[ƒX‰ñ“]B</param>
+    /// <param name="flag">falseãªã‚‰ãƒãƒ¼ãƒãƒ«å›è»¢ã€‚tureãªã‚‰ãƒªãƒãƒ¼ã‚¹å›è»¢ã€‚</param>
     private void ChangeCameraRotation(bool flag)
     {
-        var text = "ƒm[ƒ}ƒ‹";
+        var text = "ãƒãƒ¼ãƒãƒ«";
         int notActivenumber = 0;
         int activeNumber = 1;
         if(flag == true)
         {
-            text = "ƒŠƒo[ƒX";
+            text = "ãƒªãƒãƒ¼ã‚¹";
             notActivenumber = 1;
             activeNumber = 0;
         }
@@ -336,7 +336,7 @@ public class SetParamator : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒf[ƒ^‚ğ‰Šú‰»‚·‚éB
+    /// ãƒ‡ãƒ¼ã‚¿ã‚’åˆæœŸåŒ–ã™ã‚‹ã€‚
     /// </summary>
     public void ResetStatus()
     {
