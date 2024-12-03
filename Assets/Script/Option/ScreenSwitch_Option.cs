@@ -202,7 +202,7 @@ public class ScreenSwitch_Option : MonoBehaviour
                 break;
             case OptionState.enReset:
                 m_setParamator.ResetStatus();
-                break;
+                return;
         }
         m_cursor.Move((int)m_comandState);
     }

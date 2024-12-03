@@ -14,7 +14,7 @@ public class BGM : MonoBehaviour
         set => BGMNumber = value;
     }
 
-    private const float DECREMENT_VALUE = 0.5f;
+    private const float DECREMENT_VALUE = 0.2f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
