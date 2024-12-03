@@ -284,7 +284,6 @@ MonoBehaviour:
   StageDataBase: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
   StageNameText: {fileID: 391994083}
   Stamp: {fileID: 4050592890544354683}
-  MovePositions: []
   ShiftMoveSpeed: 5
   SE_CursorMove: {fileID: 113574976}
 --- !u!1 &170067384

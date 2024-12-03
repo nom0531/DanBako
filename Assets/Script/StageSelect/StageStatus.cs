@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StageStatus : MonoBehaviour
 {
+    [SerializeField]
     private int m_ID = 0;
     private bool m_isRotate = false;    // 自身を回転させるならtrue。
 

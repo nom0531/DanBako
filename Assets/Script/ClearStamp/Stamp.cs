@@ -14,7 +14,7 @@ public class Stamp : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         m_saveDataManager = GameManager.Instance.SaveDataManager;
         m_animator = GetComponent<Animator>();
