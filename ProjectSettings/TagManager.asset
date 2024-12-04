@@ -11,6 +11,8 @@ TagManager:
   - Stage
   - MainUI_PlayerStatus
   - MainUI_HelpPanel
+  - BackGround
+  - Enemy
   layers:
   - Default
   - TransparentFX
