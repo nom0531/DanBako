@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class StageStatus : MonoBehaviour
 {
+    [SerializeField]
     private int m_ID = 0;
+    private bool m_isRotate = false;    // 自身を回転させるならtrue。
 
     public int MyID
     {
@@ -12,8 +14,17 @@ public class StageStatus : MonoBehaviour
         set => m_ID = value;
     }
 
+    public bool RotateFlag
+    {
+        set => m_isRotate = value;
+    }
+
     private void Update()
     {
-        transform.Rotate(0.0f, 0.5f, 0.0f);
+        if(m_isRotate == false)
+        {
+            return;
+        }
+        transform.Rotate(0.0f, 0.3f, 0.0f);
     }
 }

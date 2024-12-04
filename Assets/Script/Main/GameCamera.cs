@@ -54,7 +54,6 @@ public class GameCamera : MonoBehaviour
     /// </summary>
     private void Rotation()
     {
-        float rot = 0.0f;
         // X角度制限。
         float nowRot = transform.localEulerAngles.x;
         // 取得した角度は0～360°なので補正する。
@@ -74,7 +73,7 @@ public class GameCamera : MonoBehaviour
         }
 
         // 左右。
-        rot = Time.unscaledDeltaTime * RotSpeed;
+        float rot = Time.deltaTime * RotSpeed;
 
         if (CameraModeX)
         {

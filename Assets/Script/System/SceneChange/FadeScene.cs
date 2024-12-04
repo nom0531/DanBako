@@ -17,23 +17,22 @@ public enum SceneNumber
 
 public class FadeScene : SingletonMonoBehaviour<FadeScene>
 {
-    [SerializeField, Header("ƒtƒF[ƒh‘¬“x")]
+    [SerializeField, Header("ãƒ•ã‚§ãƒ¼ãƒ‰é€Ÿåº¦")]
     private float FadeSpeed = 1.0f;
 
     private string m_sceneName = "";
     private Image m_image;
-
-    private bool m_useImage = false;        // true‚È‚çImageAfalse‚È‚çƒ}ƒeƒŠƒAƒ‹‚ğg—p‚·‚éB
+    private bool m_useImage = false;        // trueãªã‚‰Imageã€falseãªã‚‰ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
     private bool m_fadeStart = false;
     private bool m_fadeMode = false;
     private float m_alpha = 0.0f;
 
     /// <summary>
-    /// ƒtƒF[ƒh‚ğŠJn‚·‚éB
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚’é–‹å§‹ã™ã‚‹ã€‚
     /// </summary>
-    /// <param name="number">ƒV[ƒ“”Ô†</param>
-    /// <param name="color">ƒ}ƒeƒŠƒAƒ‹‚ÌƒJƒ‰[B</param>
-    /// <param name="flag">true‚È‚çImageAfalse‚È‚çƒ}ƒeƒŠƒAƒ‹‚ğg—p‚·‚éB</param>
+    /// <param name="number">ã‚·ãƒ¼ãƒ³ç•ªå·</param>
+    /// <param name="color">ãƒãƒ†ãƒªã‚¢ãƒ«ã®ã‚«ãƒ©ãƒ¼ã€‚</param>
+    /// <param name="flag">trueãªã‚‰Imageã€falseãªã‚‰ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’ä½¿ç”¨ã™ã‚‹ã€‚</param>
     public void FadeStart(SceneNumber number, Color color, bool flag)
     {
         m_fadeStart = true;
@@ -43,20 +42,20 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
 
         if (m_useImage == true)
         {
-            // ’Êí‚ÌƒtƒF[ƒhB
+            // é€šå¸¸ã®ãƒ•ã‚§ãƒ¼ãƒ‰ã€‚
             m_image.color = color;
         }
         else
         {
-            // ƒ}ƒeƒŠƒAƒ‹‚ğ‰Šú‰»B
+            // ãƒãƒ†ãƒªã‚¢ãƒ«ã‚’åˆæœŸåŒ–ã€‚
             m_image.material.SetFloat("_Border", 0.0f);
             m_image.material.SetColor("_Color", color);
         }
 
-        // ©g‚ÌRenderCamera‚ÉƒƒCƒ“ƒJƒƒ‰‚ğİ’è‚·‚éB
+        // è‡ªèº«ã®RenderCameraã«ãƒ¡ã‚¤ãƒ³ã‚«ãƒ¡ãƒ©ã‚’è¨­å®šã™ã‚‹ã€‚
         GetComponent<Canvas>().worldCamera = Camera.main;
 
-        // BGM‚Ì‰¹—Ê‚ğ¬‚³‚­‚·‚éB
+        // BGMã®éŸ³é‡ã‚’å°ã•ãã™ã‚‹ã€‚
         BGM bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
         bgm.FadeStart(true);
     }
@@ -79,10 +78,10 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
     }
 
     /// <summary>
-    /// ƒV[ƒ“–¼‚É•ÏŠ·B
+    /// ã‚·ãƒ¼ãƒ³åã«å¤‰æ›ã€‚
     /// </summary>
-    /// <param name="number">ƒV[ƒ“”Ô†B</param>
-    /// <returns>ƒV[ƒ“–¼B</returns>
+    /// <param name="number">ã‚·ãƒ¼ãƒ³ç•ªå·ã€‚</param>
+    /// <returns>ã‚·ãƒ¼ãƒ³åã€‚</returns>
     private string ConvertingToName(SceneNumber number)
     {
         var sceneName = "";
@@ -96,7 +95,7 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
                 sceneName = "Option";
                 break;
             case SceneNumber.enStageSelect:
-                sceneName = "StageSelect";
+                sceneName = "StageSelect_Main";
                 break;
             case SceneNumber.enMain:
                 sceneName = "Main";
@@ -114,50 +113,50 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhˆ—B
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰å‡¦ç†ã€‚
     /// </summary>
     private void Fade()
     {
         if (m_fadeMode == false)
         {
-            // ‰æ–Ê‚ğˆÃ‚­‚·‚éB
+            // ç”»é¢ã‚’æš—ãã™ã‚‹ã€‚
             m_alpha += FadeSpeed * Time.unscaledDeltaTime;
 
             if (m_alpha >= 1.0f)
             {
-                // ƒV[ƒ“‚ğƒ[ƒhB
+                // ã‚·ãƒ¼ãƒ³ã‚’ãƒ­ãƒ¼ãƒ‰ã€‚
                 SceneManager.LoadScene(m_sceneName);
                 m_fadeMode = true;
             }
         }
         else
         {
-            // ‰æ–Ê‚ğ–¾‚é‚­‚·‚éB
+            // ç”»é¢ã‚’æ˜ã‚‹ãã™ã‚‹ã€‚
             m_alpha -= FadeSpeed * Time.unscaledDeltaTime;
 
             if (m_alpha <= 0.0f)
             {
-                // ©g‚ğíœB
+                // è‡ªèº«ã‚’å‰Šé™¤ã€‚
                 Destroy(gameObject);
             }
         }
     }
 
     /// <summary>
-    /// •s“§–¾“x‚ğİ’è‚·‚éB
+    /// ä¸é€æ˜åº¦ã‚’è¨­å®šã™ã‚‹ã€‚
     /// </summary>
     private void SetAlpha()
     {
         if(m_useImage == true)
         {
-            // ƒJƒ‰[‚ğİ’èB
+            // ã‚«ãƒ©ãƒ¼ã‚’è¨­å®šã€‚
             Color nowColor = m_image.color;
             nowColor.a = m_alpha;
             m_image.color = nowColor;
         }
         else
         {
-            // ƒ}ƒeƒŠƒAƒ‹‚É’l‚ğİ’èB
+            // ãƒãƒ†ãƒªã‚¢ãƒ«ã«å€¤ã‚’è¨­å®šã€‚
             m_image.material.SetFloat("_Border", m_alpha);
         }
     }

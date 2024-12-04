@@ -14,25 +14,27 @@ public class StageSelector_Main : MonoBehaviour
         enLeft = -1
     }
 
-    [SerializeField, Header("ステージデータ")]
+    [SerializeField,Header("ステージデータ")]
     private StageDataBase StageDataBase;
-    [SerializeField, Tooltip("名称")]
+    [SerializeField,Tooltip("名称")]
     private TextMeshProUGUI StageNameText;
     [SerializeField, Tooltip("クリア時に表示する画像")]
     private Stamp Stamp;
-    [SerializeField, Header("移動先の座標")]
-    private Vector3[] MovePositions;
     [SerializeField, Header("シフト速度")]
     private float ShiftMoveSpeed = 5.0f;
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
     private SE SE_CursorMove;
 
-    private const float SELECTED_SCALE = 0.01f;         // 選択されたステージの拡大率
+    private const float SELECTED_SCALE = 0.008f;         // 選択されたステージの拡大率
     private const float DEFAULT_SCALE = 0.005f;          // 非選択ステージのデフォルトスケール
+
+    private readonly Vector3 START_POSITION = new Vector3(75.0f, -20.0f, 75.0f);
+    private readonly Vector3 END_POSITION = new Vector3(-75.0f, -20.0f, 75.0f);
 
     private GameManager m_gameManager;
     private Gamepad m_gamepad;
     private GameObject[] m_stageObjects;                // ステージオブジェクトの配列
+    private Vector3[] m_movePositions;
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
     private int m_currentIndex = 0;                     // 現在選択されているステージのインデックス
     private bool m_isMoving = false;                    // スライドしているかどうか
@@ -42,6 +44,7 @@ public class StageSelector_Main : MonoBehaviour
     {
         m_gameManager = GameManager.Instance;
         InitStageObjects();
+        SetStagePositions();
         SpawnStages();
         UpdateStageScale();
         InitStageData();
@@ -59,9 +62,8 @@ public class StageSelector_Main : MonoBehaviour
     /// </summary>
     private void InitStageData()
     {
-        StageNameText.text = StageDataBase.stageDataList[m_currentIndex].Name;
-        m_gameManager.StageID = m_stageObjects[m_currentIndex].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
         Stamp.StageID = m_currentIndex;
+        StageNameText.text = StageDataBase.stageDataList[m_currentIndex].Name;
         Stamp.Draw();
     }
 
@@ -71,9 +73,34 @@ public class StageSelector_Main : MonoBehaviour
     private void InitStageObjects()
     {
         m_stageObjects = new GameObject[StageDataBase.stageDataList.Count];
+        m_movePositions = new Vector3[StageDataBase.stageDataList.Count];
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
             m_stageObjects[i] = StageDataBase.stageDataList[i].Model;
+        }
+    }
+
+    /// <summary>
+    /// ステージのポジションを設定する
+    /// </summary>
+    private void SetStagePositions()
+    {
+        //各オブジェクト間の距離を計算
+        //-2している理由は一つ座標を前にもってきていてその分間隔数が一つ減るから
+        Vector3 step = (END_POSITION - START_POSITION) / (m_stageObjects.Length - 2);
+        for (int i = 0; i < m_stageObjects.Length; i++)
+        {
+            if (i == 0)
+            {
+                //選択されているときに強調するためのポジション
+                m_movePositions[i] = new Vector3(0.0f, -20.0f, 50.0f);
+            }
+            else
+            {
+                //それ以外のポジション
+                //iに-1をしている理由は選択されている時のポジションを数えないで計算するため
+                m_movePositions[i] = START_POSITION + step * (i - 1);
+            }
         }
     }
 
@@ -84,10 +111,12 @@ public class StageSelector_Main : MonoBehaviour
     {
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            m_stageObjects[i] = Instantiate(m_stageObjects[i], MovePositions[i], Quaternion.identity);
-            m_stageObjects[i].GetComponent<StageStatus>().MyID = i;
+            m_stageObjects[i] = Instantiate(m_stageObjects[i], m_movePositions[i], Quaternion.identity);
+            var stageStatus = m_stageObjects[i].GetComponent<StageStatus>();
+            stageStatus.MyID = i;
+            stageStatus.RotateFlag = true;  // オブジェクトを回転させる。
             // 座標を設定。
-            m_stageObjects[i].transform.position = MovePositions[i];
+            m_stageObjects[i].transform.position = m_movePositions[i];
         }
     }
 
@@ -113,7 +142,7 @@ public class StageSelector_Main : MonoBehaviour
             return;
         }
 
-        if (m_gamepad == null)
+        if(m_gamepad == null)
         {
             m_isMoving = true;
             return;
@@ -150,19 +179,20 @@ public class StageSelector_Main : MonoBehaviour
         // シフト処理
         for (int i = 0; i < m_stageObjects.Length; i++)
         {
-            ShiftStage(i, shiftedObjects);
+            ShiftStage(i,shiftedObjects);
         }
         // オリジナルの配列を新しい配列で置き換え
         m_stageObjects = shiftedObjects;
 
         InitStageData();
+        m_gameManager.StageID = m_stageObjects[m_currentIndex].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
         SE_CursorMove.PlaySE();
     }
 
     /// <summary>
     /// 最後の要素を先頭に、他を1つずつずらす処理。
     /// </summary>
-    private void ShiftStage(int stageNumber, GameObject[] gameObjects)
+    private void ShiftStage(int stageNumber,GameObject[] gameObjects)
     {
         if (m_nextStage == StageState.enRight)
         {
@@ -198,9 +228,9 @@ public class StageSelector_Main : MonoBehaviour
             }
 
             m_stageObjects[i].transform.position = Vector3.Lerp(
-                m_stageObjects[i].transform.position, MovePositions[nextStage], Time.deltaTime * ShiftMoveSpeed);
+                m_stageObjects[i].transform.position, m_movePositions[nextStage], Time.deltaTime * ShiftMoveSpeed);
 
-            if (Vector3.Distance(m_stageObjects[i].transform.position, MovePositions[nextStage]) >= 0.5f)
+            if (Vector3.Distance(m_stageObjects[i].transform.position, m_movePositions[nextStage]) >= 0.5f)
             {
                 m_allMoved = false;
             }
@@ -213,6 +243,7 @@ public class StageSelector_Main : MonoBehaviour
         if (m_allMoved)
         {
             UpdateIndex();
+            StageNameText.text = StageDataBase.stageDataList[m_currentIndex].Name;
             m_isMoving = false;
             m_nextStage = StageState.enStop;
         }

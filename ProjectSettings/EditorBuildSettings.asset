@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Help.unity
     guid: dcd05099b12ed5942a0df6a09b2de796
   - enabled: 1
-    path: Assets/Scenes/StageSelect.unity
-    guid: ce47433a2f5cf574c8385eba0770704b
+    path: Assets/Scenes/StageSelect_Main.unity
+    guid: 08ced5b6b344f5b479304141e0b881f2
   - enabled: 1
     path: Assets/Scenes/InGameTest.unity
     guid: 6e79ec29f852e8744a2642f6c77f6e5b

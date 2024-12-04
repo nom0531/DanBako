@@ -5,27 +5,25 @@ using UnityEngine.InputSystem;
 
 public class ScreenSwitch_Title : MonoBehaviour
 {
-    [SerializeField, Header("‘JˆÚæ"),Tooltip("‚Í‚¶‚ß‚©‚ç/‚Â‚Ã‚«‚©‚ç")]
+    [SerializeField, Header("é·ç§»å…ˆ"),Tooltip("ã¯ã˜ã‚ã‹ã‚‰/ã¤ã¥ãã‹ã‚‰")]
     private SceneChange Scene_StageSelect;
-    [SerializeField, Tooltip("ƒIƒvƒVƒ‡ƒ“")]
+    [SerializeField, Tooltip("ã‚ªãƒ—ã‚·ãƒ§ãƒ³")]
     private SceneChange Scene_Option;
-    [SerializeField, Tooltip("ƒwƒ‹ƒv")]
+    [SerializeField, Tooltip("ãƒ˜ãƒ«ãƒ—")]
     private SceneChange Scene_Help;
-    [SerializeField, Header("SE"), Tooltip("Œˆ’è‰¹")]
+    [SerializeField, Header("SE"), Tooltip("æ±ºå®šéŸ³")]
     private SE SE_Determination;
-    [SerializeField, Tooltip("ƒJ[ƒ\ƒ‹ˆÚ“®‰¹")]
-    private SE SE_CursorMove;
 
     /// <summary>
-    /// ‘I‘ğ’†‚ÌƒRƒ}ƒ“ƒhB
+    /// é¸æŠä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã€‚
     /// </summary>
     private enum TitleState
     {
-        enFromBeginning,    // ‚Í‚¶‚ß‚©‚çB
-        enFromContinuation, // ‚Â‚Ã‚«‚©‚çB
-        enQuitGame,         // ƒQ[ƒ€I—¹B
-        enOption,           // ƒIƒvƒVƒ‡ƒ“B
-        enHelp              // ƒwƒ‹ƒvB
+        enFromBeginning,    // ã¯ã˜ã‚ã‹ã‚‰ã€‚
+        enFromContinuation, // ã¤ã¥ãã‹ã‚‰ã€‚
+        enQuitGame,         // ã‚²ãƒ¼ãƒ çµ‚äº†ã€‚
+        enOption,           // ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã€‚
+        enHelp              // ãƒ˜ãƒ«ãƒ—ã€‚
     }
 
     private SaveDataManager m_saveDataManager;
@@ -33,7 +31,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     private Cursor m_cursor;
     private PlayAnimation m_playAnimation;
     private TitleState m_comandState = TitleState.enFromBeginning;
-    private bool m_isPush = false;      // ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚È‚çtureB
+    private bool m_isPush = false;      // ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸãªã‚‰tureã€‚
 
     private void Start()
     {
@@ -46,7 +44,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚È‚çÀs‚µ‚È‚¢B
+        // ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸãªã‚‰å®Ÿè¡Œã—ãªã„ã€‚
         if(m_isPush == true)
         {
             return;
@@ -56,11 +54,11 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒRƒ}ƒ“ƒh‘I‘ğˆ—B
+    /// ã‚³ãƒãƒ³ãƒ‰é¸æŠå‡¦ç†ã€‚
     /// </summary>
     private void SelectCommand()
     {
-        // ƒQ[ƒ€ƒpƒbƒh‚ğæ“¾B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ã‚’å–å¾—ã€‚
         m_gamepad = Gamepad.current;
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -88,49 +86,47 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ªƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†‘ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushUp()
     {
         int oldCcommandState = (int)m_comandState;
         m_comandState--;
-        // •â³B
+        // è£œæ­£ã€‚
         if (m_comandState < TitleState.enFromBeginning)
         {
             m_comandState = TitleState.enHelp;
         }
         m_cursor.Move((int)m_comandState);
-        // ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶B
+        // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†ç”Ÿã€‚
         m_playAnimation.Play(oldCcommandState, "NotActive");
         m_playAnimation.Play((int)m_comandState, "Active");
-        SE_CursorMove.PlaySE();
     }
 
     /// <summary>
-    /// «ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†“ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushDown()
     {
         int oldCcommandState = (int)m_comandState;
         m_comandState++;
-        // •â³B
+        // è£œæ­£ã€‚
         if (m_comandState > TitleState.enHelp)
         {
             m_comandState = TitleState.enFromBeginning;
         }
         m_cursor.Move((int)m_comandState);
-        // ƒAƒjƒ[ƒVƒ‡ƒ“‚ğÄ¶B
+        // ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å†ç”Ÿã€‚
         m_playAnimation.Play(oldCcommandState, "NotActive");
         m_playAnimation.Play((int)m_comandState, "Active");
-        SE_CursorMove.PlaySE();
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“ˆ—B
+    /// ãƒœã‚¿ãƒ³å‡¦ç†ã€‚
     /// </summary>
     private void ButtonDown()
     {
-        // Bƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Bãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
         {
             ButtonPush();
@@ -139,11 +135,11 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void ButtonPush()
     {
-        // ƒXƒe[ƒg‚É‰‚¶‚Äˆ—‚ğ•ÏXB
+        // ã‚¹ãƒ†ãƒ¼ãƒˆã«å¿œã˜ã¦å‡¦ç†ã‚’å¤‰æ›´ã€‚
         switch (m_comandState){
             case TitleState.enFromBeginning:
                 FromBiginning();
@@ -165,16 +161,16 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ‚Í‚¶‚ß‚©‚ç‚ğ‘I‘ğ‚µ‚½ê‡‚Ìˆ—B
+    /// ã¯ã˜ã‚ã‹ã‚‰ã‚’é¸æŠã—ãŸå ´åˆã®å‡¦ç†ã€‚
     /// </summary>
     private void FromBiginning()
     {
-        m_saveDataManager.Delete(); // ˆÈ‘O‚Ü‚Å‚Ìƒf[ƒ^‚ğíœB
+        m_saveDataManager.Delete(); // ä»¥å‰ã¾ã§ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã€‚
         Scene_StageSelect.CreateFadeCanvas();
     }
 
     /// <summary>
-    /// ‚Â‚Ã‚«‚©‚ç‚ğ‘I‘ğ‚µ‚½ê‡‚Ìˆ—B
+    /// ã¤ã¥ãã‹ã‚‰ã‚’é¸æŠã—ãŸå ´åˆã®å‡¦ç†ã€‚
     /// </summary>
     private void FromContinuation()
     {
@@ -182,7 +178,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€‚ğI—¹‚·‚éˆ—B
+    /// ã‚²ãƒ¼ãƒ ã‚’çµ‚äº†ã™ã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void Quit()
     {
@@ -194,7 +190,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒIƒvƒVƒ‡ƒ“‘I‘ğ‚Ìˆ—B
+    /// ã‚ªãƒ—ã‚·ãƒ§ãƒ³é¸æŠæ™‚ã®å‡¦ç†ã€‚
     /// </summary>
     private void Option()
     {
@@ -202,7 +198,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒwƒ‹ƒv‘I‘ğ‚Ìˆ—B
+    /// ãƒ˜ãƒ«ãƒ—é¸æŠæ™‚ã®å‡¦ç†ã€‚
     /// </summary>
     private void Help()
     {

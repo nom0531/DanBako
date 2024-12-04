@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 /// <summary>
-/// ‘I‘ğ’†‚ÌƒRƒ}ƒ“ƒhB
+/// é¸æŠä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã€‚
 /// </summary>
 public enum OptionState
 {
@@ -12,20 +12,18 @@ public enum OptionState
     enSESound,
     enCamera,
     enReset,
-    enBGMParamator,     // BGM‚Ìƒpƒ‰ƒ[ƒ^B
-    enSEParamator,      // SE‚Ìƒpƒ‰ƒ[ƒ^B
-    enCameraParamator,  // ƒJƒƒ‰‚Ìƒpƒ‰ƒ[ƒ^B
+    enBGMParamator,     // BGMã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+    enSEParamator,      // SEã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
+    enCameraParamator,  // ã‚«ãƒ¡ãƒ©ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã€‚
 }
 
 public class ScreenSwitch_Option : MonoBehaviour
 {
-    [SerializeField, Header("SE"), Tooltip("Œˆ’è‰¹")]
+    [SerializeField, Header("SE"), Tooltip("æ±ºå®šéŸ³")]
     private SE SE_Determination;
-    [SerializeField, Tooltip("ƒLƒƒƒ“ƒZƒ‹‰¹")]
+    [SerializeField, Tooltip("ã‚­ãƒ£ãƒ³ã‚»ãƒ«éŸ³")]
     private SE SE_Cancel;
-    [SerializeField, Tooltip("ƒJ[ƒ\ƒ‹ˆÚ“®‰¹")]
-    private SE SE_CursorMove;
-    [SerializeField, Tooltip("ƒGƒ‰[‰¹")]
+    [SerializeField, Tooltip("ã‚¨ãƒ©ãƒ¼éŸ³")]
     private SE SE_Error;
 
     private SaveDataManager m_saveDataManager;
@@ -34,7 +32,7 @@ public class ScreenSwitch_Option : MonoBehaviour
     private SetParamator m_setParamator;
     private Gamepad m_gamepad;
     private OptionState m_comandState = OptionState.enBGMSound;
-    private bool m_isPush = false;    // ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚È‚çtureB
+    private bool m_isPush = false;    // ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸãªã‚‰tureã€‚
 
     // Start is called before the first frame update
     private void Start()
@@ -57,11 +55,11 @@ public class ScreenSwitch_Option : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“ˆ—B
+    /// ãƒœã‚¿ãƒ³å‡¦ç†ã€‚
     /// </summary>
     private void ButtonDown()
     {
-        // Aƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Aãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
         {
             SceneChange();
@@ -69,7 +67,7 @@ public class ScreenSwitch_Option : MonoBehaviour
             SE_Cancel.PlaySE();
             m_saveDataManager.Save();
         }
-        // Bƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Bãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 1") || Input.GetKeyDown(KeyCode.K))
         {
             ButtonPush();
@@ -78,7 +76,7 @@ public class ScreenSwitch_Option : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚éˆ—B
+    /// ã‚·ãƒ¼ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹å‡¦ç†ã€‚
     /// </summary>
     private void SceneChange()
     {
@@ -86,13 +84,13 @@ public class ScreenSwitch_Option : MonoBehaviour
         {
             return;
         }
-        // ƒV[ƒ“‚ğØ‚è‘Ö‚¦‚éB
+        // ã‚·ãƒ¼ãƒ³ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹ã€‚
         m_sceneChange.CreateFadeCanvas();
         m_isPush = true;
     }
 
     /// <summary>
-    /// ƒXƒe[ƒg‚ğ•ÏX‚·‚éB
+    /// ã‚¹ãƒ†ãƒ¼ãƒˆã‚’å¤‰æ›´ã™ã‚‹ã€‚
     /// </summary>
     private void ChangeState()
     {
@@ -100,17 +98,17 @@ public class ScreenSwitch_Option : MonoBehaviour
         {
             return;
         }
-        // ‘I‘ğ’†‚ÌƒRƒ}ƒ“ƒh‚ğ•ÏX‚·‚éB
+        // é¸æŠä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’å¤‰æ›´ã™ã‚‹ã€‚
         m_comandState -= 4;
         m_cursor.Move((int)m_comandState);
     }
 
     /// <summary>
-    /// ƒRƒ}ƒ“ƒh‘I‘ğˆ—B
+    /// ã‚³ãƒãƒ³ãƒ‰é¸æŠå‡¦ç†ã€‚
     /// </summary>
     private void SelectCommand()
     {
-        // ƒQ[ƒ€ƒpƒbƒh‚ğæ“¾B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ã‚’å–å¾—ã€‚
         m_gamepad = Gamepad.current;
 
         CursorMove();
@@ -118,7 +116,7 @@ public class ScreenSwitch_Option : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒJ[ƒ\ƒ‹ˆÚ“®B
+    /// ã‚«ãƒ¼ã‚½ãƒ«ç§»å‹•ã€‚
     /// </summary>
     private void CursorMove()
     {
@@ -131,7 +129,7 @@ public class ScreenSwitch_Option : MonoBehaviour
             PushDown();
         }
 
-        // ƒQ[ƒ€ƒpƒbƒh‚ªÚ‘±‚³‚ê‚Ä‚¢‚È‚¢ê‡B
+        // ã‚²ãƒ¼ãƒ ãƒ‘ãƒƒãƒ‰ãŒæ¥ç¶šã•ã‚Œã¦ã„ãªã„å ´åˆã€‚
         if(m_gamepad == null)
         {
             return;
@@ -148,7 +146,7 @@ public class ScreenSwitch_Option : MonoBehaviour
     }
 
     /// <summary>
-    /// ªƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†‘ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushUp()
     {
@@ -158,17 +156,16 @@ public class ScreenSwitch_Option : MonoBehaviour
             return;
         }
         m_comandState--;
-        // •â³B
+        // è£œæ­£ã€‚
         if (m_comandState < OptionState.enBGMSound)
         {
             m_comandState = OptionState.enReset;
         }
         m_cursor.Move((int)m_comandState);
-        SE_CursorMove.PlaySE();
     }
 
     /// <summary>
-    /// «ƒL[‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// â†“ã‚­ãƒ¼ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void PushDown()
     {
@@ -178,21 +175,20 @@ public class ScreenSwitch_Option : MonoBehaviour
             return;
         }
         m_comandState++;
-        // •â³B
+        // è£œæ­£ã€‚
         if (m_comandState > OptionState.enReset)
         {
             m_comandState = OptionState.enBGMSound;
         }
         m_cursor.Move((int)m_comandState);
-        SE_CursorMove.PlaySE();
     }
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚Ìˆ—B
+    /// ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã®å‡¦ç†ã€‚
     /// </summary>
     private void ButtonPush()
     {
-        // ƒXƒe[ƒg‚É‰‚¶‚Äˆ—‚ğ•ÏXB
+        // ã‚¹ãƒ†ãƒ¼ãƒˆã«å¿œã˜ã¦å‡¦ç†ã‚’å¤‰æ›´ã€‚
         switch (m_comandState)
         {
             case OptionState.enBGMSound:
@@ -206,7 +202,7 @@ public class ScreenSwitch_Option : MonoBehaviour
                 break;
             case OptionState.enReset:
                 m_setParamator.ResetStatus();
-                break;
+                return;
         }
         m_cursor.Move((int)m_comandState);
     }

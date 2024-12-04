@@ -27,13 +27,17 @@ public class StageSelector : MonoBehaviour
     private GameObject[] StageObjects;                  // ステージオブジェクトの配列
     [SerializeField, Header("移動先の座標")]
     private Vector3[] MovePositions;                    // 移動先のポジション
+    [SerializeField,Header("配置開始地点")]
+    private Vector3 m_startPosition;                    //配置開始地点
+    [SerializeField,Header("配置終了地点")]
+    private Vector3 m_endPosition;                      //配置終了地点
     [SerializeField, Header("シフト速度")]
     private float m_ShiftMoveSpeed = 5.0f;                // ステージ移動の速度
 
     [SerializeField]
-    private const float SELECTED_SCALE = 30.0f;         // 選択されたステージの拡大率
+    private const float SELECTED_SCALE = 0.01f;         // 選択されたステージの拡大率
     [SerializeField]
-    private const float DEFAULT_SCALE = 20.0f;          // 非選択ステージのデフォルトスケール
+    private const float DEFAULT_SCALE = 0.005f;          // 非選択ステージのデフォルトスケール
 
     private StageState m_nextStage = StageState.enStop; // 次に選択するステージのステート
     private int m_forwardStageScale = 0;                // 拡大するステージのインデックス
@@ -46,6 +50,9 @@ public class StageSelector : MonoBehaviour
 
     private void Start()
     {
+        //ステージの配列の数を調整
+        AddStageObject();
+
         //ステージ配列にミニステージのモデルを設定する
         InitStageObjects();
 
@@ -54,6 +61,9 @@ public class StageSelector : MonoBehaviour
             Debug.LogError("ステージが設定されていません！");
             return;
         }
+
+        //ミニステージのポジションを設定
+        SetStagePositions();
 
         //ミニステージを出現させる
         SpawnStages();
@@ -133,6 +143,39 @@ public class StageSelector : MonoBehaviour
     }
 
     /// <summary>
+    /// ステージデータベースのステージ数によって配列の数を調整
+    /// </summary>
+    private void AddStageObject()
+    {
+        StageObjects = new GameObject[stageDataBase.stageDataList.Count];
+        MovePositions = new Vector3[stageDataBase.stageDataList.Count];
+    }
+
+    /// <summary>
+    /// ステージのポジションを設定する
+    /// </summary>
+    private void SetStagePositions()
+    {
+        //各オブジェクト間の距離を計算
+        //-2している理由は一つ座標を前にもってきていてその分間隔数が一つ減るから
+        Vector3 step = (m_endPosition - m_startPosition) / (StageObjects.Length - 2);
+        for (int i = 0; i < StageObjects.Length; i++)
+        {
+            if(i == 0)
+            {
+                //選択されているときに強調するためのポジション
+                MovePositions[i] = new Vector3(0, 0, -75);
+            }
+            else
+            {
+                //それ以外のポジション
+                //iに-1をしている理由は選択されている時のポジションを数えないで計算するため
+                MovePositions[i] = m_startPosition + step * (i - 1);
+            }
+        }
+    }
+
+    /// <summary>
     /// ステージ配列にあるミニステージを出現させる
     /// </summary>
     private void SpawnStages()
@@ -173,7 +216,6 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void ShiftStage(int stageNumber,GameObject[] gameObjects)
     {
-
         if (m_nextStage == StageState.enRight)
         {
             gameObjects[stageNumber] = StageObjects[(stageNumber + 1 + StageObjects.Length) % StageObjects.Length];
@@ -266,6 +308,14 @@ public class StageSelector : MonoBehaviour
         
     }
     
+    /// <summary>
+    /// ステージ決定
+    /// </summary>
+    void StageDecition()
+    {
+        
+    }
+
     /// <summary>
     /// オプション画面を開く
     /// ステージセレクト画面を閉じる

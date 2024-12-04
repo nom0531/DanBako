@@ -62,8 +62,14 @@ public class PlayerStatus : MonoBehaviour
     /// </summary>
     public void Damage()
     {
-        if (m_gameManager.GameMode == CurrentGameMode.enPause) return;
-        if(m_status.HP < 0) return;
+        if (m_gameManager.GameMode == CurrentGameMode.enPause)
+        {
+            return;
+        }
+        if (m_status.HP < 0)
+        {
+            return;
+        }
         // 体力を減少させる。
         --m_status.HP;
         m_setImage.ChangeHPImage();
