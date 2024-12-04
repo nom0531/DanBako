@@ -2,150 +2,119 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float gravity = -1000f;         // d—Í‚Ì‹­‚³
-    public float fallSpeed = 10f;         // Œ»İ‚Ì—‰º‘¬“x
-    public float groundCheckDistance = 0.1f; // ’n–Ê‚Æ‚Ì”»’è‹——£
-    public float moveSpeed = 5f;         // ˆÚ“®‘¬“x
-    public float slopeLimit = 45f;       // “o‚ê‚éâ“¹‚ÌÅ‘åŠp“x
-    public float slopeSmooth = 0.1f;     // â“¹‚Å‚ÌƒXƒ€[ƒY‚ÈˆÚ“®
-    public float airControlFactor = 0.5f; // ‹ó’†§Œä‚ÌŒø‚«‹ï‡
+    [Header("ç§»å‹•è¨­å®š")]
+    public float moveSpeed = 5f;
+    public float airControlFactor = 0.5f;
 
-    public int maxHealth = 100;          // Å‘åHP
-    private int currentHealth;           // Œ»İ‚ÌHP
+    [Header("é‡åŠ›è¨­å®š")]
+    public float gravity = -20f;
+    public float groundCheckDistance = 0.1f;
+    public LayerMask groundLayer;
 
-    private bool isGrounded = false;     // ’n–Ê‚É‚¢‚é‚©‚Ç‚¤‚©
-    private Animator m_playerAnimator;   // ƒAƒjƒ[ƒ^[
+    [Header("HPè¨­å®š")]
+    public int maxHealth = 100;
 
-    private bool m_moveFlag = false;     // ˆÚ“®ƒtƒ‰ƒO
-    private bool isDamaged = false;      // ƒ_ƒ[ƒW‚ğó‚¯‚Ä‚¢‚é‚©‚Ç‚¤‚©
+    private int currentHealth;
+    private bool isGrounded = false;
+    private bool isDamaged = false;
+    private bool hasWon = false;
+
+    private float fallSpeed = 0f;
+    private bool isMoving = false;
 
     private CharacterController controller;
+    private Animator playerAnimator;
 
     void Start()
     {
-        currentHealth = maxHealth;       // ‰ŠúHP‚ğİ’è
-        m_playerAnimator = GetComponent<Animator>(); // Animator‚ğæ“¾
-        controller = GetComponent<CharacterController>(); // CharacterController‚ğæ“¾
+        currentHealth = maxHealth;
+        controller = GetComponent<CharacterController>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        CheckGrounded();    // ’n–Ê”»’è
-        if (!isDamaged)     // ƒ_ƒ[ƒW‚ğó‚¯‚Ä‚¢‚È‚¢‚Æ‚«‚ÉˆÚ“®
+        if (hasWon) return;
+
+        GroundCheck();
+        ApplyGravity();
+
+        if (!isDamaged)
         {
-            Move();         // ˆÚ“®ˆ—
+            Move();
         }
-        ApplyGravity();     // d—Íˆ—
-        Animate();          // ƒAƒjƒ[ƒVƒ‡ƒ“§Œä
+
+        UpdateAnimations();
     }
 
     private void Move()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-        Vector3 move = new Vector3(moveX, 0, moveZ) * moveSpeed * Time.deltaTime;
 
-        m_moveFlag = move.sqrMagnitude > 0.0f; // ˆÚ“®ƒtƒ‰ƒO‚ğXV
+        Vector3 move = new Vector3(moveX, 0, moveZ) * moveSpeed;
+        isMoving = move.sqrMagnitude > 0.01f;
 
-        if (m_moveFlag)
+        if (isMoving)
         {
-            transform.rotation = Quaternion.LookRotation(move.normalized); // Œü‚«‚ğ•ÏX
+            transform.rotation = Quaternion.LookRotation(move.normalized);
         }
 
-        // â“¹•â³‚ğs‚¢AˆÚ“®ƒxƒNƒgƒ‹‚ğXV
-        AdjustForSlope(ref move);
-
-        // ‹ó’†‚Å‚à§Œä‚ğŒø‚©‚¹‚é
         if (!isGrounded)
         {
             move.x *= airControlFactor;
             move.z *= airControlFactor;
         }
 
-        // ÀÛ‚ÉƒvƒŒƒCƒ„[‚ğˆÚ“®
-        controller.Move(move);
-    }
-
-    private void AdjustForSlope(ref Vector3 move)
-    {
-        if (isGrounded)
-        {
-            RaycastHit hitCenter;
-            Vector3 origin = transform.position;
-
-            bool hitDetectedCenter = Physics.Raycast(
-                origin + Vector3.up * 0.1f, Vector3.down,
-                out hitCenter, groundCheckDistance + 0.1f, LayerMask.GetMask("BackGround"));
-
-            if (hitDetectedCenter)
-            {
-                Vector3 normal = hitCenter.normal; // ’n–Ê‚Ì–@ü‚ğæ“¾
-                float slopeAngle = Vector3.Angle(normal, Vector3.up);
-
-                if (slopeAngle <= slopeLimit)
-                {
-                    // â“¹‚É‰ˆ‚Á‚½ˆÚ“®ƒxƒNƒgƒ‹‚ğŒvZ
-                    Vector3 slopeDirection = Vector3.ProjectOnPlane(move, normal);
-                    move = Vector3.Lerp(move, slopeDirection, slopeSmooth);
-
-                    // ƒvƒŒƒCƒ„[‚ÌˆÊ’u‚ğ’n–Ê‚ÉƒXƒ€[ƒY‚ÉÚ’n‚³‚¹‚é
-                    Vector3 targetPosition = new Vector3(
-                        transform.position.x,
-                        hitCenter.point.y,
-                        transform.position.z);
-                    transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * 10f);
-
-                    // ƒvƒŒƒCƒ„[‚Ì‰ñ“]‚ğâ“¹‚É‡‚í‚¹‚é
-                    Quaternion targetRotation = Quaternion.FromToRotation(transform.up, normal) * transform.rotation;
-                    transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-                }
-                else
-                {
-                    // ‹}‚·‚¬‚éâ“¹‚Å‚Í’â~
-                    move = Vector3.zero;
-                    Debug.Log("‹}‚Èâ“¹‚Å’â~’†");
-                }
-            }
-            else
-            {
-                Debug.Log("’n–Ê‚ªŒŸ’m‚³‚ê‚Ü‚¹‚ñI");
-            }
-        }
+        controller.Move(move * Time.deltaTime);
     }
 
     private void ApplyGravity()
     {
-        if (!isGrounded)
+        if (isGrounded)
         {
-            fallSpeed += gravity * Time.deltaTime; // d—Í‚Ì“K—p
-            controller.Move(Vector3.up * fallSpeed * Time.deltaTime);
+            fallSpeed = 0f;
         }
         else
         {
-            fallSpeed = 0f; // ’n–Ê‚É‚Â‚¢‚Ä‚¢‚éê‡A—‰º‘¬“x‚ğƒŠƒZƒbƒg
+            fallSpeed += Physics.gravity.y * Time.deltaTime;
+            controller.Move(Vector3.up * fallSpeed * Time.deltaTime);
         }
     }
 
 
-    private void CheckGrounded()
+    private void GroundCheck()
     {
-        isGrounded = controller.isGrounded;
+        RaycastHit hit;
+        isGrounded = Physics.Raycast(
+            transform.position + Vector3.up * 0.1f,
+            Vector3.down,
+            out hit,
+            groundCheckDistance,
+            groundLayer
+        );
+
+        if (isGrounded && hit.collider != null)
+        {
+            fallSpeed = 0f; // åœ°é¢ã«æ¥åœ°ã—ãŸã‚‰è½ä¸‹é€Ÿåº¦ã‚’ãƒªã‚»ãƒƒãƒˆ
+        }
     }
 
-    private void Animate()
+    private void UpdateAnimations()
     {
-        m_playerAnimator.SetBool("MoveFlag", m_moveFlag);
+        playerAnimator.SetBool("MoveFlag", isMoving);
     }
 
     public void TakeDamage(int damage)
     {
-        if (isDamaged) return; // ƒ_ƒ[ƒW’†‚Íˆ—‚µ‚È‚¢
+        if (isDamaged) return;
 
-        isDamaged = true; // ƒ_ƒ[ƒW’†ƒtƒ‰ƒO‚ğ—§‚Ä‚é
-        m_playerAnimator.SetTrigger("DamageTri");
-        currentHealth -= damage; // HP‚ğŒ¸­
+        isDamaged = true;
+        currentHealth -= damage;
+        Debug.Log("DamageTri ãƒˆãƒªã‚¬ãƒ¼ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™"); // ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°
+        playerAnimator.SetTrigger("DamageTri");
 
-        Debug.Log($"ƒvƒŒƒCƒ„[‚É {damage} ƒ_ƒ[ƒWBc‚èHP: {currentHealth}");
+        Debug.Log($"ãƒ€ãƒ¡ãƒ¼ã‚¸: {damage}, æ®‹ã‚ŠHP: {currentHealth}");
 
         if (currentHealth <= 0)
         {
@@ -153,26 +122,37 @@ public class Player : MonoBehaviour
         }
         else
         {
-            // ƒ_ƒ[ƒWŒã‚Éˆê’èŠÔˆÚ“®‚Å‚«‚È‚¢‚æ‚¤‚É‚·‚é
-            Invoke(nameof(ResetDamageState), 1f); // 1•bŒã‚Éƒ_ƒ[ƒWó‘Ô‚ğ‰ğœ
+            Invoke(nameof(ResetDamageState), 1f);
         }
     }
 
     private void ResetDamageState()
     {
-        isDamaged = false; // ƒ_ƒ[ƒWó‘Ô‰ğœ
+        isDamaged = false;
     }
 
     private void Die()
     {
-        Debug.Log("ƒvƒŒƒCƒ„[‚ª€–S‚µ‚Ü‚µ‚½I");
-        m_playerAnimator.SetTrigger("DieTri"); // €–SƒAƒjƒ[ƒVƒ‡ƒ“
-        enabled = false; // ƒXƒNƒŠƒvƒg‚ğ–³Œø‰»
+        Debug.Log("æ­»äº¡ã—ã¾ã—ãŸ");
+        playerAnimator.SetTrigger("DieTri");
+        enabled = false;
+    }
+
+    public void Celebrate()
+    {
+        if (hasWon) return;
+
+        hasWon = true;
+        playerAnimator.SetTrigger("WinTri");
+        Debug.Log("å‹åˆ©ã—ã¾ã—ãŸï¼");
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckDistance);
+        Gizmos.DrawLine(
+            transform.position + Vector3.up * 0.1f,
+            transform.position + Vector3.down * groundCheckDistance
+        );
     }
 }
