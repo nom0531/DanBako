@@ -764,7 +764,7 @@ GameObject:
   - component: {fileID: 284181604}
   m_Layer: 5
   m_Name: HelpPanel
-  m_TagString: Untagged
+  m_TagString: MainUI_HelpPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1229,7 +1229,7 @@ GameObject:
   - component: {fileID: 418687695}
   m_Layer: 5
   m_Name: PlayerStatusPanel
-  m_TagString: Untagged
+  m_TagString: MainUI_PlayerStatus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
