@@ -18,21 +18,25 @@ public class Pause : MonoBehaviour
 {
     [SerializeField, Header("遷移先"), Tooltip("ステージセレクト")]
     private SceneChange StageSelect;
-    [SerializeField, Header("カーソル")]
-    private GameObject Cursor;
     [SerializeField, Tooltip("インゲーム")]
     private SceneChange Main;
     [SerializeField]
+    private GameObject Cursor;
+    [SerializeField]
     private GameObject PauseCanvas;
+    [SerializeField]
+    private GameObject Option;
     [SerializeField, Header("SE"), Tooltip("決定音")]
     SE SE_Determination;
     [SerializeField, Tooltip("キャンセル音")]
     SE SE_Cancel;
 
     private GameManager m_gameManager;
+    private OptionsMenu_Main m_optionsMenu;
     private Gamepad m_gamepad;
     private Cursor m_cursor;
     private Animator m_animator;
+    private AnimationEvent m_animationEvent;
     private PauseState m_comandState = PauseState.enReturnToGame;
     private bool m_isPause = false;
 
@@ -41,10 +45,16 @@ public class Pause : MonoBehaviour
         m_gameManager = GameManager.Instance;
         m_animator = PauseCanvas.GetComponent<Animator>();
         m_cursor = Cursor.GetComponent<Cursor>();
+        m_optionsMenu = Option.GetComponent<OptionsMenu_Main>();
+        m_animationEvent = PauseCanvas.GetComponent<AnimationEvent>();
     }
 
     private void Update()
     {
+        if (m_optionsMenu.SelectOptionFlag == true)
+        {
+            return;
+        }
         PauseScreen();
 
         if(m_isPause == false)
@@ -214,6 +224,7 @@ public class Pause : MonoBehaviour
                 EnterPause();
                 break;
             case PauseState.enOption:
+                m_animationEvent.OptionUIStart();
                 break;
             case PauseState.enRetryToGame:
                 EnterPause();
