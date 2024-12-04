@@ -277,7 +277,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b6ecda85e79772d4e83046f2aab2d94e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db8977887e21dcc44af6b76187f02ad5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1664,16 +1664,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3d4e360a9fe6143907dc1777a728ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveCursorSE: {fileID: 415177715}
+  bgm: {fileID: 1763651832}
+  Option: {fileID: 955844070}
+  Stage: {fileID: 113574973}
   bgmSlider: {fileID: 335561521}
-  bgmVolumeText: {fileID: 1325107133}
   seSlider: {fileID: 1130531925}
-  seVolumeText: {fileID: 1608073500}
   cameraOption: {fileID: 2108239984}
-  Cursor: {fileID: 0}
-  SE_Error: {fileID: 0}
-  SE_MoveCursor: {fileID: 0}
-  SE_Determination: {fileID: 0}
-  SE_Cancel: {fileID: 0}
+  initText: {fileID: 664786889}
+  backText: {fileID: 1917670104}
+  selectCursor: {fileID: 1073869069}
+  bgmVolumeText: {fileID: 1325107133}
+  seVolumeText: {fileID: 1608073500}
+  SliderAdjustmentPosition: {x: -55, y: 0, z: 0}
+  CameraAdjustmentPosition: {x: -30, y: 0, z: 0}
+  InitAdjustmentPosition: {x: -35, y: 0, z: 0}
+  ImageAdjustmentPosition: {x: -15, y: 0, z: 0}
 --- !u!1 &1036236169
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,6 +1755,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036236169}
   m_CullTransparentMesh: 1
+--- !u!114 &1073869069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1384713797199908110, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+    type: 3}
+  m_PrefabInstance: {fileID: 38409512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1130531923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,7 +2373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b6ecda85e79772d4e83046f2aab2d94e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: db8977887e21dcc44af6b76187f02ad5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3166,6 +3184,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1763651832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4023418476047157013, guid: 87f536eb7f3e0c0499e58865fe332884,
+    type: 3}
+  m_PrefabInstance: {fileID: 1766651608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e07c3b0ad9144ba4a834317a895bd955, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1766651608
 PrefabInstance:
   m_ObjectHideFlags: 0

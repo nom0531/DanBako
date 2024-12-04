@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class StageSelector : MonoBehaviour
+public class StageSelector_Main : MonoBehaviour
 {
     /// <summary>
     /// ステージのステート。
