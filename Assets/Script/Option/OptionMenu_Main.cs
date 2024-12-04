@@ -25,6 +25,8 @@ public class OptionsMenu_Main : MonoBehaviour
     private TextMeshProUGUI cameraOption;       //カメラ設定
     [SerializeField,Header("カーソル")]
     private Cursor Cursor;
+    [SerializeField]
+    private GameObject Panel;
     [SerializeField, Header("SE"), Tooltip("エラー音")]
     private SE SE_Error;
     [SerializeField, Tooltip("カーソル移動音")]
@@ -36,17 +38,27 @@ public class OptionsMenu_Main : MonoBehaviour
 
     private Gamepad m_gamepad;
     private BGM m_bgm;
+    private AnimationEvent m_animationEvent;
     private SelectOption m_comandState = SelectOption.enBGMOption;  //選択中のインデックス
     private int m_cameraIndex = 0;    //カメラ設定のインデックス
     private string[] cameraOptionName = { "ノーマル", "リバース" };
+    private bool m_isSelectOption = false;    // 自身が選択されているならture。
 
     private SaveDataManager m_saveDataManager;
+
+    public bool SelectOptionFlag
+    {
+        get => m_isSelectOption;
+        set => m_isSelectOption = value;
+    }
 
     void Start()
     {
         m_saveDataManager = GameManager.Instance.SaveDataManager;
         m_bgm = GameObject.FindGameObjectWithTag("BGM").GetComponent<BGM>();
         m_bgm.ResetVolume();
+
+        m_animationEvent = Panel.GetComponent<AnimationEvent>();
 
         //bgmとseのスライダーの値を変更
         bgmSlider.value = m_saveDataManager.SaveData.saveData.BGMVolume;
@@ -59,9 +71,16 @@ public class OptionsMenu_Main : MonoBehaviour
 
     void Update()
     {
+        // 自身が選択されていないなら中断。
+        if(SelectOptionFlag == false)
+        {
+            return;
+        }
+
         if(Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
         {
             SE_Cancel.PlaySE();
+            m_animationEvent.OptionFinish();
             return;
         }
 
