@@ -9,6 +9,8 @@ TagManager:
   - Cursor
   - HP
   - Stage
+  - MainUI_PlayerStatus
+  - MainUI_HelpPanel
   layers:
   - Default
   - TransparentFX
