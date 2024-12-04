@@ -233,7 +233,6 @@ GameObject:
   m_Component:
   - component: {fileID: 113574974}
   - component: {fileID: 113574976}
-  - component: {fileID: 113574977}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Stage
@@ -269,23 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SENumber: 0
---- !u!114 &113574977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 113574973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d49a23d7b4faae54e9895c6ceea1f562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StageDataBase: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
-  StageNameText: {fileID: 391994083}
-  Stamp: {fileID: 4050592890544354683}
-  ShiftMoveSpeed: 5
-  SE_CursorMove: {fileID: 113574976}
 --- !u!1 &170067384
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2338,8 @@ MonoBehaviour:
   Main: {fileID: 7067993915310855282}
   SE_Determination: {fileID: 8508215474172066554}
   SE_Cancel: {fileID: 8508215474172066553}
+  SE_CursorMove: {fileID: 0}
+  SE_Error: {fileID: 0}
 --- !u!114 &8508215474172066551
 MonoBehaviour:
   m_ObjectHideFlags: 0
