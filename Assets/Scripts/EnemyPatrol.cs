@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [SerializeField, Header("����n�_ (���W)")]
+    [SerializeField, Header("巡回地点 (座標)")]
     private Vector3[] goals;
 
     private int destNum = 0;
@@ -11,18 +11,21 @@ public class EnemyPatrol : MonoBehaviour
     private Animator enemyAnimator;
     private bool isWaiting = false;
 
-    [SerializeField, Header("�v���C���[")]
+    [SerializeField, Header("プレイヤー")]
     private Transform player;
     [SerializeField]
-    private float chaseRange = 10f;  // �ǐՔ͈�
+    private float chaseRange = 10f;  // 追跡範囲
     [SerializeField]
-    private float attackRange = 2f;  // �U���͈�
+    private float attackRange = 2f;  // 攻撃範囲
     [SerializeField]
-    private float attackCooldown = 2f;  // �U���̃N�[���_�E������
+    private float attackCooldown = 2f;  // 攻撃のクールダウン時間
 
     private bool isChasing = false;
     private bool isAttacking = false;
     private float lastAttackTime = 0f;
+
+    [SerializeField, Header("ゲーム時間管理オブジェクト")]
+    private GameTime gameTime;
 
     void Start()
     {
@@ -35,12 +38,21 @@ public class EnemyPatrol : MonoBehaviour
         }
         else
         {
-            Debug.LogError("����n�_���ݒ肳��Ă��܂���I");
+            Debug.LogError("巡回地点が設定されていません！");
         }
     }
 
     void Update()
     {
+        // 時間停止中は全ての処理をスキップ
+        if (gameTime != null && gameTime.TimeStopFlag)
+        {
+            HandleTimeStop();
+            return;
+        }
+
+        ResumeFromTimeStop();
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         if (distanceToPlayer <= chaseRange && !isChasing)
@@ -136,7 +148,22 @@ public class EnemyPatrol : MonoBehaviour
         enemyAnimator.SetTrigger("Attack");
 
         lastAttackTime = Time.time;
+
+        // 攻撃終了後に再び動けるようにする
+        Invoke(nameof(EndAttack), 1.5f); // アニメーションの終了時間に合わせて調整
     }
+
+    // アニメーションイベントから呼ばれるメソッド
+    public void ApplyDamage()
+    {
+        if (player.TryGetComponent<Player>(out Player playerScript))
+        {
+            Debug.Log("アニメーションイベントでプレイヤーにダメージを適用");
+            playerScript.TakeDamage(1); // 例として1ダメージ
+        }
+    }
+
+
 
     private void EndAttack()
     {
@@ -144,18 +171,23 @@ public class EnemyPatrol : MonoBehaviour
         agent.isStopped = false;
     }
 
-    // �A�j���[�V�����C�x���g�ŌĂ΂��U���q�b�g����
-    public void OnAttackHit()
+    // 時間停止時の処理
+    private void HandleTimeStop()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (distanceToPlayer <= attackRange)
+        if (!agent.isStopped)
         {
-            Player playerController = player.GetComponent<Player>();
-            if (playerController != null)
-            {
-                int damageAmount = 1; // �U���̃_���[�W��
-                playerController.TakeDamage(damageAmount);
-            }
+            agent.isStopped = true;
+            enemyAnimator.speed = 0f; // アニメーションを停止
+        }
+    }
+
+    // 時間停止から再開時の処理
+    private void ResumeFromTimeStop()
+    {
+        if (agent.isStopped && !gameTime.TimeStopFlag)
+        {
+            agent.isStopped = false;
+            enemyAnimator.speed = 1f; // アニメーションを再開
         }
     }
 }

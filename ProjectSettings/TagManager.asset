@@ -10,6 +10,8 @@ TagManager:
   - HP
   - MainUI_PlayerStatus
   - MainUI_HelpPanel
+  - BackGround
+  - Enemy
   layers:
   - Default
   - TransparentFX
