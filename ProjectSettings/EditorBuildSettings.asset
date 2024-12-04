@@ -24,9 +24,15 @@ EditorBuildSettings:
     path: Assets/Scenes/InGameTest.unity
     guid: 6e79ec29f852e8744a2642f6c77f6e5b
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 328baa71e9fe7c1438eb888d05619646
+  - enabled: 1
     path: Assets/Scenes/Main_UI.unity
     guid: 3cc24c05126883e499b8dd9a50140fc9
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 3635110810fdf7041a16f55a8352a90a
+  - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: 0fb959b073620ed489e186591c66c39b
   m_configObjects: {}
