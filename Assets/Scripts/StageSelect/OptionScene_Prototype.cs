@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class OptionsScene : MonoBehaviour
+public class OptionsScene_Prototype : MonoBehaviour
 {
     private enum SelectOption
     {
