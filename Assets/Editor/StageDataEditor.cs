@@ -139,10 +139,6 @@ public class StageDataEditor : EditorWindow
             GUILayout.Label("Prefab");
             m_stageDataBase.stageDataList[m_selectNumber].Model =
                 (GameObject)EditorGUILayout.ObjectField(m_stageDataBase.stageDataList[m_selectNumber].Model, typeof(GameObject), true);
-            EditorGUILayout.Space();
-            GUILayout.Label("詳細");
-            m_stageDataBase.stageDataList[m_selectNumber].Detail =
-                EditorGUILayout.TextArea(m_stageDataBase.stageDataList[m_selectNumber].Detail);
         }
         EditorGUILayout.EndVertical();
         // 保存

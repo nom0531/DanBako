@@ -13,8 +13,6 @@ public class StageData
     public string Name;
     [SerializeField, Header("Prefab")]
     public GameObject Model;
-    [SerializeField, Header("詳細設定"), Multiline(3)]
-    public string Detail;
 }
 
 [CreateAssetMenu(fileName = "StageDataBase", menuName = "CreateStageDataBase")]
