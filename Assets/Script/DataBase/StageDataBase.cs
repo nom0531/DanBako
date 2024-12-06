@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-///  ƒXƒe[ƒW‚Ì\‘¢‘ÌB
+///  ã‚¹ãƒ†ãƒ¼ã‚¸ã®æ§‹é€ ä½“ã€‚
 /// </summary>
 [System.Serializable]
 public class StageData
 {
-    [SerializeField, Header("ƒŒƒxƒ‹î•ñ")]
+    [SerializeField, Header("ãƒ¬ãƒ™ãƒ«æƒ…å ±")]
     public int ID;
     public string Name;
-    public BGMNumber BGM;
     [SerializeField, Header("Prefab")]
     public GameObject Model;
-    [SerializeField, Header("Ú×İ’è"), Multiline(3)]
+    [SerializeField, Header("è©³ç´°è¨­å®š"), Multiline(3)]
     public string Detail;
 }
 

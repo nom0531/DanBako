@@ -15,26 +15,21 @@ MonoBehaviour:
   stageDataList:
   - ID: 0
     Name: "\u3059\u3066\u30FC\u30581"
-    BGM: 7
     Model: {fileID: 1764766793398354362, guid: 9da55fa883f070f42bc4283cc38343fe, type: 3}
     Detail: 
   - ID: 1
     Name: "\u3059\u3066\u30FC\u30582"
-    BGM: 6
     Model: {fileID: 1764766793398354362, guid: 9da55fa883f070f42bc4283cc38343fe, type: 3}
     Detail: 
   - ID: 2
     Name: "\u3059\u3066\u30FC\u30583"
-    BGM: 6
     Model: {fileID: 1764766793398354362, guid: 9da55fa883f070f42bc4283cc38343fe, type: 3}
     Detail: 
   - ID: 3
     Name: "\u3059\u3066\u30FC\u30584"
-    BGM: 7
     Model: {fileID: 1764766793398354362, guid: 9da55fa883f070f42bc4283cc38343fe, type: 3}
     Detail: 
   - ID: 4
     Name: "\u3059\u3066\u30FC\u30585"
-    BGM: 8
     Model: {fileID: 1764766793398354362, guid: 9da55fa883f070f42bc4283cc38343fe, type: 3}
     Detail: 
