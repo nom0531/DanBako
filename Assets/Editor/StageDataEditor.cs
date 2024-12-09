@@ -8,34 +8,34 @@ public class StageDataEditor : EditorWindow
 {
     private const int MAX_TEXTNUM = 14;
 
-    // ‘ÎÛ‚Ìƒf[ƒ^ƒx[ƒX
+    // å¯¾è±¡ã®ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹
     private static StageDataBase m_stageDataBase;
-    // –¼‘Oˆê——
+    // åå‰ä¸€è¦§
     private static List<string> m_nameList = new List<string>();
-    // ƒXƒNƒ[ƒ‹ˆÊ’u
+    // ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ä½ç½®
     private Vector2 m_leftScrollPosition = Vector2.zero;
-    // ‘I‘ğ’†ƒiƒ“ƒo[
+    // é¸æŠä¸­ãƒŠãƒ³ãƒãƒ¼
     private int m_selectNumber = -1;
-    // ŒŸõ—“
+    // æ¤œç´¢æ¬„
     private SearchField m_searchField;
     private string m_searchText = "";
 
-    // ƒEƒBƒ“ƒhƒE‚ğì¬
+    // ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ä½œæˆ
     [MenuItem("Window/StageDataBase Editor")]
     private static void Open()
     {
-        // “Ç‚İ‚İ
+        // èª­ã¿è¾¼ã¿
         m_stageDataBase = AssetDatabase.LoadAssetAtPath<StageDataBase>("Assets/Data/StageDataBase.asset");
-        // –¼‘O‚ğ•ÏX
+        // åå‰ã‚’å¤‰æ›´
         GetWindow<StageDataEditor>("StageDataBase Editor");
-        // •ÏX‚ğ’Ê’m
+        // å¤‰æ›´ã‚’é€šçŸ¥
         EditorUtility.SetDirty(m_stageDataBase);
 
         ResetNameList();
     }
 
     /// <summary>
-    /// ƒEƒBƒ“ƒhƒE‚ÌGUIˆ—
+    /// ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®GUIå‡¦ç†
     /// </summary>
     private void OnGUI()
     {
@@ -48,26 +48,26 @@ public class StageDataEditor : EditorWindow
     }
 
     /// <summary>
-    /// ƒrƒ…[¶‘¤‚ÌXVˆ—
+    /// ãƒ“ãƒ¥ãƒ¼å·¦å´ã®æ›´æ–°å‡¦ç†
     /// </summary>
     private void LeftUpdate()
     {
-        // ƒTƒCƒY‚ğ’²®
+        // ã‚µã‚¤ã‚ºã‚’èª¿æ•´
         EditorGUILayout.BeginVertical(GUI.skin.box, GUILayout.Width(160), GUILayout.Height(400));
         {
-            // ŒŸõ—“
+            // æ¤œç´¢æ¬„
             m_searchField ??= new SearchField();
-            GUILayout.Label("–¼‘OŒŸõ");
+            GUILayout.Label("åå‰æ¤œç´¢");
             m_searchText = m_searchField.OnToolbarGUI(m_searchText);
 
             Search();
 
             m_leftScrollPosition = EditorGUILayout.BeginScrollView(m_leftScrollPosition, GUI.skin.box);
             {
-                // ƒf[ƒ^ƒŠƒXƒg
+                // ãƒ‡ãƒ¼ã‚¿ãƒªã‚¹ãƒˆ
                 for (int i = 0; i < m_nameList.Count; i++)
                 {
-                    // F•ÏX
+                    // è‰²å¤‰æ›´
                     if (m_selectNumber == i)
                     {
                         GUI.backgroundColor = Color.cyan;
@@ -77,42 +77,42 @@ public class StageDataEditor : EditorWindow
                         GUI.backgroundColor = Color.white;
                     }
 
-                    // ƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½‚Ìˆ—
+                    // ãƒœã‚¿ãƒ³ãŒæŠ¼ã•ã‚ŒãŸæ™‚ã®å‡¦ç†
                     if (GUILayout.Button($"{i}:{m_nameList[i]}"))
                     {
-                        // ‘ÎÛ•ÏX
+                        // å¯¾è±¡å¤‰æ›´
                         m_selectNumber = i;
                         GUI.FocusControl("");
                         Repaint();
                     }
                 }
-                // F‚ğ–ß‚·
+                // è‰²ã‚’æˆ»ã™
                 GUI.backgroundColor = Color.white;
             }
             EditorGUILayout.EndScrollView();
 
-            // €–Ú‘€ìƒ{ƒ^ƒ“
+            // é …ç›®æ“ä½œãƒœã‚¿ãƒ³
             EditorGUILayout.BeginHorizontal();
             {
-                if (GUILayout.Button("’Ç‰Á", EditorStyles.miniButtonLeft))
+                if (GUILayout.Button("è¿½åŠ ", EditorStyles.miniButtonLeft))
                 {
                     AddData();
                 }
-                if (GUILayout.Button("íœ", EditorStyles.miniButtonRight))
+                if (GUILayout.Button("å‰Šé™¤", EditorStyles.miniButtonRight))
                 {
                     DeleteData();
                 }
             }
             EditorGUILayout.EndHorizontal();
 
-            // €–Ú”
-            GUILayout.Label($"€–Ú”: {m_nameList.Count}");
+            // é …ç›®æ•°
+            GUILayout.Label($"é …ç›®æ•°: {m_nameList.Count}");
         }
         EditorGUILayout.EndVertical();
     }
 
     /// <summary>
-    /// ƒrƒ…[‰E‘¤‚ÌXVˆ—
+    /// ãƒ“ãƒ¥ãƒ¼å³å´ã®æ›´æ–°å‡¦ç†
     /// </summary>
     private void NameViewUpdate()
     {
@@ -121,51 +121,37 @@ public class StageDataEditor : EditorWindow
             return;
         }
 
-        // ‰E‘¤‚ğXV
+        // å³å´ã‚’æ›´æ–°
         EditorGUILayout.BeginVertical(GUI.skin.box);
         {
-            // Šî‘bî•ñ‚ğ•\¦
+            // åŸºç¤æƒ…å ±ã‚’è¡¨ç¤º
             GUILayout.Label($"ID:{m_selectNumber}   Name:{m_nameList[m_selectNumber]}");
             m_stageDataBase.stageDataList[m_selectNumber].ID = m_selectNumber;
 
-            // ‹ó”’
+            // ç©ºç™½
             EditorGUILayout.Space();
 
-            // –¼‘O
+            // åå‰
             m_stageDataBase.stageDataList[m_selectNumber].Name =
-                EditorGUILayout.TextField("–¼‘O",m_stageDataBase.stageDataList[m_selectNumber].Name);
-            // BGM
-            m_stageDataBase.stageDataList[m_selectNumber].BGM =
-                (BGMNumber)EditorGUILayout.Popup(
-                    "BGM", (int)m_stageDataBase.stageDataList[m_selectNumber].BGM,
-                    new string[] {"ƒ^ƒCƒgƒ‹", "ƒXƒe[ƒWƒZƒŒƒNƒg", "ƒIƒvƒVƒ‡ƒ“", "‚Öƒ‹ƒv", "ƒNƒŠƒA", "ƒQ[ƒ€ƒI[ƒo[", "ƒCƒ“ƒQ[ƒ€", "ƒCƒ“ƒQ[ƒ€2", "ƒCƒ“ƒQ[ƒ€3"});
-            // ’l‚ªˆÙí‚Èê‡‚ÍŒx‚ğ•\¦‚·‚é
-            if (m_stageDataBase.stageDataList[m_selectNumber].BGM < BGMNumber.enMain_Onece)
-            {
-                EditorGUILayout.HelpBox("ŒxFƒCƒ“ƒQ[ƒ€ˆÈŠO‚ÌBGM‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚·", MessageType.Warning);
-            }
+                EditorGUILayout.TextField("åå‰",m_stageDataBase.stageDataList[m_selectNumber].Name);
 
             EditorGUILayout.Space();
             GUILayout.Label("Prefab");
             m_stageDataBase.stageDataList[m_selectNumber].Model =
                 (GameObject)EditorGUILayout.ObjectField(m_stageDataBase.stageDataList[m_selectNumber].Model, typeof(GameObject), true);
-            EditorGUILayout.Space();
-            GUILayout.Label("Ú×");
-            m_stageDataBase.stageDataList[m_selectNumber].Detail =
-                EditorGUILayout.TextArea(m_stageDataBase.stageDataList[m_selectNumber].Detail);
         }
         EditorGUILayout.EndVertical();
-        // •Û‘¶
+        // ä¿å­˜
         Undo.RegisterCompleteObjectUndo(m_stageDataBase, "LevelDataBase");
     }
 
     /// <summary>
-    /// –¼‘Oˆê——‚Ìì¬
+    /// åå‰ä¸€è¦§ã®ä½œæˆ
     /// </summary>
     private static void ResetNameList()
     {
         m_nameList.Clear();
-        // –¼‘O‚ğ“ü—Í‚·‚é
+        // åå‰ã‚’å…¥åŠ›ã™ã‚‹
         foreach (var stage in m_stageDataBase.stageDataList)
         {
             m_nameList.Add(stage.Name);
@@ -173,7 +159,7 @@ public class StageDataEditor : EditorWindow
     }
 
     /// <summary>
-    /// ŒŸõ‚Ìˆ—
+    /// æ¤œç´¢ã®å‡¦ç†
     /// </summary>
     private void Search()
     {
@@ -182,7 +168,7 @@ public class StageDataEditor : EditorWindow
             return;
         }
 
-        // ‰Šú‰»
+        // åˆæœŸåŒ–
         int startNumber = m_selectNumber;
         startNumber = Mathf.Max(startNumber, 0);
 
@@ -190,29 +176,29 @@ public class StageDataEditor : EditorWindow
         {
             if (m_nameList[i].Contains(m_searchText))
             {
-                // ƒqƒbƒg‚µ‚½‚çI—¹
+                // ãƒ’ãƒƒãƒˆã—ãŸã‚‰çµ‚äº†
                 m_selectNumber = i;
                 GUI.FocusControl("");
                 Repaint();
                 return;
             }
-            // ƒqƒbƒg‚µ‚È‚¢ê‡‚Í-1
+            // ãƒ’ãƒƒãƒˆã—ãªã„å ´åˆã¯-1
             m_selectNumber = -1;
         }
     }
 
     /// <summary>
-    /// ƒf[ƒ^‚Ì’Ç‰Áˆ—
+    /// ãƒ‡ãƒ¼ã‚¿ã®è¿½åŠ å‡¦ç†
     /// </summary>
     private void AddData()
     {
         var newLevelData = new StageData();
-        // ’Ç‰Á
+        // è¿½åŠ 
         m_stageDataBase.stageDataList.Add(newLevelData);
     }
 
     /// <summary>
-    /// ƒf[ƒ^‚Ìíœˆ—
+    /// ãƒ‡ãƒ¼ã‚¿ã®å‰Šé™¤å‡¦ç†
     /// </summary>
     private void DeleteData()
     {
@@ -220,9 +206,9 @@ public class StageDataEditor : EditorWindow
         {
             return;
         }
-        // ‘I‘ğˆÊ’u‚Ìƒf[ƒ^‚ğíœ
+        // é¸æŠä½ç½®ã®ãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤
         m_stageDataBase.stageDataList.Remove(m_stageDataBase.stageDataList[m_selectNumber]);
-        // ’²®
+        // èª¿æ•´
         m_selectNumber -= 1;
         m_selectNumber = Mathf.Max(m_selectNumber, 0);
     }

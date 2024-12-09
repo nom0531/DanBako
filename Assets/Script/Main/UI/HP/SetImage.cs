@@ -37,7 +37,7 @@ public class SetImage : MonoBehaviour
     /// </summary>
     private void CreateHPUI()
     {
-        for (int i = 0; i < m_playerStatus.MyStatus.HP; i++)
+        for (int i = 0; i < m_playerStatus.HP; i++)
         {
             var gameObject = Instantiate(HPImageObject);
             gameObject.transform.SetParent(Content.transform);
@@ -63,9 +63,9 @@ public class SetImage : MonoBehaviour
     {
         SE_Damage.PlaySE();
         m_animator.SetTrigger("Break");
-        m_hpList[m_playerStatus.MyStatus.HP].SetImage(HPSprite[1], true);
+        m_hpList[m_playerStatus.HP].SetImage(HPSprite[1], true);
         // 体力が0以下なら。
-        if (m_playerStatus.MyStatus.HP <= 0)
+        if (m_playerStatus.HP <= 0)
         {
             m_screenSwitch.PlayGameOver();
         }
