@@ -23,14 +23,6 @@ public class PlayerStatus : MonoBehaviour
         m_player = GetComponent<Player>();
     }
 
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Damage();
-        }
-    }
-
     /// <summary>
     /// ダメージ処理。
     /// </summary>

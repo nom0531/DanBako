@@ -12,6 +12,8 @@ TagManager:
   - MainUI_PlayerStatus
   - MainUI_HelpPanel
   - BackGround
+  - Star
+  - MainUI_StarCount
   layers:
   - Default
   - TransparentFX

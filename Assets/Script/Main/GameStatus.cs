@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameStatus : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         SceneManager.LoadScene("Main_UI", LoadSceneMode.Additive);
     }
