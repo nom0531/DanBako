@@ -154,10 +154,11 @@ public class EnemyPatrol : MonoBehaviour
     // アニメーションイベントから呼ばれるメソッド
     public void ApplyDamage()
     {
-        if (m_player.TryGetComponent<Player>(out Player playerScript))
+        if (m_player.TryGetComponent<Player_Main>(out Player_Main playerScript))
         {
+
             Debug.Log("アニメーションイベントでプレイヤーにダメージを適用");
-            playerScript.TakeDamage(1); // 例として1ダメージ
+            playerScript.TakeDamage(); // 例として1ダメージ
         }
     }
 
@@ -187,10 +188,15 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    // エージェントとアニメーターの初期化処理
     private void InitializeAgentAndAnimator()
     {
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
+
+        // 高速移動設定
+        m_agent.speed = 10000.0f;         // 高速移動
+        m_agent.acceleration = 100.0f; // 高速加速
+
     }
+
 }

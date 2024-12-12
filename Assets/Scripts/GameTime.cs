@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-
-/// <summary>
-/// ゲーム中の時間を制御するクラス。
-/// </summary>
 public class GameTime : MonoBehaviour
 {
     private bool m_timeStop = false; // ゲーム全体の停止フラグ
@@ -20,6 +16,8 @@ public class GameTime : MonoBehaviour
     private List<NavMeshAgent> affectedNavAgents = new List<NavMeshAgent>(); // NavMeshAgent を保存するリスト
 
     private bool isPlayerInTrigger = false; // プレイヤーがトリガー内にいるかどうか
+
+    [SerializeField] private Animator targetAnimator; // 対象オブジェクトのアニメーター
 
     private void Update()
     {
@@ -35,6 +33,30 @@ public class GameTime : MonoBehaviour
             {
                 StopTimeForOthers();
                 Debug.Log("時間停止");
+            }
+        }
+
+        // 時間停止中に特定のアニメーションを再生/逆再生
+        if (m_timeStop)
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                // アニメーションを再生（前進）
+                if (targetAnimator != null)
+                {
+                    targetAnimator.Play("AnimationName"); // "AnimationName"は再生したいアニメーションの名前に変更
+                    Debug.Log("アニメーション再生");
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                // アニメーションを逆再生
+                if (targetAnimator != null)
+                {
+                    targetAnimator.Play("AnimationName", -1, 1); // 逆再生を実行
+                    Debug.Log("アニメーション逆再生");
+                }
             }
         }
     }
