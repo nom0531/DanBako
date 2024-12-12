@@ -11,6 +11,7 @@ public class PlayTimeline : ChangeVCam
 
     private GameManager m_gameManager;
     private SaveDataManager m_saveDataManager;
+    private bool m_isPlay = false;              // タイムラインを再生したらtrue。
 
     private void Start()
     {
@@ -23,10 +24,15 @@ public class PlayTimeline : ChangeVCam
     /// </summary>
     public void GameClear()
     {
+        if(m_isPlay == true)
+        {
+            return;
+        }
         ResetPriority();
         ChangeVcam(1);
         // タイムラインを再生。
         PlayableDirector_GameClear.Play();
+        m_isPlay = true;
     }
 
     /// <summary>

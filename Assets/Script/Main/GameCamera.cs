@@ -23,6 +23,8 @@ public class GameCamera : MonoBehaviour
     [SerializeField, Tooltip("最大拡大率")]
     private float ViewMin = 10.0f;
 
+    private const float VIEW_MOVESPEED = 5.0f;
+
     private GameManager m_gameManager;
     private CinemachineVirtualCamera m_camera;
     private Gamepad m_gamepad;
@@ -130,7 +132,7 @@ public class GameCamera : MonoBehaviour
             return;
         }
 
-        float value = m_gamepad.leftTrigger.ReadValue();
+        float value = m_gamepad.leftTrigger.ReadValue() * VIEW_MOVESPEED;
         float view = m_camera.m_Lens.FieldOfView - value;
 
         m_camera.m_Lens.FieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);
@@ -146,7 +148,7 @@ public class GameCamera : MonoBehaviour
             return;
         }
 
-        float value = m_gamepad.rightTrigger.ReadValue();
+        float value = m_gamepad.rightTrigger.ReadValue() * VIEW_MOVESPEED;
         float view = m_camera.m_Lens.FieldOfView + value;
 
         m_camera.m_Lens.FieldOfView = Mathf.Clamp(view, ViewMin, ViewMax);

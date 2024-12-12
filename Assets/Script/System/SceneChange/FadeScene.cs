@@ -20,12 +20,19 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
     [SerializeField, Header("フェード速度")]
     private float FadeSpeed = 1.0f;
 
+    private GameManager m_gameManager;
     private string m_sceneName = "";
     private Image m_image;
     private bool m_useImage = false;        // trueならImage、falseならマテリアルを使用する。
     private bool m_fadeStart = false;
     private bool m_fadeMode = false;
     private float m_alpha = 0.0f;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        m_gameManager = GameManager.Instance;
+    }
 
     /// <summary>
     /// フェードを開始する。
@@ -98,7 +105,7 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
                 sceneName = "StageSelect_Main";
                 break;
             case SceneNumber.enMain:
-                sceneName = "Main";
+                sceneName = $"Stage{m_gameManager.StageID + 1}";
                 break;
             case SceneNumber.enRetryToGame:
                 break;

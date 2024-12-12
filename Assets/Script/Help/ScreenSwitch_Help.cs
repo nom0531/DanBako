@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class ScreenSwitch_Help : MonoBehaviour
 {
-    [SerializeField, Header("‘JˆÚæ"), Tooltip("ƒ^ƒCƒgƒ‹")]
+    [SerializeField, Header("é·ç§»å…ˆ"), Tooltip("ã‚¿ã‚¤ãƒˆãƒ«")]
     private SceneChange Title;
-    [SerializeField, Header("SE"),Tooltip("ƒLƒƒƒ“ƒZƒ‹‰¹")]
+    [SerializeField, Header("SE"),Tooltip("ã‚­ãƒ£ãƒ³ã‚»ãƒ«éŸ³")]
     private SE SE_Cancel;
 
     // Update is called once per frame
     void Update()
     {
-        // Aƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«B
+        // Aãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã€‚
         if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.J))
         {
             Title.CreateFadeCanvas();
