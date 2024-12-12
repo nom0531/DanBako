@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            m_fallSpeed += Physics.gravity.y * Time.deltaTime;
+            m_fallSpeed += (Physics.gravity.y + Gravity) * Time.deltaTime;
             m_characterController.Move(Vector3.up * m_fallSpeed * Time.deltaTime);
         }
     }

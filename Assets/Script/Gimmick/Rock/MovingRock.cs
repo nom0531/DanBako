@@ -13,8 +13,6 @@ public class MovingRock : MonoBehaviour
 
     void Update()
     {
-        if()
-
         // Zキーが押されたらアニメーションを再生
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -31,7 +29,7 @@ public class MovingRock : MonoBehaviour
     void PlayAnimation()
     {
         isRewind = false; // 巻き戻しフラグをリセット
-        m_RockAnimator.SetBool("IsRewind", false); // 巻き戻しフラグをオフ
+        m_RockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
         m_RockAnimator.SetBool("IsPlaying", true); // 再生フラグをオン
     }
 
@@ -51,6 +49,6 @@ public class MovingRock : MonoBehaviour
     {
         isRewind = true; // 巻き戻しフラグを設定
         m_RockAnimator.SetBool("IsPlaying", false); // 再生フラグをオフ
-        m_RockAnimator.SetBool("IsRewind", true); // 巻き戻しフラグをオン
+        m_RockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
     }
 }
