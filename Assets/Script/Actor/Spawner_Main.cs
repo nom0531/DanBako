@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Spawner : MonoBehaviour
+public class Spawner_Main : MonoBehaviour
 {
     [Header("プレイヤー設定")]
     public GameObject playerPrefab; // プレイヤープレハブ

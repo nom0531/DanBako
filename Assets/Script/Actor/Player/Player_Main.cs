@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player_Main : MonoBehaviour
 {
     [SerializeField,Header("移動設定")]
     private float MoveSpeed = 5.0f;
