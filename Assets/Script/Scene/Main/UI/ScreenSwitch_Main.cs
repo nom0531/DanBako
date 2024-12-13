@@ -11,14 +11,15 @@ public class ScreenSwitch_Main : MonoBehaviour
     [SerializeField, Header("SE"), Tooltip("決定音")]
     private SE SE_Determination;
 
-    private GameManager m_gameManger;
+    private GameManager m_gameManager;
     private StarCount m_starCount;
     private PlayTimeline m_playTimeline;
 
     // Start is called before the first frame update
     private void Start()
     {
-        m_gameManger = GameManager.Instance;
+        m_gameManager = GameManager.Instance;
+        m_gameManager.GameMode = CurrentGameMode.enInGame;
         m_starCount = GameObject.FindGameObjectWithTag("MainUI_StarCount").GetComponent<StarCount>();
         m_playTimeline = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayTimeline>();
     }
@@ -35,7 +36,7 @@ public class ScreenSwitch_Main : MonoBehaviour
 
     private void ButtonPush()
     {
-        if(m_gameManger.GameMode != CurrentGameMode.enClear)
+        if(m_gameManager.GameMode != CurrentGameMode.enClear)
         {
             return;
         }
@@ -63,11 +64,11 @@ public class ScreenSwitch_Main : MonoBehaviour
     /// </summary>
     private void PlayGameClear()
     {
-        if (m_gameManger.GameMode == CurrentGameMode.enClear)
+        if (m_gameManager.GameMode == CurrentGameMode.enClear)
         {
             return;
         }
-        m_gameManger.GameMode = CurrentGameMode.enClear;
+        m_gameManager.GameMode = CurrentGameMode.enClear;
         m_playTimeline.GameClear();
     }
 }
