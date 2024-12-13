@@ -6503,7 +6503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOver: {fileID: 6204378894778223356}
   StageSelect: {fileID: 4764718632839668851}
-  SE_Determination: {fileID: 0}
+  SE_Determination: {fileID: 6204378894778223353}
 --- !u!114 &6204378894778223350
 MonoBehaviour:
   m_ObjectHideFlags: 0
