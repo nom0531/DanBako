@@ -30,11 +30,16 @@ public class ScreenSwitch_Main : MonoBehaviour
             return;
         }
         PlayGameClear();
+        ButtonPush();
     }
 
     private void ButtonPush()
     {
-        if (m_gameManger.GameMode != CurrentGameMode.enClear)
+        if(m_gameManger.GameMode != CurrentGameMode.enClear)
+        {
+            return;
+        }
+        if (m_playTimeline.PlayTimeLineFlag == true)
         {
             return;
         }
@@ -42,7 +47,6 @@ public class ScreenSwitch_Main : MonoBehaviour
         {
             SE_Determination.PlaySE();
             StageSelect.CreateFadeCanvas();
-            return;
         }
     }
 

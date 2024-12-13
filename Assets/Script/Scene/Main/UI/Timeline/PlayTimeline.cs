@@ -13,6 +13,11 @@ public class PlayTimeline : ChangeVCam
     private SaveDataManager m_saveDataManager;
     private bool m_isPlay = false;              // タイムラインを再生したらtrue。
 
+    public bool PlayTimeLineFlag
+    {
+        get => m_isPlay;
+    }
+
     private void Start()
     {
         m_gameManager = GameManager.Instance;
@@ -41,9 +46,9 @@ public class PlayTimeline : ChangeVCam
     public void Finish()
     {
         PlayableDirector_GameClear.Stop();
-        m_gameManager.GameMode = CurrentGameMode.enClear;
         m_saveDataManager.SaveData.saveData.ClearStage[m_gameManager.StageID] = true;
         m_saveDataManager.Save();
+        m_isPlay = false;
     }
 
     /// <summary>

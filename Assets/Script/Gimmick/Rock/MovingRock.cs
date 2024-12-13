@@ -3,16 +3,24 @@ using UnityEngine;
 
 public class MovingRock : MonoBehaviour
 {
-    Animator m_RockAnimator;
+    Animator m_rockAnimator;
+    GameTime m_gameTime;
     private bool isRewind = false;
 
     private void Start()
     {
-        m_RockAnimator = GetComponent<Animator>();
+        m_rockAnimator = GetComponent<Animator>();
+        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime>();
     }
 
-    void Update()
+    private void Update()
     {
+        // 停止していないなら実行しない。
+        if(m_gameTime.TimeStopFlag == false)
+        {
+            return;
+        }
+
         // Zキーが押されたらアニメーションを再生
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -26,17 +34,17 @@ public class MovingRock : MonoBehaviour
         }
     }
 
-    void PlayAnimation()
+    private void PlayAnimation()
     {
         isRewind = false; // 巻き戻しフラグをリセット
-        m_RockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
-        m_RockAnimator.SetBool("IsPlaying", true); // 再生フラグをオン
+        m_rockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
+        m_rockAnimator.SetBool("IsPlaying", true); // 再生フラグをオン
     }
 
     IEnumerator TriggerRewindWithDelay()
     {
         // トリガーを設定
-        m_RockAnimator.SetTrigger("Rewind");
+        m_rockAnimator.SetTrigger("Rewind");
 
         // 2秒待機
         yield return new WaitForSeconds(1.0f);
@@ -45,10 +53,10 @@ public class MovingRock : MonoBehaviour
         TriggerRewind();
     }
 
-    void TriggerRewind()
+    private void TriggerRewind()
     {
         isRewind = true; // 巻き戻しフラグを設定
-        m_RockAnimator.SetBool("IsPlaying", false); // 再生フラグをオフ
-        m_RockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
+        m_rockAnimator.SetBool("IsPlaying", false); // 再生フラグをオフ
+        m_rockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
     }
 }

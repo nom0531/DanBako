@@ -15,58 +15,55 @@ public class GameTime : MonoBehaviour
     private List<Animator> affectedAnimators = new List<Animator>(); // アニメーターを保存するリスト
     private List<NavMeshAgent> affectedNavAgents = new List<NavMeshAgent>(); // NavMeshAgent を保存するリスト
 
-    private bool isPlayerInTrigger = false; // プレイヤーがトリガー内にいるかどうか
-
     [SerializeField] private Animator targetAnimator; // 対象オブジェクトのアニメーター
 
-    private void Update()
-    {
-        // プレイヤーが接触している状態でHキーが押された場合、時間を停止/再開
-        if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.H))
-        {
-            if (m_timeStop)
-            {
-                ResumeTimeForOthers();
-                Debug.Log("時間再開");
-            }
-            else
-            {
-                StopTimeForOthers();
-                Debug.Log("時間停止");
-            }
-        }
+    //private void Update()
+    //{
+    //    // プレイヤーが接触している状態でHキーが押された場合、時間を停止/再開
+    //    if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.H))
+    //    {
+    //        if (m_timeStop)
+    //        {
+    //            ResumeTimeForOthers();
+    //            Debug.Log("時間再開");
+    //        }
+    //        else
+    //        {
+    //            StopTimeForOthers();
+    //            Debug.Log("時間停止");
+    //        }
+    //    }
 
-        // 時間停止中に特定のアニメーションを再生/逆再生
-        if (m_timeStop)
-        {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                // アニメーションを再生（前進）
-                if (targetAnimator != null)
-                {
-                    targetAnimator.Play("AnimationName"); // "AnimationName"は再生したいアニメーションの名前に変更
-                    Debug.Log("アニメーション再生");
-                }
-            }
+    //    // 時間停止中に特定のアニメーションを再生/逆再生
+    //    if (m_timeStop)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.Z))
+    //        {
+    //            // アニメーションを再生（前進）
+    //            if (targetAnimator != null)
+    //            {
+    //                targetAnimator.Play("AnimationName"); // "AnimationName"は再生したいアニメーションの名前に変更
+    //                Debug.Log("アニメーション再生");
+    //            }
+    //        }
 
-            if (Input.GetKeyDown(KeyCode.X))
-            {
-                // アニメーションを逆再生
-                if (targetAnimator != null)
-                {
-                    targetAnimator.Play("AnimationName", -1, 1); // 逆再生を実行
-                    Debug.Log("アニメーション逆再生");
-                }
-            }
-        }
-    }
+    //        if (Input.GetKeyDown(KeyCode.X))
+    //        {
+    //            // アニメーションを逆再生
+    //            if (targetAnimator != null)
+    //            {
+    //                targetAnimator.Play("AnimationName", -1, 1); // 逆再生を実行
+    //                Debug.Log("アニメーション逆再生");
+    //            }
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInTrigger = true; // プレイヤーがトリガー内に入った
-            Debug.Log("プレイヤー接触 - 時間操作可能");
+            StopTimeForOthers();
         }
     }
 
@@ -74,8 +71,7 @@ public class GameTime : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isPlayerInTrigger = false; // プレイヤーがトリガー外に出た
-            Debug.Log("プレイヤー離脱 - 時間操作不可");
+            ResumeTimeForOthers();
         }
     }
 
