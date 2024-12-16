@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    private Player m_player;
+    private Player_Main m_player;
     private SetImage m_setImage;
 
     public SetImage HPImage
@@ -20,15 +20,7 @@ public class PlayerStatus : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        m_player = GetComponent<Player>();
-    }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Damage();
-        }
+        m_player = GetComponent<Player_Main>();
     }
 
     /// <summary>

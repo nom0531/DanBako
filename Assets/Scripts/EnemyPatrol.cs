@@ -4,35 +4,33 @@ using UnityEngine.AI;
 public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField, Header("巡回地点 (座標)")]
-    private Vector3[] goals;
+    private Vector3[] m_goals;
 
-    private int destNum = 0;
-    private NavMeshAgent agent;
-    private Animator enemyAnimator;
-    private bool isWaiting = false;
+    private int m_destNum = 0;
+    private NavMeshAgent m_agent;
+    private Animator m_enemyAnimator;
+    private bool m_isWaiting = false;
 
     [SerializeField, Header("プレイヤー")]
-    private Transform player;
+    private Transform m_player;
     [SerializeField]
-    private float chaseRange = 10f;  // 追跡範囲
+    private float m_chaseRange = 10f;  // 追跡範囲
     [SerializeField]
-    private float attackRange = 2f;  // 攻撃範囲
+    private float m_attackRange = 2f;  // 攻撃範囲
     [SerializeField]
-    private float attackCooldown = 2f;  // 攻撃のクールダウン時間
+    private float m_attackCooldown = 2f;  // 攻撃のクールダウン時間
 
-    private bool isChasing = false;
-    private bool isAttacking = false;
-    private float lastAttackTime = 0f;
+    private bool m_isChasing = false;
+    private bool m_isAttacking = false;
+    private float m_lastAttackTime = 0f;
 
     [SerializeField, Header("ゲーム時間管理オブジェクト")]
-    private GameTime gameTime;
+    private GameTime m_gameTime;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        enemyAnimator = GetComponent<Animator>();
-
-        if (goals.Length > 0)
+        InitializeAgentAndAnimator();
+        if (m_goals.Length > 0)
         {
             SetGoalPosition();
         }
@@ -45,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
     void Update()
     {
         // 時間停止中は全ての処理をスキップ
-        if (gameTime != null && gameTime.TimeStopFlag)
+        if (m_gameTime != null && m_gameTime.TimeStopFlag)
         {
             HandleTimeStop();
             return;
@@ -53,24 +51,24 @@ public class EnemyPatrol : MonoBehaviour
 
         ResumeFromTimeStop();
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = Vector3.Distance(transform.position, m_player.position);
 
-        if (distanceToPlayer <= chaseRange && !isChasing)
+        if (distanceToPlayer <= m_chaseRange && !m_isChasing)
         {
-            isChasing = true;
+            m_isChasing = true;
         }
-        else if (distanceToPlayer > chaseRange && isChasing)
+        else if (distanceToPlayer > m_chaseRange && m_isChasing)
         {
-            isChasing = false;
+            m_isChasing = false;
         }
 
-        if (isChasing)
+        if (m_isChasing)
         {
-            if (distanceToPlayer <= attackRange)
+            if (distanceToPlayer <= m_attackRange)
             {
                 AttackPlayer();
             }
-            else if (!isAttacking)
+            else if (!m_isAttacking)
             {
                 ChasePlayer();
             }
@@ -85,7 +83,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void Patrol()
     {
-        if (!agent.pathPending && agent.remainingDistance < 0.5f && !isWaiting)
+        if (!m_agent.pathPending && m_agent.remainingDistance < 0.5f && !m_isWaiting)
         {
             StartCoroutine(WaitAtGoal());
         }
@@ -93,61 +91,61 @@ public class EnemyPatrol : MonoBehaviour
 
     private void SetGoalPosition()
     {
-        agent.destination = goals[destNum];
+        m_agent.destination = m_goals[m_destNum];
     }
 
     private void NextGoal()
     {
-        destNum = (destNum + 1) % goals.Length;
+        m_destNum = (m_destNum + 1) % m_goals.Length;
         SetGoalPosition();
     }
 
     private System.Collections.IEnumerator WaitAtGoal()
     {
-        isWaiting = true;
-        agent.isStopped = true;
+        m_isWaiting = true;
+        m_agent.isStopped = true;
 
-        enemyAnimator.SetBool("Run", false);
-        enemyAnimator.SetBool("Idle", true);
+        m_enemyAnimator.SetBool("Run", false);
+        m_enemyAnimator.SetBool("Idle", true);
 
         yield return new WaitForSeconds(2f);
 
-        enemyAnimator.SetBool("Idle", false);
-        agent.isStopped = false;
+        m_enemyAnimator.SetBool("Idle", false);
+        m_agent.isStopped = false;
         NextGoal();
-        isWaiting = false;
+        m_isWaiting = false;
     }
 
     private void UpdateAnimation()
     {
-        if (agent.velocity.magnitude > 0.1f && !agent.isStopped)
+        if (m_agent.velocity.magnitude > 0.1f && !m_agent.isStopped)
         {
-            enemyAnimator.SetBool("Run", true);
+            m_enemyAnimator.SetBool("Run", true);
         }
         else
         {
-            enemyAnimator.SetBool("Run", false);
+            m_enemyAnimator.SetBool("Run", false);
         }
     }
 
     private void ChasePlayer()
     {
-        agent.isStopped = false;
-        agent.destination = player.position;
+        m_agent.isStopped = false;
+        m_agent.destination = m_player.position;
     }
 
     private void AttackPlayer()
     {
-        transform.LookAt(player.position);
+        transform.LookAt(m_player.position);
 
-        if (isAttacking || Time.time < lastAttackTime + attackCooldown) return;
+        if (m_isAttacking || Time.time < m_lastAttackTime + m_attackCooldown) return;
 
-        isAttacking = true;
-        agent.isStopped = true;
+        m_isAttacking = true;
+        m_agent.isStopped = true;
 
-        enemyAnimator.SetTrigger("Attack");
+        m_enemyAnimator.SetTrigger("Attack");
 
-        lastAttackTime = Time.time;
+        m_lastAttackTime = Time.time;
 
         // 攻撃終了後に再び動けるようにする
         Invoke(nameof(EndAttack), 1.5f); // アニメーションの終了時間に合わせて調整
@@ -156,38 +154,49 @@ public class EnemyPatrol : MonoBehaviour
     // アニメーションイベントから呼ばれるメソッド
     public void ApplyDamage()
     {
-        if (player.TryGetComponent<Player>(out Player playerScript))
+        if (m_player.TryGetComponent<Player_Main>(out Player_Main playerScript))
         {
+
             Debug.Log("アニメーションイベントでプレイヤーにダメージを適用");
-            playerScript.TakeDamage(1); // 例として1ダメージ
+            playerScript.TakeDamage(); // 例として1ダメージ
         }
     }
 
-
-
     private void EndAttack()
     {
-        isAttacking = false;
-        agent.isStopped = false;
+        m_isAttacking = false;
+        m_agent.isStopped = false;
     }
 
     // 時間停止時の処理
     private void HandleTimeStop()
     {
-        if (!agent.isStopped)
+        if (!m_agent.isStopped)
         {
-            agent.isStopped = true;
-            enemyAnimator.speed = 0f; // アニメーションを停止
+            m_agent.isStopped = true;
+            m_enemyAnimator.speed = 0f; // アニメーションを停止
         }
     }
 
     // 時間停止から再開時の処理
     private void ResumeFromTimeStop()
     {
-        if (agent.isStopped && !gameTime.TimeStopFlag)
+        if (m_agent.isStopped && !m_gameTime.TimeStopFlag)
         {
-            agent.isStopped = false;
-            enemyAnimator.speed = 1f; // アニメーションを再開
+            m_agent.isStopped = false;
+            m_enemyAnimator.speed = 1f; // アニメーションを再開
         }
     }
+
+    private void InitializeAgentAndAnimator()
+    {
+        m_agent = GetComponent<NavMeshAgent>();
+        m_enemyAnimator = GetComponent<Animator>();
+
+        // 高速移動設定
+        m_agent.speed = 10000.0f;         // 高速移動
+        m_agent.acceleration = 100.0f; // 高速加速
+
+    }
+
 }

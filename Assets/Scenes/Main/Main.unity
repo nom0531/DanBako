@@ -1292,8 +1292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1acff2b76d00cee48adf7a307ac19bcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 3
-  MoveSpeed: 1
 --- !u!1001 &965978234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1679,10 +1677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928cd3b501301624ebf7ec4d25083e5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StageData: {fileID: 11400000, guid: 79eb5ad977c59b242963443f88c27b67, type: 2}
-  Position: {x: 0, y: 0, z: 0}
-  Rotation: {x: 0, y: 0, z: 0, w: 0}
-  Scale: {x: 1, y: 1, z: 1}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -60,6 +60,12 @@ public class Pause : MonoBehaviour
     /// </summary>
     private void PauseScreen()
     {
+        // ゲームをクリアしたなら実行しない。
+        if(m_gameManager.GameMode == CurrentGameMode.enClear)
+        {
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (m_isPause == true)
