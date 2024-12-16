@@ -46,6 +46,11 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
         set => GameSaveData.saveData.CameraStete = value;
     }
 
+    public Stage[] Stage
+    {
+        get => GameSaveData.saveData.StageData;
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -156,15 +161,19 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
     private void InitData()
     {
         // データを用意する。
-        GameSaveData.saveData.ClearStage = new bool[StageData.stageDataList.Count];
-        GameSaveData.saveData.DrawStamp = new bool[StageData.stageDataList.Count];
+        GameSaveData.saveData.StageData = new Stage[StageData.stageDataList.Count];
         // データの初期化。
         for (int stageNumber = 0; stageNumber < StageData.stageDataList.Count; stageNumber++)
         {
-            GameSaveData.saveData.ClearStage[stageNumber] = false;  // クリアしていないのでfalse。
-            GameSaveData.saveData.DrawStamp[stageNumber] = false;
-        }
 
+            GameSaveData.saveData.StageData[stageNumber].ClearFlag = false;
+            GameSaveData.saveData.StageData[stageNumber].ClearTime = new TimeInfo
+            {
+                Hour = 0,
+                Minute = 0,
+                Seconds = 0.0f
+            };
+        }
         Save();
     }
 

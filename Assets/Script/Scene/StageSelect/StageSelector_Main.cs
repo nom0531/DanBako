@@ -18,8 +18,8 @@ public class StageSelector : MonoBehaviour
     private StageDataBase StageDataBase;
     [SerializeField,Tooltip("名称")]
     private TextMeshProUGUI StageNameText;
-    [SerializeField, Tooltip("クリア時に表示する画像")]
-    private Stamp Stamp;
+    [SerializeField, Tooltip("クリアタイム")]
+    private TextMeshProUGUI StageClearTimeText;
     [SerializeField, Header("シフト速度")]
     private float ShiftMoveSpeed = 5.0f;
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
@@ -62,9 +62,20 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void InitStageData()
     {
-        Stamp.StageID = m_currentIndex;
         StageNameText.text = StageDataBase.stageDataList[m_currentIndex].Name;
-        Stamp.Draw();
+        ClearTimeText();
+    }
+
+    /// <summary>
+    /// クリアタイムの初期化。
+    /// </summary>
+    private void ClearTimeText()
+    {
+        var hour = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Hour;
+        var seconds = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Minute;
+        var minute = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Seconds;
+
+        StageClearTimeText.text = $"{hour.ToString("00")}:{minute.ToString("00")}:{((int)(seconds % 60)).ToString("00")}";
     }
 
     /// <summary>
@@ -185,6 +196,8 @@ public class StageSelector : MonoBehaviour
         m_stageObjects = shiftedObjects;
 
         InitStageData();
+
+        Debug.Log(m_currentIndex);
         m_gameManager.StageID = m_stageObjects[m_currentIndex].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
         SE_CursorMove.PlaySE();
     }
