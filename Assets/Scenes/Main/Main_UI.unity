@@ -6482,6 +6482,7 @@ GameObject:
   - component: {fileID: 6204378894778223353}
   - component: {fileID: 6204378894778223352}
   - component: {fileID: 6204378894778223357}
+  - component: {fileID: 6204378894778223359}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -6503,7 +6504,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOver: {fileID: 6204378894778223356}
   StageSelect: {fileID: 4764718632839668851}
-  SE_Determination: {fileID: 0}
+  SE_Determination: {fileID: 6204378894778223353}
 --- !u!114 &6204378894778223350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6611,6 +6612,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 06f857e7e9d117d49a911de7c6871d75, type: 3}
   HPAnimator: {fileID: 1509611155}
   SE_Damage: {fileID: 6204378894778223357}
+--- !u!114 &6204378894778223359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6204378894778223348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadf801024a9e2b469d590f04cd2034e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6230679595470059757
 GameObject:
   m_ObjectHideFlags: 0

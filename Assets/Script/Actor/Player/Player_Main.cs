@@ -51,6 +51,7 @@ public class Player_Main : MonoBehaviour
     {
         if (m_gameManager.GameMode == CurrentGameMode.enClear)
         {
+            m_animator.SetBool("MoveFlag", false);
             return;
         }
         if (m_gameManager.GameMode == CurrentGameMode.enPause)
@@ -154,7 +155,7 @@ public class Player_Main : MonoBehaviour
         }
         else
         {
-            m_fallSpeed += Physics.gravity.y * Time.deltaTime;
+            m_fallSpeed += (Physics.gravity.y + Gravity) * Time.deltaTime;
             m_characterController.Move(Vector3.up * m_fallSpeed * Time.deltaTime);
         }
     }
