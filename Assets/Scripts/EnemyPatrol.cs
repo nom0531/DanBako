@@ -194,9 +194,11 @@ public class EnemyPatrol : MonoBehaviour
         m_enemyAnimator = GetComponent<Animator>();
 
         // 高速移動設定
-        m_agent.speed = 10000.0f;         // 高速移動
+        m_agent.speed = 10.0f;         // 高速移動
         m_agent.acceleration = 100.0f; // 高速加速
 
+        // 回転更新を有効にする
+        m_agent.updateRotation = true;
     }
 
 }
