@@ -132,6 +132,12 @@ public class TextMessageDataEditor : EditorWindow
             // 名前
             m_textMessageDataBase.textMessegeDataList[m_selectNumber].Name =
                 EditorGUILayout.TextField("名前", m_textMessageDataBase.textMessegeDataList[m_selectNumber].Name);
+            m_textMessageDataBase.textMessegeDataList[m_selectNumber].DataStatus =
+                               (DataStatus)EditorGUILayout.Popup(
+                    "ラベル",
+                    (int)m_textMessageDataBase.textMessegeDataList[m_selectNumber].DataStatus,
+                    new string[] { "チュートリアル（操作方法）", "チュートリアル（メインギミック）" }
+                    );
             GUILayout.Label("詳細");
             m_textMessageDataBase.textMessegeDataList[m_selectNumber].Detail =
                 EditorGUILayout.TextArea(m_textMessageDataBase.textMessegeDataList[m_selectNumber].Detail);

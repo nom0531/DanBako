@@ -27,15 +27,16 @@ public class TypeWritterEffect : MonoBehaviour
     public void Show(int number)
     {
         gameObject.SetActive(true);
-        m_text.text = textMessageData.textMessegeDataList[number].Detail;
+        // 各種データを初期化。
         m_isRunning = true;
         m_timer = 0.1f;
         m_currentMaxVisibleCharacters = 0;
+        m_text.text = textMessageData.textMessegeDataList[number].Detail;
+        m_text.maxVisibleCharacters = m_currentMaxVisibleCharacters;
     }
 
     private void Update()
     {
-        ButtonPush();
         // 演出を行わないなら中断。
         if (m_isRunning == false)
         {
@@ -49,11 +50,9 @@ public class TypeWritterEffect : MonoBehaviour
     /// </summary>
     private void WriteText()
     {
-
-
         // 次の文字表示までの残り時間を更新。
         m_timer -= Time.deltaTime;
-        if(m_timer > 0.0f)
+        if (m_timer > 0.0f)
         {
             return;
         }
@@ -61,24 +60,9 @@ public class TypeWritterEffect : MonoBehaviour
         m_text.maxVisibleCharacters = ++m_currentMaxVisibleCharacters;
         m_timer = DelayDuration;
         // 文字全てを表示し終わったなら終了。
-        if(m_currentMaxVisibleCharacters >= m_text.text.Length)
+        if (m_currentMaxVisibleCharacters >= m_text.text.Length)
         {
             m_isRunning = false;
-        }
-    }
-
-    /// <summary>
-    /// ボタンを押したときの処理。
-    /// </summary>
-    private void ButtonPush()
-    {
-        if(m_isRunning == true)
-        {
-
-        }
-        else
-        {
-
         }
     }
 }
