@@ -469,6 +469,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1771736199409009959, guid: e64df0c217295a843b35d3a7b83477ab,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771736199409009959, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771736199409009959, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1771736199409009959, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 100.4
       objectReference: {fileID: 0}
@@ -517,6 +532,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1771736199409009959, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2185989808336986482, guid: e64df0c217295a843b35d3a7b83477ab,
         type: 3}
       propertyPath: m_Name
@@ -532,6 +552,21 @@ PrefabInstance:
       propertyPath: m_gameTime
       value: 
       objectReference: {fileID: 118879396}
+    - target: {fileID: 2524276774038319517, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
+      propertyPath: m_chaseRange
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524276774038319517, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
+      propertyPath: m_attackRange
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2524276774038319517, guid: e64df0c217295a843b35d3a7b83477ab,
+        type: 3}
+      propertyPath: m_attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2524276774038319517, guid: e64df0c217295a843b35d3a7b83477ab,
         type: 3}
       propertyPath: m_goals.Array.size
