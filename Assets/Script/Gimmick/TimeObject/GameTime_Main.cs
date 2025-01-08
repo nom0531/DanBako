@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GameTime : MonoBehaviour
+public class GameTime_Main : MonoBehaviour
 {
     private bool m_timeStop = false; // ゲーム全体の停止フラグ
     public bool TimeStopFlag => m_timeStop;
@@ -16,48 +16,6 @@ public class GameTime : MonoBehaviour
     private List<NavMeshAgent> affectedNavAgents = new List<NavMeshAgent>(); // NavMeshAgent を保存するリスト
 
     [SerializeField] private Animator targetAnimator; // 対象オブジェクトのアニメーター
-
-    //private void Update()
-    //{
-    //    // プレイヤーが接触している状態でHキーが押された場合、時間を停止/再開
-    //    if (isPlayerInTrigger && Input.GetKeyDown(KeyCode.H))
-    //    {
-    //        if (m_timeStop)
-    //        {
-    //            ResumeTimeForOthers();
-    //            Debug.Log("時間再開");
-    //        }
-    //        else
-    //        {
-    //            StopTimeForOthers();
-    //            Debug.Log("時間停止");
-    //        }
-    //    }
-
-    //    // 時間停止中に特定のアニメーションを再生/逆再生
-    //    if (m_timeStop)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.Z))
-    //        {
-    //            // アニメーションを再生（前進）
-    //            if (targetAnimator != null)
-    //            {
-    //                targetAnimator.Play("AnimationName"); // "AnimationName"は再生したいアニメーションの名前に変更
-    //                Debug.Log("アニメーション再生");
-    //            }
-    //        }
-
-    //        if (Input.GetKeyDown(KeyCode.X))
-    //        {
-    //            // アニメーションを逆再生
-    //            if (targetAnimator != null)
-    //            {
-    //                targetAnimator.Play("AnimationName", -1, 1); // 逆再生を実行
-    //                Debug.Log("アニメーション逆再生");
-    //            }
-    //        }
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
