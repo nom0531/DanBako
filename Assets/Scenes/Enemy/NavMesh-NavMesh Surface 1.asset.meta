@@ -1,8 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Enemy/NavMesh-NavMesh Surface 1.asset.meta
 guid: 2454496f68fc49548aa2c594aeca43b1
+========
+guid: 779a472db241bdb4a8e4400130c0581f
+>>>>>>>> 07a0f05313a65be35c72b89b8abf7f4011f87c81:Assets/Animation/UI/Main/Sign/Active.anim.meta
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 23800000
+  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

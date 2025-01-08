@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol_Main : MonoBehaviour
 {
     [SerializeField, Header("巡回地点 (座標)")]
     private Vector3[] m_goals;
