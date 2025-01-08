@@ -71,9 +71,11 @@ public class StageSelector : MonoBehaviour
     /// </summary>
     private void ClearTimeText()
     {
-        var hour = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Hour;
-        var minute = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Minute;
-        var seconds = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Seconds;
+        m_gameManager.StageID = m_stageObjects[0].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
+
+        var hour = m_gameManager.SaveDataManager.Stage[m_gameManager.StageID].ClearTime.Hour;
+        var minute = m_gameManager.SaveDataManager.Stage[m_gameManager.StageID].ClearTime.Minute;
+        var seconds = m_gameManager.SaveDataManager.Stage[m_gameManager.StageID].ClearTime.Seconds;
 
         StageClearTimeText.text = $"{hour.ToString("00")}:{minute.ToString("00")}:{seconds.ToString("00")}";
     }
@@ -196,9 +198,6 @@ public class StageSelector : MonoBehaviour
         m_stageObjects = shiftedObjects;
 
         InitStageData();
-
-        Debug.Log(m_currentIndex);
-        m_gameManager.StageID = m_stageObjects[m_currentIndex].GetComponent<StageStatus>().MyID;     // 選択しているステージの番号を更新。
         SE_CursorMove.PlaySE();
     }
 

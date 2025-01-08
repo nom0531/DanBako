@@ -70,11 +70,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         m_soundManager = soundManagerObject.GetComponent<SoundManager>();
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
-#if UNITY_EDITOR
         DebugCommand();
-#endif
     }
 
     /// <summary>
@@ -101,4 +100,5 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             UnityEditor.EditorApplication.isPlaying = false;
         }
     }
+#endif
 }
