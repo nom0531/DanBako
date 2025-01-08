@@ -46,7 +46,7 @@ public class PlayTimeline : ChangeVCam
     public void Finish()
     {
         PlayableDirector_GameClear.Stop();
-        m_saveDataManager.SaveData.saveData.ClearStage[m_gameManager.StageID] = true;
+        m_saveDataManager.SaveData.saveData.StageData[m_gameManager.StageID].ClearFlag = true;
         m_saveDataManager.Save();
         m_isPlay = false;
     }

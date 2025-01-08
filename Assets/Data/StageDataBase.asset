@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDataList:
   - ID: 0
-    Name: "\u3059\u3066\u30FC\u30581"
+    Name: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
     Model: {fileID: 5736843756079188806, guid: fc46fec4a6f191341aeded41839c3859, type: 3}
   - ID: 1
     Name: "\u3059\u3066\u30FC\u30582"

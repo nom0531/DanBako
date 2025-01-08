@@ -46,6 +46,10 @@ public class GameCamera : MonoBehaviour
         {
             return;
         }
+        if(m_gameManager.GameMode == CurrentGameMode.enClear)
+        {
+            return;
+        }
         Rotation();
         Move();
         Zoom();

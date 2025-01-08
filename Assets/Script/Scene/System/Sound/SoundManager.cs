@@ -29,7 +29,6 @@ public enum SENumber
     enDamage,
     enGameClear,
     enGameOver,
-    enClearStamp,
     enNum,
 }
 

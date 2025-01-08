@@ -26,6 +26,8 @@ public class Player_Main : MonoBehaviour
     private float m_fallSpeed = 0.0f;
     private bool m_isMoving = false;
 
+    private bool m_canMove = false;     // 看板を読んでいるならtrue。
+
     private GameManager m_gameManager;
     private CharacterController m_characterController;
     private Animator m_animator;
@@ -35,6 +37,12 @@ public class Player_Main : MonoBehaviour
     {
         get => m_currentHealth;
         set => m_currentHealth = value;
+    }
+
+    public bool MoveFlag
+    {
+        get => m_canMove;
+        set => m_canMove = value;
     }
 
     void Start()
@@ -144,6 +152,10 @@ public class Player_Main : MonoBehaviour
             move.z *= AirControlFactor;
         }
 
+        if (m_canMove == true)
+        {
+            return;
+        }
         m_characterController.Move(move * Time.unscaledDeltaTime);
     }
 

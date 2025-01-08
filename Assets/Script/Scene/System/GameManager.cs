@@ -59,7 +59,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         get => m_stageID;
     }
 
-#if UNITY_EDITOR
     protected override void Awake()
     {
         // どの場面においてもBGMを再生する為にAwakeを使用する。
@@ -73,7 +72,9 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     private void Update()
     {
+#if UNITY_EDITOR
         DebugCommand();
+#endif
     }
 
     /// <summary>
@@ -100,14 +101,4 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             UnityEditor.EditorApplication.isPlaying = false;
         }
     }
-#else
-    private void Start()
-    {
-        // オブジェクトを作成。
-        var saveDataManagerObject = Instantiate(SaveDataManagerObject);
-        m_saveDataManager = saveDataManagerObject.GetComponent<SaveDataManager>();
-        var soundManagerObject = Instantiate(SoundManagerObject);
-        m_soundManamager = soundManagerObject.GetComponent<SoundManager>();
-    }
-#endif
 }
