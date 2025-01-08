@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol_Main : MonoBehaviour
 {
     [SerializeField, Header("巡回地点 (座標)")]
     private Vector3[] m_goals;
@@ -23,12 +23,12 @@ public class EnemyPatrol : MonoBehaviour
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0.0f;
 
-    private GameTime m_gameTime;
+    private GameTime_Main m_gameTime;
 
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime>();
+        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
         InitializeAgentAndAnimator();
         if (m_goals.Length > 0)
         {
@@ -193,9 +193,9 @@ public class EnemyPatrol : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
 
-        // 高速移動設定
-        m_agent.speed = 10000.0f;         // 高速移動
-        m_agent.acceleration = 100.0f; // 高速加速
+        //// 高速移動設定
+        //m_agent.speed = 10000.0f;         // 高速移動
+        //m_agent.acceleration = 100.0f; // 高速加速
 
     }
 
