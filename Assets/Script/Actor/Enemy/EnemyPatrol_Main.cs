@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrol_Main : MonoBehaviour
+public class EnemyPatrol : MonoBehaviour
 {
     [SerializeField, Header("巡回地点 (座標)")]
     private Vector3[] m_goals;
@@ -23,21 +23,13 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isChasing = false;
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0f;
-
-<<<<<<<< HEAD:Assets/Scripts/EnemyPatrol.cs
     [SerializeField, Header("ゲーム時間管理オブジェクト")]
-    private GameTime m_gameTime;
-
-    void Start()
-    {
-========
     private GameTime_Main m_gameTime;
 
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
         m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
->>>>>>>> 353813a998512474b3f7bba203ac43c2bf3777ec:Assets/Script/Actor/Enemy/EnemyPatrol_Main.cs
         InitializeAgentAndAnimator();
         if (m_goals.Length > 0)
         {
@@ -202,15 +194,13 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
 
-<<<<<<<< HEAD:Assets/Scripts/EnemyPatrol.cs
         // 高速移動設定
         m_agent.speed = 10.0f;         // 高速移動
         m_agent.acceleration = 100.0f; // 高速加速
-========
+
         //// 高速移動設定
         //m_agent.speed = 10000.0f;         // 高速移動
         //m_agent.acceleration = 100.0f; // 高速加速
->>>>>>>> 353813a998512474b3f7bba203ac43c2bf3777ec:Assets/Script/Actor/Enemy/EnemyPatrol_Main.cs
 
         // 回転更新を有効にする
         m_agent.updateRotation = true;

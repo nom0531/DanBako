@@ -18,8 +18,8 @@ public class StageSelector_Prototype : MonoBehaviour
     private StageDataBase StageDataBase;
     [SerializeField, Tooltip("名称")]
     private TextMeshProUGUI StageNameText;
-    [SerializeField, Tooltip("クリア時に表示する画像")]
-    private Stamp Stamp;
+    //[SerializeField, Tooltip("クリア時に表示する画像")]
+    //private Stamp Stamp;
     [SerializeField, Header("シフト速度")]
     private float ShiftMoveSpeed = 5.0f;
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
@@ -62,9 +62,9 @@ public class StageSelector_Prototype : MonoBehaviour
     /// </summary>
     private void InitStageData()
     {
-        Stamp.StageID = m_currentIndex;
+        //Stamp.StageID = m_currentIndex;
         StageNameText.text = StageDataBase.stageDataList[m_currentIndex].Name;
-        Stamp.Draw();
+        //Stamp.Draw();
     }
 
     /// <summary>
