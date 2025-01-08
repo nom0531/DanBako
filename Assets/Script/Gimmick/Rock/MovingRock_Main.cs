@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class MovingRock : MonoBehaviour
+public class MovingRock_Main : MonoBehaviour
 {
     Animator m_rockAnimator;
     GameTime m_gameTime;
