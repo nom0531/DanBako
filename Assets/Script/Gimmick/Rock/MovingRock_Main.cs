@@ -11,7 +11,7 @@ public class MovingRock_Main : MonoBehaviour
     private void Start()
     {
         m_rockAnimator = GetComponent<Animator>();
-        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime>();
+        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
     }
 
     private void Update()

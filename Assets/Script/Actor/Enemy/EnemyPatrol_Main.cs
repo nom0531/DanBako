@@ -11,24 +11,33 @@ public class EnemyPatrol_Main : MonoBehaviour
     private Animator m_enemyAnimator;
     private bool m_isWaiting = false;
 
+    [SerializeField, Header("プレイヤー")]
     private Transform m_player;
     [SerializeField]
-    private float m_chaseRange = 10.0f;  // 追跡範囲
+    private float m_chaseRange = 10f;  // 追跡範囲
     [SerializeField]
-    private float m_attackRange = 2.0f;  // 攻撃範囲
+    private float m_attackRange = 2f;  // 攻撃範囲
     [SerializeField]
-    private float m_attackCooldown = 2.0f;  // 攻撃のクールダウン時間
+    private float m_attackCooldown = 2f;  // 攻撃のクールダウン時間
 
     private bool m_isChasing = false;
     private bool m_isAttacking = false;
-    private float m_lastAttackTime = 0.0f;
+    private float m_lastAttackTime = 0f;
 
+<<<<<<<< HEAD:Assets/Scripts/EnemyPatrol.cs
+    [SerializeField, Header("ゲーム時間管理オブジェクト")]
     private GameTime m_gameTime;
 
     void Start()
     {
+========
+    private GameTime_Main m_gameTime;
+
+    void Start()
+    {
         m_player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime>();
+        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
+>>>>>>>> 353813a998512474b3f7bba203ac43c2bf3777ec:Assets/Script/Actor/Enemy/EnemyPatrol_Main.cs
         InitializeAgentAndAnimator();
         if (m_goals.Length > 0)
         {
@@ -108,7 +117,7 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_enemyAnimator.SetBool("Run", false);
         m_enemyAnimator.SetBool("Idle", true);
 
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2f);
 
         m_enemyAnimator.SetBool("Idle", false);
         m_agent.isStopped = false;
@@ -174,7 +183,7 @@ public class EnemyPatrol_Main : MonoBehaviour
         if (!m_agent.isStopped)
         {
             m_agent.isStopped = true;
-            m_enemyAnimator.speed = 0.0f; // アニメーションを停止
+            m_enemyAnimator.speed = 0f; // アニメーションを停止
         }
     }
 
@@ -193,10 +202,18 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
 
+<<<<<<<< HEAD:Assets/Scripts/EnemyPatrol.cs
         // 高速移動設定
-        m_agent.speed = 10000.0f;         // 高速移動
+        m_agent.speed = 10.0f;         // 高速移動
         m_agent.acceleration = 100.0f; // 高速加速
+========
+        //// 高速移動設定
+        //m_agent.speed = 10000.0f;         // 高速移動
+        //m_agent.acceleration = 100.0f; // 高速加速
+>>>>>>>> 353813a998512474b3f7bba203ac43c2bf3777ec:Assets/Script/Actor/Enemy/EnemyPatrol_Main.cs
 
+        // 回転更新を有効にする
+        m_agent.updateRotation = true;
     }
 
 }

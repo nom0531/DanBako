@@ -31,7 +31,6 @@ public class ShowImageOnProximity : MonoBehaviour
     {
         // プレイヤーとターゲットの距離を測定
         float distance = Vector3.Distance(m_target.position, transform.position);
-        Debug.Log(distance);
 
         // 距離が一定範囲内ならImageを表示、範囲外なら非表示
         if (distance <= DisplayDistance)
