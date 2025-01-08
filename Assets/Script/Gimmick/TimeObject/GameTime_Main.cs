@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GameTime : MonoBehaviour
+public class GameTime_Main : MonoBehaviour
 {
     private bool m_timeStop = false; // ゲーム全体の停止フラグ
     public bool TimeStopFlag => m_timeStop;
