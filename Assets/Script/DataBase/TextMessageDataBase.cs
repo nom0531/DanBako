@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum DataStatus
+{
+    enTutorial_OperationMethod,
+    enTutorial_Gimmick,
+}
+
 /// <summary>
 ///  表示するテキストの構造体。
 /// </summary>
@@ -11,6 +17,7 @@ public class TextMessageData
     [SerializeField, Header("レベル情報")]
     public int ID;
     public string Name;
+    public DataStatus DataStatus;
     [SerializeField, Header("表示するテキスト"), Multiline(10)]
     public string Detail;
 }

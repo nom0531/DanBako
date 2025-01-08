@@ -72,10 +72,10 @@ public class StageSelector_Main : MonoBehaviour
     private void ClearTimeText()
     {
         var hour = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Hour;
-        var seconds = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Minute;
-        var minute = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Seconds;
+        var minute = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Minute;
+        var seconds = m_gameManager.SaveDataManager.Stage[m_currentIndex].ClearTime.Seconds;
 
-        StageClearTimeText.text = $"{hour.ToString("00")}:{minute.ToString("00")}:{((int)(seconds % 60)).ToString("00")}";
+        StageClearTimeText.text = $"{hour.ToString("00")}:{minute.ToString("00")}:{seconds.ToString("00")}";
     }
 
     /// <summary>
