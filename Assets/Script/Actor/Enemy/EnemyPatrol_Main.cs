@@ -23,11 +23,14 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0.0f;
 
+    private PlayerStatus m_playerStatus;
     private GameTime_Main m_gameTime;
 
     void Start()
     {
-        m_player = GameObject.FindGameObjectWithTag("Player").transform;
+        var player = GameObject.FindGameObjectWithTag("Player");
+        m_player = player.transform;
+        m_playerStatus = player.GetComponent<PlayerStatus>();
         m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
         InitializeAgentAndAnimator();
         if (m_goals.Length > 0)
@@ -156,9 +159,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     {
         if (m_player.TryGetComponent<Player_Main>(out Player_Main playerScript))
         {
-
-            Debug.Log("アニメーションイベントでプレイヤーにダメージを適用");
-            playerScript.TakeDamage(); // 例として1ダメージ
+            m_playerStatus.Damage();
         }
     }
 

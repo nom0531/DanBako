@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour
     /// <summary>
     /// ダメージ処理。
     /// </summary>
-    private void Damage()
+    public void Damage()
     {
         m_player.TakeDamage();
         m_setImage.ChangeHPImage();

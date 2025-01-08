@@ -108,6 +108,8 @@ public class FadeScene : SingletonMonoBehaviour<FadeScene>
                 sceneName = $"Stage{m_gameManager.StageID + 1}";
                 break;
             case SceneNumber.enRetryToGame:
+                Scene loadScene = SceneManager.GetActiveScene();
+                sceneName = loadScene.name;
                 break;
             case SceneNumber.enHelp:
                 sceneName = "Help";
