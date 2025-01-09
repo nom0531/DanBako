@@ -6114,6 +6114,7 @@ GameObject:
   - component: {fileID: 1686129644667070448}
   - component: {fileID: 3435315506775692214}
   - component: {fileID: 2801607298019190626}
+  - component: {fileID: 2132228685077485738}
   m_Layer: 0
   m_Name: TimeObject
   m_TagString: TimeObject
@@ -6189,6 +6190,27 @@ MonoBehaviour:
   - Environment
   - Star
   targetAnimator: {fileID: 0}
+--- !u!65 &2132228685077485738
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192735140989908040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 4, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7468700385262427338
 GameObject:
   m_ObjectHideFlags: 0
