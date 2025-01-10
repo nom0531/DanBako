@@ -60,5 +60,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e33715fc604b88b48843adf156c18f1a, type: 3}
   - {fileID: 8300000, guid: e7b25838a8ba58645aa95f1444845708, type: 3}
   - {fileID: 8300000, guid: 93f1e764b18263e4d9d2a96dcbd10743, type: 3}
+  - {fileID: 8300000, guid: 2d8db3bdc9d4c3e42ba44402ad385db2, type: 3}
   SEObject: {fileID: 3874073905183706156, guid: e57302179e4bdb743a271774b2e6eb35,
     type: 3}

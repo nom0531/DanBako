@@ -29,6 +29,7 @@ public enum SENumber
     enDamage,
     enGameClear,
     enGameOver,
+    enTypeWritterText,
     enNum,
 }
 
