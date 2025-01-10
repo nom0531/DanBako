@@ -9,13 +9,11 @@ public class GameTime_Main : MonoBehaviour
     public bool TimeStopFlag => m_timeStop;
 
     [SerializeField, Header("停止対象のタグリスト")]
-    private List<string> stopTags = new List<string> { "Enemy", "Environment" }; // 停止対象のタグ
+    private List<string> stopTags = new List<string> { "Enemy", "Environment", "Star" }; // 停止対象のタグ
 
     private List<MonoBehaviour> affectedScripts = new List<MonoBehaviour>();
     private List<Animator> affectedAnimators = new List<Animator>(); // アニメーターを保存するリスト
     private List<NavMeshAgent> affectedNavAgents = new List<NavMeshAgent>(); // NavMeshAgent を保存するリスト
-
-    [SerializeField] private Animator targetAnimator; // 対象オブジェクトのアニメーター
 
     private void OnTriggerEnter(Collider other)
     {
