@@ -10,7 +10,7 @@ public class ShowImageOnProximity : MonoBehaviour
     private float DisplayDistance = 10.0f;
     [SerializeField, Header("生成するテキスト")]
     private GameObject TextMessageCanvas;
-    [SerializeField, Header("表示するテキストの番号")]
+    [SerializeField, Tooltip("表示するテキストの番号")]
     private int Number;
 
     private Player_Main m_player;
@@ -18,11 +18,13 @@ public class ShowImageOnProximity : MonoBehaviour
     private TypeWritterEffect m_typeWritterEffect;
     private GameObject m_messageCanvas;
     private Animator m_canvasAnimator;
+    private SE m_se;
     private bool m_isShowImage = false;             // Canvasを生成したならtrue。
 
 
     private void Start()
     {
+        m_se = GetComponent<SE>();
         m_player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Main>();
         m_target = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -31,7 +33,6 @@ public class ShowImageOnProximity : MonoBehaviour
     {
         // プレイヤーとターゲットの距離を測定
         float distance = Vector3.Distance(m_target.position, transform.position);
-        Debug.Log(distance);
 
         // 距離が一定範囲内ならImageを表示、範囲外なら非表示
         if (distance <= DisplayDistance)
@@ -53,6 +54,7 @@ public class ShowImageOnProximity : MonoBehaviour
     /// </summary>
     private void ButtonPush()
     {
+        m_se.PlaySE();
         if (m_isShowImage == true)
         {
             m_isShowImage = false;

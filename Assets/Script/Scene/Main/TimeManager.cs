@@ -30,10 +30,22 @@ public class TimeManager : MonoBehaviour
         }
         if(m_gameManager.GameMode == CurrentGameMode.enClear)
         {
+            if(m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Hour < m_hours)
+            {
+                return;
+            }
+            if (m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Minute < m_minute)
+            {
+                return;
+            }
+            if (m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Seconds < m_seconds)
+            {
+                return;
+            }
+
             m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Hour = m_hours;
             m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Minute = m_minute;
             m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Seconds = m_seconds;
-            return;
         }
         // 時間を計測。
         m_seconds = Time.time - m_startTime;

@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 2202636443521233917}
   - component: {fileID: 5337324658875959463}
   - component: {fileID: 2524276774038319517}
+  - component: {fileID: 2427680667697391160}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Enemy
@@ -217,8 +218,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.59, y: 0.00000047683716, z: 28.42}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9107008506764333044}
   - {fileID: 7249489452919249190}
@@ -258,7 +259,7 @@ NavMeshAgent:
   m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -279,15 +280,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44169c14324e99d439c27f1f9936472e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goals:
-  - {x: 1.59, y: 0.00000047683716, z: 28.42}
-  - {x: 0, y: 0, z: 8e-43}
-  - {x: 0, y: 0, z: 3e-45}
-  player: {fileID: 0}
-  chaseRange: 15
-  attackRange: 10
-  attackCooldown: 2
-  gameTime: {fileID: 0}
+  m_goals: []
+  m_chaseRange: 30
+  m_attackRange: 20
+  m_attackCooldown: 2
+--- !u!114 &2427680667697391160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185989808336986482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.33962262, g: 0.040049832, b: 0.040049832, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3106517959343960743
 GameObject:
   m_ObjectHideFlags: 0

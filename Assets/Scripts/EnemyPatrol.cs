@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol_Main : MonoBehaviour
 {
     [SerializeField, Header("巡回地点 (座標)")]
     private Vector3[] m_goals;
@@ -24,11 +24,23 @@ public class EnemyPatrol : MonoBehaviour
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0f;
 
+<<<<<<<< HEAD:Assets/Scripts/EnemyPatrol.cs
     [SerializeField, Header("ゲーム時間管理オブジェクト")]
     private GameTime m_gameTime;
 
     void Start()
     {
+========
+    private PlayerStatus m_playerStatus;
+    private GameTime_Main m_gameTime;
+
+    void Start()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        m_player = player.transform;
+        m_playerStatus = player.GetComponent<PlayerStatus>();
+        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
+>>>>>>>> 7ff91fe001cbffa3495c27429335cb07ce06aa67:Assets/Script/Actor/Enemy/EnemyPatrol_Main.cs
         InitializeAgentAndAnimator();
         if (m_goals.Length > 0)
         {
@@ -156,9 +168,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (m_player.TryGetComponent<Player_Main>(out Player_Main playerScript))
         {
-
-            Debug.Log("アニメーションイベントでプレイヤーにダメージを適用");
-            playerScript.TakeDamage(); // 例として1ダメージ
+            m_playerStatus.Damage();
         }
     }
 
@@ -193,9 +203,15 @@ public class EnemyPatrol : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
 
+<<<<<<<< HEAD:Assets/Scripts/EnemyPatrol.cs
         // 高速移動設定
         m_agent.speed = 10.0f;         // 高速移動
         m_agent.acceleration = 100.0f; // 高速加速
+========
+        //// 高速移動設定
+        //m_agent.speed = 10000.0f;         // 高速移動
+        //m_agent.acceleration = 100.0f; // 高速加速
+>>>>>>>> 7ff91fe001cbffa3495c27429335cb07ce06aa67:Assets/Script/Actor/Enemy/EnemyPatrol_Main.cs
 
         // 回転更新を有効にする
         m_agent.updateRotation = true;

@@ -4,14 +4,14 @@ using UnityEngine;
 public class MovingRock_Main : MonoBehaviour
 {
     Animator m_rockAnimator;
-    GameTime m_gameTime;
+    GameTime_Main m_gameTime;
     private bool isRewind = false;
     private bool m_isPushButton = false;    // ボタンを押したならtrue。
 
     private void Start()
     {
         m_rockAnimator = GetComponent<Animator>();
-        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime>();
+        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
     }
 
     private void Update()
