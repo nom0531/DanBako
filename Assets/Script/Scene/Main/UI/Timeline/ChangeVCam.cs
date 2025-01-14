@@ -6,9 +6,7 @@ using Cinemachine;
 public class ChangeVCam : MonoBehaviour
 {
     [SerializeField, Header("仮想カメラ")]
-    private CinemachineVirtualCameraBase[] Vcam_Stanging;
-    [SerializeField, Header("StageClear用のTransform")]
-    private Transform VcamTransform;
+    protected CinemachineVirtualCameraBase[] Vcam_Stanging;
 
     const int VCAM_PRIORITY = 10;
 
@@ -17,12 +15,6 @@ public class ChangeVCam : MonoBehaviour
         // 初期化。
         ResetPriority();
         ChangeVcam(0);
-        SetEventPosition();
-    }
-
-    private void FixedUpdate()
-    {
-        SetEventPosition();
     }
 
     /// <summary>
@@ -48,9 +40,9 @@ public class ChangeVCam : MonoBehaviour
     /// <summary>
     /// イベント用に座標を設定する。
     /// </summary>
-    private void SetEventPosition()
+    public void SetEventPosition(Transform transform, int number)
     {
-        Vcam_Stanging[1].gameObject.transform.position = VcamTransform.transform.position;
-        Vcam_Stanging[1].gameObject.transform.rotation = VcamTransform.transform.rotation;
+        Vcam_Stanging[number].gameObject.transform.position = transform.position;
+        Vcam_Stanging[number].gameObject.transform.rotation = transform.rotation;
     }
 }

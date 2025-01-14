@@ -11,6 +11,7 @@ public class TypeWritterEffect : MonoBehaviour
     private float DelayDuration = 0.1f;
 
     private TMP_Text m_text;                        // 対象のテキスト。
+    private SE m_se;
     private float m_timer = 0.0f;                   // 次の文字を表示するまでのタイマー。
     private int m_currentMaxVisibleCharacters = 0;
     private bool m_isRunning = false;               // 演出を行うならtrue。
@@ -18,6 +19,7 @@ public class TypeWritterEffect : MonoBehaviour
     private void Awake()
     {
         m_text = GetComponent<TMP_Text>();
+        m_se = GetComponent<SE>();
     }
 
     /// <summary>
@@ -59,6 +61,7 @@ public class TypeWritterEffect : MonoBehaviour
         // 表示する文字数を一つ増やす。
         m_text.maxVisibleCharacters = ++m_currentMaxVisibleCharacters;
         m_timer = DelayDuration;
+        m_se.PlaySE();
         // 文字全てを表示し終わったなら終了。
         if (m_currentMaxVisibleCharacters >= m_text.text.Length)
         {

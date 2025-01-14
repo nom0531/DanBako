@@ -5,17 +5,18 @@ using UnityEngine.AI;
 
 public class GameTime_Main : MonoBehaviour
 {
-    private bool m_timeStop = false; // ゲーム全体の停止フラグ
-    public bool TimeStopFlag => m_timeStop;
-
     [SerializeField, Header("停止対象のタグリスト")]
-    private List<string> stopTags = new List<string> { "Enemy", "Environment" }; // 停止対象のタグ
+    private List<string> stopTags = new List<string> { "Enemy", "Environment", "Star" }; // 停止対象のタグ
 
     private List<MonoBehaviour> affectedScripts = new List<MonoBehaviour>();
     private List<Animator> affectedAnimators = new List<Animator>(); // アニメーターを保存するリスト
     private List<NavMeshAgent> affectedNavAgents = new List<NavMeshAgent>(); // NavMeshAgent を保存するリスト
+    private GameStatus m_gameStatus;
 
-    [SerializeField] private Animator targetAnimator; // 対象オブジェクトのアニメーター
+    private void Start()
+    {
+        m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,7 +39,7 @@ public class GameTime_Main : MonoBehaviour
     /// </summary>
     private void StopTimeForOthers()
     {
-        m_timeStop = true;
+        m_gameStatus.TimeStopFlag = true;
 
         foreach (string tag in stopTags)
         {
@@ -81,7 +82,7 @@ public class GameTime_Main : MonoBehaviour
     /// </summary>
     private void ResumeTimeForOthers()
     {
-        m_timeStop = false;
+        m_gameStatus.TimeStopFlag = false;
 
         // 停止していたスクリプトを再有効化
         foreach (MonoBehaviour script in affectedScripts)

@@ -9,7 +9,7 @@ public class GameCamera : MonoBehaviour
     [SerializeField, Header("カメラ回転"), Tooltip("カメラの回転速度")]
     private float RotSpeed = 200.0f;
     [SerializeField, Tooltip("カメラの回転モード（X）")]
-    private bool CameraModeX = false;
+    private bool CameraModeX = false;       // trueならリバース。
     [SerializeField, Tooltip("X回転最大値")]
     private float MaxX = 60.0f;
     [SerializeField, Tooltip("X回転最小値")]
@@ -30,6 +30,11 @@ public class GameCamera : MonoBehaviour
     private Gamepad m_gamepad;
     private GameObject m_player = null;
 
+    public bool RotReverse
+    {
+        set => CameraModeX = value;
+    }
+
     private void Start()
     {
         m_camera = GetComponent<CinemachineVirtualCamera>();
@@ -44,6 +49,7 @@ public class GameCamera : MonoBehaviour
         // ポーズ中なら実行しない。
         if(m_gameManager.GameMode == CurrentGameMode.enPause)
         {
+            CameraModeX = m_gameManager.SaveDataManager.CameraStete;
             return;
         }
         if(m_gameManager.GameMode == CurrentGameMode.enClear)
@@ -81,7 +87,7 @@ public class GameCamera : MonoBehaviour
         // 左右。
         float rot = Time.deltaTime * RotSpeed;
 
-        if (CameraModeX)
+        if (CameraModeX == true)
         {
             // モードに応じて変更。
             rot *= -1.0f;

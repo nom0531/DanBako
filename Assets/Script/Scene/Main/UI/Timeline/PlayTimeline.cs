@@ -8,6 +8,8 @@ public class PlayTimeline : ChangeVCam
 {
     [SerializeField, Header("イベント"), Tooltip("ステージクリア")]
     private PlayableDirector PlayableDirector_GameClear;
+    [SerializeField, Header("StageClear用のTransform")]
+    private Transform VcamTransform;
 
     private GameManager m_gameManager;
     private SaveDataManager m_saveDataManager;
@@ -22,6 +24,12 @@ public class PlayTimeline : ChangeVCam
     {
         m_gameManager = GameManager.Instance;
         m_saveDataManager = GameManager.Instance.SaveDataManager;
+        SetEventPosition(VcamTransform, 1);
+    }
+
+    private void FixedUpdate()
+    {
+        SetEventPosition(VcamTransform, 1);
     }
 
     /// <summary>
