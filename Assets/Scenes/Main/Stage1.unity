@@ -2449,8 +2449,8 @@ MonoBehaviour:
   Vcam_Stanging:
   - {fileID: 3913215611944060303}
   - {fileID: 4641393819137163117}
-  VcamTransform: {fileID: 667715795}
   PlayableDirector_GameClear: {fileID: 8551993105613024473}
+  VcamTransform: {fileID: 667715795}
 --- !u!1001 &2099251030791231916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5816,11 +5816,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.04595565
-      objectReference: {fileID: 0}
-    - target: {fileID: 2538907759770036860, guid: d9b558d41963df447a70e9267008582b,
-        type: 3}
-      propertyPath: outlineMode
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2557584829430315343, guid: d9b558d41963df447a70e9267008582b,
         type: 3}
