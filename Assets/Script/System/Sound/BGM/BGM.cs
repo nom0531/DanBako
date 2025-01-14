@@ -9,7 +9,7 @@ public class BGM : MonoBehaviour
     [SerializeField, Header("フェードの速度")]
     private float FadeSpeed = 1.0f;     // フェードの速度（大きいほど速い）
 
-    private const float DECREMENT_VALUE = 0.2f;
+    private const float DECREMENT_VALUE = 0.8f;
 
     private AudioSource m_audioSource;
     private SoundManager m_soundManager;
