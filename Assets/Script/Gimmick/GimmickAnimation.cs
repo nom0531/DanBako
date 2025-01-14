@@ -1,46 +1,53 @@
 using System.Collections;
 using UnityEngine;
 
-public class MovingRock_Main : MonoBehaviour
+public class GimmickAnimation : MonoBehaviour
 {
-    Animator m_rockAnimator;
-    GameTime_Main m_gameTime;
+    Animator m_animator;
+    GameStatus m_gameStatus;
     private bool isRewind = false;
+    private bool m_isNotStart = false;      // 初期状態ならfalse;
     private bool m_isPushButton = false;    // ボタンを押したならtrue。
 
     private void Start()
     {
-        m_rockAnimator = GetComponent<Animator>();
-        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
+        m_animator = GetComponent<Animator>();
+        m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
     }
 
     private void Update()
     {
         // 停止していないなら実行しない。
-        if(m_gameTime.TimeStopFlag == false)
+        if(m_gameStatus.TimeStopFlag == false)
         {
             return;
         }
 
         // LBキーが押されたらアニメーションを再生
-        if (Input.GetKeyDown("joystick button 4"))
+        if (Input.GetKeyDown("joystick button 4") || Input.GetKeyDown(KeyCode.Y))
         {
             if(m_isPushButton == true)
             {
                 return;
             }
             m_isPushButton = true;
+            m_isNotStart = true;
             PlayAnimation();
         }
 
         // RBキーが押されたら巻き戻しを実行
-        if (Input.GetKeyDown("joystick button 5"))
+        if (Input.GetKeyDown("joystick button 5") || Input.GetKeyDown(KeyCode.Z))
         {
+            if (m_isNotStart == false)
+            {
+                return;
+            }
             if (m_isPushButton == true)
             {
                 return;
             }
             m_isPushButton = true;
+            m_isNotStart = false;
             StartCoroutine(TriggerRewindWithDelay());
         }
     }
@@ -48,15 +55,15 @@ public class MovingRock_Main : MonoBehaviour
     private void PlayAnimation()
     {
         isRewind = false; // 巻き戻しフラグをリセット
-        m_rockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
-        m_rockAnimator.SetBool("IsPlaying", true); // 再生フラグをオン
+        m_animator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
+        m_animator.SetBool("IsPlaying", true); // 再生フラグをオン
         m_isPushButton = false; // フラグを戻す。
     }
 
     IEnumerator TriggerRewindWithDelay()
     {
         // トリガーを設定
-        m_rockAnimator.SetTrigger("Rewind");
+        m_animator.SetTrigger("Rewind");
 
         // 2秒待機
         yield return new WaitForSeconds(1.0f);
@@ -68,8 +75,8 @@ public class MovingRock_Main : MonoBehaviour
     private void TriggerRewind()
     {
         isRewind = true; // 巻き戻しフラグを設定
-        m_rockAnimator.SetBool("IsPlaying", false); // 再生フラグをオフ
-        m_rockAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
+        m_animator.SetBool("IsPlaying", false); // 再生フラグをオフ
+        m_animator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
         m_isPushButton = false; // フラグを戻す。
     }
 }
