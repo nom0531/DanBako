@@ -194,9 +194,7 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
 
-        //// 高速移動設定
-        //m_agent.speed = 10000.0f;         // 高速移動
-        //m_agent.acceleration = 100.0f; // 高速加速
+
 
     }
 

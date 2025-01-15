@@ -17,6 +17,7 @@ TagManager:
   - Enemy
   - TimeObject
   - Environment
+  - Bridge
   layers:
   - Default
   - TransparentFX
