@@ -46,11 +46,13 @@ public class GameTime_Main : MonoBehaviour
             GameObject[] objects = GameObject.FindGameObjectsWithTag(tag);
             foreach (GameObject obj in objects)
             {
+                if (obj == null || !obj.activeInHierarchy) continue; // 無効なオブジェクトをスキップ
+
                 // 各オブジェクトのスクリプトを停止
                 MonoBehaviour[] scripts = obj.GetComponents<MonoBehaviour>();
                 foreach (MonoBehaviour script in scripts)
                 {
-                    if (script.enabled && script != this) // 自分自身を無効化しない
+                    if (script != null && script.enabled && script != this) // 自分自身を無効化しない
                     {
                         affectedScripts.Add(script);
                         script.enabled = false;
@@ -87,22 +89,31 @@ public class GameTime_Main : MonoBehaviour
         // 停止していたスクリプトを再有効化
         foreach (MonoBehaviour script in affectedScripts)
         {
-            script.enabled = true;
+            if (script != null) // Null チェック
+            {
+                script.enabled = true;
+            }
         }
         affectedScripts.Clear();
 
         // 停止していたアニメーターを再有効化
         foreach (Animator animator in affectedAnimators)
         {
-            animator.enabled = true; // アニメーターを再有効化
+            if (animator != null) // Null チェック
+            {
+                animator.enabled = true; // アニメーターを再有効化
+            }
         }
         affectedAnimators.Clear();
 
         // 停止していたNavMeshAgentを再開
         foreach (NavMeshAgent navAgent in affectedNavAgents)
         {
-            navAgent.isStopped = false; // エネミーの移動を再開
-            navAgent.velocity = Vector3.zero; // 速度をゼロにして移動を強制的に開始
+            if (navAgent != null) // Null チェック
+            {
+                navAgent.isStopped = false; // エネミーの移動を再開
+                navAgent.velocity = Vector3.zero; // 速度をゼロにして移動を強制的に開始
+            }
         }
         affectedNavAgents.Clear();
     }

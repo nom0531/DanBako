@@ -6113,8 +6113,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1686129644667070448}
   - component: {fileID: 3435315506775692214}
-  - component: {fileID: 2801607298019190626}
   - component: {fileID: 2132228685077485738}
+  - component: {fileID: 2977160311253719476}
   m_Layer: 0
   m_Name: TimeObject
   m_TagString: TimeObject
@@ -6160,23 +6160,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2801607298019190626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7192735140989908040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f41a38672d5f3141b5921c042a4089b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stopTags:
-  - Enemy
-  - Environment
-  - Star
-  targetAnimator: {fileID: 0}
 --- !u!65 &2132228685077485738
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6198,6 +6181,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 4, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2977160311253719476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192735140989908040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f98c73b64efdb241afbaa75f1376aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopTags:
+  - Enemy
+  - Environment
+  - Star
 --- !u!1 &7468700385262427338
 GameObject:
   m_ObjectHideFlags: 0
