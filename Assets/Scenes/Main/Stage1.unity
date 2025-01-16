@@ -2189,17 +2189,17 @@ PrefabInstance:
     - target: {fileID: 2766786810264051737, guid: 5b61ae3f972e0774aa95ed87192ccfa1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.91766
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2766786810264051737, guid: 5b61ae3f972e0774aa95ed87192ccfa1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.7438965
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2766786810264051737, guid: 5b61ae3f972e0774aa95ed87192ccfa1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 350.94226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2766786810264051737, guid: 5b61ae3f972e0774aa95ed87192ccfa1,
         type: 3}
@@ -2594,7 +2594,7 @@ GameObject:
   - component: {fileID: 7752437210458487290}
   - component: {fileID: 5057034656691011027}
   m_Layer: 0
-  m_Name: PlaybleDirector_GameClear
+  m_Name: PlaybleDirector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3081,7 +3081,7 @@ Transform:
   m_GameObject: {fileID: 4741237346159186517}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.685963, y: 21.969782, z: 319.96704}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

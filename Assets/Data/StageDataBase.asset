@@ -20,11 +20,8 @@ MonoBehaviour:
     Name: "\u30B9\u30C6\u30FC\u30B82"
     Model: {fileID: 1200476973095408619, guid: 737e831100bcf2a4286a20887d5d42a9, type: 3}
   - ID: 2
-    Name: "\u3059\u3066\u30FC\u30583"
-    Model: {fileID: 1200476973095408619, guid: 737e831100bcf2a4286a20887d5d42a9, type: 3}
+    Name: "\u30B9\u30C6\u30FC\u30B83"
+    Model: {fileID: 4745373325270229975, guid: 2f47419dea1e1b446af987d59a346fbb, type: 3}
   - ID: 3
-    Name: "\u3059\u3066\u30FC\u30584"
-    Model: {fileID: 1200476973095408619, guid: 737e831100bcf2a4286a20887d5d42a9, type: 3}
-  - ID: 4
-    Name: "\u3059\u3066\u30FC\u30585"
-    Model: {fileID: 1200476973095408619, guid: 737e831100bcf2a4286a20887d5d42a9, type: 3}
+    Name: "\u30B9\u30C6\u30FC\u30B84"
+    Model: {fileID: 4966626530000792688, guid: bb1326a73b40db241a77d9675c26a20a, type: 3}
