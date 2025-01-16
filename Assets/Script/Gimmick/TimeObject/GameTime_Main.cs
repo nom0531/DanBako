@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class GameTime_Main : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class GameTime_Main : MonoBehaviour
     private List<Animator> affectedAnimators = new List<Animator>(); // アニメーターを保存するリスト
     private List<NavMeshAgent> affectedNavAgents = new List<NavMeshAgent>(); // NavMeshAgent を保存するリスト
     private GameStatus m_gameStatus;
+    private Volume m_volume;
 
     private void Start()
     {
         m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
+        m_volume = GetComponent<Volume>();
     }
 
     private void OnTriggerEnter(Collider other)

@@ -4239,6 +4239,7 @@ GameObject:
   - component: {fileID: 719981756}
   - component: {fileID: 719981755}
   - component: {fileID: 719981760}
+  - component: {fileID: 719981761}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -4267,7 +4268,7 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 1943908350}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
@@ -4398,6 +4399,23 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &719981761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719981754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: e1f706170b513c045b83d6d9bac03586, type: 2}
 --- !u!64 &720041385
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18790,6 +18808,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9b558d41963df447a70e9267008582b, type: 3}
+--- !u!4 &1943908350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 415283065701335293, guid: d9b558d41963df447a70e9267008582b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1943908349}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1947656106
 MeshCollider:
   m_ObjectHideFlags: 0
