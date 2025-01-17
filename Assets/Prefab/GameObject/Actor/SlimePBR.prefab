@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 6897401854631404754}
   - component: {fileID: 7105078455538670447}
   - component: {fileID: 2305392884335598532}
+  - component: {fileID: 3084514287651029060}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: Enemy
@@ -156,9 +157,9 @@ Transform:
   m_GameObject: {fileID: 506638436058656900}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.79, y: 1.4, z: 1.2}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.19417381, y: 88.087524, z: -31.982311}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3694041468768151027}
   - {fileID: 8768228958344352785}
@@ -211,10 +212,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -223,6 +224,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &3084514287651029060
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506638436058656900}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.4
+  m_Height: 0.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.34, z: 0}
 --- !u!1 &1054913375364870166
 GameObject:
   m_ObjectHideFlags: 0
