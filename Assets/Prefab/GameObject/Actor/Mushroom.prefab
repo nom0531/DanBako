@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 2202636443521233917}
   - component: {fileID: 5337324658875959463}
   - component: {fileID: 2524276774038319517}
+  - component: {fileID: 2427680667697391160}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Enemy
@@ -283,6 +284,24 @@ MonoBehaviour:
   m_chaseRange: 30
   m_attackRange: 20
   m_attackCooldown: 2
+--- !u!114 &2427680667697391160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2185989808336986482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 0.33962262, g: 0.040049832, b: 0.040049832, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &3106517959343960743
 GameObject:
   m_ObjectHideFlags: 0

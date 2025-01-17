@@ -23,12 +23,15 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0.0f;
 
-    private GameTime_Main m_gameTime;
+    private PlayerStatus m_playerStatus;
+    private GameStatus m_gameStatus;
 
     void Start()
     {
-        m_player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_gameTime = GameObject.FindGameObjectWithTag("TimeObject").GetComponent<GameTime_Main>();
+        var player = GameObject.FindGameObjectWithTag("Player");
+        m_player = player.transform;
+        m_playerStatus = player.GetComponent<PlayerStatus>();
+        m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
         InitializeAgentAndAnimator();
         if (m_goals.Length > 0)
         {
@@ -43,7 +46,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     void Update()
     {
         // 時間停止中は全ての処理をスキップ
-        if (m_gameTime != null && m_gameTime.TimeStopFlag)
+        if (m_gameStatus != null && m_gameStatus.TimeStopFlag)
         {
             HandleTimeStop();
             return;
@@ -156,9 +159,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     {
         if (m_player.TryGetComponent<Player_Main>(out Player_Main playerScript))
         {
-
-            Debug.Log("アニメーションイベントでプレイヤーにダメージを適用");
-            playerScript.TakeDamage(); // 例として1ダメージ
+            m_playerStatus.Damage();
         }
     }
 
@@ -181,7 +182,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     // 時間停止から再開時の処理
     private void ResumeFromTimeStop()
     {
-        if (m_agent.isStopped && !m_gameTime.TimeStopFlag)
+        if (m_agent.isStopped && !m_gameStatus.TimeStopFlag)
         {
             m_agent.isStopped = false;
             m_enemyAnimator.speed = 1f; // アニメーションを再開
