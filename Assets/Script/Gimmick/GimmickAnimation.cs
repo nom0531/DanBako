@@ -9,6 +9,12 @@ public class GimmickAnimation : MonoBehaviour
     private bool m_isNotStart = false;      // 初期状態ならfalse;
     private bool m_isPushButton = false;    // ボタンを押したならtrue。
 
+    public bool NotStartFlag
+    {
+        get => m_isNotStart;
+        set => m_isNotStart = value;
+    }
+
     private void Start()
     {
         m_animator = GetComponent<Animator>();

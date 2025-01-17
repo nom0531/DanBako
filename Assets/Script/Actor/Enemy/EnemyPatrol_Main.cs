@@ -207,6 +207,6 @@ public class EnemyPatrol_Main : MonoBehaviour
     /// </summary>
     public void Landing()
     {
-
+        Debug.Log("落下した！");
     }
 }
