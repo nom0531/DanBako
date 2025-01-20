@@ -427,15 +427,15 @@ GameObject:
   - component: {fileID: 4438188442262185226}
   - component: {fileID: 1148396539217269886}
   - component: {fileID: 7216259119461651604}
-  - component: {fileID: 9139117236897576884}
   - component: {fileID: 9218194243511810638}
+  - component: {fileID: 698069654014390683}
   m_Layer: 0
   m_Name: Swarm08
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4438188442262185226
 Transform:
   m_ObjectHideFlags: 0
@@ -446,8 +446,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.62, y: 0.5, z: 5.254}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2120867155933531288}
   - {fileID: 868045409866436136}
@@ -484,7 +484,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 20
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -496,27 +496,6 @@ NavMeshAgent:
   m_BaseOffset: 0.72
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &9139117236897576884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6142408158340948459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44169c14324e99d439c27f1f9936472e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goals:
-  - {x: 0, y: 0, z: 1e-45}
-  - {x: 0, y: NaN, z: 8e-43}
-  - {x: 1e-45, y: 0, z: 3e-45}
-  player: {fileID: 0}
-  chaseRange: 15
-  attackRange: 10
-  attackCooldown: 2
-  gameTime: {fileID: 0}
 --- !u!136 &9218194243511810638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -540,6 +519,24 @@ CapsuleCollider:
   m_Height: 2.19
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &698069654014390683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142408158340948459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfddcc8425444634db013a40fae19471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_goals:
+  - {x: 99.7, y: 29.8, z: -6.8}
+  - {x: 58.2, y: 29.8, z: -3.1}
+  m_chaseRange: 30
+  m_attackRange: 20
+  m_attackCooldown: 2
 --- !u!1 &6471425612077015914
 GameObject:
   m_ObjectHideFlags: 0
