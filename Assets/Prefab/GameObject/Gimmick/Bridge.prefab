@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91eed3ae3728ef24096ea686bc709072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bridge: {fileID: 0}
+  Bridge: {fileID: 991228853744540280}
 --- !u!1 &7541622852590954036
 GameObject:
   m_ObjectHideFlags: 0

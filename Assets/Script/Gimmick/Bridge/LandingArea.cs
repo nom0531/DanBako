@@ -10,11 +10,11 @@ public class LandingArea : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         // エネミーでないときは実行しない。
-        if(collision.tag != "Enemy")
+        if (collision.tag != "Enemy")
         {
             return;
         }
-        if(Bridge.GetComponent<BridgeStatus>().LandingFlag == false)
+        if (Bridge.GetComponent<BridgeStatus>().LandingFlag == false)
         {
             return;
         }

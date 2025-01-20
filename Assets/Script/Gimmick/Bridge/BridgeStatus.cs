@@ -25,6 +25,7 @@ public class BridgeStatus : MonoBehaviour
         }
         // フラグを切り替える。
         m_isLanding = m_gimmickAnimation.NotStartFlag;
-        Debug.Log($"今の状態：{m_isLanding}（tureなら落下している）");
+
+        Debug.Log(m_isLanding);
     }
 }
