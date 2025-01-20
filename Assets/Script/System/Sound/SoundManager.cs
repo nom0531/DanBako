@@ -29,7 +29,7 @@ public enum SENumber
     enDamage,
     enGameClear,
     enGameOver,
-    enTypeWritterText,
+    enGetStar,
     enNum,
 }
 
@@ -98,7 +98,7 @@ public class SoundManager : SingletonMonoBehaviour<SoundManager>
     /// SEを再生。
     /// </summary>
     /// <param name="number">番号。</param>
-    public void PlaySE(SENumber number, float decrementValue=0.1f)
+    public void PlaySE(SENumber number, float decrementValue=0.5f)
     {
         if(number == SENumber.enNum)
         {

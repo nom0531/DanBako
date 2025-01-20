@@ -22,6 +22,13 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isChasing = false;
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0.0f;
+    private bool m_isNotMove = false;       // 動かない時はtrue。
+
+    public bool NotMoveFlag
+    {
+        get => m_isNotMove;
+        set => m_isNotMove = value;
+    }
 
     private PlayerStatus m_playerStatus;
     private GameStatus m_gameStatus;
@@ -46,7 +53,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     void Update()
     {
         // 時間停止中は全ての処理をスキップ
-        if (m_gameStatus != null && m_gameStatus.TimeStopFlag)
+        if (m_gameStatus != null && m_gameStatus.TimeStopFlag || NotMoveFlag == true)
         {
             HandleTimeStop();
             return;
@@ -193,9 +200,13 @@ public class EnemyPatrol_Main : MonoBehaviour
     {
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
-
-
-
     }
 
+    /// <summary>
+    /// 落下処理。
+    /// </summary>
+    public void Landing()
+    {
+
+    }
 }

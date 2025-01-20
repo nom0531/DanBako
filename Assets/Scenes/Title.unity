@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 609050791454350625, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -211
+      value: 72.2
       objectReference: {fileID: 0}
     - target: {fileID: 835296042774733795, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
         type: 3}
@@ -205,6 +205,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[0].x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[0].y
+      value: 72.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[1].x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[1].y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[2].x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[2].y
+      value: -76.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[3].x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[3].y
+      value: -146.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[4].x
+      value: 108
+      objectReference: {fileID: 0}
+    - target: {fileID: 5317746578559029518, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
+        type: 3}
+      propertyPath: Position.Array.data[4].y
+      value: -211
       objectReference: {fileID: 0}
     - target: {fileID: 7493232201057394063, guid: a3b6ec1a81f301a4e8d7cefa0b1df93e,
         type: 3}
