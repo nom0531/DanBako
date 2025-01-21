@@ -13,6 +13,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isWaiting = false;
     private bool m_isNotMove = false;       // 動かない時はtrue。
     private bool m_isLanding = false;       // 落下したならture。
+    private bool m_isDead = false;          // 死亡フラグ
 
     private const float DRAG = 0.001f;      // 空気抵抗。
 
@@ -40,6 +41,12 @@ public class EnemyPatrol_Main : MonoBehaviour
         set => m_isNotMove = value;
     }
 
+    public bool DeadFlag
+    {
+        get => m_isDead;
+        set => m_isDead = value;
+    }
+
     private PlayerStatus m_playerStatus;
     private GameStatus m_gameStatus;
 
@@ -59,6 +66,8 @@ public class EnemyPatrol_Main : MonoBehaviour
 
     void Update()
     {
+        if (m_isDead) return; // 死亡後は何もしない
+
         // 時間停止中は全ての処理をスキップ
         if (m_gameStatus != null && m_gameStatus.TimeStopFlag || NotMoveFlag == true)
         {
@@ -253,5 +262,28 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_agent.enabled = false;
         RigidBodyParam(DRAG, true);
         Debug.Log("落下した");
+    }
+
+    /// <summary>
+    /// 死亡処理。
+    /// </summary>
+    private void Die()
+    {
+        m_isDead = true;
+
+        // ナビメッシュエージェントとアニメーションを停止
+        m_agent.isStopped = true;
+        m_enemyAnimator.SetTrigger("Die");
+
+        // 一定時間後に削除
+        Invoke(nameof(DestroyEnemy), 3.0f); // アニメーションが終わる時間に合わせて調整
+    }
+
+    /// <summary>
+    /// 削除処理。
+    /// </summary>
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 }

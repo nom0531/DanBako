@@ -815,7 +815,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 50
   AirControlFactor: 0.5
-  Gravity: -80
+  Gravity: -50
   GroundCheckDistance: 0.5
   GroundLayer:
     serializedVersion: 2
