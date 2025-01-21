@@ -72,7 +72,7 @@ public class GimmickAnimation : MonoBehaviour
         m_animator.SetTrigger("Rewind");
 
         // 2秒待機
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
 
         // フラグを変更して巻き戻し開始
         TriggerRewind();
