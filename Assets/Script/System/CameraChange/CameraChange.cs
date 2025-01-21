@@ -32,7 +32,6 @@ public class CameraChange : ChangeVCam
             Change(1);
             m_gameStatus.ChangeCamaeraFlag = true;
         }
-        
     }
 
     /// <summary>
