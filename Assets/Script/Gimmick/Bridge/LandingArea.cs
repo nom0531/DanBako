@@ -30,7 +30,6 @@ public class LandingArea : MonoBehaviour
             // 落下していないのでフラグはfalse。
             var enemyPatrol = collision.GetComponent<EnemyPatrol_Main>();
             enemyPatrol.LandingFlag = false;
-            enemyPatrol.RigidBodyParam(0, false);
             return;
         }
         collision.GetComponent<EnemyPatrol_Main>().Landing();
