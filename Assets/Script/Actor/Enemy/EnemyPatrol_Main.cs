@@ -22,16 +22,14 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isChasing = false;
     private bool m_isAttacking = false;
     private float m_lastAttackTime = 0.0f;
-    private bool m_isNotMove = false;       // 動かない時はtrue。
-
-    public bool NotMoveFlag
-    {
-        get => m_isNotMove;
-        set => m_isNotMove = value;
-    }
 
     private PlayerStatus m_playerStatus;
     private GameStatus m_gameStatus;
+
+    [SerializeField, Header("敵のHP")]
+    private int m_health = 100; // HPの初期値
+
+    private bool m_isDead = false; // 死亡フラグ
 
     void Start()
     {
@@ -52,8 +50,10 @@ public class EnemyPatrol_Main : MonoBehaviour
 
     void Update()
     {
+        if (m_isDead) return; // 死亡後は何もしない
+
         // 時間停止中は全ての処理をスキップ
-        if (m_gameStatus != null && m_gameStatus.TimeStopFlag || NotMoveFlag == true)
+        if (m_gameStatus != null && m_gameStatus.TimeStopFlag)
         {
             HandleTimeStop();
             return;
@@ -89,6 +89,35 @@ public class EnemyPatrol_Main : MonoBehaviour
         }
 
         UpdateAnimation();
+    }
+
+    public void Damage(int damageAmount)
+    {
+        if (m_isDead) return;
+
+        m_health -= damageAmount;
+
+        if (m_health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        m_isDead = true;
+
+        // ナビメッシュエージェントとアニメーションを停止
+        m_agent.isStopped = true;
+        m_enemyAnimator.SetTrigger("Die");
+
+        // 一定時間後に削除
+        Invoke(nameof(DestroyEnemy), 3.0f); // アニメーションが終わる時間に合わせて調整
+    }
+
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 
     private void Patrol()
@@ -157,11 +186,9 @@ public class EnemyPatrol_Main : MonoBehaviour
 
         m_lastAttackTime = Time.time;
 
-        // 攻撃終了後に再び動けるようにする
-        Invoke(nameof(EndAttack), 1.5f); // アニメーションの終了時間に合わせて調整
+        Invoke(nameof(EndAttack), 1.5f);
     }
 
-    // アニメーションイベントから呼ばれるメソッド
     public void ApplyDamage()
     {
         if (m_player.TryGetComponent<Player_Main>(out Player_Main playerScript))
@@ -176,23 +203,21 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_agent.isStopped = false;
     }
 
-    // 時間停止時の処理
     private void HandleTimeStop()
     {
         if (!m_agent.isStopped)
         {
             m_agent.isStopped = true;
-            m_enemyAnimator.speed = 0.0f; // アニメーションを停止
+            m_enemyAnimator.speed = 0.0f;
         }
     }
 
-    // 時間停止から再開時の処理
     private void ResumeFromTimeStop()
     {
         if (m_agent.isStopped && !m_gameStatus.TimeStopFlag)
         {
             m_agent.isStopped = false;
-            m_enemyAnimator.speed = 1f; // アニメーションを再開
+            m_enemyAnimator.speed = 1f;
         }
     }
 
@@ -200,13 +225,5 @@ public class EnemyPatrol_Main : MonoBehaviour
     {
         m_agent = GetComponent<NavMeshAgent>();
         m_enemyAnimator = GetComponent<Animator>();
-    }
-
-    /// <summary>
-    /// 落下処理。
-    /// </summary>
-    public void Landing()
-    {
-
     }
 }

@@ -768,14 +768,14 @@ GameObject:
   - component: {fileID: 2332806353647106868}
   - component: {fileID: 3936733955579493636}
   - component: {fileID: 1968435165364559967}
-  - component: {fileID: 3188637440602581194}
+  - component: {fileID: 7201003622026210380}
   m_Layer: 0
   m_Name: TurtleShellPBR
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2332806353647106868
 Transform:
   m_ObjectHideFlags: 0
@@ -786,7 +786,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.04, y: -0.00000023841858, z: 12.72}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 8, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1167094448824075779}
@@ -824,7 +824,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -836,7 +836,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3188637440602581194
+--- !u!114 &7201003622026210380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -845,18 +845,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5820372109687071896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44169c14324e99d439c27f1f9936472e, type: 3}
+  m_Script: {fileID: 11500000, guid: bfddcc8425444634db013a40fae19471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goals:
-  - {x: 0, y: 0, z: 1e-45}
-  - {x: 0, y: NaN, z: 8e-43}
-  - {x: 1e-45, y: 0, z: 3e-45}
-  player: {fileID: 0}
-  chaseRange: 15
-  attackRange: 10
-  attackCooldown: 2
-  gameTime: {fileID: 0}
+  m_goals:
+  - {x: 99.7, y: 29.8, z: -6.8}
+  - {x: 58.2, y: 29.8, z: -3.1}
+  m_chaseRange: 25
+  m_attackRange: 15
+  m_attackCooldown: 2
 --- !u!1 &6009139703834231522
 GameObject:
   m_ObjectHideFlags: 0

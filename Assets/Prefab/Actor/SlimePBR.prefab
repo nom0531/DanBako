@@ -138,15 +138,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6844581138002926160}
   - component: {fileID: 6897401854631404754}
-  - component: {fileID: 7105078455538670447}
   - component: {fileID: 2305392884335598532}
+  - component: {fileID: 2257207989545002635}
   m_Layer: 0
   m_Name: SlimePBR
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6844581138002926160
 Transform:
   m_ObjectHideFlags: 0
@@ -157,8 +157,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 33.79, y: 1.4, z: 1.2}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3694041468768151027}
   - {fileID: 8768228958344352785}
@@ -185,27 +185,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7105078455538670447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506638436058656900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44169c14324e99d439c27f1f9936472e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  goals:
-  - {x: 0, y: 0, z: 1e-45}
-  - {x: 0, y: NaN, z: 8e-43}
-  - {x: 1e-45, y: 0, z: 3e-45}
-  player: {fileID: 0}
-  chaseRange: 15
-  attackRange: 10
-  attackCooldown: 2
-  gameTime: {fileID: 0}
 --- !u!195 &2305392884335598532
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -216,7 +195,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -228,6 +207,24 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2257207989545002635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506638436058656900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfddcc8425444634db013a40fae19471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_goals:
+  - {x: 99.7, y: 29.8, z: -6.8}
+  - {x: 58.2, y: 29.8, z: -3.1}
+  m_chaseRange: 30
+  m_attackRange: 15
+  m_attackCooldown: 5
 --- !u!1 &1054913375364870166
 GameObject:
   m_ObjectHideFlags: 0

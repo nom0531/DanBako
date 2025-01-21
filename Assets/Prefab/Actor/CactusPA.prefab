@@ -563,14 +563,14 @@ GameObject:
   - component: {fileID: 6853517260898348163}
   - component: {fileID: 8399638880474357849}
   - component: {fileID: 4265432696957681953}
-  - component: {fileID: 3715112054620204474}
+  - component: {fileID: 8310233168670481894}
   m_Layer: 0
   m_Name: CactusPA
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6853517260898348163
 Transform:
   m_ObjectHideFlags: 0
@@ -581,8 +581,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.58, y: -0.00000047683716, z: -10.64}
-  m_LocalScale: {x: 5, y: 5, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3049401609571130134}
   - {fileID: 5817911406406747824}
@@ -619,7 +619,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -631,7 +631,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3715112054620204474
+--- !u!114 &8310233168670481894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -640,18 +640,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7320180661099240423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44169c14324e99d439c27f1f9936472e, type: 3}
+  m_Script: {fileID: 11500000, guid: bfddcc8425444634db013a40fae19471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goals:
-  - {x: -6155.9375, y: 8.03e-43, z: 1e-45}
-  - {x: 0, y: -2.5042107e-19, z: 8e-43}
-  - {x: 4.6e-44, y: 0, z: -6155.9375}
-  player: {fileID: 0}
-  chaseRange: 15
-  attackRange: 10
-  attackCooldown: 2
-  gameTime: {fileID: 0}
+  m_goals:
+  - {x: 99.7, y: 29.8, z: -6.8}
+  - {x: 58.2, y: 29.8, z: -3.1}
+  m_chaseRange: 30
+  m_attackRange: 20
+  m_attackCooldown: 3
 --- !u!1 &7439096289709077841
 GameObject:
   m_ObjectHideFlags: 0
