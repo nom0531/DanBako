@@ -25,8 +25,8 @@ public class StageSelector : MonoBehaviour
     [SerializeField, Header("SE"), Tooltip("カーソル移動音")]
     private SE SE_CursorMove;
 
-    private const float SELECTED_SCALE = 0.008f;         // 選択されたステージの拡大率
-    private const float DEFAULT_SCALE = 0.005f;          // 非選択ステージのデフォルトスケール
+    private const float SELECTED_SCALE = 3.0f;         // 選択されたステージの拡大率
+    private const float DEFAULT_SCALE = 1.0f;          // 非選択ステージのデフォルトスケール
 
     private readonly Vector3 START_POSITION = new Vector3(75.0f, -20.0f, 75.0f);
     private readonly Vector3 END_POSITION = new Vector3(-75.0f, -20.0f, 75.0f);
@@ -106,7 +106,7 @@ public class StageSelector : MonoBehaviour
             if (i == 0)
             {
                 //選択されているときに強調するためのポジション
-                m_movePositions[i] = new Vector3(0.0f, -20.0f, 50.0f);
+                m_movePositions[i] = new Vector3(0.0f, -30.0f, 50.0f);
             }
             else
             {
