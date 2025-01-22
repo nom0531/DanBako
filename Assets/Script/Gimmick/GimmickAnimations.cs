@@ -5,27 +5,38 @@ using UnityEngine;
 public class GimmickAnimations : MonoBehaviour
 {
     Animator m_animator;
-   
     private bool isRewind = false;
     private bool m_isNotStart = false;      // 初期状態ならfalse;
     private bool m_isPushButton = false;    // ボタンを押したならtrue。
-
+    private bool m_isTimeStop = false;
     public List<Animator> targetAnimators;  // アニメーションを適用するAnimatorをリストで指定
 
-    private void Start()
-    {
-       
+   
 
-        // targetAnimatorsにAnimatorを設定（例：特定のオブジェクトにアタッチされているAnimator）
-        if (targetAnimators.Count == 0)
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag !="Player")
         {
-            m_animator = GetComponent<Animator>(); // defaultAnimator (必要なら)
+            return;
         }
+        m_isTimeStop = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag != "Player")
+        {
+            return;
+        }
+        m_isTimeStop = false;
     }
 
     private void Update()
     {
-       
+        if (m_isTimeStop == false)
+        {
+            return;
+        }
 
         // LBキーが押されたらアニメーションを再生
         if (Input.GetKeyDown("joystick button 4") || Input.GetKeyDown(KeyCode.Y))
