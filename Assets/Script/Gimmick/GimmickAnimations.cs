@@ -1,33 +1,31 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GimmickAnimation : MonoBehaviour
+public class GimmickAnimations : MonoBehaviour
 {
     Animator m_animator;
-    GameStatus m_gameStatus;
+   
     private bool isRewind = false;
     private bool m_isNotStart = false;      // 初期状態ならfalse;
     private bool m_isPushButton = false;    // ボタンを押したならtrue。
 
-    public bool NotStartFlag
-    {
-        get => m_isNotStart;
-        set => m_isNotStart = value;
-    }
+    public List<Animator> targetAnimators;  // アニメーションを適用するAnimatorをリストで指定
 
     private void Start()
     {
-        m_animator = GetComponent<Animator>();
-        m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
+       
+
+        // targetAnimatorsにAnimatorを設定（例：特定のオブジェクトにアタッチされているAnimator）
+        if (targetAnimators.Count == 0)
+        {
+            m_animator = GetComponent<Animator>(); // defaultAnimator (必要なら)
+        }
     }
 
     private void Update()
     {
-        // 停止していないなら実行しない。
-        if (m_gameStatus.TimeStopFlag == false)
-        {
-            return;
-        }
+       
 
         // LBキーが押されたらアニメーションを再生
         if (Input.GetKeyDown("joystick button 4") || Input.GetKeyDown(KeyCode.Y))
@@ -61,17 +59,26 @@ public class GimmickAnimation : MonoBehaviour
     private void PlayAnimation()
     {
         isRewind = false; // 巻き戻しフラグをリセット
-        m_animator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
-        m_animator.SetBool("IsPlaying", true); // 再生フラグをオン
+
+        // 指定したAnimatorすべてにアニメーションを適用
+        foreach (var targetAnimator in targetAnimators)
+        {
+            targetAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
+            targetAnimator.SetBool("IsPlaying", true); // 再生フラグをオン
+        }
+
         m_isPushButton = false; // フラグを戻す。
     }
 
     IEnumerator TriggerRewindWithDelay()
     {
         // トリガーを設定
-        m_animator.SetTrigger("Rewind");
+        foreach (var targetAnimator in targetAnimators)
+        {
+            targetAnimator.SetTrigger("Rewind");
+        }
 
-        // 2秒待機
+        // 0.5秒待機
         yield return new WaitForSeconds(0.5f);
 
         // フラグを変更して巻き戻し開始
@@ -81,8 +88,14 @@ public class GimmickAnimation : MonoBehaviour
     private void TriggerRewind()
     {
         isRewind = true; // 巻き戻しフラグを設定
-        m_animator.SetBool("IsPlaying", false); // 再生フラグをオフ
-        m_animator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
+
+        // 指定したAnimatorすべてに巻き戻しアニメーションを適用
+        foreach (var targetAnimator in targetAnimators)
+        {
+            targetAnimator.SetBool("IsPlaying", false); // 再生フラグをオフ
+            targetAnimator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
+        }
+
         m_isPushButton = false; // フラグを戻す。
     }
 }
