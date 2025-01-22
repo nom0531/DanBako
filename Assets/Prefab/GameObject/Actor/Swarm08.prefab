@@ -428,8 +428,8 @@ GameObject:
   - component: {fileID: 1148396539217269886}
   - component: {fileID: 7216259119461651604}
   - component: {fileID: 9139117236897576884}
-  - component: {fileID: 9218194243511810638}
-  - component: {fileID: 4918044669467683860}
+  - component: {fileID: 3455425873104437598}
+  - component: {fileID: 920025806011609938}
   m_Layer: 0
   m_Name: Swarm08
   m_TagString: Enemy
@@ -446,7 +446,7 @@ Transform:
   m_GameObject: {fileID: 6142408158340948459}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.7, y: 30, z: 143.7}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -464,7 +464,7 @@ Animator:
   m_GameObject: {fileID: 6142408158340948459}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa154e9fd2c241ef97254e0195862deb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2c72344318f3e1c4ab15d43c1a716cc0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_chaseRange: 10
   m_attackRange: 2
   m_attackCooldown: 2
---- !u!136 &9218194243511810638
+--- !u!136 &3455425873104437598
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -532,11 +532,11 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.3
-  m_Height: 0.5
+  m_Radius: 0.5
+  m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.3, z: 0.2}
---- !u!54 &4918044669467683860
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &920025806011609938
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -546,7 +546,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.5
+  m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -558,8 +558,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

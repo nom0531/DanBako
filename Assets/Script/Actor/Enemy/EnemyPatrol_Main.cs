@@ -13,14 +13,16 @@ public class EnemyPatrol_Main : MonoBehaviour
     private bool m_isWaiting = false;
     private bool m_isNotMove = false;       // 動かない時はtrue。
     private bool m_isLanding = false;       // 落下したならture。
+    private bool m_isDead = false;          // 死亡フラグ
 
-    private const float DRAG = 0.001f;      // 空気抵抗。
+    private const int MASS = 10;            // 質量。
+    private const float DRAG = 0.01f;       // 空気抵抗。
 
     private Transform m_player;
     [SerializeField]
-    private float m_chaseRange = 10.0f;  // 追跡範囲
+    private float m_chaseRange = 10.0f;     // 追跡範囲
     [SerializeField]
-    private float m_attackRange = 2.0f;  // 攻撃範囲
+    private float m_attackRange = 2.0f;     // 攻撃範囲
     [SerializeField]
     private float m_attackCooldown = 2.0f;  // 攻撃のクールダウン時間
 
@@ -43,6 +45,31 @@ public class EnemyPatrol_Main : MonoBehaviour
     private PlayerStatus m_playerStatus;
     private GameStatus m_gameStatus;
 
+    /// <summary>
+    /// 徐々に小さくして削除する為のコルーチン。
+    /// </summary>
+    /// <returns></returns>
+    private System.Collections.IEnumerator ShrinkAndDestroy()
+    {
+        float duration = 3.0f; // 縮小にかける時間
+        float elapsed = 0.0f;
+
+        Vector3 initialScale = transform.localScale; // 元のスケール
+        Vector3 targetScale = Vector3.zero;         // 目標スケール
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration; // 時間の進行割合 (0から1)
+            transform.localScale = Vector3.Lerp(initialScale, targetScale, t); // スケールを線形補間
+            yield return null; // 次フレームまで待機
+        }
+
+        // 完全に縮小した後に削除
+        transform.localScale = targetScale;
+        Destroy(gameObject);
+    }
+
     void Start()
     {
         Initialize();
@@ -59,6 +86,8 @@ public class EnemyPatrol_Main : MonoBehaviour
 
     void Update()
     {
+        if (m_isDead) return; // 死亡後は何もしない
+
         // 時間停止中は全ての処理をスキップ
         if (m_gameStatus != null && m_gameStatus.TimeStopFlag || NotMoveFlag == true)
         {
@@ -229,13 +258,15 @@ public class EnemyPatrol_Main : MonoBehaviour
     /// <summary>
     /// RigidBodyのパラメータを設定する。
     /// </summary>
+    /// <param name="mass">質量。</param>
     /// <param name="drag">空気抵抗。</param>
-    /// <param name="isUseGravity">重力を使用するかどうか。trueなら使用する。</param>
-    public void RigidBodyParam(float drag, bool isUseGravity)
+    public void RigidBodyParam(int mass, float drag)
     {
-        m_rigidbody.drag = drag;                 // 落下速度を速くする。
-        m_rigidbody.useGravity = isUseGravity;
+        m_rigidbody.mass = mass;                    // 質量を増やす。
+        m_rigidbody.drag = drag;                    // 落下速度を速くする。
+        m_rigidbody.useGravity = true;
         m_rigidbody.freezeRotation = true;
+        m_rigidbody.isKinematic = false;            // 物理演算を適応する。
     }
 
     /// <summary>
@@ -251,7 +282,28 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_isLanding = true;
         // ナビメッシュを無効化する。
         m_agent.enabled = false;
-        RigidBodyParam(DRAG, true);
-        Debug.Log("落下した");
+        RigidBodyParam(MASS, DRAG);
+    }
+
+    /// <summary>
+    /// 死亡処理。
+    /// </summary>
+    public void Die()
+    {
+        // 2度目は実行しない。
+        if(m_isDead == true)
+        {
+            return;
+        }
+        m_isDead = true;
+
+        // ナビメッシュエージェントとアニメーションを停止
+        m_agent.isStopped = true;
+        m_enemyAnimator.SetTrigger("Die");
+
+        // スケールを縮小するコルーチンを開始
+        StartCoroutine(ShrinkAndDestroy());
+
+        m_agent.enabled = true;
     }
 }
