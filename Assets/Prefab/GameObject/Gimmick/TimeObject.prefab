@@ -6155,6 +6155,7 @@ MonoBehaviour:
   - Enemy
   - Environment
   - Star
+  IsTimeStopFlag: 1
 --- !u!135 &3435315506775692214
 SphereCollider:
   m_ObjectHideFlags: 0

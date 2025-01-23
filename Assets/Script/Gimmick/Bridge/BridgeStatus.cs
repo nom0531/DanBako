@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BridgeStatus : MonoBehaviour
 {
+    [SerializeField, Header("ボックスコライダー")]
+    private GameObject[] BoxColliders;
+    [SerializeField, Header("フラグを反転させるかどうか")]
+    private bool IsReversFlag = false;
+
     private GimmickAnimation m_gimmickAnimation;
-    private bool m_isLanding = false;           // 落下したならばture。
+    private bool m_isLanding = false;               // 落下したならばture。
 
     public bool LandingFlag
     {
@@ -15,17 +20,40 @@ public class BridgeStatus : MonoBehaviour
     private void Start()
     {
         m_gimmickAnimation = GetComponent<GimmickAnimation>();
+        SetLandingFlag();
     }
 
     private void Update()
     {
-        if(m_isLanding == m_gimmickAnimation.NotStartFlag)
+        if (IsReversFlag == false && m_gimmickAnimation.NotStartFlag == m_isLanding)
         {
             return;
         }
-        // フラグを切り替える。
-        m_isLanding = m_gimmickAnimation.NotStartFlag;
+        if(IsReversFlag == true && m_gimmickAnimation.NotStartFlag != m_isLanding)
+        {
+            return;
+        }
+        SetLandingFlag();
+    }
 
-        Debug.Log(m_isLanding);
+    private void SetLandingFlag()
+    {
+        m_isLanding = m_gimmickAnimation.NotStartFlag;
+        if (IsReversFlag == true)
+        {
+            m_isLanding = !m_gimmickAnimation.NotStartFlag;
+        }
+        BoxColliderDisplay();
+    }
+
+    /// <summary>
+    /// ボックスコライダーの表示を切り替える。
+    /// </summary>
+    private void BoxColliderDisplay()
+    {
+        for (int i = 0; i < BoxColliders.Length; i++)
+        {
+            BoxColliders[i].SetActive(m_isLanding);
+        }
     }
 }

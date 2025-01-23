@@ -5,7 +5,7 @@ public class GimmickAnimation : MonoBehaviour
 {
     Animator m_animator;
     GameStatus m_gameStatus;
-    private bool isRewind = false;
+    private bool m_isRewind = false;
     private bool m_isNotStart = false;      // 初期状態ならfalse;
     private bool m_isPushButton = false;    // ボタンを押したならtrue。
 
@@ -60,8 +60,8 @@ public class GimmickAnimation : MonoBehaviour
 
     private void PlayAnimation()
     {
-        isRewind = false; // 巻き戻しフラグをリセット
-        m_animator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオフ
+        m_isRewind = false; // 巻き戻しフラグをリセット
+        m_animator.SetBool("IsRewind", m_isRewind); // 巻き戻しフラグをオフ
         m_animator.SetBool("IsPlaying", true); // 再生フラグをオン
         m_isPushButton = false; // フラグを戻す。
     }
@@ -80,9 +80,9 @@ public class GimmickAnimation : MonoBehaviour
 
     private void TriggerRewind()
     {
-        isRewind = true; // 巻き戻しフラグを設定
+        m_isRewind = true; // 巻き戻しフラグを設定
         m_animator.SetBool("IsPlaying", false); // 再生フラグをオフ
-        m_animator.SetBool("IsRewind", isRewind); // 巻き戻しフラグをオン
+        m_animator.SetBool("IsRewind", m_isRewind); // 巻き戻しフラグをオン
         m_isPushButton = false; // フラグを戻す。
     }
 }

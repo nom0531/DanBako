@@ -8,6 +8,8 @@ public class GameTime_Main : MonoBehaviour
 {
     [SerializeField, Header("停止対象のタグリスト")]
     private List<string> stopTags = new List<string> { "Enemy", "Environment", "Star" }; // 停止対象のタグ
+    [SerializeField, Header("TimeStopFlagを使用するかどうか")]
+    private bool IsTimeStopFlag = false;
 
     private List<MonoBehaviour> affectedScripts = new List<MonoBehaviour>();
     private List<Animator> affectedAnimators = new List<Animator>(); // アニメーターを保存するリスト
@@ -40,7 +42,10 @@ public class GameTime_Main : MonoBehaviour
     /// </summary>
     private void StopTimeForOthers()
     {
-        m_gameStatus.TimeStopFlag = true;
+        if(IsTimeStopFlag == true)
+        {
+            m_gameStatus.TimeStopFlag = true;
+        }
 
         foreach (string tag in stopTags)
         {
