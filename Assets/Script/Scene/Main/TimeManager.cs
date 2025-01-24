@@ -57,6 +57,12 @@ public class TimeManager : MonoBehaviour
         // 時間を計測。
         m_seconds = Time.time - m_startTime;
         m_minute = (int)m_seconds / 60;
+        m_seconds = m_seconds % 60;
         m_hours = m_minute / 60;
+        m_minute = m_minute % 60;
+
+#if UNITY_EDITOR
+        Debug.Log($"playTime:{m_hours.ToString("00")}:{m_minute.ToString("00")}:{m_seconds.ToString("00")}");
+#endif
     }
 }
