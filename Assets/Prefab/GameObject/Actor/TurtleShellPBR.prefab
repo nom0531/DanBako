@@ -851,9 +851,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_goals: []
-  m_chaseRange: 10
-  m_attackRange: 2
-  m_attackCooldown: 2
+  m_chaseRange: 20
+  m_attackRange: 20
+  m_attackCooldown: 10
 --- !u!136 &-3115783489833263985
 CapsuleCollider:
   m_ObjectHideFlags: 0

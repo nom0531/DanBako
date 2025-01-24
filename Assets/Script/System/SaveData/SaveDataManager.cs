@@ -8,10 +8,10 @@ using System.Security.Cryptography;
 
 public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
 {
-    [SerializeField, Header("セーブデータ")]
-    private SaveData GameSaveData;
     [SerializeField, Header("ステージデータ")]
     private StageDataBase StageData;
+    [SerializeField, Header("セーブデータ")]
+    private SaveData GameSaveData;
 
     private const float DEFAULT_VOLUME = 0.7f;
 
@@ -165,13 +165,15 @@ public class SaveDataManager : SingletonMonoBehaviour<SaveDataManager>
         // データの初期化。
         for (int stageNumber = 0; stageNumber < StageData.stageDataList.Count; stageNumber++)
         {
-
-            GameSaveData.saveData.StageData[stageNumber].ClearFlag = false;
-            GameSaveData.saveData.StageData[stageNumber].ClearTime = new TimeInfo
+            GameSaveData.saveData.StageData[stageNumber] = new Stage
             {
-                Hour = 0,
-                Minute = 0,
-                Seconds = 0.0f
+                ClearFlag = false,
+                ClearTime = new TimeInfo
+                {
+                    Hour = 0,
+                    Minute = 0,
+                    Seconds = 0.0f
+                },
             };
         }
         Save();

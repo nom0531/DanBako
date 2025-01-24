@@ -26,6 +26,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     [SerializeField]
     private float m_attackCooldown = 2.0f;  // 攻撃のクールダウン時間
 
+    private float m_defaultSpeed = 0.0f;
     private float m_lastAttackTime = 0.0f;
     private bool m_isChasing = false;
     private bool m_isAttacking = false;
@@ -67,7 +68,7 @@ public class EnemyPatrol_Main : MonoBehaviour
 
         // 完全に縮小した後に削除
         transform.localScale = targetScale;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void Start()
@@ -217,8 +218,9 @@ public class EnemyPatrol_Main : MonoBehaviour
     {
         if (!m_agent.isStopped)
         {
-            m_agent.isStopped = true;
+            m_agent.speed = 0.0f;
             m_enemyAnimator.speed = 0.0f; // アニメーションを停止
+            m_agent.isStopped = true;
         }
     }
 
@@ -228,6 +230,7 @@ public class EnemyPatrol_Main : MonoBehaviour
         if (m_agent.isStopped && !m_gameStatus.TimeStopFlag)
         {
             m_agent.isStopped = false;
+            m_agent.speed = m_defaultSpeed;
             m_enemyAnimator.speed = 1.0f; // アニメーションを再開
         }
     }
@@ -242,6 +245,7 @@ public class EnemyPatrol_Main : MonoBehaviour
         m_playerStatus = player.GetComponent<PlayerStatus>();
         m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
         m_agent = GetComponent<NavMeshAgent>();
+        m_defaultSpeed = m_agent.speed;
         m_rigidbody = GetComponent<Rigidbody>();
         m_enemyAnimator = GetComponent<Animator>();
     }
