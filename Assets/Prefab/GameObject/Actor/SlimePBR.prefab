@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_goals: []
-  m_chaseRange: 10
-  m_attackRange: 2
-  m_attackCooldown: 2
+  m_chaseRange: 20
+  m_attackRange: 15
+  m_attackCooldown: 10
 --- !u!195 &2305392884335598532
 NavMeshAgent:
   m_ObjectHideFlags: 0

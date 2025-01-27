@@ -284,7 +284,7 @@ MonoBehaviour:
   m_goals: []
   m_chaseRange: 30
   m_attackRange: 20
-  m_attackCooldown: 2
+  m_attackCooldown: 10
 --- !u!136 &-594776724759570437
 CapsuleCollider:
   m_ObjectHideFlags: 0

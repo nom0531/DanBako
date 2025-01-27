@@ -6,6 +6,7 @@ public class TimeManager : MonoBehaviour
 {
     private GameManager m_gameManager;
     private SaveDataManager m_saveDataManager;
+    private StageStatus m_stageStatus;
 
     private int m_hours = 0;
     private int m_minute = 0;
@@ -18,6 +19,7 @@ public class TimeManager : MonoBehaviour
     {
         m_gameManager = GameManager.Instance;
         m_saveDataManager = GameManager.Instance.SaveDataManager;
+        m_stageStatus = GameObject.FindGameObjectWithTag("Stage").GetComponent<StageStatus>();
         m_startTime = Time.time;
     }
 
@@ -30,26 +32,37 @@ public class TimeManager : MonoBehaviour
         }
         if(m_gameManager.GameMode == CurrentGameMode.enClear)
         {
-            if(m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Hour < m_hours)
+            // 既に一度クリアしているなら。
+            if(m_saveDataManager.Stage[m_gameManager.StageID].ClearFlag == true)
             {
-                return;
+                if (m_saveDataManager.Stage[m_stageStatus.MyID].ClearTime.Hour < m_hours)
+                {
+                    return;
+                }
+                if (m_saveDataManager.Stage[m_stageStatus.MyID].ClearTime.Minute < m_minute)
+                {
+                    return;
+                }
+                if (m_saveDataManager.Stage[m_stageStatus.MyID].ClearTime.Seconds < m_seconds)
+                {
+                    return;
+                }
             }
-            if (m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Minute < m_minute)
-            {
-                return;
-            }
-            if (m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Seconds < m_seconds)
-            {
-                return;
-            }
-
-            m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Hour = m_hours;
-            m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Minute = m_minute;
-            m_saveDataManager.Stage[m_gameManager.StageID].ClearTime.Seconds = m_seconds;
+            // 記録を更新。
+            m_saveDataManager.Stage[m_stageStatus.MyID].ClearTime.Hour = m_hours;
+            m_saveDataManager.Stage[m_stageStatus.MyID].ClearTime.Minute = m_minute;
+            m_saveDataManager.Stage[m_stageStatus.MyID].ClearTime.Seconds = m_seconds;
+            m_saveDataManager.Save();
         }
         // 時間を計測。
         m_seconds = Time.time - m_startTime;
         m_minute = (int)m_seconds / 60;
+        m_seconds = m_seconds % 60;
         m_hours = m_minute / 60;
+        m_minute = m_minute % 60;
+
+#if UNITY_EDITOR
+        Debug.Log($"playTime:{m_hours.ToString("00")}:{m_minute.ToString("00")}:{m_seconds.ToString("00")}");
+#endif
     }
 }

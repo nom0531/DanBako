@@ -52,6 +52,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e2d446ced540fe844a1572e2e92c35cc, type: 3}
   - {fileID: 8300000, guid: fccc49b24d899da46bc7b894984f4a28, type: 3}
   - {fileID: 8300000, guid: d1f760074714a46428033179aa80e541, type: 3}
+  - {fileID: 8300000, guid: 16a60f275b78d5c4ab114d9d500c0617, type: 3}
   SESounds:
   - {fileID: 8300000, guid: d41b16b9a769bcd4e8b8ddbeba3421f4, type: 3}
   - {fileID: 8300000, guid: 15e36e8cbb9ef694bbf55faa454ab76f, type: 3}

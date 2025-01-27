@@ -14,6 +14,7 @@ public enum BGMNumber
     enMain_Onece,
     enMain_Second,
     enMain_Third,
+    enMain_Fourth,
     enNum,
 }
 
