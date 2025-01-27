@@ -44,6 +44,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     }
 
     private PlayerStatus m_playerStatus;
+    private Player_Main m_playerMain;
     private GameStatus m_gameStatus;
 
     /// <summary>
@@ -85,6 +86,22 @@ public class EnemyPatrol_Main : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 初期化処理。
+    /// </summary>
+    private void Initialize()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        m_player = player.transform;
+        m_playerStatus = player.GetComponent<PlayerStatus>();
+        m_playerMain = player.GetComponent<Player_Main>();
+        m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
+        m_agent = GetComponent<NavMeshAgent>();
+        m_defaultSpeed = m_agent.speed;
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_enemyAnimator = GetComponent<Animator>();
+    }
+
     void Update()
     {
         if (m_isDead) return; // 死亡後は何もしない
@@ -93,6 +110,11 @@ public class EnemyPatrol_Main : MonoBehaviour
         if (m_gameStatus != null && m_gameStatus.TimeStopFlag || NotMoveFlag == true)
         {
             HandleTimeStop();
+            return;
+        }
+        if(m_playerMain.MoveFlag == true)
+        {
+            StopNavMeshAgent(true);
             return;
         }
 
@@ -233,21 +255,6 @@ public class EnemyPatrol_Main : MonoBehaviour
             m_agent.speed = m_defaultSpeed;
             m_enemyAnimator.speed = 1.0f; // アニメーションを再開
         }
-    }
-
-    /// <summary>
-    /// 初期化処理。
-    /// </summary>
-    private void Initialize()
-    {
-        var player = GameObject.FindGameObjectWithTag("Player");
-        m_player = player.transform;
-        m_playerStatus = player.GetComponent<PlayerStatus>();
-        m_gameStatus = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameStatus>();
-        m_agent = GetComponent<NavMeshAgent>();
-        m_defaultSpeed = m_agent.speed;
-        m_rigidbody = GetComponent<Rigidbody>();
-        m_enemyAnimator = GetComponent<Animator>();
     }
 
     /// <summary>
