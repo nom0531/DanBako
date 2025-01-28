@@ -17,11 +17,11 @@ MonoBehaviour:
     Name: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
     Model: {fileID: 7670436135673739792, guid: d8742b9b823ee494fa9d77d87c2fa3dc, type: 3}
   - ID: 1
-    Name: "\u30B9\u30C6\u30FC\u30B82"
+    Name: "\u30B9\u30C6\u30FC\u30B81"
     Model: {fileID: 5868906128943951279, guid: fb5df91cda2c09a46ad745c47a6f414b, type: 3}
   - ID: 2
-    Name: "\u30B9\u30C6\u30FC\u30B83"
+    Name: "\u30B9\u30C6\u30FC\u30B82"
     Model: {fileID: 8021234335019723622, guid: 815109eb55321024eab373fcf0cec577, type: 3}
   - ID: 3
-    Name: "\u30B9\u30C6\u30FC\u30B84"
+    Name: "\u30B9\u30C6\u30FC\u30B83"
     Model: {fileID: 1147032922110662472, guid: e2e9b8460dd1eb6459a4c0f0efa0fe21, type: 3}

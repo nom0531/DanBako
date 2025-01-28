@@ -35,6 +35,17 @@ public class TypeWritterEffect : MonoBehaviour
         m_text.maxVisibleCharacters = m_currentMaxVisibleCharacters;
     }
 
+    /// <summary>
+    /// 全て表示する。
+    /// </summary>
+    public void AllShow(int number)
+    {
+        // 各種データを初期化。
+        m_isRunning = false;
+        m_text.text = textMessageData.textMessegeDataList[number].Detail;
+        m_text.maxVisibleCharacters = textMessageData.textMessegeDataList[number].Detail.Length;
+    }
+
     private void Update()
     {
         // 演出を行わないなら中断。
