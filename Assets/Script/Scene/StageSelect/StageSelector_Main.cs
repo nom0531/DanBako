@@ -26,7 +26,7 @@ public class StageSelector : MonoBehaviour
     private SE SE_CursorMove;
 
     private const float SELECTED_SCALE = 3.0f;         // 選択されたステージの拡大率
-    private const float DEFAULT_SCALE = 1.0f;          // 非選択ステージのデフォルトスケール
+    private const float DEFAULT_SCALE = 1.5f;          // 非選択ステージのデフォルトスケール
 
     private readonly Vector3 START_POSITION = new Vector3(75.0f, -20.0f, 75.0f);
     private readonly Vector3 END_POSITION = new Vector3(-75.0f, -20.0f, 75.0f);
