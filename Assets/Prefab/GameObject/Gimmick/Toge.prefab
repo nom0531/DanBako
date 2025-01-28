@@ -93,6 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7644655102263554168}
   - component: {fileID: 964608374370843436}
+  - component: {fileID: 6714352533489318285}
+  - component: {fileID: 4219178692850653941}
   m_Layer: 0
   m_Name: Toge
   m_TagString: Untagged
@@ -137,6 +139,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &6714352533489318285
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770422963434383243}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 15, z: 15}
+  m_Center: {x: -5.62, y: 0, z: -1.64}
+--- !u!114 &4219178692850653941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5770422963434383243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a96e8e8bc9e6914fa8ff15f26749e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9065938367161551131
 GameObject:
   m_ObjectHideFlags: 0

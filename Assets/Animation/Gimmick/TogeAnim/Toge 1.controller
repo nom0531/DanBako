@@ -34,7 +34,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Toge
+  m_Name: Toge 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsPlaying
@@ -88,7 +88,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6aa42a57ab7e9d14298132aa1c793627, type: 2}
+  m_Motion: {fileID: 7400000, guid: a7a6c566fd4b7434796d7a9e8137302e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -115,7 +115,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a7a6c566fd4b7434796d7a9e8137302e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6aa42a57ab7e9d14298132aa1c793627, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -167,7 +167,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a7a6c566fd4b7434796d7a9e8137302e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6aa42a57ab7e9d14298132aa1c793627, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
