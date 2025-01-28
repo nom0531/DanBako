@@ -20,6 +20,7 @@ public class ShowImageOnProximity : MonoBehaviour
     private Animator m_canvasAnimator;
     private SE m_se;
     private bool m_isShowImage = false;             // Canvasを生成したならtrue。
+    private bool m_isAllDraw = false;               // 全てを表示したならばture。
 
 
     private void Start()
@@ -55,24 +56,58 @@ public class ShowImageOnProximity : MonoBehaviour
     private void ButtonPush()
     {
         m_se.PlaySE();
-        if (m_isShowImage == true)
+
+        // 既に表示しているなら実行しない。
+        if (m_isShowImage == false)
         {
-            m_isShowImage = false;
-            m_player.MoveFlag = false;
-            // Canvasを削除。
-            Destroy(m_messageCanvas);
+            InstantiateCanvas();
             return;
         }
-        m_messageCanvas = Instantiate(TextMessageCanvas);
+        if (m_isAllDraw == true)
+        {
+            DeleteCanvas();
+            return;
+        }
+        DrawText();
+    }
+
+    /// <summary>
+    /// キャンバスを作成する。
+    /// </summary>
+    private void InstantiateCanvas()
+    {
         // 表示するアニメーションを再生。
+        m_messageCanvas = Instantiate(TextMessageCanvas);
         m_canvasAnimator = m_messageCanvas.GetComponent<Animator>();
         m_canvasAnimator.SetTrigger("Active");
         // テキストを表示する。
         m_typeWritterEffect = m_messageCanvas.gameObject.transform.GetChild(0).
             gameObject.transform.GetChild(0).GetComponent<TypeWritterEffect>();
         m_typeWritterEffect.Show(Number);
-        m_isShowImage = true;
+        // フラグを設定。
         m_player.MoveFlag = true;
-        return;
+        m_isShowImage = true;
+    }
+
+    /// <summary>
+    /// テキストを表示する。
+    /// </summary>
+    private void DrawText()
+    {
+        // テキストを表示する。
+        m_typeWritterEffect.AllShow(Number);
+        m_isAllDraw = true;
+    }
+
+    /// <summary>
+    /// キャンバスを削除する処理。
+    /// </summary>
+    private void DeleteCanvas()
+    {
+        m_isShowImage = false;
+        m_player.MoveFlag = false;
+        m_isAllDraw = false;
+        // Canvasを削除。
+        Destroy(m_messageCanvas);
     }
 }
