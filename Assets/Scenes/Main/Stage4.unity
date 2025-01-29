@@ -6932,6 +6932,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2304003902215891249, guid: 47f8242fb0a9eaa4cad27d28526aefd4,
         type: 3}
+      propertyPath: m_attackRange
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304003902215891249, guid: 47f8242fb0a9eaa4cad27d28526aefd4,
+        type: 3}
       propertyPath: m_goals.Array.size
       value: 2
       objectReference: {fileID: 0}
