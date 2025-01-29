@@ -3,7 +3,7 @@ using UnityEngine;
 public class Deleto : MonoBehaviour
 {
     [SerializeField] private GameObject targetObject; // アクティブ化するオブジェクト
-    [SerializeField] private BoxCollider targetBoxCollider; // 無効化したいBoxCollider
+    [SerializeField] private BoxCollider[] targetBoxColliders; // 無効化したいBoxColliderの配列
 
     private void Start()
     {
@@ -22,9 +22,15 @@ public class Deleto : MonoBehaviour
             targetObject.SetActive(true); // 指定オブジェクトをアクティブ化
         }
 
-        if (targetBoxCollider != null)
+        if (targetBoxColliders != null)
         {
-            targetBoxCollider.enabled = false; // 指定したBoxColliderを無効化
+            foreach (var collider in targetBoxColliders)
+            {
+                if (collider != null)
+                {
+                    collider.enabled = false; // 指定したBoxColliderを無効化
+                }
+            }
         }
     }
 }
