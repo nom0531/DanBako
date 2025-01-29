@@ -2164,6 +2164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimeObject
       objectReference: {fileID: 0}
+    - target: {fileID: 8160558196219471454, guid: 32d16b9ac9baa9d40a61efa61e9914e0,
+        type: 3}
+      propertyPath: LightsModule.light
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2698,12 +2703,14 @@ GameObject:
   - component: {fileID: 4467044647617422782}
   - component: {fileID: 1881051336344801652}
   - component: {fileID: 6355193000618241550}
+  - component: {fileID: 6355193000618241551}
+  - component: {fileID: 6355193000618241552}
   m_Layer: 0
   m_Name: fir tree small
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &89132822561719185
 MeshCollider:
@@ -2804,12 +2811,14 @@ GameObject:
   - component: {fileID: 786896234594116350}
   - component: {fileID: 4414730919506357595}
   - component: {fileID: 1918728228328757649}
+  - component: {fileID: 4414730919506357596}
+  - component: {fileID: 4414730919506357597}
   m_Layer: 0
   m_Name: grass (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &117377986854954839
 GameObject:
@@ -2822,12 +2831,14 @@ GameObject:
   - component: {fileID: 786672002239888877}
   - component: {fileID: 4414945531945546312}
   - component: {fileID: 1919095120110487170}
+  - component: {fileID: 4414945531945546313}
+  - component: {fileID: 4414945531945546314}
   m_Layer: 0
   m_Name: shrub (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &123647679704716993
 MeshFilter:
@@ -3530,12 +3541,14 @@ GameObject:
   - component: {fileID: 4089561351997176173}
   - component: {fileID: 2244478338408500647}
   - component: {fileID: 748439345575396932}
+  - component: {fileID: 4089561351997176174}
+  - component: {fileID: 4089561351997176175}
   m_Layer: 0
   m_Name: fir tree bent (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &307257533801053045
 MeshFilter:
@@ -3557,12 +3570,14 @@ GameObject:
   - component: {fileID: 4083759036549585815}
   - component: {fileID: 2254221474821091165}
   - component: {fileID: 3158815939965090165}
+  - component: {fileID: 4083759036549585816}
+  - component: {fileID: 4083759036549585817}
   m_Layer: 0
   m_Name: fir tree small (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &310426615747277312
 MeshRenderer:
@@ -3840,12 +3855,14 @@ GameObject:
   - component: {fileID: 4152292636375755324}
   - component: {fileID: 2196383803813224182}
   - component: {fileID: 8912599893815712346}
+  - component: {fileID: 8912599893815712347}
+  - component: {fileID: 8912599893815712348}
   m_Layer: 0
   m_Name: fir tree small
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &396779950204506212
 MeshFilter:
@@ -3923,12 +3940,14 @@ GameObject:
   - component: {fileID: 1057954448644021224}
   - component: {fileID: 4107635126902953037}
   - component: {fileID: 2226386988664578183}
+  - component: {fileID: 4107635126902953038}
+  - component: {fileID: 4107635126902953039}
   m_Layer: 0
   m_Name: grass 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &426407013940309871
 Transform:
@@ -4359,12 +4378,14 @@ GameObject:
   - component: {fileID: 917498771631343265}
   - component: {fileID: 4257106509856409860}
   - component: {fileID: 2085360799201525198}
+  - component: {fileID: 4257106509856409861}
+  - component: {fileID: 4257106509856409862}
   m_Layer: 0
   m_Name: grass (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &574228432269260772
 MeshFilter:
@@ -5258,12 +5279,14 @@ GameObject:
   - component: {fileID: 141494370953495260}
   - component: {fileID: 3916280047503773049}
   - component: {fileID: 1278350208471234995}
+  - component: {fileID: 3916280047503773050}
+  - component: {fileID: 3916280047503773051}
   m_Layer: 0
   m_Name: bush plant
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &786672002239888877
 Transform:
@@ -5365,12 +5388,14 @@ GameObject:
   - component: {fileID: 27744571334615540}
   - component: {fileID: 4020951539867151953}
   - component: {fileID: 1164670159118899867}
+  - component: {fileID: 4020951539867151954}
+  - component: {fileID: 4020951539867151955}
   m_Layer: 0
   m_Name: grass 3 (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &808578246839842136
 MeshRenderer:
@@ -5790,12 +5815,14 @@ GameObject:
   - component: {fileID: 543304040239298430}
   - component: {fileID: 3469442627780245723}
   - component: {fileID: 1711676794582633489}
+  - component: {fileID: 3469442627780245724}
+  - component: {fileID: 3469442627780245725}
   m_Layer: 0
   m_Name: grass 3 (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &929172693839668145
 MeshFilter:
@@ -5923,12 +5950,14 @@ GameObject:
   - component: {fileID: 445147897646108628}
   - component: {fileID: 3567589994689871985}
   - component: {fileID: 1614073702984103099}
+  - component: {fileID: 3567589994689871986}
+  - component: {fileID: 3567589994689871987}
   m_Layer: 0
   m_Name: grass (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &966714933950877579
 GameObject:
@@ -5941,12 +5970,14 @@ GameObject:
   - component: {fileID: 441817516919313713}
   - component: {fileID: 3570929154860407444}
   - component: {fileID: 1615255614900579934}
+  - component: {fileID: 3570929154860407445}
+  - component: {fileID: 3570929154860407446}
   m_Layer: 0
   m_Name: grass
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &973071395472672405
 MeshRenderer:
@@ -6176,12 +6207,14 @@ GameObject:
   - component: {fileID: 423619280325811058}
   - component: {fileID: 3625156808032425175}
   - component: {fileID: 1561574384790691869}
+  - component: {fileID: 3625156808032425176}
+  - component: {fileID: 3625156808032425177}
   m_Layer: 0
   m_Name: grass 3 (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1057954448644021224
 Transform:
@@ -6246,12 +6279,14 @@ GameObject:
   - component: {fileID: 3730740449666469174}
   - component: {fileID: 1450924227793123836}
   - component: {fileID: 9103245287583779597}
+  - component: {fileID: 9103245287583779598}
+  - component: {fileID: 9103245287583779599}
   m_Layer: 0
   m_Name: fir tree tilted
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &1090558599055535829
 MeshRenderer:
@@ -6445,12 +6480,14 @@ GameObject:
   - component: {fileID: 329733958629215878}
   - component: {fileID: 3692011459873947939}
   - component: {fileID: 1502055571403421161}
+  - component: {fileID: 3692011459873947940}
+  - component: {fileID: 3692011459873947941}
   m_Layer: 0
   m_Name: fir tree small (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1141844796921863292
 Transform:
@@ -6624,12 +6661,14 @@ GameObject:
   - component: {fileID: 3232549790238622098}
   - component: {fileID: 808578246839842136}
   - component: {fileID: 2561551793697592740}
+  - component: {fileID: 3232549790238622099}
+  - component: {fileID: 3232549790238622100}
   m_Layer: 0
   m_Name: fir tree tilted (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1187724557154119288
 Transform:
@@ -6681,12 +6720,14 @@ GameObject:
   - component: {fileID: 3203294364486740385}
   - component: {fileID: 833328698918624619}
   - component: {fileID: 3504253477973536383}
+  - component: {fileID: 3504253477973536384}
+  - component: {fileID: 3504253477973536385}
   m_Layer: 0
   m_Name: fir tree medium
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1198058175019481667
 GameObject:
@@ -7474,12 +7515,14 @@ GameObject:
   - component: {fileID: 1738622754110096712}
   - component: {fileID: 3426975140224420589}
   - component: {fileID: 606852294238748199}
+  - component: {fileID: 3426975140224420590}
+  - component: {fileID: 3426975140224420591}
   m_Layer: 0
   m_Name: grass 2 (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &1407276113523503395
 MeshFilter:
@@ -7515,12 +7558,14 @@ GameObject:
   - component: {fileID: 1796737489410582610}
   - component: {fileID: 3404880401280198647}
   - component: {fileID: 622736888422077245}
+  - component: {fileID: 3404880401280198648}
+  - component: {fileID: 3404880401280198649}
   m_Layer: 0
   m_Name: grass 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &1417224673740045139
 MeshRenderer:
@@ -8336,12 +8381,14 @@ GameObject:
   - component: {fileID: 2146571723231854074}
   - component: {fileID: 3055125062491239007}
   - component: {fileID: 973071395472672405}
+  - component: {fileID: 3055125062491239008}
+  - component: {fileID: 3055125062491239009}
   m_Layer: 0
   m_Name: bush plant
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &1628478732198846508
 MeshRenderer:
@@ -8765,12 +8812,14 @@ GameObject:
   - component: {fileID: 1413100439168543002}
   - component: {fileID: 2608583406419306175}
   - component: {fileID: 276825693412201077}
+  - component: {fileID: 2608583406419306176}
+  - component: {fileID: 2608583406419306177}
   m_Layer: 0
   m_Name: fir tree large
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &1795349968288499673
 MeshRenderer:
@@ -8938,12 +8987,14 @@ GameObject:
   - component: {fileID: 1358397166800896567}
   - component: {fileID: 2699385244345142674}
   - component: {fileID: 185443467983288664}
+  - component: {fileID: 2699385244345142675}
+  - component: {fileID: 2699385244345142676}
   m_Layer: 0
   m_Name: grass (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &1843541456991967395
 MeshFilter:
@@ -9017,12 +9068,14 @@ GameObject:
   - component: {fileID: 2683059584139435559}
   - component: {fileID: 205145986254138093}
   - component: {fileID: 6205004903651909185}
+  - component: {fileID: 6205004903651909186}
+  - component: {fileID: 6205004903651909187}
   m_Layer: 0
   m_Name: fir tree medium (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &1866974718392487852
 MeshFilter:
@@ -9443,12 +9496,14 @@ GameObject:
   - component: {fileID: 2741425780349228719}
   - component: {fileID: 139461441185948261}
   - component: {fileID: 5901885145470035655}
+  - component: {fileID: 5901885145470035656}
+  - component: {fileID: 5901885145470035657}
   m_Layer: 0
   m_Name: fir tree medium (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1978075831508979255
 Transform:
@@ -9674,12 +9729,14 @@ GameObject:
   - component: {fileID: 1681176698003173574}
   - component: {fileID: 2376606314708844387}
   - component: {fileID: 513288930695269289}
+  - component: {fileID: 2376606314708844388}
+  - component: {fileID: 2376606314708844389}
   m_Layer: 0
   m_Name: fir tree bent (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &2028472011831025274
 MeshFilter:
@@ -10106,12 +10163,14 @@ GameObject:
   - component: {fileID: 2420334395540769768}
   - component: {fileID: 464493114221854498}
   - component: {fileID: 2695364397247094211}
+  - component: {fileID: 2695364397247094212}
+  - component: {fileID: 2695364397247094213}
   m_Layer: 0
   m_Name: fir tree large (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &2124510621101143992
 MeshFilter:
@@ -10937,6 +10996,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026459166911294076}
   m_Mesh: {fileID: 8450315177187483977, guid: accfade4b7114f24783256bf071c25c2, type: 3}
+--- !u!95 &2376606314708844388
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026459166911294076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2376606314708844389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026459166911294076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &2400636759897375143
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11042,12 +11136,14 @@ GameObject:
   - component: {fileID: 2133694670692671085}
   - component: {fileID: 4213276564438592167}
   - component: {fileID: 3613702708461161572}
+  - component: {fileID: 4213276564438592168}
+  - component: {fileID: 4213276564438592169}
   m_Layer: 0
   m_Name: fir tree bent (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &2420334395540769768
 MeshFilter:
@@ -11112,12 +11208,14 @@ GameObject:
   - component: {fileID: 2125000803571070536}
   - component: {fileID: 4222533330594497154}
   - component: {fileID: 5889818893077630400}
+  - component: {fileID: 5889818893077630401}
+  - component: {fileID: 5889818893077630402}
   m_Layer: 0
   m_Name: fir tree bent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &2422580509061312996
 MeshRenderer:
@@ -11199,12 +11297,14 @@ GameObject:
   - component: {fileID: 2978632760140874619}
   - component: {fileID: 2232062633035877598}
   - component: {fileID: 4115470280830629908}
+  - component: {fileID: 4115470280830629909}
+  - component: {fileID: 4115470280830629910}
   m_Layer: 0
   m_Name: grass 2 (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &2468213480665728347
 GameObject:
@@ -11651,6 +11751,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790048843210339232}
   m_Mesh: {fileID: 8426759971854487681, guid: a94c5038ae32d9a4497fcd9c01cc0901, type: 3}
+--- !u!95 &2608583406419306176
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790048843210339232}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2608583406419306177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790048843210339232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &2613576956496675398
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12157,6 +12292,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8426759971854487681, guid: a94c5038ae32d9a4497fcd9c01cc0901, type: 3}
+--- !u!95 &2695364397247094212
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121980986750230263}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2695364397247094213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121980986750230263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &2698104819751128508
 GameObject:
   m_ObjectHideFlags: 0
@@ -12183,6 +12353,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842587605638633613}
   m_Mesh: {fileID: 3906130615805142554, guid: a891be4b42ad6d748ac1a77e9e67c9ea, type: 3}
+--- !u!95 &2699385244345142675
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842587605638633613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2699385244345142676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842587605638633613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &2702899442710069689
 Transform:
   m_ObjectHideFlags: 0
@@ -13150,6 +13355,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1621849158079063872}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &3055125062491239008
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621849158079063872}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3055125062491239009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621849158079063872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &3082448133563035434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13326,12 +13566,14 @@ GameObject:
   - component: {fileID: 2332181466803289193}
   - component: {fileID: 1725522031815963596}
   - component: {fileID: 3465166337134872326}
+  - component: {fileID: 3465166337134872327}
+  - component: {fileID: 3465166337134872328}
   m_Layer: 0
   m_Name: pine tree large
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &3134973171487482377
 MeshCollider:
@@ -13895,6 +14137,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168782859923657869}
   m_Mesh: {fileID: -3016046974184527623, guid: 9c9c052014ed57146bc86830599c1c2b, type: 3}
+--- !u!95 &3232549790238622099
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168782859923657869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3232549790238622100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168782859923657869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &3240445966822142370
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14051,12 +14328,14 @@ GameObject:
   - component: {fileID: 1247695100900088269}
   - component: {fileID: 3941849638540537095}
   - component: {fileID: 6441689476287450529}
+  - component: {fileID: 6441689476287450530}
+  - component: {fileID: 6441689476287450531}
   m_Layer: 0
   m_Name: fir tree small (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &3294402299563860142
 MeshFilter:
@@ -14291,6 +14570,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415427254539891432}
   m_Mesh: {fileID: -5130854722875587737, guid: 395b27abb43ab1a4b92c1424389f06d4, type: 3}
+--- !u!95 &3404880401280198648
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415427254539891432}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3404880401280198649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415427254539891432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &3414763237777515580
 GameObject:
   m_ObjectHideFlags: 0
@@ -14318,6 +14632,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1399217067560050674}
   m_Mesh: {fileID: -5130854722875587737, guid: 395b27abb43ab1a4b92c1424389f06d4, type: 3}
+--- !u!95 &3426975140224420590
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399217067560050674}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3426975140224420591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399217067560050674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &3429380571499968236
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14469,12 +14818,14 @@ GameObject:
   - component: {fileID: 929172693839668145}
   - component: {fileID: 3099007529185613691}
   - component: {fileID: 2666626586479399156}
+  - component: {fileID: 4272453906786774037}
+  - component: {fileID: 4272453906786774038}
   m_Layer: 0
   m_Name: fir tree medium (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &3464065904936657752
 MeshFilter:
@@ -14526,6 +14877,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &3465166337134872327
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104741683598681811}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3465166337134872328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104741683598681811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!4 &3469042874602477428
 Transform:
   m_ObjectHideFlags: 0
@@ -14549,6 +14935,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919267080213048772}
   m_Mesh: {fileID: -6286172746267173718, guid: 3aa47f57b407a844f99763f5c77fbe85, type: 3}
+--- !u!95 &3469442627780245724
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919267080213048772}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3469442627780245725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919267080213048772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &3469608578711996563
 Transform:
   m_ObjectHideFlags: 0
@@ -14659,6 +15080,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5286541931224594320, guid: df5de10c64b99454f9e586a887d9e9c0, type: 3}
+--- !u!95 &3504253477973536384
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193568772007492798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3504253477973536385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193568772007492798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &3505442773997441895
 GameObject:
   m_ObjectHideFlags: 0
@@ -14670,12 +15126,14 @@ GameObject:
   - component: {fileID: 4318394649411815901}
   - component: {fileID: 883231748508124792}
   - component: {fileID: 3144965894195409586}
+  - component: {fileID: 4318394649411815902}
+  - component: {fileID: 4318394649411815903}
   m_Layer: 0
   m_Name: bush plant (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &3518619742193179729
 GameObject:
@@ -14766,12 +15224,14 @@ GameObject:
   - component: {fileID: 4304263318380792206}
   - component: {fileID: 870332978601641515}
   - component: {fileID: 3166308106540626657}
+  - component: {fileID: 4304263318380792207}
+  - component: {fileID: 4304263318380792208}
   m_Layer: 0
   m_Name: fir tree tilted
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &3526574485023645608
 Transform:
@@ -14841,6 +15301,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965647234337412462}
   m_Mesh: {fileID: 3906130615805142554, guid: a891be4b42ad6d748ac1a77e9e67c9ea, type: 3}
+--- !u!95 &3567589994689871986
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965647234337412462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3567589994689871987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965647234337412462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &3570929154860407444
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -14849,6 +15344,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966714933950877579}
   m_Mesh: {fileID: 3906130615805142554, guid: a891be4b42ad6d748ac1a77e9e67c9ea, type: 3}
+--- !u!95 &3570929154860407445
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966714933950877579}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3570929154860407446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966714933950877579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &3587102048286969599
 GameObject:
   m_ObjectHideFlags: 0
@@ -15026,6 +15556,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056991112937587144}
   m_Mesh: {fileID: -6286172746267173718, guid: 3aa47f57b407a844f99763f5c77fbe85, type: 3}
+--- !u!95 &3625156808032425176
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056991112937587144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3625156808032425177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056991112937587144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &3630713491680047214
 Transform:
   m_ObjectHideFlags: 0
@@ -15061,12 +15626,14 @@ GameObject:
   - component: {fileID: 4163331754273889463}
   - component: {fileID: 1038356487465227026}
   - component: {fileID: 2993782080372385752}
+  - component: {fileID: 4163331754273889464}
+  - component: {fileID: 4163331754273889465}
   m_Layer: 0
   m_Name: grass 3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &3643309337783434057
 GameObject:
@@ -15295,6 +15862,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141842710702462012}
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &3692011459873947940
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141842710702462012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3692011459873947941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141842710702462012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!4 &3692784242983163332
 Transform:
   m_ObjectHideFlags: 0
@@ -16047,6 +16649,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773881148535658598}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &3916280047503773050
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773881148535658598}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3916280047503773051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773881148535658598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &3929862991257101354
 GameObject:
   m_ObjectHideFlags: 0
@@ -16177,12 +16814,14 @@ GameObject:
   - component: {fileID: 851552116759502045}
   - component: {fileID: 3185634188690614295}
   - component: {fileID: 3815665744369979741}
+  - component: {fileID: 4359072905009664889}
+  - component: {fileID: 4359072905009664890}
   m_Layer: 0
   m_Name: fir tree bent (8)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &3978748305029914610
 GameObject:
@@ -16278,6 +16917,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804245644161596238}
   m_Mesh: {fileID: -6286172746267173718, guid: 3aa47f57b407a844f99763f5c77fbe85, type: 3}
+--- !u!95 &4020951539867151954
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804245644161596238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4020951539867151955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804245644161596238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &4024095172899428477
 GameObject:
   m_ObjectHideFlags: 0
@@ -16453,13 +17127,50 @@ GameObject:
   - component: {fileID: 3731294527246428024}
   - component: {fileID: 317471953238550749}
   - component: {fileID: 2558911307864480791}
+  - component: {fileID: 4072353810630163907}
+  - component: {fileID: 4072353810630163908}
   m_Layer: 0
   m_Name: grass 2 (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4072353810630163907
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072353810630163906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4072353810630163908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4072353810630163906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &4082392255526694506
 GameObject:
   m_ObjectHideFlags: 0
@@ -16471,13 +17182,50 @@ GameObject:
   - component: {fileID: 3741438559950288080}
   - component: {fileID: 307257533801053045}
   - component: {fileID: 2569143405382127551}
+  - component: {fileID: 4082392255526694507}
+  - component: {fileID: 4082392255526694508}
   m_Layer: 0
   m_Name: shrub (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4082392255526694507
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4082392255526694506}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4082392255526694508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4082392255526694506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &4083759036549585815
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16486,6 +17234,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308608779915300488}
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &4083759036549585816
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308608779915300488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4083759036549585817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308608779915300488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &4089561351997176173
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -16494,6 +17277,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298646427830742130}
   m_Mesh: {fileID: 8450315177187483977, guid: accfade4b7114f24783256bf071c25c2, type: 3}
+--- !u!95 &4089561351997176174
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298646427830742130}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4089561351997176175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298646427830742130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &4093046992940436597
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16545,6 +17363,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424828596776386898}
   m_Mesh: {fileID: -5130854722875587737, guid: 395b27abb43ab1a4b92c1424389f06d4, type: 3}
+--- !u!95 &4107635126902953038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424828596776386898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4107635126902953039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424828596776386898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &4108773342106161410
 Transform:
   m_ObjectHideFlags: 0
@@ -16606,6 +17459,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4115470280830629909
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458378370517932481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4115470280830629910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458378370517932481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &4125340574864041102
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16683,13 +17571,50 @@ GameObject:
   - component: {fileID: 3615967010424414145}
   - component: {fileID: 396779950204506212}
   - component: {fileID: 2478477376531408046}
+  - component: {fileID: 4135903675800388988}
+  - component: {fileID: 4135903675800388989}
   m_Layer: 0
   m_Name: grass (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4135903675800388988
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135903675800388987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4135903675800388989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135903675800388987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &4144043640146283871
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16802,6 +17727,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7657459493203229852}
   m_LocalEulerAnglesHint: {x: 0, y: -11.753, z: 0}
+--- !u!95 &4163331754273889464
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642550633550644749}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4163331754273889465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3642550633550644749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &4185431488191219597
 GameObject:
   m_ObjectHideFlags: 0
@@ -16881,6 +17841,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &4213276564438592168
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411797199550188402}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4213276564438592169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411797199550188402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &4217068440726628142
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17153,6 +18148,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572041716660558875}
   m_Mesh: {fileID: 3906130615805142554, guid: a891be4b42ad6d748ac1a77e9e67c9ea, type: 3}
+--- !u!95 &4257106509856409861
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572041716660558875}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4257106509856409862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572041716660558875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &4258489170859304599
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17172,13 +18202,50 @@ GameObject:
   - component: {fileID: 3483475085167802433}
   - component: {fileID: 574228432269260772}
   - component: {fileID: 2313978289695638318}
+  - component: {fileID: 4259308547489784572}
+  - component: {fileID: 4259308547489784573}
   m_Layer: 0
   m_Name: grass (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4259308547489784572
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259308547489784571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4259308547489784573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4259308547489784571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &4272453906786774036
 Transform:
   m_ObjectHideFlags: 0
@@ -17194,6 +18261,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6903800285169925736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4272453906786774037
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3459079650669573806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4272453906786774038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3459079650669573806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &4282734893092801998
 GameObject:
   m_ObjectHideFlags: 0
@@ -17275,6 +18377,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3679413218918388572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4304263318380792207
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526318517985252148}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4304263318380792208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3526318517985252148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &4311638118575704013
 GameObject:
   m_ObjectHideFlags: 0
@@ -17286,13 +18423,50 @@ GameObject:
   - component: {fileID: 3503189915046075767}
   - component: {fileID: 518493672589906642}
   - component: {fileID: 2366351841783096856}
+  - component: {fileID: 4311638118575704014}
+  - component: {fileID: 4311638118575704015}
   m_Layer: 0
   m_Name: grass 3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &4311638118575704014
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311638118575704013}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4311638118575704015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4311638118575704013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &4318394649411815901
 Transform:
   m_ObjectHideFlags: 0
@@ -17308,6 +18482,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1187724557154119288}
   m_LocalEulerAnglesHint: {x: 0, y: 190, z: 0}
+--- !u!95 &4318394649411815902
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505442773997441895}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4318394649411815903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505442773997441895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &4320042356677703410
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17549,6 +18758,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6903800285169925736}
   m_LocalEulerAnglesHint: {x: 0, y: 157.937, z: 0}
+--- !u!95 &4359072905009664889
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978183817001290178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4359072905009664890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978183817001290178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &4368011645205499295
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17623,6 +18867,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117178632016984132}
   m_Mesh: {fileID: 3906130615805142554, guid: a891be4b42ad6d748ac1a77e9e67c9ea, type: 3}
+--- !u!95 &4414730919506357596
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117178632016984132}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4414730919506357597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117178632016984132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &4414945531945546312
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17631,6 +18910,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117377986854954839}
   m_Mesh: {fileID: 6058517668492572802, guid: fde9cf3ef77c2164c9df558f78bb9acd, type: 3}
+--- !u!95 &4414945531945546313
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117377986854954839}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4414945531945546314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117377986854954839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &4418950224419390430
 GameObject:
   m_ObjectHideFlags: 0
@@ -18637,12 +19951,14 @@ GameObject:
   - component: {fileID: 9047968564008677351}
   - component: {fileID: 6517869957394701101}
   - component: {fileID: 2197002005913182994}
+  - component: {fileID: 9047968564008677352}
+  - component: {fileID: 9047968564008677353}
   m_Layer: 0
   m_Name: pine tree large (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &4719401656002222170
 MeshFilter:
@@ -18921,12 +20237,14 @@ GameObject:
   - component: {fileID: 5276944787375025661}
   - component: {fileID: 9121094117036221016}
   - component: {fileID: 6444745143509161618}
+  - component: {fileID: 9121094117036221017}
+  - component: {fileID: 9121094117036221018}
   m_Layer: 0
   m_Name: shrub (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &4787793017073611337
 GameObject:
@@ -18957,12 +20275,14 @@ GameObject:
   - component: {fileID: 5275126803240838079}
   - component: {fileID: 9122841995205733402}
   - component: {fileID: 6448643652667316432}
+  - component: {fileID: 9122841995205733403}
+  - component: {fileID: 9122841995205733404}
   m_Layer: 0
   m_Name: bush plant (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &4809933961915392791
 MeshFilter:
@@ -18983,12 +20303,14 @@ GameObject:
   - component: {fileID: 5308026693365832913}
   - component: {fileID: 9081013536747131764}
   - component: {fileID: 6476962394039084990}
+  - component: {fileID: 9081013536747131765}
+  - component: {fileID: 9081013536747131766}
   m_Layer: 0
   m_Name: bush plant (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &4820909755471525971
 GameObject:
@@ -19019,12 +20341,14 @@ GameObject:
   - component: {fileID: 5306731499200473902}
   - component: {fileID: 9082238431957312651}
   - component: {fileID: 6480223506400776257}
+  - component: {fileID: 9082238431957312652}
+  - component: {fileID: 9082238431957312653}
   m_Layer: 0
   m_Name: shrub (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4827100406326407875
 Transform:
@@ -19884,12 +21208,14 @@ GameObject:
   - component: {fileID: 5496238984948529031}
   - component: {fileID: 8928750928892114978}
   - component: {fileID: 6633165497093147880}
+  - component: {fileID: 8928750928892114979}
+  - component: {fileID: 8928750928892114980}
   m_Layer: 0
   m_Name: grass 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &5121481091543644805
 MeshFilter:
@@ -20378,12 +21704,14 @@ GameObject:
   - component: {fileID: 4847472682638205320}
   - component: {fileID: 8424674891449527853}
   - component: {fileID: 5984864322559449831}
+  - component: {fileID: 8424674891449527854}
+  - component: {fileID: 8424674891449527855}
   m_Layer: 0
   m_Name: grass
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &5197156597456156244
 MeshFilter:
@@ -20861,12 +22189,14 @@ GameObject:
   - component: {fileID: 8554039301987399302}
   - component: {fileID: 5860021103855960652}
   - component: {fileID: 356827829177816514}
+  - component: {fileID: 8554039301987399303}
+  - component: {fileID: 8554039301987399304}
   m_Layer: 0
   m_Name: pine tree large (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &5356407713316284591
 GameObject:
@@ -20879,12 +22209,14 @@ GameObject:
   - component: {fileID: 4692215087745823253}
   - component: {fileID: 8552831942777535920}
   - component: {fileID: 5860647800639752570}
+  - component: {fileID: 8552831942777535921}
+  - component: {fileID: 8552831942777535922}
   m_Layer: 0
   m_Name: grass 3 (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5362747489818400323
 Transform:
@@ -21837,12 +23169,14 @@ GameObject:
   - component: {fileID: 4980746257048501819}
   - component: {fileID: 8264371130168799646}
   - component: {fileID: 6148546573721961812}
+  - component: {fileID: 8264371130168799647}
+  - component: {fileID: 8264371130168799648}
   m_Layer: 0
   m_Name: shrub (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5649988165655575739
 Transform:
@@ -22122,12 +23456,14 @@ GameObject:
   - component: {fileID: 4929791407465950135}
   - component: {fileID: 8342347385015952402}
   - component: {fileID: 6062144126258254040}
+  - component: {fileID: 8342347385015952403}
+  - component: {fileID: 8342347385015952404}
   m_Layer: 0
   m_Name: grass 3 (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5703251846765038171
 Transform:
@@ -22736,6 +24072,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8450315177187483977, guid: accfade4b7114f24783256bf071c25c2, type: 3}
+--- !u!95 &5889818893077630401
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421124333796238167}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5889818893077630402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421124333796238167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!4 &5894227926086612400
 Transform:
   m_ObjectHideFlags: 0
@@ -22814,6 +24185,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5286541931224594320, guid: df5de10c64b99454f9e586a887d9e9c0, type: 3}
+--- !u!95 &5901885145470035656
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940922801559897008}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5901885145470035657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940922801559897008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!114 &5903178108527596555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22926,12 +24332,14 @@ GameObject:
   - component: {fileID: 6474815008751870942}
   - component: {fileID: 7959252966757297275}
   - component: {fileID: 5300742459412322481}
+  - component: {fileID: 7959252966757297276}
+  - component: {fileID: 7959252966757297277}
   m_Layer: 0
   m_Name: shrub
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &5953316857178266106
 MeshCollider:
@@ -22969,7 +24377,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &5960059880649083308
 MeshRenderer:
@@ -23103,12 +24511,14 @@ GameObject:
   - component: {fileID: 6407213119130161291}
   - component: {fileID: 8017856457812139822}
   - component: {fileID: 5233695956035578852}
+  - component: {fileID: 8017856457812139823}
+  - component: {fileID: 8017856457812139824}
   m_Layer: 0
   m_Name: fir tree bent (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6037465444706940480
 Transform:
@@ -23240,12 +24650,14 @@ GameObject:
   - component: {fileID: 6870579016434438824}
   - component: {fileID: 7563488414983314701}
   - component: {fileID: 5697651568590727623}
+  - component: {fileID: 7563488414983314702}
+  - component: {fileID: 7563488414983314703}
   m_Layer: 0
   m_Name: grass 2
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &6062144126258254040
 MeshRenderer:
@@ -23958,6 +25370,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5286541931224594320, guid: df5de10c64b99454f9e586a887d9e9c0, type: 3}
+--- !u!95 &6205004903651909186
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862290398704683832}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6205004903651909187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1862290398704683832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &6207524681378631911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24220,12 +25667,14 @@ GameObject:
   - component: {fileID: 6745290664571934368}
   - component: {fileID: 7652686185875020037}
   - component: {fileID: 5609016473269726671}
+  - component: {fileID: 7652686185875020038}
+  - component: {fileID: 7652686185875020039}
   m_Layer: 0
   m_Name: grass 2 (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6271291074905915914
 Transform:
@@ -24268,12 +25717,14 @@ GameObject:
   - component: {fileID: 6687077182326118102}
   - component: {fileID: 7737921733484878195}
   - component: {fileID: 5514210896025808313}
+  - component: {fileID: 7737921733484878196}
+  - component: {fileID: 7737921733484878197}
   m_Layer: 0
   m_Name: shrub (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &6307444262966751337
 GameObject:
@@ -24286,12 +25737,14 @@ GameObject:
   - component: {fileID: 6684286942022281939}
   - component: {fileID: 7740702710076941686}
   - component: {fileID: 5514788945169928636}
+  - component: {fileID: 7740702710076941687}
+  - component: {fileID: 7740702710076941688}
   m_Layer: 0
   m_Name: bush plant (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &6316302624466910092
 Transform:
@@ -24377,12 +25830,14 @@ GameObject:
   - component: {fileID: 6667734384297006654}
   - component: {fileID: 7721235250522708379}
   - component: {fileID: 5531442633826741585}
+  - component: {fileID: 7721235250522708380}
+  - component: {fileID: 7721235250522708381}
   m_Layer: 0
   m_Name: bush plant (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &6326205585392709886
 MeshRenderer:
@@ -24560,6 +26015,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &6355193000618241551
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79422437891289249}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6355193000618241552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79422437891289249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!114 &6360115799005968580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24602,12 +26092,14 @@ GameObject:
   - component: {fileID: 7234673539192519141}
   - component: {fileID: 4864536348803730735}
   - component: {fileID: 574239073298610768}
+  - component: {fileID: 7234673539192519142}
+  - component: {fileID: 7234673539192519143}
   m_Layer: 0
   m_Name: fir tree small (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &6385404911349959619
 MeshCollider:
@@ -24718,12 +26210,14 @@ GameObject:
   - component: {fileID: 7334816416779598928}
   - component: {fileID: 4768880870340233370}
   - component: {fileID: 3768866810002794546}
+  - component: {fileID: 7334816416779598929}
+  - component: {fileID: 7334816416779598930}
   m_Layer: 0
   m_Name: fir tree bent
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &6429560888253566195
 MeshRenderer:
@@ -24875,6 +26369,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &6441689476287450530
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293467426193820882}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6441689476287450531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293467426193820882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &6442583731877057365
 GameObject:
   m_ObjectHideFlags: 0
@@ -25832,12 +27361,14 @@ GameObject:
   - component: {fileID: 6964748193453526447}
   - component: {fileID: 5135008323733010789}
   - component: {fileID: 851850763916418251}
+  - component: {fileID: 6964748193453526448}
+  - component: {fileID: 6964748193453526449}
   m_Layer: 0
   m_Name: fir tree small (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &6652219219385344574
 MeshRenderer:
@@ -25992,12 +27523,14 @@ GameObject:
   - component: {fileID: 6320968244588711298}
   - component: {fileID: 6924087295082693159}
   - component: {fileID: 5184694288300373741}
+  - component: {fileID: 6924087295082693160}
+  - component: {fileID: 6924087295082693161}
   m_Layer: 0
   m_Name: bush plant (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &6710356834122502249
 GameObject:
@@ -26793,6 +28326,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6697775739557402424}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &6924087295082693160
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775739557402424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6924087295082693161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6697775739557402424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &6930845423391674659
 GameObject:
   m_ObjectHideFlags: 0
@@ -27050,6 +28618,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6648380319716612272}
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &6964748193453526448
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648380319716612272}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6964748193453526449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648380319716612272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &6967409261254939107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27555,12 +29158,14 @@ GameObject:
   - component: {fileID: 7592559113205333931}
   - component: {fileID: 6841508639225491470}
   - component: {fileID: 8724911283182093508}
+  - component: {fileID: 8724911283182093509}
+  - component: {fileID: 8724911283182093510}
   m_Layer: 0
   m_Name: shrub (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7069045563862153236
 GameObject:
@@ -27573,12 +29178,14 @@ GameObject:
   - component: {fileID: 7589018165787337390}
   - component: {fileID: 6844979150821960971}
   - component: {fileID: 8726488492594584001}
+  - component: {fileID: 8726488492594584002}
+  - component: {fileID: 8726488492594584003}
   m_Layer: 0
   m_Name: grass 3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7076964434403634216
 GameObject:
@@ -27609,12 +29216,14 @@ GameObject:
   - component: {fileID: 7567983217129465944}
   - component: {fileID: 6821048217452521469}
   - component: {fileID: 8740867298551747383}
+  - component: {fileID: 8740867298551747384}
+  - component: {fileID: 8740867298551747385}
   m_Layer: 0
   m_Name: shrub
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &7089720282097507083
 MeshFilter:
@@ -27818,12 +29427,14 @@ GameObject:
   - component: {fileID: 6890255270874186355}
   - component: {fileID: 8681794254125201081}
   - component: {fileID: 7202585370937356914}
+  - component: {fileID: 8681794254125201082}
+  - component: {fileID: 8681794254125201083}
   m_Layer: 0
   m_Name: fir tree medium
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7171198615265248687
 GameObject:
@@ -27992,12 +29603,14 @@ GameObject:
   - component: {fileID: 6845612856167039335}
   - component: {fileID: 8711219342055830957}
   - component: {fileID: 7272319245467778883}
+  - component: {fileID: 8711219342055830958}
+  - component: {fileID: 8711219342055830959}
   m_Layer: 0
   m_Name: fir tree tilted (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &7202585370937356914
 MeshCollider:
@@ -28033,12 +29646,14 @@ GameObject:
   - component: {fileID: 6852908189881669167}
   - component: {fileID: 8718578522606789349}
   - component: {fileID: 8550070167595062458}
+  - component: {fileID: 8718578522606789350}
+  - component: {fileID: 8718578522606789351}
   m_Layer: 0
   m_Name: fir tree medium (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!65 &7219907152332799972
 BoxCollider:
@@ -28087,6 +29702,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6377856255570193658}
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &7234673539192519142
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377856255570193658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7234673539192519143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6377856255570193658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &7258529342224649312
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29368,6 +31018,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6426227180613052751}
   m_Mesh: {fileID: 8450315177187483977, guid: accfade4b7114f24783256bf071c25c2, type: 3}
+--- !u!95 &7334816416779598929
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426227180613052751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7334816416779598930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6426227180613052751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &7341206950454468830
 GameObject:
   m_ObjectHideFlags: 0
@@ -29379,12 +31064,14 @@ GameObject:
   - component: {fileID: 7974437328129620580}
   - component: {fileID: 6414603521278670273}
   - component: {fileID: 9142809322266820875}
+  - component: {fileID: 9142809322266820876}
+  - component: {fileID: 9142809322266820877}
   m_Layer: 0
   m_Name: fir tree bent (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &7358532116569168565
 MeshRenderer:
@@ -29771,12 +31458,14 @@ GameObject:
   - component: {fileID: 6597284981743480154}
   - component: {fileID: 8965176973681105296}
   - component: {fileID: 4449398841502112024}
+  - component: {fileID: 8965176973681105297}
+  - component: {fileID: 8965176973681105298}
   m_Layer: 0
   m_Name: fir tree small (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &7459033651754106207
 MeshRenderer:
@@ -30181,12 +31870,14 @@ GameObject:
   - component: {fileID: 6088686867521494254}
   - component: {fileID: 8330440208682362916}
   - component: {fileID: 6066936690038325838}
+  - component: {fileID: 8330440208682362917}
+  - component: {fileID: 8330440208682362918}
   m_Layer: 0
   m_Name: fir tree medium
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &7541788391288136825
 MeshRenderer:
@@ -30378,6 +32069,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6058154700159813650}
   m_Mesh: {fileID: -5130854722875587737, guid: 395b27abb43ab1a4b92c1424389f06d4, type: 3}
+--- !u!95 &7563488414983314702
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058154700159813650}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7563488414983314703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058154700159813650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &7563492057548081189
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30696,6 +32422,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6257688681673509914}
   m_Mesh: {fileID: -5130854722875587737, guid: 395b27abb43ab1a4b92c1424389f06d4, type: 3}
+--- !u!95 &7652686185875020038
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257688681673509914}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7652686185875020039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257688681673509914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &7657459493203229852
 Transform:
   m_ObjectHideFlags: 0
@@ -30899,12 +32660,14 @@ GameObject:
   - component: {fileID: 7054085200556939626}
   - component: {fileID: 6218062099441407695}
   - component: {fileID: 8191495497011601925}
+  - component: {fileID: 8191495497011601926}
+  - component: {fileID: 8191495497011601927}
   m_Layer: 0
   m_Name: grass 3
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7689629930799086721
 GameObject:
@@ -30918,12 +32681,14 @@ GameObject:
   - component: {fileID: 6220322759759817118}
   - component: {fileID: 8194283982973705556}
   - component: {fileID: 3551434278680552890}
+  - component: {fileID: 8194283982973705557}
+  - component: {fileID: 8194283982973705558}
   m_Layer: 0
   m_Name: fir tree medium (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &7703340468747376562
 GameObject:
@@ -30936,12 +32701,14 @@ GameObject:
   - component: {fileID: 7038022286517226760}
   - component: {fileID: 6198017888090800813}
   - component: {fileID: 8207598285481555559}
+  - component: {fileID: 8207598285481555560}
+  - component: {fileID: 8207598285481555561}
   m_Layer: 0
   m_Name: grass 3 (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &7710441574475378440
 MeshFilter:
@@ -31001,6 +32768,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6324001333495860356}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &7721235250522708380
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324001333495860356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7721235250522708381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6324001333495860356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &7733884418972211455
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31051,6 +32853,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6306893152323849324}
   m_Mesh: {fileID: 6058517668492572802, guid: fde9cf3ef77c2164c9df558f78bb9acd, type: 3}
+--- !u!95 &7737921733484878196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306893152323849324}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7737921733484878197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6306893152323849324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &7740702710076941686
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -31059,6 +32896,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6307444262966751337}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &7740702710076941687
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307444262966751337}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7740702710076941688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6307444262966751337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &7748036817255409964
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31608,12 +33480,14 @@ GameObject:
   - component: {fileID: 5853393615585727354}
   - component: {fileID: 8565733460496754608}
   - component: {fileID: 2494905665298507700}
+  - component: {fileID: 8565733460496754609}
+  - component: {fileID: 8565733460496754610}
   m_Layer: 0
   m_Name: fir tree tilted (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7924306379116432139
 Transform:
@@ -31729,6 +33603,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5949529292524599652}
   m_Mesh: {fileID: 6058517668492572802, guid: fde9cf3ef77c2164c9df558f78bb9acd, type: 3}
+--- !u!95 &7959252966757297276
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949529292524599652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7959252966757297277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5949529292524599652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &7968472078064114024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31902,6 +33811,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6026149239087270449}
   m_Mesh: {fileID: 8450315177187483977, guid: accfade4b7114f24783256bf071c25c2, type: 3}
+--- !u!95 &8017856457812139823
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026149239087270449}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8017856457812139824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6026149239087270449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!4 &8030445673435194792
 Transform:
   m_ObjectHideFlags: 0
@@ -32139,12 +34083,14 @@ GameObject:
   - component: {fileID: 8920965329177793091}
   - component: {fileID: 5504094902427377126}
   - component: {fileID: 7748036817255409964}
+  - component: {fileID: 8920965329177793092}
+  - component: {fileID: 8920965329177793093}
   m_Layer: 0
   m_Name: grass 2 (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8123645447162672416
 Transform:
@@ -32373,6 +34319,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8191495497011601926
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687351755469292496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8191495497011601927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7687351755469292496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &8192558580698520323
 Transform:
   m_ObjectHideFlags: 0
@@ -32430,6 +34411,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8194283982973705557
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689629930799086721}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8194283982973705558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7689629930799086721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &8196966417419723821
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32503,6 +34519,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8207598285481555560
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703340468747376562}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8207598285481555561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7703340468747376562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &8213987889238455652
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32538,12 +34589,14 @@ GameObject:
   - component: {fileID: 8727399179909633025}
   - component: {fileID: 5670639708418579364}
   - component: {fileID: 7590500017984728942}
+  - component: {fileID: 8727399179909633026}
+  - component: {fileID: 8727399179909633027}
   m_Layer: 0
   m_Name: bush plant (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!64 &8243399199299140084
 MeshCollider:
@@ -32717,6 +34770,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5644412178158789761}
   m_Mesh: {fileID: 6058517668492572802, guid: fde9cf3ef77c2164c9df558f78bb9acd, type: 3}
+--- !u!95 &8264371130168799647
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644412178158789761}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8264371130168799648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644412178158789761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &8270432408768304120
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32926,12 +35014,14 @@ GameObject:
   - component: {fileID: 5743746868078539079}
   - component: {fileID: 7516811319216276877}
   - component: {fileID: 27152072769608088}
+  - component: {fileID: 8654292087092182755}
+  - component: {fileID: 8654292087092182756}
   m_Layer: 0
   m_Name: fir tree small
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &8311154593299535883
 MeshFilter:
@@ -33073,6 +35163,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8330440208682362917
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537714383175748081}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8330440208682362918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7537714383175748081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &8333252868018995083
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33134,6 +35259,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5702106363844866317}
   m_Mesh: {fileID: -6286172746267173718, guid: 3aa47f57b407a844f99763f5c77fbe85, type: 3}
+--- !u!95 &8342347385015952403
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702106363844866317}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8342347385015952404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702106363844866317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &8348914150472652125
 Transform:
   m_ObjectHideFlags: 0
@@ -33204,7 +35364,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &8373270638109316613
 GameObject:
@@ -33272,12 +35432,14 @@ GameObject:
   - component: {fileID: 5202153414642089196}
   - component: {fileID: 8058406198422226982}
   - component: {fileID: 3775283212712063283}
+  - component: {fileID: 9195815400734765898}
+  - component: {fileID: 9195815400734765899}
   m_Layer: 0
   m_Name: fir tree medium (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &8424674891449527853
 MeshFilter:
@@ -33287,6 +35449,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5192226046140693298}
   m_Mesh: {fileID: 3906130615805142554, guid: a891be4b42ad6d748ac1a77e9e67c9ea, type: 3}
+--- !u!95 &8424674891449527854
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192226046140693298}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8424674891449527855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192226046140693298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!224 &8426051647609205659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -33527,12 +35724,14 @@ GameObject:
   - component: {fileID: 9147152254831818244}
   - component: {fileID: 5286923692694501793}
   - component: {fileID: 7978718688313740651}
+  - component: {fileID: 9147152254831818245}
+  - component: {fileID: 9147152254831818246}
   m_Layer: 0
   m_Name: grass 2 (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &8509656771102998696
 Transform:
@@ -33636,12 +35835,14 @@ GameObject:
   - component: {fileID: 9017874083681256114}
   - component: {fileID: 5371166142159834391}
   - component: {fileID: 7885451584423475677}
+  - component: {fileID: 9017874083681256115}
+  - component: {fileID: 9017874083681256116}
   m_Layer: 0
   m_Name: grass
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!33 &8535154020980349345
 MeshFilter:
@@ -33705,7 +35906,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!320 &8551993105613024473
 PlayableDirector:
@@ -33754,6 +35955,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5356407713316284591}
   m_Mesh: {fileID: -6286172746267173718, guid: 3aa47f57b407a844f99763f5c77fbe85, type: 3}
+--- !u!95 &8552831942777535921
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356407713316284591}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8552831942777535922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5356407713316284591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &8554039301987399302
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33762,6 +35998,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5355349870533092249}
   m_Mesh: {fileID: -5005114604111190692, guid: 5d8656253bc8193468a822e87c1e6a72, type: 3}
+--- !u!95 &8554039301987399303
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355349870533092249}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8554039301987399304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5355349870533092249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &8557554524720477437
 GameObject:
   m_ObjectHideFlags: 0
@@ -33847,6 +36118,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8565733460496754609
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917158007559521893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8565733460496754610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7917158007559521893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &8580299455133526132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34161,6 +36467,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3679413218918388572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8654292087092182755
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309678293387977816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8654292087092182756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8309678293387977816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!4 &8666001142477081231
 Transform:
   m_ObjectHideFlags: 0
@@ -34261,6 +36602,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8681794254125201082
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168342544018265964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8681794254125201083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7168342544018265964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &8684571024165381242
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34520,6 +36896,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8711219342055830958
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7198031651087078520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8711219342055830959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7198031651087078520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &8714559498772601498
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34570,6 +36981,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8718578522606789350
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205302595852452656}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8718578522606789351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7205302595852452656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &8722816473279214691
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34620,6 +37066,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8724911283182093509
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067802467944260881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8724911283182093510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067802467944260881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &8726488492594584001
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34662,6 +37143,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8726488492594584002
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069045563862153236}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8726488492594584003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069045563862153236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &8727399179909633025
 Transform:
   m_ObjectHideFlags: 0
@@ -34677,6 +37193,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7657459493203229852}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8727399179909633026
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238812137338490555}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8727399179909633027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8238812137338490555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &8734328885675298301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34762,6 +37313,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8740867298551747384
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083370629934543586}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8740867298551747385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7083370629934543586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &8764852019126485153
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -34967,13 +37553,50 @@ GameObject:
   - component: {fileID: 8192558580698520323}
   - component: {fileID: 5052487972789818534}
   - component: {fileID: 7060232731220959340}
+  - component: {fileID: 8861395436362875322}
+  - component: {fileID: 8861395436362875323}
   m_Layer: 0
   m_Name: grass (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &8861395436362875322
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861395436362875321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8861395436362875323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861395436362875321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!4 &8871926595176866704
 Transform:
   m_ObjectHideFlags: 0
@@ -35001,13 +37624,50 @@ GameObject:
   - component: {fileID: 5178360516350056825}
   - component: {fileID: 6933797667938299315}
   - component: {fileID: 6054529788667779228}
+  - component: {fileID: 8879181251018968167}
+  - component: {fileID: 8879181251018968168}
   m_Layer: 0
   m_Name: fir tree small (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &8879181251018968167
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879181251018968166}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8879181251018968168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879181251018968166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &8879761213525795233
 GameObject:
   m_ObjectHideFlags: 0
@@ -35133,6 +37793,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3319741066836674103, guid: b36ccd9f3174c544e8c27e18082c54b6, type: 3}
+--- !u!95 &8912599893815712347
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395159114442538787}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8912599893815712348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395159114442538787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &8913126958971334710
 GameObject:
   m_ObjectHideFlags: 0
@@ -35209,6 +37904,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1187724557154119288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &8920965329177793092
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108293656622369017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8920965329177793093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8108293656622369017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &8923501406224159828
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35225,6 +37955,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5119819338881363261}
   m_Mesh: {fileID: -5130854722875587737, guid: 395b27abb43ab1a4b92c1424389f06d4, type: 3}
+--- !u!95 &8928750928892114979
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119819338881363261}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8928750928892114980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119819338881363261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &8932657670090518426
 GameObject:
   m_ObjectHideFlags: 0
@@ -35293,6 +38058,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8965176973681105297
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451848271492397125}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8965176973681105298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7451848271492397125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &8967440125271173021
 GameObject:
   m_ObjectHideFlags: 0
@@ -35466,13 +38266,50 @@ GameObject:
   - component: {fileID: 8627224629275291605}
   - component: {fileID: 4617830648411545712}
   - component: {fileID: 7489807013525558458}
+  - component: {fileID: 9003223128566150512}
+  - component: {fileID: 9003223128566150513}
   m_Layer: 0
   m_Name: shrub (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9003223128566150512
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003223128566150511}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9003223128566150513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003223128566150511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &9015711163648260960
 GameObject:
   m_ObjectHideFlags: 0
@@ -35484,13 +38321,50 @@ GameObject:
   - component: {fileID: 8526982215357653466}
   - component: {fileID: 4754172490051776127}
   - component: {fileID: 7358532116569168565}
+  - component: {fileID: 9015711163648260961}
+  - component: {fileID: 9015711163648260962}
   m_Layer: 0
   m_Name: grass 3 (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9015711163648260961
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015711163648260960}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9015711163648260962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9015711163648260960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &9016175811029597762
 GameObject:
   m_ObjectHideFlags: 0
@@ -35543,6 +38417,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1187724557154119288}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &9017874083681256115
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533824451273660424}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9017874083681256116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533824451273660424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &9023233914794005072
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35642,6 +38551,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4716636882972982008}
   m_Mesh: {fileID: -5005114604111190692, guid: 5d8656253bc8193468a822e87c1e6a72, type: 3}
+--- !u!95 &9047968564008677352
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4716636882972982008}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9047968564008677353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4716636882972982008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!1 &9050728872417971525
 GameObject:
   m_ObjectHideFlags: 0
@@ -35738,7 +38682,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!23 &9057836671907082340
 MeshRenderer:
@@ -35855,6 +38799,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4819474522252822123}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &9081013536747131765
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819474522252822123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9081013536747131766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4819474522252822123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &9082238431957312651
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -35863,6 +38842,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4822964333967847828}
   m_Mesh: {fileID: 6058517668492572802, guid: fde9cf3ef77c2164c9df558f78bb9acd, type: 3}
+--- !u!95 &9082238431957312652
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822964333967847828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9082238431957312653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4822964333967847828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &9089489237211002376
 GameObject:
   m_ObjectHideFlags: 0
@@ -35998,6 +39012,41 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3016046974184527623, guid: 9c9c052014ed57146bc86830599c1c2b, type: 3}
+--- !u!95 &9103245287583779598
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090517167112345641}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9103245287583779599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090517167112345641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!33 &9121094117036221016
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -36006,6 +39055,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4787513319871625031}
   m_Mesh: {fileID: 6058517668492572802, guid: fde9cf3ef77c2164c9df558f78bb9acd, type: 3}
+--- !u!95 &9121094117036221017
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787513319871625031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9121094117036221018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787513319871625031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &9121376218736486230
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -36022,6 +39106,41 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4791499378802014469}
   m_Mesh: {fileID: -5312597086699036947, guid: 2278e8d44be66364289409037be9045d, type: 3}
+--- !u!95 &9122841995205733403
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791499378802014469}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9122841995205733404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4791499378802014469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!1 &9129585202901613718
 GameObject:
   m_ObjectHideFlags: 0
@@ -36129,6 +39248,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &9142809322266820876
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341206950454468830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9142809322266820877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341206950454468830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!4 &9147152254831818244
 Transform:
   m_ObjectHideFlags: 0
@@ -36144,6 +39298,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1187724557154119288}
   m_LocalEulerAnglesHint: {x: 0, y: -71.467, z: 0}
+--- !u!95 &9147152254831818245
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483345940010871998}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9147152254831818246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8483345940010871998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!23 &9167907268710276807
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36275,6 +39464,41 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3679413218918388572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &9195815400734765898
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418856965952563699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da0775eba4202744c9e75ce7f697679f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9195815400734765899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8418856965952563699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Tree
+  speedRange: {x: 0.1, y: 0.5}
 --- !u!23 &9203211657018903888
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36328,13 +39552,50 @@ GameObject:
   - component: {fileID: 8426328524894451471}
   - component: {fileID: 4854755824139778218}
   - component: {fileID: 7258529342224649312}
+  - component: {fileID: 9204097093590019510}
+  - component: {fileID: 9204097093590019511}
   m_Layer: 0
   m_Name: grass 2 (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &9204097093590019510
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204097093590019509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0a0a4379f7113c4fa9975efb4e16bfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9204097093590019511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9204097093590019509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa18a2bfaba0fa419fa4d9469e26dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationStateName: Grass
+  speedRange: {x: 0.5, y: 1}
 --- !u!33 &9207678482103419279
 MeshFilter:
   m_ObjectHideFlags: 0
