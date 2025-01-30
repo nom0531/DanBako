@@ -102,7 +102,6 @@ public class OptionsMenu_Main : MonoBehaviour
             PushDown();
         }
 
-
         m_gamepad = Gamepad.current;
 
         if(m_gamepad == null)
@@ -126,11 +125,11 @@ public class OptionsMenu_Main : MonoBehaviour
     /// </summary>
     private void PushUp()
     {
-        m_comandState--;
+        m_comandState++;
         // 補正。
-        if (m_comandState < SelectOption.enBGMOption)
+        if (m_comandState > SelectOption.enInitOption)
         {
-            m_comandState = SelectOption.enInitOption;
+            m_comandState = SelectOption.enBGMOption;
         }
         Cursor.Move((int)m_comandState);
     }
@@ -140,11 +139,11 @@ public class OptionsMenu_Main : MonoBehaviour
     /// </summary>
     private void PushDown()
     {
-        m_comandState++;
+        m_comandState--;
         // 補正。
-        if (m_comandState > SelectOption.enInitOption)
+        if (m_comandState < SelectOption.enBGMOption)
         {
-            m_comandState = SelectOption.enBGMOption;
+            m_comandState = SelectOption.enInitOption;
         }
         Cursor.Move((int)m_comandState);
     }
@@ -192,6 +191,36 @@ public class OptionsMenu_Main : MonoBehaviour
     /// </summary>
     void ChangeBGMValue()
     {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (bgmSlider.value < 1.0f)
+            {
+                bgmSlider.value += 0.1f;
+            }
+            //音量を変更
+            SetBGMVolume();
+            //seを再生
+            SE_MoveCursor.PlaySE();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (bgmSlider.value > 0.0f)
+            {
+                bgmSlider.value -= 0.1f;
+            }
+            //音量を変更
+            SetBGMVolume();
+            //seを再生
+            SE_MoveCursor.PlaySE();
+            return;
+        }
+
+        if (m_gamepad == null)
+        {
+            return;
+        }
+
         if (Gamepad.current.dpad.right.wasPressedThisFrame)
         {
             if (bgmSlider.value < 1.0f)
@@ -221,6 +250,36 @@ public class OptionsMenu_Main : MonoBehaviour
     /// </summary>
     void ChangeSEValue()
     {
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            if (seSlider.value < 1.0f)
+            {
+                seSlider.value += 0.1f;
+            }
+            //音量を変更
+            SetSEVolume();
+            //seを再生
+            SE_MoveCursor.PlaySE();
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            if (seSlider.value > 0.0f)
+            {
+                seSlider.value -= 0.1f;
+            }
+            //音量を変更
+            SetSEVolume();
+            //seを再生
+            SE_MoveCursor.PlaySE();
+            return;
+        }
+
+        if (m_gamepad == null)
+        {
+            return;
+        }
+
         if (Gamepad.current.dpad.right.wasPressedThisFrame)
         {
             if (seSlider.value < 1.0f)
