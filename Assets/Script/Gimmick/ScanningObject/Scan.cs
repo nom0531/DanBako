@@ -33,14 +33,23 @@ public class Scan : MonoBehaviour
         transform.localScale += Vector3.one * ScaleSpeed * Time.unscaledDeltaTime;
 
         // 経過時間を更新。
-        m_elapsedTime += Time.time;
+        m_elapsedTime += Time.unscaledDeltaTime;
 
         // 一定時間後に透明化。
         if (m_elapsedTime >= FadeDelay)
         {
             Color newColor = m_material.color;
-            newColor.a = Mathf.Lerp(m_material.color.a, 0.0f, Time.time * 2.0f);
-            m_material.SetColor("_Color", newColor);
+
+            float t = Mathf.Clamp01((m_elapsedTime - FadeDelay) / 1.0f); // 1秒で透明にする
+            newColor.a = Mathf.Lerp(1.0f, 0.0f, t);
+
+            m_material.color = newColor;
+
+            // 透明になったら削除する。
+            if (newColor.a <= 0.01f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
