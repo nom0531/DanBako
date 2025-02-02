@@ -11,7 +11,10 @@ public class GimmickAnimations : MonoBehaviour
     private bool m_isTimeStop = false;
     public List<Animator> targetAnimators;  // アニメーションを適用するAnimatorをリストで指定
 
-   
+    public bool TimeStopFlag
+    {
+        get => m_isTimeStop;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

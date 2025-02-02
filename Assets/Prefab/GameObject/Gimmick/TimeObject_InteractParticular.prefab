@@ -4857,6 +4857,7 @@ GameObject:
   - component: {fileID: 3863542229893882256}
   - component: {fileID: 4702766439524217355}
   - component: {fileID: 5482671928482947402}
+  - component: {fileID: 3830325785144758525}
   m_Layer: 0
   m_Name: TimeObject_InteractParticular
   m_TagString: TimeObject
@@ -4970,6 +4971,20 @@ MonoBehaviour:
   blendDistance: 3
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 31a1a7ab63b33e948b9364e145c8e459, type: 2}
+--- !u!114 &3830325785144758525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830650462969819344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977adff567639a341beca5e70f194dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScanningObject: {fileID: 2456455949556516167, guid: bd743a857008bd144b929af9ba1113a2,
+    type: 3}
 --- !u!1 &843084835136531506
 GameObject:
   m_ObjectHideFlags: 0
