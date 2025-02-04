@@ -98,3 +98,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScaleSpeed: 10
   FadeDelay: 1
+  Color: {r: 1, g: 0, b: 0, a: 1}

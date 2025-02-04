@@ -38,15 +38,15 @@ public class Scan : MonoBehaviour
         // 一定時間後に透明化。
         if (m_elapsedTime >= FadeDelay)
         {
-            Color newColor = m_material.color;
+            float newColor = m_material.GetFloat("_Alpha");
 
             float t = Mathf.Clamp01((m_elapsedTime - FadeDelay) / 1.0f); // 1秒で透明にする
-            newColor.a = Mathf.Lerp(1.0f, 0.0f, t);
+            newColor = Mathf.Lerp(1.0f, 0.0f, t);
 
-            m_material.color = newColor;
+            m_material.SetFloat("_Alpha", newColor);
 
             // 透明になったら削除する。
-            if (newColor.a <= 0.01f)
+            if (newColor <= 0.01f)
             {
                 Destroy(gameObject);
             }
