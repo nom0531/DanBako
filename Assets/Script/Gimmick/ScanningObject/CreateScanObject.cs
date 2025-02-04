@@ -25,8 +25,12 @@ public class CreateScanObject : MonoBehaviour
         m_gimmickAnimations = GetComponent<GimmickAnimations>();
     }
 
-    private void Update()
+    private void OnTriggerStay(Collider other)
     {
+        if(other.tag != "Player")
+        {
+            return;
+        }
         // LBキーが押されたらアニメーションを再生
         if (Input.GetKeyDown("joystick button 4") || Input.GetKeyDown(KeyCode.Y))
         {
