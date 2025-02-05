@@ -46,6 +46,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     private PlayerStatus m_playerStatus;
     private Player_Main m_playerMain;
     private GameStatus m_gameStatus;
+    private GameManager m_gameManager;
 
     /// <summary>
     /// 徐々に小さくして削除する為のコルーチン。
@@ -91,6 +92,7 @@ public class EnemyPatrol_Main : MonoBehaviour
     /// </summary>
     private void Initialize()
     {
+        m_gameManager = GameManager.Instance;
         var player = GameObject.FindGameObjectWithTag("Player");
         m_player = player.transform;
         m_playerStatus = player.GetComponent<PlayerStatus>();
@@ -110,11 +112,6 @@ public class EnemyPatrol_Main : MonoBehaviour
         if (m_gameStatus != null && m_gameStatus.TimeStopFlag || NotMoveFlag == true)
         {
             HandleTimeStop();
-            return;
-        }
-        if(m_playerMain.MoveFlag == true)
-        {
-            StopNavMeshAgent(true);
             return;
         }
 
@@ -199,6 +196,15 @@ public class EnemyPatrol_Main : MonoBehaviour
 
     private void ChasePlayer()
     {
+        // クリア時は実行しない。
+        if (m_gameManager.GameMode == CurrentGameMode.enClear)
+        {
+            return;
+        }
+        if(m_playerMain.MoveFlag == true)
+        {
+            return;
+        }
         m_agent.isStopped = false;
         m_agent.destination = m_player.position;
     }
