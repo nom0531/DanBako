@@ -130,6 +130,15 @@ public class EnemyPatrol_Main : MonoBehaviour
 
         if (m_isChasing)
         {
+            // クリア時は実行しない。
+            if (m_gameManager.GameMode == CurrentGameMode.enClear)
+            {
+                return;
+            }
+            if (m_playerMain.MoveFlag == true)
+            {
+                return;
+            }
             if (distanceToPlayer <= m_attackRange)
             {
                 AttackPlayer();
@@ -196,15 +205,6 @@ public class EnemyPatrol_Main : MonoBehaviour
 
     private void ChasePlayer()
     {
-        // クリア時は実行しない。
-        if (m_gameManager.GameMode == CurrentGameMode.enClear)
-        {
-            return;
-        }
-        if(m_playerMain.MoveFlag == true)
-        {
-            return;
-        }
         m_agent.isStopped = false;
         m_agent.destination = m_player.position;
     }
