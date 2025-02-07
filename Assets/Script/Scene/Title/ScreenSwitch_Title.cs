@@ -11,6 +11,8 @@ public class ScreenSwitch_Title : MonoBehaviour
     private SceneChange Scene_Option;
     [SerializeField, Tooltip("ヘルプ")]
     private SceneChange Scene_Help;
+    [SerializeField, Header("プレイヤー")]
+    private GameObject Player;
     [SerializeField, Header("SE"), Tooltip("決定音")]
     private SE SE_Determination;
 
@@ -30,6 +32,7 @@ public class ScreenSwitch_Title : MonoBehaviour
     private Gamepad m_gamepad;
     private Cursor m_cursor;
     private PlayAnimation m_playAnimation;
+    private Animator m_playerAnimator;
     private TitleState m_comandState = TitleState.enFromBeginning;
     private bool m_isPush = false;      // ボタンを押したならture。
 
@@ -39,6 +42,7 @@ public class ScreenSwitch_Title : MonoBehaviour
         m_cursor = GameObject.FindGameObjectWithTag("Cursor").GetComponent<Cursor>();
         m_playAnimation = GetComponent<PlayAnimation>();
         m_playAnimation.Play((int)m_comandState, "Active");
+        m_playerAnimator = Player.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -142,9 +146,11 @@ public class ScreenSwitch_Title : MonoBehaviour
         // ステートに応じて処理を変更。
         switch (m_comandState){
             case TitleState.enFromBeginning:
+                PlayerAnimation();
                 FromBiginning();
                 break;
             case TitleState.enFromContinuation:
+                PlayerAnimation();
                 FromContinuation();
                 break;
             case TitleState.enQuitGame:
@@ -203,5 +209,13 @@ public class ScreenSwitch_Title : MonoBehaviour
     private void Help()
     {
         Scene_Help.CreateFadeCanvas();
+    }
+
+    /// <summary>
+    /// プレイヤーアニメーション。
+    /// </summary>
+    private void PlayerAnimation()
+    {
+        m_playerAnimator.SetTrigger("WinTri");
     }
 }
